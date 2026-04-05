@@ -1,0 +1,189 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { Icon } from "@iconify/react";
+import { useInView } from "@/hooks/useInView";
+import { SectionWrapper } from "@/components/layout/SectionWrapper";
+import { Card } from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
+import { Button } from "@/components/ui/Button";
+import { systemItems } from "@/data/systems";
+
+const supanovaEase = [0.16, 1, 0.3, 1] as const;
+
+const statusConfig = {
+  live: { label: "운영 중", variant: "available" as const },
+  "design-complete": { label: "설계 완료", variant: "coming-soon" as const },
+  development: { label: "개발 중", variant: "coming-soon" as const },
+};
+
+const categoryIcons: Record<string, string> = {
+  "콘텐츠 자동화": "solar:document-text-linear",
+  "이미지 생성": "solar:gallery-wide-linear",
+  "업무 자동화": "solar:settings-linear",
+};
+
+export default function SystemsPage() {
+  const { ref: heroRef, isInView: heroInView } = useInView({ threshold: 0.1 });
+  const { ref: gridRef, isInView: gridInView } = useInView({ threshold: 0.1 });
+  const { ref: ctaRef, isInView: ctaInView } = useInView({ threshold: 0.1 });
+
+  return (
+    <>
+      {/* Hero — Dark */}
+      <SectionWrapper theme="dark" animate={false}>
+        <div ref={heroRef} className="relative overflow-hidden">
+          {/* Mesh gradient orbs */}
+          <div className="absolute -top-32 -left-32 w-96 h-96 bg-accent/20 rounded-full blur-[120px] pointer-events-none" />
+          <div className="absolute -bottom-32 -right-32 w-80 h-80 bg-accent/10 rounded-full blur-[100px] pointer-events-none" />
+
+          <div className="relative text-center max-w-3xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30, filter: "blur(4px)" }}
+              animate={heroInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+              transition={{ duration: 0.7, ease: supanovaEase }}
+            >
+              <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium bg-white/10 text-accent mb-6">
+                Built Systems
+              </span>
+            </motion.div>
+
+            <motion.h1
+              className="text-white mb-6"
+              initial={{ opacity: 0, y: 30, filter: "blur(4px)" }}
+              animate={heroInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+              transition={{ duration: 0.7, delay: 0.1, ease: supanovaEase }}
+            >
+              직접 만들고,{" "}
+              <span className="gradient-text">직접 운영합니다</span>
+            </motion.h1>
+
+            <motion.p
+              className="text-[#A8A29E] text-lg md:text-xl leading-relaxed max-w-2xl mx-auto"
+              initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+              animate={heroInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+              transition={{ duration: 0.7, delay: 0.2, ease: supanovaEase }}
+            >
+              이론이 아닌 실전. 메이크그로스가 직접 구축하고 운영 중인
+              AI 자동화 시스템들입니다. 세미나에서 이 시스템을 함께 만듭니다.
+            </motion.p>
+          </div>
+        </div>
+      </SectionWrapper>
+
+      {/* Gradient transition */}
+      <SectionWrapper theme="gradient-transition" />
+
+      {/* Systems Grid */}
+      <SectionWrapper theme="warm-bg" animate={false}>
+        <div ref={gridRef}>
+          <motion.div
+            initial={{ opacity: 0, y: 30, filter: "blur(4px)" }}
+            animate={gridInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+            transition={{ duration: 0.7, ease: supanovaEase }}
+            className="mb-12"
+          >
+            <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium bg-accent/10 text-accent mb-4">
+              Our Systems
+            </span>
+            <h2 className="text-[#1C1917]">구축 시스템</h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 gap-8">
+            {systemItems.map((system, index) => (
+              <motion.div
+                key={system.id}
+                initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+                animate={gridInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+                transition={{ duration: 0.7, delay: 0.1 * (index + 1), ease: supanovaEase }}
+              >
+                <Card variant="light" hover>
+                  <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+                    {/* Image placeholder — left 2 cols */}
+                    <div className="lg:col-span-2 bg-[#F5F5F4] rounded-xl flex items-center justify-center min-h-[200px]">
+                      <Icon
+                        icon={categoryIcons[system.category] || "solar:code-linear"}
+                        width={48}
+                        className="text-[#A8A29E]"
+                      />
+                    </div>
+
+                    {/* Content — right 3 cols */}
+                    <div className="lg:col-span-3">
+                      <div className="flex items-center gap-3 mb-3">
+                        <Badge variant={statusConfig[system.status].variant}>
+                          {statusConfig[system.status].label}
+                        </Badge>
+                        <span className="text-xs text-[#A8A29E]">{system.category}</span>
+                      </div>
+
+                      <h3 className="text-[#1C1917] mb-3">{system.title}</h3>
+                      <p className="text-[#57534E] text-sm leading-relaxed mb-5">
+                        {system.description}
+                      </p>
+
+                      {/* Features */}
+                      <div className="flex flex-wrap gap-2 mb-5">
+                        {system.features.map((feature) => (
+                          <span
+                            key={feature}
+                            className="inline-block rounded-full px-3 py-1 text-xs font-medium bg-[#F5F5F4] text-[#57534E]"
+                          >
+                            {feature}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Tech stack */}
+                      <div className="flex flex-wrap gap-2">
+                        {system.techStack.map((tech) => (
+                          <span
+                            key={tech}
+                            className="inline-block rounded-full px-2.5 py-0.5 text-[10px] font-medium bg-accent/10 text-accent"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </SectionWrapper>
+
+      {/* CTA Section */}
+      <SectionWrapper theme="warm-surface" animate={false}>
+        <div ref={ctaRef}>
+          <motion.div
+            initial={{ opacity: 0, y: 30, filter: "blur(4px)" }}
+            animate={ctaInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+            transition={{ duration: 0.7, ease: supanovaEase }}
+          >
+            <Card variant="light" hover={false}>
+              <div className="text-center py-6 md:py-10">
+                <h2 className="text-[#1C1917] mb-4">
+                  이 시스템을, 당신의 비즈니스에 맞게
+                </h2>
+                <p className="text-[#57534E] text-lg mb-8 max-w-xl mx-auto">
+                  세미나에서 직접 만들고 가져가세요.
+                  내 상품, 내 카테고리에 맞는 AI 시스템을 하루 만에 구축합니다.
+                </p>
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                  <Button href="/seminar" showArrow>
+                    세미나 알아보기
+                  </Button>
+                  <Button href="/contact" variant="secondary">
+                    견적 문의
+                  </Button>
+                </div>
+              </div>
+            </Card>
+          </motion.div>
+        </div>
+      </SectionWrapper>
+    </>
+  );
+}

@@ -1,253 +1,183 @@
-# MakeGrowth Design System
+# MakeGrowth Design System — Supanova Premium Redesign
 
 ## 1. Visual Theme & Atmosphere
 
-Professional warmth meets modern SaaS. The design alternates between dark immersive sections (tech credibility, urgency) and light approachable sections (trust, accessibility). Inspired by zexea.io's dark polish but adapted for non-developer e-commerce sellers — less terminal, more human.
+Warm editorial aesthetic meets modern SaaS. Warm Stone base with a single Muted Violet accent. Only the hero section uses dark background — all other sections use warm tones. Noise texture overlay across the entire page for premium depth.
 
-Dark sections use near-black backgrounds with blue undertones and translucent glass elements. Light sections are clean white with subtle blue tints. The transition between dark and light follows the PAS (Problem-Agitate-Solution) emotional arc: pain in darkness, resolution in light.
-
-Density is moderate — generous whitespace for readability but enough content density to convey expertise. Korean typography optimized with `word-break: keep-all` and `line-height: 1.7` for comfortable reading.
+Korean typography optimized with `word-break: keep-all` and `line-height: 1.7`. Generous section padding (`py-24 md:py-32 lg:py-40`). Double-Bezel card system. Floating glass pill navigation.
 
 ## 2. Color Palette & Roles
 
-### Dark Sections
+### Warm Stone Base
 | Token | Hex | Role |
 |-------|-----|------|
-| `dark-bg` | `#0A0A0F` | Primary dark background (near-black, blue undertone) |
-| `dark-surface-1` | `#0F1011` | Card background, elevated surfaces |
-| `dark-surface-2` | `#1E293B` | Emphasized sections, secondary surfaces |
-| `dark-heading` | `#FFFFFF` | Headings on dark |
-| `dark-body` | `#9CA3AF` | Body text on dark (gray-400) |
-| `dark-muted` | `#64748B` | Muted, captions on dark (gray-500) |
-| `dark-border` | `rgba(255,255,255,0.1)` | Card borders, dividers |
+| `warm-dark` | `#171717` | Hero-only dark background |
+| `warm-dark-surface` | `#292524` | Dark section surfaces |
+| `warm-bg` | `#FAF9F7` | Primary body background |
+| `warm-surface` | `#F5F5F4` | Alternating section background |
+| `warm-surface-elevated` | `#FFFFFF` | Card inner surfaces |
+| `warm-heading` | `#1C1917` | Body section headings |
+| `warm-body` | `#57534E` | Body text |
+| `warm-muted` | `#A8A29E` | Muted text, captions |
+| `warm-border` | `rgba(28,25,23,0.06)` | Borders, dividers |
+| `warm-shadow` | `rgba(28,25,23,0.04)` | Stone-tint shadows |
 
-### Light Sections
+### Muted Violet Accent (single accent)
 | Token | Hex | Role |
 |-------|-----|------|
-| `light-bg` | `#FFFFFF` | Primary light background |
-| `light-surface` | `#F9FAFB` | Alternating section background |
-| `light-highlight` | `#EFF6FF` | Blue-tinted highlight areas |
-| `light-heading` | `#111827` | Headings on light (gray-900) |
-| `light-body` | `#374151` | Body text on light (gray-700) |
-| `light-muted` | `#9CA3AF` | Muted text on light (gray-400) |
-| `light-border` | `#E2E8F0` | Card borders, dividers |
-
-### Accent & Brand
-| Token | Hex | Role |
-|-------|-----|------|
-| `primary-600` | `#2563EB` | Primary blue — CTA, links, active states |
-| `primary-700` | `#1D4ED8` | Primary hover |
-| `primary-50` | `#EFF6FF` | Primary background tint |
-| `accent-500` | `#8B5CF6` | Accent purple — badges, points, labels |
-| `accent-600` | `#7C3AED` | Accent hover |
-| `gradient-cta-start` | `#4F46E5` | CTA gradient start (indigo-600) |
-| `gradient-cta-end` | `#9333EA` | CTA gradient end (purple-600) |
-| `gradient-text-start` | `#818CF8` | Gradient text start (indigo-400) |
-| `gradient-text-end` | `#C084FC` | Gradient text end (purple-400) |
+| `accent` | `#8B7CF6` | Primary accent — CTAs, links, active states |
+| `accent-hover` | `#7C6AED` | Accent hover |
+| `accent-muted` | `rgba(139,124,246,0.1)` | Background tint, badges |
+| `accent-glow` | `rgba(139,124,246,0.2)` | CTA hover glow |
 
 ### Semantic
 | Token | Hex | Role |
 |-------|-----|------|
-| `success` | `#10B981` | Positive, "After", available |
-| `danger` | `#EF4444` | Negative, "Before", problems |
-| `warning` | `#F59E0B` | Caution, "Coming Soon" |
-| `info` | `#818CF8` | Section labels on dark |
+| `success` | `#059669` | Positive, "After" |
+| `danger` | `#DC2626` | Negative, "Before" |
+| `warning` | `#D97706` | Caution, "Coming Soon" |
+
+### Gradient Text (selective use)
+```css
+background: linear-gradient(135deg, #8B7CF6, #A78BFA);
+```
+Only on hero H1 emphasis words (1-2 words max). Never on section titles.
 
 ## 3. Typography Rules
 
-| Element | Size (Desktop) | Size (Mobile) | Weight | Line-Height | Font | Extra |
-|---------|---------------|--------------|--------|-------------|------|-------|
-| H1 Hero | 40px / 2.5rem | 28px / 1.75rem | 800 | 1.2 | Syne + Pretendard | letter-spacing: -0.5px |
-| Display CTA | 24-32px | 20-24px | 700-800 | 1.2 | Syne + Pretendard | Final CTA, gradient text |
-| H2 Section | 32px / 2rem | 24px / 1.5rem | 700 | 1.3 | Pretendard | — |
-| H3 Card | 24px / 1.5rem | 20px / 1.25rem | 600 | 1.4 | Pretendard | — |
-| Body | 16px / 1rem | 16px / 1rem | 400 | 1.7 | Pretendard | word-break: keep-all |
-| Small | 14px / 0.875rem | 14px | 400 | 1.6 | Pretendard | — |
-| Section Label | 12px / 0.75rem | 12px | 500 | — | Pretendard | uppercase, letter-spacing: 0.7px |
-| Nav Link | 14px | 14px | 500 | — | Pretendard | — |
+| Element | Desktop | Mobile | Weight | Font | Extra |
+|---------|---------|--------|--------|------|-------|
+| H1 Hero | 48px (3rem) | 32px (2rem) | 700 | Outfit + Pretendard | `tracking-tight leading-snug text-wrap:balance` |
+| H2 Section | 36px (2.25rem) | 28px (1.75rem) | 700 | Pretendard | `leading-snug text-wrap:balance` |
+| H3 Card | 24px (1.5rem) | 20px (1.25rem) | 600 | Pretendard | `leading-snug` |
+| Body | 16px | 16px | 400 | Pretendard | `leading-relaxed` (line-height 1.7), `break-keep-all` |
+| Small | 14px | 14px | 400 | Pretendard | `leading-relaxed` |
+| Eyebrow | 11px | 11px | 500 | Pretendard | `uppercase tracking-[0.15em]` |
 
-**Font stacks**:
-- Display: `'Syne', 'Pretendard', sans-serif` — hero H1, Final CTA, gradient text only
-- Default: `'Pretendard', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif` — everything else
-
-Syne (Google Fonts, 700+800 weights, ~15KB) provides geometric bold impact for "AI/tech" hero moments. Pretendard handles all Korean text. Same proven pairing as zexea.io.
+**Font stacks:**
+- Display: `'Outfit', 'Pretendard Variable', 'Pretendard', sans-serif` — hero H1, Final CTA only
+- Default: `'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif`
 
 ## 4. Component Stylings
 
-### Buttons
-
-**Primary CTA (Pill + Gradient):**
-```css
-background: linear-gradient(to right, #4F46E5, #9333EA);
-background-size: 200% 100%;
-color: #FFFFFF;
-padding: 12px 28px;
-border-radius: 9999px;
-font-size: 15px;
-font-weight: 600;
-transition: background-position 0.4s ease, transform 0.2s ease, box-shadow 0.2s ease;
-/* hover: background-position: 100% 0; transform: scale(1.02); box-shadow: 0 8px 25px rgba(79,70,229,0.3); */
+### Double-Bezel Card
+```html
+<!-- Outer Shell -->
+<div class="bg-black/[0.03] ring-1 ring-black/[0.04] p-1.5 rounded-[2rem]">
+  <!-- Inner Core -->
+  <div class="bg-white rounded-[calc(2rem-0.375rem)] p-6
+              shadow-[inset_0_1px_1px_rgba(255,255,255,0.8),0_2px_8px_rgba(28,25,23,0.04)]">
+    <!-- content -->
+  </div>
+</div>
 ```
 
-**Secondary CTA (Outlined Pill):**
+### Primary CTA (Solid Accent Pill)
+```css
+background: #8B7CF6;
+color: #FFFFFF;
+padding: 16px 32px;
+border-radius: 9999px;
+font-weight: 600;
+transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+/* hover: scale(1.02), box-shadow: 0 0 30px rgba(139,124,246,0.2) */
+/* active: scale(0.98) */
+```
+
+### Secondary CTA (Outlined Pill)
 ```css
 background: transparent;
-color: #2563EB; /* dark sections: #A78BFA */
-border: 1px solid rgba(37, 99, 235, 0.4); /* dark: rgba(139,92,246,0.4) */
-padding: 12px 28px;
+border: 1px solid rgba(28,25,23,0.06);
+color: #1C1917;
+padding: 16px 32px;
 border-radius: 9999px;
-font-size: 15px;
-font-weight: 600;
+/* hover: border-color accent/30, bg accent-muted */
 ```
 
-**Standard Button:**
+### Eyebrow Tags
 ```css
-background: #2563EB;
-color: #FFFFFF;
-padding: 10px 24px;
-border-radius: 8px;
-font-size: 14px;
-font-weight: 600;
-```
-
-### Cards
-
-**Dark Card:**
-```css
-background: transparent; /* or rgba(255,255,255,0.03) */
-border: 1px solid rgba(255, 255, 255, 0.1);
-border-radius: 16px;
-overflow: hidden;
-/* hover: border-color: rgba(255,255,255,0.2); */
-```
-
-**Light Card:**
-```css
-background: #FFFFFF;
-border: 1px solid #E2E8F0;
-border-radius: 12px;
-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-/* hover: box-shadow: 0 4px 12px rgba(0,0,0,0.1); transform: translateY(-2px); */
-```
-
-**Glass Card (dark sections only):**
-```css
-background: rgba(255, 255, 255, 0.05);
-backdrop-filter: blur(12px);
--webkit-backdrop-filter: blur(12px);
-border: 1px solid rgba(255, 255, 255, 0.1);
-border-radius: 12px;
-```
-
-### Badges
-```css
-/* Common */
-padding: 3px 10px;
+display: inline-block;
+padding: 4px 12px;
 border-radius: 9999px;
 font-size: 11px;
+text-transform: uppercase;
+letter-spacing: 0.15em;
 font-weight: 500;
-
-/* Available: */ background: rgba(16,185,129,0.1); color: #10B981; border: 1px solid rgba(16,185,129,0.3);
-/* Coming Soon: */ background: rgba(245,158,11,0.1); color: #F59E0B; border: 1px solid rgba(245,158,11,0.3);
-/* New: */ background: rgba(37,99,235,0.1); color: #2563EB; border: 1px solid rgba(37,99,235,0.3);
+background: rgba(139,124,246,0.1);
+color: #8B7CF6;
 ```
 
-### Navigation (Glass Header)
+### Floating Glass Navigation
 ```css
-/* Initial (over hero) */
-position: sticky; top: 0; z-index: 50;
-background: transparent;
-
-/* After scroll > 50px */
-background: rgba(255, 255, 255, 0.6);
-backdrop-filter: blur(12px);
-border-bottom: 1px solid rgba(229, 231, 235, 0.4);
-transition: all 0.3s ease;
-```
-
-### Gradient Text
-```css
-background: linear-gradient(to right, #818CF8, #C084FC);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
+/* After scroll */
+position: fixed;
+top: 16px;
+left: 50%;
+transform: translateX(-50%);
+max-width: 800px;
+background: rgba(250, 249, 247, 0.8);
+backdrop-filter: blur(16px);
+border: 1px solid rgba(28, 25, 23, 0.06);
+border-radius: 9999px;
+padding: 8px 24px;
+box-shadow: 0 4px 24px rgba(28, 25, 23, 0.06);
 ```
 
 ## 5. Layout Principles
 
-- **Max content width**: 1200px, centered with `margin: 0 auto`
-- **Section vertical padding**: Desktop `py-20` (80px), Mobile `py-12` (48px)
-- **Horizontal padding**: Desktop `px-8` (32px), Mobile `px-6` (24px)
-- **Card grid**: Desktop 3-col, Tablet 2-col, Mobile 1-col; gap `24px` desktop, `16px` mobile
-- **Whitespace philosophy**: Generous between sections, moderate within — trust the breathing room
-- **Dark-to-light transitions**: Use a CSS gradient band (`#0A0A0F` → `#1E293B` → `#CBD5E1` → `#FFFFFF`) as a visual bridge between dark and light sections
+- **Max content width**: 1200px, centered
+- **Section padding**: Desktop `py-32 lg:py-40`, Mobile `py-24`
+- **Horizontal padding**: Desktop `px-8`, Mobile `px-6`
+- **Card grid**: Asymmetrical Bento — not repetitive 3-column
+- **Dark sections**: Hero only. Hero-to-body transition via 96px gradient band.
+- **Surface alternation**: `warm-bg` (#FAF9F7) and `warm-surface` (#F5F5F4) alternate
 
 ## 6. Depth & Elevation
 
 | Level | Usage | Value |
 |-------|-------|-------|
-| 0 | Flat elements | No shadow |
-| 1 | Light cards | `0 1px 3px rgba(0, 0, 0, 0.08)` |
-| 2 | Hover cards, dropdowns | `0 4px 12px rgba(0, 0, 0, 0.1)` |
-| 3 | Modals, sticky elements | `0 8px 25px rgba(0, 0, 0, 0.15)` |
-| 4 | Sticky Bottom CTA | `0 -4px 12px rgba(0, 0, 0, 0.1)` |
-| Dark-1 | Dark card borders | `1px solid rgba(255,255,255,0.1)` — depth via border, not shadow |
-| Dark-2 | Dark hover borders | `1px solid rgba(255,255,255,0.2)` |
+| Card outer | Double-Bezel shell | `ring-1 ring-black/[0.04]` |
+| Card inner | Double-Bezel core | `shadow-[inset_0_1px_1px_rgba(255,255,255,0.8),0_2px_8px_rgba(28,25,23,0.04)]` |
+| Card hover | Interactive cards | `ring-accent/20` + `scale-[1.01]` |
+| Nav float | Glass nav | `shadow-[0_4px_24px_rgba(28,25,23,0.06)]` |
+| CTA hover | Button glow | `shadow-[0_0_30px_rgba(139,124,246,0.2)]` |
 
-Dark sections use border-based depth (Linear pattern), not shadows. Light sections use shadow-based depth (Stripe pattern).
+Stone-tint shadows only. No pure black shadows.
 
 ## 7. Do's and Don'ts
 
 ### Do
-- Use gradient CTA buttons for primary actions (seminar signup, contact)
-- Alternate white (`#FFFFFF`) and gray (`#F9FAFB`) backgrounds in consecutive light sections
-- Apply section labels with `uppercase`, `letter-spacing: 0.7px`, and section-specific colors
-- Use glass-morphism for elements that overlay dark backgrounds
+- Use solid accent color for primary CTAs (no gradients)
+- Alternate `warm-bg` and `warm-surface` for consecutive sections
+- Use Eyebrow pill badges for section labels
 - Keep body text at `line-height: 1.7` for Korean readability
-- Use `word-break: keep-all` globally for natural Korean line breaks
+- Use `word-break: keep-all` globally
+- Apply `text-wrap: balance` to all headings
+- Use Supanova easing: `cubic-bezier(0.16, 1, 0.3, 1)`
 
 ### Don't
-- Don't use more than 2 consecutive dark sections before transitioning to light (except seminar hero flow)
-- Don't apply gradient text to body copy — reserve for hero headings and section titles
-- Don't use box-shadow on dark sections — use border-based depth instead
-- Don't mix rounded-full (9999px) and rounded-lg (8-16px) within the same component group
-- Don't use opacity below 0.6 for readable body text
-- Don't animate anything other than `transform` and `opacity` (performance rule)
+- Don't use dark background for any section except hero
+- Don't apply gradient text to anything except hero H1 emphasis words
+- Don't use box-shadow with pure black — always stone-tint
+- Don't skip the Double-Bezel outer shell on cards
+- Don't use Lucide icons — use Iconify Solar only
+- Don't animate anything other than `transform` and `opacity`
+- Don't use repetitive 3-column grid for every section
 
 ## 8. Responsive Behavior
 
-| Breakpoint | Target | Key Changes |
-|------------|--------|-------------|
-| < 640px (default) | Mobile | Single column, `px-6`, `py-12`, hamburger nav, sticky bottom CTA |
-| 640px (sm) | Large mobile | Minor adjustments |
-| 768px (md) | Tablet | 2-column grids, `px-8` |
-| 1024px (lg) | Laptop | Full navigation visible, larger type scale begins |
-| 1280px (xl) | Desktop | 3-column grids, max-width 1200px content |
+| Breakpoint | Key Changes |
+|------------|-------------|
+| < 640px | Single column, `px-6`, `py-24`, hamburger nav, sticky bottom CTA |
+| 768px (md) | 2-column grids, `px-8` |
+| 1024px (lg) | Full floating pill nav, larger type scale |
+| 1280px (xl) | 3-column grids, max-width 1200px content |
 
-- **Touch targets**: Minimum 44x44px for all interactive elements
-- **Sticky Bottom CTA**: Mobile only, appears when hero CTA scrolls out of viewport
-- **Hamburger menu**: Below `lg` breakpoint, slide-in from right with backdrop overlay
-- **Card grids**: Collapse 3→2→1 columns
-- **Hero text**: Scale from 40px→28px, adjust padding proportionally
-- **Parallax**: Disabled on mobile (performance)
+## 9. Motion
 
-## 9. Agent Prompt Guide
-
-**Quick color reference:**
-- Dark bg: `#0A0A0F`, surfaces `#0F1011` / `#1E293B`
-- Light bg: `#FFFFFF`, surface `#F9FAFB`, highlight `#EFF6FF`
-- Primary: `#2563EB`, accent: `#8B5CF6`
-- CTA gradient: `from-indigo-600 to-purple-600`
-- Text gradient: `from-indigo-400 to-purple-400`
-
-**Hero section prompt:**
-Create a full-width hero on `#0A0A0F` background. Typewriter animation cycling through pain points in `#F87171` italic text. Main heading at 40px weight 800, color white. Gradient CTA button `from-#4F46E5 to-#9333EA`, pill shape. Secondary outlined button with `rgba(139,92,246,0.4)` border.
-
-**Dark section prompt:**
-Section background `#0A0A0F`. Section label 12px weight 500 uppercase `#818CF8` with 0.7px letter-spacing. Heading white 32px weight 700. Body `#9CA3AF` 16px. Cards with `rgba(255,255,255,0.1)` border, 16px border-radius, transparent background.
-
-**Light section prompt:**
-Section background `#FFFFFF` or alternating `#F9FAFB`. Section label 12px weight 500 uppercase `#2563EB`. Heading `#111827` 32px weight 700. Body `#374151` 16px line-height 1.7. Cards with `#E2E8F0` border, 12px radius, `0 1px 3px rgba(0,0,0,0.08)` shadow.
-
-**Glass element prompt:**
-Background `rgba(255,255,255,0.05)`, `backdrop-filter: blur(12px)`, border `rgba(255,255,255,0.1)`, 12px radius. Use only on dark backgrounds.
+- **Easing**: `cubic-bezier(0.16, 1, 0.3, 1)` (Supanova standard)
+- **Duration**: 0.5s default, 0.7s for larger elements
+- **Entry**: blur-fadeInUp (opacity 0 + translateY(20px) + blur(8px) -> clear)
+- **Stagger**: 80ms between siblings
+- **Hero orbs**: Mesh gradient blobs with `animation: hero-float 8s ease-in-out infinite`
+- **Reduced motion**: Respect `prefers-reduced-motion`

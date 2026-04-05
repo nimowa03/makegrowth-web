@@ -36,8 +36,8 @@ export function Pricing() {
         <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium bg-accent/10 text-accent mb-4">
           Pricing
         </span>
-        <h2 className="text-[#1C1917]">서비스 패키지</h2>
-        <p className="mt-3 text-[#57534E] max-w-lg mx-auto">
+        <h2 className="text-[#1A1A1A]">서비스 패키지</h2>
+        <p className="mt-3 text-[#444444] max-w-lg mx-auto">
           비즈니스 규모와 니즈에 맞는 패키지를 선택하세요
         </p>
       </div>
@@ -78,16 +78,16 @@ export function Pricing() {
 
                 {/* Header */}
                 <div className="mb-6">
-                  <h3 className="text-xl font-bold mb-1 text-[#1C1917]">
+                  <h3 className="text-xl font-bold mb-1 text-[#1A1A1A]">
                     {tier.name}
                   </h3>
-                  <p className="text-sm text-[#57534E]">{tier.target}</p>
+                  <p className="text-sm text-[#444444]">{tier.target}</p>
                 </div>
 
                 {/* Price */}
                 <div className="mb-6">
                   <span
-                    className="text-2xl md:text-3xl font-extrabold text-[#1C1917]"
+                    className="text-2xl md:text-3xl font-extrabold text-[#1A1A1A]"
                     style={{ fontVariantNumeric: "tabular-nums" }}
                   >
                     {tier.price}
@@ -102,8 +102,8 @@ export function Pricing() {
                       width={18}
                       className="text-accent mt-0.5 shrink-0"
                     />
-                    <span className="text-sm text-[#57534E]">
-                      <span className="font-medium text-[#1C1917]">
+                    <span className="text-sm text-[#444444]">
+                      <span className="font-medium text-[#1A1A1A]">
                         형태:
                       </span>{" "}
                       {tier.format}
@@ -115,8 +115,8 @@ export function Pricing() {
                       width={18}
                       className="text-accent mt-0.5 shrink-0"
                     />
-                    <span className="text-sm text-[#57534E]">
-                      <span className="font-medium text-[#1C1917]">
+                    <span className="text-sm text-[#444444]">
+                      <span className="font-medium text-[#1A1A1A]">
                         기간:
                       </span>{" "}
                       {tier.duration}
@@ -128,8 +128,8 @@ export function Pricing() {
                       width={18}
                       className="text-accent mt-0.5 shrink-0"
                     />
-                    <span className="text-sm text-[#57534E]">
-                      <span className="font-medium text-[#1C1917]">
+                    <span className="text-sm text-[#444444]">
+                      <span className="font-medium text-[#1A1A1A]">
                         포함:
                       </span>{" "}
                       {tier.includes}

@@ -46,12 +46,12 @@ export function WhatIsAX() {
           </span>
 
           {/* Heading */}
-          <h2 className="text-[#1C1917] mb-4">
+          <h2 className="text-[#1A1A1A] mb-4">
             AX — 내 사업에 맞는 AI를 직접 만드는 과정
           </h2>
 
           {/* Subtitle */}
-          <p className="text-[#57534E] text-base md:text-lg max-w-2xl mb-12 md:mb-16 leading-relaxed">
+          <p className="text-[#444444] text-base md:text-lg max-w-2xl mb-12 md:mb-16 leading-relaxed">
             단순 AI 도구 소개가 아닌, 내 비즈니스에 맞는 AI 시스템을 직접 구축하고 운영하는 역량을 키웁니다.
           </p>
         </motion.div>
@@ -90,12 +90,12 @@ export function WhatIsAX() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-[#1C1917] text-xl font-semibold mb-2">
+                  <h3 className="text-[#1A1A1A] text-xl font-semibold mb-2">
                     {step.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-[#57534E] text-sm leading-relaxed">
+                  <p className="text-[#444444] text-sm leading-relaxed">
                     {step.description}
                   </p>
                 </div>

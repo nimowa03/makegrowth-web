@@ -13,10 +13,9 @@ export function Hero() {
       className="relative min-h-[100dvh] flex items-center overflow-hidden"
       style={{
         background: `
-          radial-gradient(ellipse 80% 60% at 20% 40%, rgba(139,124,246,0.15), transparent),
-          radial-gradient(ellipse 60% 80% at 80% 60%, rgba(139,124,246,0.08), transparent),
-          radial-gradient(ellipse 100% 100% at 50% 0%, rgba(41,37,36,0.5), transparent),
-          #171717
+          radial-gradient(ellipse 80% 60% at 20% 40%, rgba(139,124,246,0.12), transparent),
+          radial-gradient(ellipse 60% 80% at 80% 60%, rgba(139,124,246,0.06), transparent),
+          #000000
         `,
       }}
     >

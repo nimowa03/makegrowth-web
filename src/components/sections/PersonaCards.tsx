@@ -15,7 +15,7 @@ export function PersonaCards() {
         <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium bg-accent/10 text-accent mb-4">
           Who Is This For
         </span>
-        <h2 className="text-[28px] md:text-[36px] font-bold text-[#1C1917] leading-snug text-balance">
+        <h2 className="text-[28px] md:text-[36px] font-bold text-[#1A1A1A] leading-snug text-balance">
           이런 분을 위한 세미나입니다
         </h2>
       </div>
@@ -39,10 +39,10 @@ export function PersonaCards() {
                   <Icon icon="solar:check-circle-bold" width={20} className="text-accent" />
                 </div>
                 <div>
-                  <h3 className="text-base font-semibold text-[#1C1917] mb-1">
+                  <h3 className="text-base font-semibold text-[#1A1A1A] mb-1">
                     {persona.title}
                   </h3>
-                  <p className="text-sm text-[#57534E] leading-relaxed break-keep">
+                  <p className="text-sm text-[#444444] leading-relaxed break-keep">
                     {persona.description}
                   </p>
                 </div>

@@ -27,7 +27,7 @@ export function BeforeAfter() {
           </span>
 
           {/* Heading */}
-          <h2 className="text-[#1C1917]">
+          <h2 className="text-[#1A1A1A]">
             외주비 91%, 시간 83% 절감
           </h2>
         </motion.div>
@@ -46,7 +46,7 @@ export function BeforeAfter() {
                   key={item.category}
                   className={`py-5 ${
                     index < beforeAfterItems.length - 1
-                      ? "border-b border-[rgba(28,25,23,0.06)]"
+                      ? "border-b border-[rgba(0,0,0,0.08)]"
                       : ""
                   }`}
                 >
@@ -62,7 +62,7 @@ export function BeforeAfter() {
                     <Icon
                       icon="solar:arrow-right-linear"
                       width={16}
-                      className="text-[#A8A29E] shrink-0 hidden sm:block"
+                      className="text-[#666666] shrink-0 hidden sm:block"
                     />
                     <div className="flex-1">
                       <p className="text-sm text-[#059669] font-medium">

@@ -9,7 +9,7 @@ interface CardProps {
 }
 
 const outerVariants = {
-  light: "bg-black/[0.03] ring-1 ring-black/[0.04] p-1.5 rounded-[2rem]",
+  light: "bg-black/[0.02] ring-1 ring-black/[0.06] p-1.5 rounded-[2rem]",
   dark: "bg-white/[0.05] ring-1 ring-white/10 p-1.5 rounded-[2rem]",
   glass: "bg-white/[0.05] ring-1 ring-white/10 p-1.5 rounded-[2rem]",
 };
@@ -35,7 +35,7 @@ export function Card({
       className={cn(
         outerVariants[variant],
         hover &&
-          "hover:ring-accent/20 hover:scale-[1.01] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
+          "hover:ring-[#2A2A2F]/20 hover:scale-[1.01] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
         className
       )}
     >

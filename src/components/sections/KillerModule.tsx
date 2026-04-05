@@ -33,12 +33,12 @@ export function KillerModule() {
             </span>
 
             {/* Heading */}
-            <h2 className="text-[#1C1917] mb-4">
+            <h2 className="text-[#1A1A1A] mb-4">
               SNS 콘텐츠 자동화
             </h2>
 
             {/* Description */}
-            <p className="text-[#57534E] text-base md:text-lg mb-8 leading-relaxed">
+            <p className="text-[#444444] text-base md:text-lg mb-8 leading-relaxed">
               {snsModule.description}
             </p>
 
@@ -53,7 +53,7 @@ export function KillerModule() {
                     <Icon
                       icon="solar:arrow-right-linear"
                       width={16}
-                      className="text-[#A8A29E] hidden sm:block"
+                      className="text-[#666666] hidden sm:block"
                     />
                   )}
                 </div>
@@ -82,7 +82,7 @@ export function KillerModule() {
                       <Icon icon="solar:clock-circle-linear" width={20} className="text-accent" />
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-[#A8A29E] mb-1">소요 시간</p>
+                      <p className="text-sm font-medium text-[#666666] mb-1">소요 시간</p>
                       <p className="text-sm text-[#DC2626] line-through mb-0.5">
                         Before: {snsModule.metrics.timeBefore}
                       </p>
@@ -98,7 +98,7 @@ export function KillerModule() {
                       <Icon icon="solar:dollar-minimalistic-linear" width={20} className="text-accent" />
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-[#A8A29E] mb-1">비용</p>
+                      <p className="text-sm font-medium text-[#666666] mb-1">비용</p>
                       <p className="text-sm text-[#DC2626] line-through mb-0.5">
                         Before: {snsModule.metrics.costBefore}
                       </p>
@@ -120,33 +120,33 @@ export function KillerModule() {
               <Card variant="light">
                 <div>
                   <div className="flex items-start justify-between flex-wrap gap-4 mb-4">
-                    <h3 className="text-[#1C1917] text-lg font-semibold">
+                    <h3 className="text-[#1A1A1A] text-lg font-semibold">
                       {imageModule.name}
                     </h3>
                     <Badge variant="coming-soon">Coming Soon</Badge>
                   </div>
-                  <p className="text-[#57534E] text-sm mb-4 leading-relaxed">
+                  <p className="text-[#444444] text-sm mb-4 leading-relaxed">
                     {imageModule.description}
                   </p>
                   <div className="flex flex-wrap gap-2 mb-5">
                     {imageModule.features.map((feature) => (
                       <span
                         key={feature}
-                        className="inline-block px-3 py-1 bg-[#1C1917]/5 text-[#57534E] rounded-full text-xs font-medium"
+                        className="inline-block px-3 py-1 bg-[#1C1917]/5 text-[#444444] rounded-full text-xs font-medium"
                       >
                         {feature}
                       </span>
                     ))}
                   </div>
                   {/* Metrics */}
-                  <div className="grid grid-cols-2 gap-4 pt-5 border-t border-[rgba(28,25,23,0.06)]">
+                  <div className="grid grid-cols-2 gap-4 pt-5 border-t border-[rgba(0,0,0,0.08)]">
                     <div>
-                      <p className="text-xs text-[#A8A29E] mb-0.5">시간</p>
+                      <p className="text-xs text-[#666666] mb-0.5">시간</p>
                       <p className="text-xs text-[#DC2626] line-through">{imageModule.metrics.timeBefore}</p>
                       <p className="text-xs text-[#059669] font-semibold">{imageModule.metrics.timeAfter}</p>
                     </div>
                     <div>
-                      <p className="text-xs text-[#A8A29E] mb-0.5">비용</p>
+                      <p className="text-xs text-[#666666] mb-0.5">비용</p>
                       <p className="text-xs text-[#DC2626] line-through">{imageModule.metrics.costBefore}</p>
                       <p className="text-xs text-[#059669] font-semibold">{imageModule.metrics.costAfter}</p>
                     </div>

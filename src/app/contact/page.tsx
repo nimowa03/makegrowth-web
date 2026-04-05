@@ -35,8 +35,8 @@ export default function ContactPage() {
       <div className="max-w-content mx-auto">
         {/* Header */}
         <div className="mb-12 md:mb-16">
-          <h1 className="font-display text-[#1C1917] mb-4">견적 문의</h1>
-          <p className="text-[#57534E] text-lg max-w-xl">
+          <h1 className="font-display text-[#1A1A1A] mb-4">견적 문의</h1>
+          <p className="text-[#444444] text-lg max-w-xl">
             프로젝트에 대해 알려주세요. 1-2 영업일 내 연락드리겠습니다.
           </p>
         </div>
@@ -52,7 +52,7 @@ export default function ContactPage() {
           <div className="lg:col-span-1">
             <div className="sticky top-32 space-y-6">
               <Card variant="light">
-                <h3 className="text-[#1C1917] mb-6">문의 안내</h3>
+                <h3 className="text-[#1A1A1A] mb-6">문의 안내</h3>
 
                 <div className="space-y-5">
                   {INFO_ITEMS.map((item) => (
@@ -61,11 +61,11 @@ export default function ContactPage() {
                         <Icon icon={item.icon} width={20} className="text-accent" />
                       </div>
                       <div>
-                        <p className="text-sm text-[#A8A29E]">{item.label}</p>
+                        <p className="text-sm text-[#666666]">{item.label}</p>
                         {item.href ? (
                           <a
                             href={item.href}
-                            className="text-[15px] font-medium text-[#1C1917] hover:text-accent transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                            className="text-[15px] font-medium text-[#1A1A1A] hover:text-accent transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
                             target={
                               item.href.startsWith("mailto")
                                 ? undefined
@@ -80,7 +80,7 @@ export default function ContactPage() {
                             {item.value}
                           </a>
                         ) : (
-                          <p className="text-[15px] font-medium text-[#1C1917]">
+                          <p className="text-[15px] font-medium text-[#1A1A1A]">
                             {item.value}
                           </p>
                         )}
@@ -91,8 +91,8 @@ export default function ContactPage() {
               </Card>
 
               <Card variant="light">
-                <h3 className="text-[#1C1917] mb-3">프로세스</h3>
-                <ol className="space-y-3 text-sm text-[#57534E]">
+                <h3 className="text-[#1A1A1A] mb-3">프로세스</h3>
+                <ol className="space-y-3 text-sm text-[#444444]">
                   <li className="flex gap-3">
                     <span className="w-6 h-6 rounded-full bg-accent text-white text-xs flex items-center justify-center shrink-0 mt-0.5">
                       1

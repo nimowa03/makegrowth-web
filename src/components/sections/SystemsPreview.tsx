@@ -41,11 +41,11 @@ export function SystemsPreview() {
             Built Systems
           </span>
 
-          <h2 className="text-[#1C1917] mb-4">
+          <h2 className="text-[#1A1A1A] mb-4">
             직접 만들고, 직접 운영합니다
           </h2>
 
-          <p className="text-[#57534E] text-lg mb-10 md:mb-14 max-w-2xl">
+          <p className="text-[#444444] text-lg mb-10 md:mb-14 max-w-2xl">
             이론이 아닙니다. 메이크그로스가 실제로 구축하고 돌리고 있는 시스템들입니다.
           </p>
         </motion.div>
@@ -64,7 +64,7 @@ export function SystemsPreview() {
                   <Icon
                     icon={categoryIcons[system.category] || "solar:code-linear"}
                     width={36}
-                    className="text-[#A8A29E]"
+                    className="text-[#666666]"
                   />
                 </div>
 
@@ -74,11 +74,11 @@ export function SystemsPreview() {
                   </Badge>
                 </div>
 
-                <h3 className="text-[#1C1917] text-lg font-semibold mb-2">
+                <h3 className="text-[#1A1A1A] text-lg font-semibold mb-2">
                   {system.title}
                 </h3>
 
-                <p className="text-[#57534E] text-sm leading-relaxed mb-4 line-clamp-2">
+                <p className="text-[#444444] text-sm leading-relaxed mb-4 line-clamp-2">
                   {system.description}
                 </p>
 
@@ -93,7 +93,7 @@ export function SystemsPreview() {
                     </span>
                   ))}
                   {system.techStack.length > 3 && (
-                    <span className="inline-block rounded-full px-2 py-0.5 text-[10px] font-medium bg-[#F5F5F4] text-[#A8A29E]">
+                    <span className="inline-block rounded-full px-2 py-0.5 text-[10px] font-medium bg-[#F5F5F4] text-[#666666]">
                       +{system.techStack.length - 3}
                     </span>
                   )}

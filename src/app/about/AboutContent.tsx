@@ -90,8 +90,8 @@ export function AboutContent() {
           background: `
             radial-gradient(ellipse 80% 60% at 20% 40%, rgba(139,124,246,0.15), transparent),
             radial-gradient(ellipse 60% 80% at 80% 60%, rgba(139,124,246,0.08), transparent),
-            radial-gradient(ellipse 100% 100% at 50% 0%, rgba(41,37,36,0.5), transparent),
-            #171717
+            radial-gradient(ellipse 100% 100% at 50% 0%, rgba(0,0,0,0.3), transparent),
+            #000000
           `,
         }}
       >
@@ -133,7 +133,7 @@ export function AboutContent() {
 
             <h1 className="font-display text-white mb-4">{CEO_NAME}</h1>
 
-            <p className="text-lg md:text-xl text-[#A8A29E] max-w-xl leading-relaxed">
+            <p className="text-lg md:text-xl text-[#666666] max-w-xl leading-relaxed">
               &ldquo;이커머스 현장에서 직접 부딪히며 배운 것들을, AI 시스템으로
               담아드립니다.&rdquo;
             </p>
@@ -146,7 +146,7 @@ export function AboutContent() {
 
       {/* ── 2. Story Timeline (warm-bg) ────────── */}
       <SectionWrapper theme="warm-bg" id="about-timeline">
-        <h2 className="text-center text-[#1C1917] mb-12">성장 스토리</h2>
+        <h2 className="text-center text-[#1A1A1A] mb-12">성장 스토리</h2>
 
         {/* Timeline container */}
         <div className="relative">
@@ -171,10 +171,10 @@ export function AboutContent() {
                     {stage.number}
                   </div>
 
-                  <h3 className="text-lg font-semibold text-[#1C1917] mb-1">
+                  <h3 className="text-lg font-semibold text-[#1A1A1A] mb-1">
                     {stage.title}
                   </h3>
-                  <p className="text-[#57534E] text-[15px] leading-relaxed">
+                  <p className="text-[#444444] text-[15px] leading-relaxed">
                     {stage.description}
                   </p>
                 </motion.div>
@@ -204,10 +204,10 @@ export function AboutContent() {
                       {stage.number}
                     </div>
 
-                    <h3 className="text-lg font-semibold text-[#1C1917] mb-2">
+                    <h3 className="text-lg font-semibold text-[#1A1A1A] mb-2">
                       {stage.title}
                     </h3>
-                    <p className="text-[#57534E] text-[15px] leading-relaxed">
+                    <p className="text-[#444444] text-[15px] leading-relaxed">
                       {stage.description}
                     </p>
                   </motion.div>
@@ -220,7 +220,7 @@ export function AboutContent() {
 
       {/* ── 3. Capabilities (warm-surface) ──────── */}
       <SectionWrapper theme="warm-surface" id="about-capabilities">
-        <h2 className="text-center text-[#1C1917] mb-10">핵심 역량</h2>
+        <h2 className="text-center text-[#1A1A1A] mb-10">핵심 역량</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
           {capabilities.map((cap, i) => (
@@ -236,10 +236,10 @@ export function AboutContent() {
                 <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
                   <Icon icon={cap.icon} width={20} className="text-accent" />
                 </div>
-                <h3 className="text-lg font-semibold text-[#1C1917] mb-2">
+                <h3 className="text-lg font-semibold text-[#1A1A1A] mb-2">
                   {cap.title}
                 </h3>
-                <p className="text-[#57534E] text-[15px] leading-relaxed">
+                <p className="text-[#444444] text-[15px] leading-relaxed">
                   {cap.description}
                 </p>
               </Card>
@@ -253,7 +253,7 @@ export function AboutContent() {
         <div className="max-w-2xl mx-auto">
           <Card variant="light" className="ring-accent/20">
             <div className="flex flex-col items-center text-center py-4">
-              <h2 className="text-[#1C1917] mb-8">
+              <h2 className="text-[#1A1A1A] mb-8">
                 함께 성장할 준비가 되셨나요?
               </h2>
 

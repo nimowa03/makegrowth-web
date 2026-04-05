@@ -35,7 +35,7 @@ export function TheProblem() {
         <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium bg-[#DC2626]/10 text-[#DC2626] mb-4">
           The Problem
         </span>
-        <h2 className="text-[28px] md:text-[36px] font-bold text-[#1C1917] leading-snug text-balance">
+        <h2 className="text-[28px] md:text-[36px] font-bold text-[#1A1A1A] leading-snug text-balance">
           셀러들이 겪고 있는{" "}
           <span className="text-[#DC2626]">진짜 문제</span>
         </h2>
@@ -58,10 +58,10 @@ export function TheProblem() {
               <div className="w-12 h-12 rounded-xl bg-[#DC2626]/10 flex items-center justify-center mb-5">
                 <Icon icon={point.icon} width={24} className="text-[#DC2626]" />
               </div>
-              <h3 className="text-[#1C1917] text-lg font-semibold mb-3 leading-snug">
+              <h3 className="text-[#1A1A1A] text-lg font-semibold mb-3 leading-snug">
                 {point.title}
               </h3>
-              <p className="text-[#57534E] text-sm leading-relaxed break-keep">
+              <p className="text-[#444444] text-sm leading-relaxed break-keep">
                 {point.description}
               </p>
             </Card>

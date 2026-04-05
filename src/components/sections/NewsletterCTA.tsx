@@ -38,12 +38,12 @@ export function NewsletterCTA() {
               </span>
 
               {/* Heading */}
-              <h2 className="text-[#1C1917] mb-4">
+              <h2 className="text-[#1A1A1A] mb-4">
                 매주 받는 이커머스 AI 실전 팁
               </h2>
 
               {/* Subtitle */}
-              <p className="text-[#57534E] text-base md:text-lg mb-10 max-w-md mx-auto leading-relaxed">
+              <p className="text-[#444444] text-base md:text-lg mb-10 max-w-md mx-auto leading-relaxed">
                 매주 이커머스 AI 활용 팁과 업계 트렌드를 보내드립니다.
               </p>
 
@@ -65,7 +65,7 @@ export function NewsletterCTA() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="flex-1 px-4 py-3 rounded-full bg-warm-bg border border-[rgba(28,25,23,0.06)] text-[#1C1917] placeholder-[#A8A29E] text-sm focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-colors"
+                    className="flex-1 px-4 py-3 rounded-full bg-warm-bg border border-[rgba(0,0,0,0.08)] text-[#1A1A1A] placeholder-[#A8A29E] text-sm focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/30 transition-colors"
                   />
                   <button
                     type="submit"

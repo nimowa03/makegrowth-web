@@ -14,7 +14,7 @@ export function Curriculum() {
         <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium bg-accent/10 text-accent mb-4">
           Curriculum
         </span>
-        <h2 className="text-[28px] md:text-[36px] font-bold text-[#1C1917] leading-snug text-balance">
+        <h2 className="text-[28px] md:text-[36px] font-bold text-[#1A1A1A] leading-snug text-balance">
           하루 8시간, 4단계 커리큘럼
         </h2>
       </div>
@@ -53,17 +53,17 @@ export function Curriculum() {
                         <span className="text-xs font-bold text-accent bg-accent/10 px-2.5 py-1 rounded-full">
                           {step.stage}
                         </span>
-                        <h3 className="text-base font-semibold text-[#1C1917]">
+                        <h3 className="text-base font-semibold text-[#1A1A1A]">
                           {step.title}
                         </h3>
                       </div>
 
-                      <div className="flex items-center gap-1.5 text-xs text-[#A8A29E] mb-3">
+                      <div className="flex items-center gap-1.5 text-xs text-[#666666] mb-3">
                         <Icon icon="solar:clock-circle-linear" width={14} />
                         <span>{step.time}</span>
                       </div>
 
-                      <p className="text-sm text-[#57534E] leading-relaxed mb-3 break-keep">
+                      <p className="text-sm text-[#444444] leading-relaxed mb-3 break-keep">
                         {step.description}
                       </p>
 
@@ -74,10 +74,10 @@ export function Curriculum() {
                           className="text-accent shrink-0 mt-0.5"
                         />
                         <div>
-                          <p className="text-[11px] font-semibold text-[#A8A29E] uppercase tracking-wider mb-0.5">
+                          <p className="text-[11px] font-semibold text-[#666666] uppercase tracking-wider mb-0.5">
                             결과물
                           </p>
-                          <p className="text-sm text-[#1C1917] font-medium break-keep">
+                          <p className="text-sm text-[#1A1A1A] font-medium break-keep">
                             {step.deliverable}
                           </p>
                         </div>

@@ -18,8 +18,8 @@ export function SeminarHero() {
         background: `
           radial-gradient(ellipse 80% 60% at 20% 40%, rgba(139,124,246,0.15), transparent),
           radial-gradient(ellipse 60% 80% at 80% 60%, rgba(139,124,246,0.08), transparent),
-          radial-gradient(ellipse 100% 100% at 50% 0%, rgba(41,37,36,0.5), transparent),
-          #171717
+          radial-gradient(ellipse 100% 100% at 50% 0%, rgba(0,0,0,0.3), transparent),
+          #000000
         `,
       }}
     >
@@ -65,7 +65,7 @@ export function SeminarHero() {
           </h1>
 
           {/* Sub copy */}
-          <p className="text-[#A8A29E] text-base md:text-lg max-w-xl mb-8 leading-relaxed break-keep">
+          <p className="text-[#666666] text-base md:text-lg max-w-xl mb-8 leading-relaxed break-keep">
             내 상품, 내 카테고리에 맞는 AI 콘텐츠 자동화 파이프라인을
             직접 구축하고 가져가는 원데이 실습 세미나
           </p>
@@ -78,19 +78,19 @@ export function SeminarHero() {
           transition={{ duration: 0.7, delay: 0.2, ease: supanovaEase }}
           className="flex flex-wrap gap-3 mb-10"
         >
-          <div className="flex items-center gap-1.5 text-sm text-[#A8A29E] bg-white/5 ring-1 ring-white/10 px-3 py-1.5 rounded-full">
+          <div className="flex items-center gap-1.5 text-sm text-[#666666] bg-white/5 ring-1 ring-white/10 px-3 py-1.5 rounded-full">
             <Icon icon="solar:calendar-linear" width={16} className="text-accent" />
             <span>{currentSeminar.date}</span>
           </div>
-          <div className="flex items-center gap-1.5 text-sm text-[#A8A29E] bg-white/5 ring-1 ring-white/10 px-3 py-1.5 rounded-full">
+          <div className="flex items-center gap-1.5 text-sm text-[#666666] bg-white/5 ring-1 ring-white/10 px-3 py-1.5 rounded-full">
             <Icon icon="solar:clock-circle-linear" width={16} className="text-accent" />
             <span>{currentSeminar.time}</span>
           </div>
-          <div className="flex items-center gap-1.5 text-sm text-[#A8A29E] bg-white/5 ring-1 ring-white/10 px-3 py-1.5 rounded-full">
+          <div className="flex items-center gap-1.5 text-sm text-[#666666] bg-white/5 ring-1 ring-white/10 px-3 py-1.5 rounded-full">
             <Icon icon="solar:map-point-linear" width={16} className="text-accent" />
             <span>{currentSeminar.location}</span>
           </div>
-          <div className="flex items-center gap-1.5 text-sm text-[#A8A29E] bg-white/5 ring-1 ring-white/10 px-3 py-1.5 rounded-full">
+          <div className="flex items-center gap-1.5 text-sm text-[#666666] bg-white/5 ring-1 ring-white/10 px-3 py-1.5 rounded-full">
             <Icon icon="solar:users-group-rounded-linear" width={16} className="text-accent" />
             <span>
               잔여 {seatsRemaining}석 / {currentSeminar.maxParticipants}석

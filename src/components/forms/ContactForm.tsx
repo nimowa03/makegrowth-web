@@ -263,7 +263,7 @@ export function ContactForm() {
           <div className="w-14 h-14 rounded-full bg-[rgba(5,150,105,0.08)] flex items-center justify-center mx-auto mb-4">
             <Icon icon="solar:check-circle-linear" width={28} className="text-[#059669]" />
           </div>
-          <p className="text-[#57534E] text-[15px] leading-relaxed">
+          <p className="text-[#444444] text-[15px] leading-relaxed">
             문의가 접수되었습니다.
             <br />
             1-2 영업일 내 연락드리겠습니다.

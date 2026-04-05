@@ -35,7 +35,7 @@ export function TheSolution() {
         <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium bg-[#059669]/10 text-[#059669] mb-4">
           The Solution
         </span>
-        <h2 className="text-[28px] md:text-[36px] font-bold text-[#1C1917] leading-snug text-balance">
+        <h2 className="text-[28px] md:text-[36px] font-bold text-[#1A1A1A] leading-snug text-balance">
           메이크그로스가 제안하는{" "}
           <span className="text-[#059669]">해결책</span>
         </h2>
@@ -58,10 +58,10 @@ export function TheSolution() {
               <div className="w-12 h-12 rounded-xl bg-[#059669]/10 flex items-center justify-center mb-5">
                 <Icon icon={solution.icon} width={24} className="text-[#059669]" />
               </div>
-              <h3 className="text-[#1C1917] text-lg font-semibold mb-3 leading-snug">
+              <h3 className="text-[#1A1A1A] text-lg font-semibold mb-3 leading-snug">
                 {solution.title}
               </h3>
-              <p className="text-[#57534E] text-sm leading-relaxed break-keep">
+              <p className="text-[#444444] text-sm leading-relaxed break-keep">
                 {solution.description}
               </p>
             </Card>

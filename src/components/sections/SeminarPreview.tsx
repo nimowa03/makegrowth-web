@@ -34,7 +34,7 @@ export function SeminarPreview() {
             Upcoming Seminar
           </span>
 
-          <h2 className="text-[#1C1917] mb-10 md:mb-14">
+          <h2 className="text-[#1A1A1A] mb-10 md:mb-14">
             다음 세미나
           </h2>
         </motion.div>
@@ -49,39 +49,39 @@ export function SeminarPreview() {
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
               {/* Seminar info — left 3 cols */}
               <div className="lg:col-span-3">
-                <h3 className="text-[#1C1917] text-lg md:text-xl font-semibold mb-6">
+                <h3 className="text-[#1A1A1A] text-lg md:text-xl font-semibold mb-6">
                   {currentSeminar.title}
                 </h3>
 
                 <div className="space-y-4 mb-8">
                   <div className="flex items-center gap-3">
                     <Icon icon="solar:calendar-linear" width={20} className="text-accent flex-shrink-0" />
-                    <span className="text-[#57534E] text-sm">
+                    <span className="text-[#444444] text-sm">
                       {currentSeminar.date}
                     </span>
                   </div>
                   <div className="flex items-center gap-3">
                     <Icon icon="solar:clock-circle-linear" width={20} className="text-accent flex-shrink-0" />
-                    <span className="text-[#57534E] text-sm">
+                    <span className="text-[#444444] text-sm">
                       {currentSeminar.time}
                     </span>
                   </div>
                   <div className="flex items-center gap-3">
                     <Icon icon="solar:map-point-linear" width={20} className="text-accent flex-shrink-0" />
-                    <span className="text-[#57534E] text-sm">
+                    <span className="text-[#444444] text-sm">
                       {currentSeminar.location}
                     </span>
                   </div>
                   <div className="flex items-center gap-3">
                     <Icon icon="solar:users-group-rounded-linear" width={20} className="text-accent flex-shrink-0" />
-                    <span className="text-[#57534E] text-sm">
+                    <span className="text-[#444444] text-sm">
                       정원 {currentSeminar.maxParticipants}명 (잔여 {seatsLeft}석)
                     </span>
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between flex-wrap gap-4 pt-6 border-t border-[rgba(28,25,23,0.06)]">
-                  <p className="text-2xl font-bold text-[#1C1917]" style={{ fontVariantNumeric: "tabular-nums" }}>
+                <div className="flex items-center justify-between flex-wrap gap-4 pt-6 border-t border-[rgba(0,0,0,0.08)]">
+                  <p className="text-2xl font-bold text-[#1A1A1A]" style={{ fontVariantNumeric: "tabular-nums" }}>
                     {formattedPrice}원
                   </p>
                   <Button href="/seminar" showArrow>
@@ -92,7 +92,7 @@ export function SeminarPreview() {
 
               {/* Counters — right 2 cols */}
               <div className="lg:col-span-2 flex flex-col justify-center">
-                <p className="text-sm font-semibold text-[#A8A29E] uppercase tracking-wider mb-6">
+                <p className="text-sm font-semibold text-[#666666] uppercase tracking-wider mb-6">
                   세미나 성과
                 </p>
                 <div className="grid grid-cols-2 gap-6">

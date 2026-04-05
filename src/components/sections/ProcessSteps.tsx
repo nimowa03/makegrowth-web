@@ -62,8 +62,8 @@ export function ProcessSteps() {
         <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium bg-accent/10 text-accent mb-4">
           Process
         </span>
-        <h2 className="text-[#1C1917]">진행 프로세스</h2>
-        <p className="mt-3 text-[#57534E] max-w-lg mx-auto">
+        <h2 className="text-[#1A1A1A]">진행 프로세스</h2>
+        <p className="mt-3 text-[#444444] max-w-lg mx-auto">
           4단계 프로세스로 AI 전환을 완성합니다
         </p>
       </div>
@@ -97,10 +97,10 @@ export function ProcessSteps() {
               />
             </div>
 
-            <h3 className="text-lg font-bold mb-2 text-[#1C1917]">
+            <h3 className="text-lg font-bold mb-2 text-[#1A1A1A]">
               {step.title}
             </h3>
-            <p className="text-sm text-[#57534E] leading-relaxed max-w-[220px]">
+            <p className="text-sm text-[#444444] leading-relaxed max-w-[220px]">
               {step.description}
             </p>
           </motion.div>

@@ -17,13 +17,13 @@ export function Counter({ end, suffix = "", label, className }: CounterProps) {
   return (
     <div ref={ref} className={className}>
       <span
-        className="text-2xl md:text-3xl font-extrabold text-[#1C1917]"
+        className="text-2xl md:text-3xl font-extrabold text-[#1A1A1A]"
         style={{ fontVariantNumeric: "tabular-nums" }}
       >
         {count.toLocaleString()}
         {suffix}
       </span>
-      <p className="text-sm mt-1 text-[#A8A29E]">{label}</p>
+      <p className="text-sm mt-1 text-[#666666]">{label}</p>
     </div>
   );
 }

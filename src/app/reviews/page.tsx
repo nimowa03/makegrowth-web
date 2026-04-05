@@ -46,7 +46,7 @@ export default function ReviewsPage() {
             </motion.h1>
 
             <motion.p
-              className="text-[#A8A29E] text-lg md:text-xl leading-relaxed max-w-2xl mx-auto"
+              className="text-[#666666] text-lg md:text-xl leading-relaxed max-w-2xl mx-auto"
               initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
               animate={heroInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
               transition={{ duration: 0.7, delay: 0.2, ease: supanovaEase }}
@@ -79,12 +79,12 @@ export default function ReviewsPage() {
                         <Icon key={i} icon="solar:star-bold" width={16} className="text-[#F59E0B]" />
                       ))}
                     </div>
-                    <p className="text-[#57534E] text-sm leading-relaxed mb-4">
+                    <p className="text-[#444444] text-sm leading-relaxed mb-4">
                       &ldquo;{review.text}&rdquo;
                     </p>
-                    <div className="pt-4 border-t border-[rgba(28,25,23,0.06)]">
-                      <p className="font-semibold text-[#1C1917] text-sm">{review.name}</p>
-                      <p className="text-xs text-[#A8A29E]">
+                    <div className="pt-4 border-t border-[rgba(0,0,0,0.08)]">
+                      <p className="font-semibold text-[#1A1A1A] text-sm">{review.name}</p>
+                      <p className="text-xs text-[#666666]">
                         {review.role} · {review.category}
                       </p>
                     </div>
@@ -106,10 +106,10 @@ export default function ReviewsPage() {
                     width={56}
                     className="text-accent/40 mx-auto mb-6"
                   />
-                  <h3 className="text-[#1C1917] mb-3">
+                  <h3 className="text-[#1A1A1A] mb-3">
                     첫 세미나 준비 중입니다
                   </h3>
-                  <p className="text-[#57534E] max-w-md mx-auto mb-8">
+                  <p className="text-[#444444] max-w-md mx-auto mb-8">
                     곧 실제 수강생들의 생생한 후기가 채워집니다.
                     세미나에 참여하고 첫 번째 후기의 주인공이 되어보세요.
                   </p>
@@ -132,10 +132,10 @@ export default function ReviewsPage() {
             transition={{ duration: 0.7, ease: supanovaEase }}
             className="text-center"
           >
-            <h2 className="text-[#1C1917] mb-4">
+            <h2 className="text-[#1A1A1A] mb-4">
               다음 후기의 주인공은 당신입니다
             </h2>
-            <p className="text-[#57534E] text-lg mb-8 max-w-xl mx-auto">
+            <p className="text-[#444444] text-lg mb-8 max-w-xl mx-auto">
               하루 만에 AI 자동화 시스템을 구축하고 가져가세요.
             </p>
             <Button href="/seminar" showArrow>

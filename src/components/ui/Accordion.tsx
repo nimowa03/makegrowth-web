@@ -15,13 +15,13 @@ interface AccordionItemProps {
 
 function AccordionItem({ question, answer, isOpen, onToggle, dark }: AccordionItemProps) {
   return (
-    <div className={cn("border-b", dark ? "border-white/10" : "border-[rgba(28,25,23,0.06)]")}>
+    <div className={cn("border-b", dark ? "border-white/10" : "border-[rgba(0,0,0,0.08)]")}>
       <button
         className="w-full flex items-center justify-between py-5 text-left"
         onClick={onToggle}
         aria-expanded={isOpen}
       >
-        <span className={cn("font-medium text-[15px]", dark ? "text-white" : "text-[#1C1917]")}>
+        <span className={cn("font-medium text-[15px]", dark ? "text-white" : "text-[#1A1A1A]")}>
           {question}
         </span>
         <motion.div
@@ -31,7 +31,7 @@ function AccordionItem({ question, answer, isOpen, onToggle, dark }: AccordionIt
           <Icon
             icon="solar:alt-arrow-down-linear"
             width={20}
-            className={cn("shrink-0 ml-4", dark ? "text-[#A8A29E]" : "text-[#57534E]")}
+            className={cn("shrink-0 ml-4", dark ? "text-[#666666]" : "text-[#444444]")}
           />
         </motion.div>
       </button>
@@ -44,7 +44,7 @@ function AccordionItem({ question, answer, isOpen, onToggle, dark }: AccordionIt
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
             className="overflow-hidden"
           >
-            <p className={cn("pb-5 text-sm leading-relaxed", dark ? "text-[#A8A29E]" : "text-[#57534E]")}>
+            <p className={cn("pb-5 text-sm leading-relaxed", dark ? "text-[#666666]" : "text-[#444444]")}>
               {answer}
             </p>
           </motion.div>

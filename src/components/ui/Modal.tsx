@@ -44,13 +44,13 @@ export function Modal({ isOpen, onClose, children, title }: ModalProps) {
           >
             <div className="bg-[#FAF9F7] rounded-2xl shadow-xl p-6 mx-4">
               <div className="flex items-center justify-between mb-4">
-                {title && <h3 className="font-semibold text-lg text-[#1C1917]">{title}</h3>}
+                {title && <h3 className="font-semibold text-lg text-[#1A1A1A]">{title}</h3>}
                 <button
                   onClick={onClose}
                   className="p-1 hover:bg-warm-surface rounded-lg transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ml-auto"
                   aria-label="닫기"
                 >
-                  <Icon icon="solar:close-circle-linear" width={20} className="text-[#57534E]" />
+                  <Icon icon="solar:close-circle-linear" width={20} className="text-[#444444]" />
                 </button>
               </div>
               {children}

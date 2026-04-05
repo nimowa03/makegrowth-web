@@ -18,7 +18,7 @@ export function Header() {
         className={cn(
           "fixed top-4 left-1/2 -translate-x-1/2 w-max z-50 rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
           isScrolled
-            ? "bg-[rgba(250,249,247,0.8)] backdrop-blur-xl border border-[rgba(28,25,23,0.06)] shadow-[0_4px_24px_rgba(28,25,23,0.06)]"
+            ? "bg-[rgba(255,255,255,0.9)] backdrop-blur-xl border border-[rgba(0,0,0,0.08)] shadow-[0_4px_24px_rgba(0,0,0,0.06)]"
             : "bg-white/10 backdrop-blur-xl border border-white/10"
         )}
       >
@@ -27,7 +27,7 @@ export function Header() {
             href="/"
             className={cn(
               "font-bold text-lg transition-colors duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] mr-4",
-              isScrolled ? "text-[#1C1917]" : "text-white"
+              isScrolled ? "text-[#1A1A1A]" : "text-white"
             )}
           >
             메이크그로스
@@ -41,7 +41,7 @@ export function Header() {
                 className={cn(
                   "text-sm font-medium transition-colors duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
                   isScrolled
-                    ? "text-[#57534E] hover:text-[#1C1917]"
+                    ? "text-[#444444] hover:text-[#1A1A1A]"
                     : "text-white/70 hover:text-white"
                 )}
               >
@@ -50,7 +50,7 @@ export function Header() {
             ))}
             <Link
               href="/seminar"
-              className="px-4 py-2 bg-accent text-white rounded-full text-sm font-semibold hover:bg-accent-hover transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+              className="px-4 py-2 bg-[#2A2A2F] text-white rounded-full text-sm font-semibold hover:bg-[#1A1A1F] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
             >
               세미나 신청
             </Link>
@@ -66,7 +66,7 @@ export function Header() {
               width={24}
               className={cn(
                 "transition-colors",
-                isScrolled ? "text-[#1C1917]" : "text-white"
+                isScrolled ? "text-[#1A1A1A]" : "text-white"
               )}
             />
           </button>
@@ -80,7 +80,7 @@ export function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 bg-[#171717]/90 backdrop-blur-3xl z-50 lg:hidden"
+            className="fixed inset-0 bg-[#000000]/90 backdrop-blur-3xl z-50 lg:hidden"
           >
             <div className="flex flex-col h-full px-8 py-8">
               <div className="flex items-center justify-between mb-12">

@@ -59,7 +59,7 @@ export default function SystemsPage() {
             </motion.h1>
 
             <motion.p
-              className="text-[#A8A29E] text-lg md:text-xl leading-relaxed max-w-2xl mx-auto"
+              className="text-[#666666] text-lg md:text-xl leading-relaxed max-w-2xl mx-auto"
               initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
               animate={heroInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
               transition={{ duration: 0.7, delay: 0.2, ease: supanovaEase }}
@@ -86,7 +86,7 @@ export default function SystemsPage() {
             <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium bg-accent/10 text-accent mb-4">
               Our Systems
             </span>
-            <h2 className="text-[#1C1917]">구축 시스템</h2>
+            <h2 className="text-[#1A1A1A]">구축 시스템</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 gap-8">
@@ -104,7 +104,7 @@ export default function SystemsPage() {
                       <Icon
                         icon={categoryIcons[system.category] || "solar:code-linear"}
                         width={48}
-                        className="text-[#A8A29E]"
+                        className="text-[#666666]"
                       />
                     </div>
 
@@ -114,11 +114,11 @@ export default function SystemsPage() {
                         <Badge variant={statusConfig[system.status].variant}>
                           {statusConfig[system.status].label}
                         </Badge>
-                        <span className="text-xs text-[#A8A29E]">{system.category}</span>
+                        <span className="text-xs text-[#666666]">{system.category}</span>
                       </div>
 
-                      <h3 className="text-[#1C1917] mb-3">{system.title}</h3>
-                      <p className="text-[#57534E] text-sm leading-relaxed mb-5">
+                      <h3 className="text-[#1A1A1A] mb-3">{system.title}</h3>
+                      <p className="text-[#444444] text-sm leading-relaxed mb-5">
                         {system.description}
                       </p>
 
@@ -127,7 +127,7 @@ export default function SystemsPage() {
                         {system.features.map((feature) => (
                           <span
                             key={feature}
-                            className="inline-block rounded-full px-3 py-1 text-xs font-medium bg-[#F5F5F4] text-[#57534E]"
+                            className="inline-block rounded-full px-3 py-1 text-xs font-medium bg-[#F5F5F4] text-[#444444]"
                           >
                             {feature}
                           </span>
@@ -164,10 +164,10 @@ export default function SystemsPage() {
           >
             <Card variant="light" hover={false}>
               <div className="text-center py-6 md:py-10">
-                <h2 className="text-[#1C1917] mb-4">
+                <h2 className="text-[#1A1A1A] mb-4">
                   이 시스템을, 당신의 비즈니스에 맞게
                 </h2>
-                <p className="text-[#57534E] text-lg mb-8 max-w-xl mx-auto">
+                <p className="text-[#444444] text-lg mb-8 max-w-xl mx-auto">
                   세미나에서 직접 만들고 가져가세요.
                   내 상품, 내 카테고리에 맞는 AI 시스템을 하루 만에 구축합니다.
                 </p>

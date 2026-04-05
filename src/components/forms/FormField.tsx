@@ -30,7 +30,7 @@ interface FormFieldProps {
 }
 
 const baseInputStyles =
-  "w-full rounded-lg border border-[rgba(28,25,23,0.1)] bg-white px-4 py-3 text-[#1C1917] placeholder-[#A8A29E] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20";
+  "w-full rounded-lg border border-[rgba(28,25,23,0.1)] bg-white px-4 py-3 text-[#1A1A1A] placeholder-[#A8A29E] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20";
 
 export function FormField({
   label,
@@ -54,7 +54,7 @@ export function FormField({
             onChange={(e) => onChange(e.target.checked, name)}
             className="mt-1 h-4 w-4 shrink-0 rounded border-[rgba(28,25,23,0.1)] text-accent focus:ring-2 focus:ring-accent/20"
           />
-          <span className="text-sm text-[#57534E] leading-relaxed">
+          <span className="text-sm text-[#444444] leading-relaxed">
             {label}
             {required && <span className="text-[#DC2626] ml-0.5">*</span>}
           </span>
@@ -68,7 +68,7 @@ export function FormField({
     const selectedValues = Array.isArray(value) ? value : [];
     return (
       <div>
-        <label className="block text-sm font-medium text-[#1C1917] mb-2">
+        <label className="block text-sm font-medium text-[#1A1A1A] mb-2">
           {label}
           {required && <span className="text-[#DC2626] ml-0.5">*</span>}
         </label>
@@ -82,7 +82,7 @@ export function FormField({
                   "flex items-center gap-2.5 rounded-lg border px-3 py-2.5 text-sm cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
                   isChecked
                     ? "border-accent bg-accent/10 text-accent"
-                    : "border-[rgba(28,25,23,0.1)] bg-white text-[#57534E] hover:border-[rgba(28,25,23,0.2)]"
+                    : "border-[rgba(28,25,23,0.1)] bg-white text-[#444444] hover:border-[rgba(28,25,23,0.2)]"
                 )}
               >
                 <input
@@ -110,7 +110,7 @@ export function FormField({
     <div>
       <label
         htmlFor={name}
-        className="block text-sm font-medium text-[#1C1917] mb-2"
+        className="block text-sm font-medium text-[#1A1A1A] mb-2"
       >
         {label}
         {required && <span className="text-[#DC2626] ml-0.5">*</span>}
@@ -124,7 +124,7 @@ export function FormField({
           onChange={(e) => onChange(e.target.value, name)}
           className={cn(
             baseInputStyles,
-            !value && "text-[#A8A29E]",
+            !value && "text-[#666666]",
             error && "border-[#DC2626] focus:border-[#DC2626] focus:ring-[#DC2626]/20"
           )}
         >

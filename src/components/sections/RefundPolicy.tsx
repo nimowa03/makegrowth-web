@@ -14,7 +14,7 @@ export function RefundPolicy() {
         <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium bg-accent/10 text-accent mb-4">
           Refund Policy
         </span>
-        <h2 className="text-[28px] md:text-[36px] font-bold text-[#1C1917] leading-snug text-balance">
+        <h2 className="text-[28px] md:text-[36px] font-bold text-[#1A1A1A] leading-snug text-balance">
           환불 정책
         </h2>
       </div>
@@ -29,11 +29,11 @@ export function RefundPolicy() {
         <Card variant="light" innerClassName="!p-0 !overflow-hidden">
           <table className="w-full">
             <thead>
-              <tr className="border-b border-[rgba(28,25,23,0.06)] bg-warm-surface">
-                <th className="text-left text-sm font-semibold text-[#1C1917] py-3.5 px-5">
+              <tr className="border-b border-[rgba(0,0,0,0.08)] bg-warm-surface">
+                <th className="text-left text-sm font-semibold text-[#1A1A1A] py-3.5 px-5">
                   취소 시점
                 </th>
-                <th className="text-right text-sm font-semibold text-[#1C1917] py-3.5 px-5">
+                <th className="text-right text-sm font-semibold text-[#1A1A1A] py-3.5 px-5">
                   환불 금액
                 </th>
               </tr>
@@ -44,14 +44,14 @@ export function RefundPolicy() {
                   key={index}
                   className={
                     index < refundPolicy.length - 1
-                      ? "border-b border-[rgba(28,25,23,0.06)]"
+                      ? "border-b border-[rgba(0,0,0,0.08)]"
                       : ""
                   }
                 >
-                  <td className="text-sm text-[#57534E] py-3.5 px-5">
+                  <td className="text-sm text-[#444444] py-3.5 px-5">
                     {item.period}
                   </td>
-                  <td className="text-sm text-[#1C1917] font-medium py-3.5 px-5 text-right">
+                  <td className="text-sm text-[#1A1A1A] font-medium py-3.5 px-5 text-right">
                     {item.refund}
                   </td>
                 </tr>
@@ -59,7 +59,7 @@ export function RefundPolicy() {
             </tbody>
           </table>
         </Card>
-        <p className="text-xs text-[#A8A29E] text-center mt-4">
+        <p className="text-xs text-[#666666] text-center mt-4">
           환불 요청은 이메일(hello@makegrowth.co)로 접수해 주세요.
         </p>
       </motion.div>

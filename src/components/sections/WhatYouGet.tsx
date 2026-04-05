@@ -15,7 +15,7 @@ export function WhatYouGet() {
         <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium bg-accent/10 text-accent mb-4">
           What You Get
         </span>
-        <h2 className="text-[28px] md:text-[36px] font-bold text-[#1C1917] leading-snug text-balance">
+        <h2 className="text-[28px] md:text-[36px] font-bold text-[#1A1A1A] leading-snug text-balance">
           세미나에서 가져가는 것
         </h2>
       </div>
@@ -38,7 +38,7 @@ export function WhatYouGet() {
                 <div className="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center shrink-0 mt-0.5">
                   <Icon icon="solar:check-circle-bold" width={14} className="text-accent" />
                 </div>
-                <span className="text-sm text-[#1C1917] font-medium leading-relaxed break-keep">
+                <span className="text-sm text-[#1A1A1A] font-medium leading-relaxed break-keep">
                   {item}
                 </span>
               </div>

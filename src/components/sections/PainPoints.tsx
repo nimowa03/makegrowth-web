@@ -26,7 +26,7 @@ export function PainPoints() {
           </span>
 
           {/* Heading */}
-          <h2 className="text-[#1C1917] mb-10 md:mb-14">
+          <h2 className="text-[#1A1A1A] mb-10 md:mb-14">
             100만 명이 폐업하는 시대
           </h2>
         </motion.div>
@@ -49,12 +49,12 @@ export function PainPoints() {
                   <p className="text-3xl md:text-4xl font-extrabold text-accent mb-3">
                     {stat.number}
                   </p>
-                  <p className="text-[#57534E] text-sm md:text-base mb-4 leading-relaxed">
+                  <p className="text-[#444444] text-sm md:text-base mb-4 leading-relaxed">
                     {stat.label}
                   </p>
                   <Badge
                     variant="custom"
-                    className="bg-[#1C1917]/5 text-[#A8A29E]"
+                    className="bg-[#1C1917]/5 text-[#666666]"
                   >
                     {stat.source}
                   </Badge>

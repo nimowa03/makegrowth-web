@@ -99,7 +99,7 @@ function HeroSection() {
             initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[#A8A29E] text-lg max-w-2xl mx-auto leading-relaxed"
+            className="text-[#666666] text-lg max-w-2xl mx-auto leading-relaxed"
           >
             반복 업무를 AI에게 맡기고, 셀러는 상품 기획·고객 관계·브랜드 성장에
             집중하세요. 메이크그로스는 &quot;대신 해주는 대행&quot;이 아니라 &quot;스스로
@@ -148,8 +148,8 @@ function KillerModuleSection() {
           <Badge variant="available" className="ml-2 mb-4">
             지금 바로 시작 가능
           </Badge>
-          <h2 className="text-[#1C1917]">SNS 콘텐츠 자동화</h2>
-          <p className="mt-3 text-[#57534E] max-w-2xl mx-auto">
+          <h2 className="text-[#1A1A1A]">SNS 콘텐츠 자동화</h2>
+          <p className="mt-3 text-[#444444] max-w-2xl mx-auto">
             {killer.description}
           </p>
         </div>
@@ -172,10 +172,10 @@ function KillerModuleSection() {
                 </span>
               </div>
               <div className="md:mt-3">
-                <p className="font-semibold text-sm text-[#1C1917]">
+                <p className="font-semibold text-sm text-[#1A1A1A]">
                   {step.label}
                 </p>
-                <p className="text-xs text-[#57534E] mt-1">{step.desc}</p>
+                <p className="text-xs text-[#444444] mt-1">{step.desc}</p>
               </div>
             </div>
           ))}
@@ -194,7 +194,7 @@ function KillerModuleSection() {
                 <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
                   <Icon icon={solarIcon} width={20} className="text-accent" />
                 </div>
-                <h3 className="text-lg font-bold text-[#1C1917]">주요 기능</h3>
+                <h3 className="text-lg font-bold text-[#1A1A1A]">주요 기능</h3>
               </div>
               <ul className="space-y-3">
                 {killer.features.map((feature) => (
@@ -204,7 +204,7 @@ function KillerModuleSection() {
                       width={16}
                       className="text-[#059669] shrink-0"
                     />
-                    <span className="text-sm text-[#57534E]">{feature}</span>
+                    <span className="text-sm text-[#444444]">{feature}</span>
                   </li>
                 ))}
               </ul>
@@ -218,7 +218,7 @@ function KillerModuleSection() {
             transition={{ duration: 0.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           >
             <Card variant="light" innerClassName="p-6">
-              <h3 className="text-lg font-bold mb-4 text-[#1C1917]">도입 효과</h3>
+              <h3 className="text-lg font-bold mb-4 text-[#1A1A1A]">도입 효과</h3>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <Icon
@@ -227,8 +227,8 @@ function KillerModuleSection() {
                     className="text-accent mt-0.5 shrink-0"
                   />
                   <div>
-                    <p className="text-sm font-medium text-[#1C1917]">시간 절감</p>
-                    <p className="text-xs text-[#57534E]">
+                    <p className="text-sm font-medium text-[#1A1A1A]">시간 절감</p>
+                    <p className="text-xs text-[#444444]">
                       <span className="line-through">
                         {killer.metrics.timeBefore}
                       </span>
@@ -246,8 +246,8 @@ function KillerModuleSection() {
                     className="text-accent mt-0.5 shrink-0"
                   />
                   <div>
-                    <p className="text-sm font-medium text-[#1C1917]">비용 절감</p>
-                    <p className="text-xs text-[#57534E]">
+                    <p className="text-sm font-medium text-[#1A1A1A]">비용 절감</p>
+                    <p className="text-xs text-[#444444]">
                       <span className="line-through">
                         {killer.metrics.costBefore}
                       </span>
@@ -278,8 +278,8 @@ function ModuleGridSection() {
           <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium bg-accent/10 text-accent mb-4">
             Modules
           </span>
-          <h2 className="text-[#1C1917]">AI 서비스 모듈</h2>
-          <p className="mt-3 text-[#57534E] max-w-lg mx-auto">
+          <h2 className="text-[#1A1A1A]">AI 서비스 모듈</h2>
+          <p className="mt-3 text-[#444444] max-w-lg mx-auto">
             비즈니스 영역별 AI 자동화 모듈을 조합하여 최적의 워크플로를 구성합니다
           </p>
         </div>
@@ -327,17 +327,17 @@ function ModuleGridSection() {
                       {mod.status === "available" ? "이용 가능" : "Coming Soon"}
                     </Badge>
                   </div>
-                  <h3 className="text-base font-bold mb-2 text-[#1C1917]">
+                  <h3 className="text-base font-bold mb-2 text-[#1A1A1A]">
                     {mod.name}
                   </h3>
-                  <p className="text-sm text-[#57534E] mb-4 flex-1">
+                  <p className="text-sm text-[#444444] mb-4 flex-1">
                     {mod.description}
                   </p>
                   <ul className="flex flex-wrap gap-1.5">
                     {mod.features.map((feature) => (
                       <li
                         key={feature}
-                        className="text-xs px-2.5 py-1 rounded-full bg-warm-surface text-[#57534E]"
+                        className="text-xs px-2.5 py-1 rounded-full bg-warm-surface text-[#444444]"
                       >
                         {feature}
                       </li>
@@ -373,8 +373,8 @@ function CTASection() {
             <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium bg-accent/10 text-accent mb-6">
               Get Started
             </span>
-            <h2 className="text-[#1C1917] mb-4">지금 시작하세요</h2>
-            <p className="text-[#57534E] max-w-lg mx-auto mb-8 leading-relaxed">
+            <h2 className="text-[#1A1A1A] mb-4">지금 시작하세요</h2>
+            <p className="text-[#444444] max-w-lg mx-auto mb-8 leading-relaxed">
               AI 전환으로 이커머스 운영의 효율을 극대화하세요. 무료 상담을 통해
               비즈니스에 맞는 최적의 방법을 찾아드립니다.
             </p>

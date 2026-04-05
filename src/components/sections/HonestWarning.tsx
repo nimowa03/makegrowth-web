@@ -14,7 +14,7 @@ export function HonestWarning() {
         <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium bg-[#DC2626]/10 text-[#DC2626] mb-4">
           Honest Warning
         </span>
-        <h2 className="text-[28px] md:text-[36px] font-bold text-[#1C1917] leading-snug text-balance">
+        <h2 className="text-[28px] md:text-[36px] font-bold text-[#1A1A1A] leading-snug text-balance">
           이런 분은 신청하지 마세요
         </h2>
       </div>
@@ -31,12 +31,12 @@ export function HonestWarning() {
               delay: index * 0.1,
               ease: supanovaEase,
             }}
-            className="flex items-center gap-4 bg-white ring-1 ring-[rgba(28,25,23,0.06)] rounded-xl p-5 shadow-[0_2px_8px_rgba(28,25,23,0.04)]"
+            className="flex items-center gap-4 bg-white ring-1 ring-[rgba(0,0,0,0.08)] rounded-xl p-5 shadow-[0_2px_8px_rgba(28,25,23,0.04)]"
           >
             <div className="shrink-0">
               <Icon icon="solar:close-circle-bold" width={20} className="text-[#DC2626]" />
             </div>
-            <p className="text-sm text-[#57534E] font-medium break-keep">
+            <p className="text-sm text-[#444444] font-medium break-keep">
               {warning}
             </p>
           </motion.div>

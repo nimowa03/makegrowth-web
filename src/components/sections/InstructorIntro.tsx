@@ -21,10 +21,10 @@ export function InstructorIntro() {
         >
           {/* Eyebrow pill */}
           <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium bg-accent/10 text-accent mb-4">
-            Instructor
+            Founder
           </span>
 
-          <h2 className="text-[#1C1917]">강사 소개</h2>
+          <h2 className="text-[#1C1917]">대표 소개</h2>
         </motion.div>
 
         {/* Editorial Split: left photo, right text */}

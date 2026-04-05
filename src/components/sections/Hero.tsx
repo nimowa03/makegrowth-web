@@ -96,17 +96,6 @@ export function Hero() {
         </motion.div>
       </div>
 
-      {/* Float keyframes injected via style tag */}
-      <style jsx global>{`
-        @keyframes hero-float {
-          0%, 100% {
-            transform: translateY(0) rotate(0deg);
-          }
-          50% {
-            transform: translateY(-20px) rotate(3deg);
-          }
-        }
-      `}</style>
     </section>
   );
 }

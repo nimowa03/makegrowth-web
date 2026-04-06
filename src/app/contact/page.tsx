@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/Card";
 import { CONTACT_EMAIL, SNS_LINKS } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "견적 문의",
+  title: "문의하기",
 };
 
 const INFO_ITEMS = [
@@ -15,29 +15,38 @@ const INFO_ITEMS = [
     value: CONTACT_EMAIL,
     href: `mailto:${CONTACT_EMAIL}`,
   },
-  {
-    icon: "solar:chat-round-dots-linear",
-    label: "카카오톡 채널",
-    value: "메이크그로스",
-    href: SNS_LINKS.kakao,
-  },
+  ...(SNS_LINKS.kakao
+    ? [
+        {
+          icon: "solar:chat-round-dots-linear",
+          label: "카카오톡 채널",
+          value: "메이크그로스",
+          href: SNS_LINKS.kakao,
+        },
+      ]
+    : []),
   {
     icon: "solar:clock-circle-linear",
     label: "응답 시간",
     value: "1-2 영업일 내 회신",
-    href: null,
+    href: null as string | null,
   },
 ];
 
 export default function ContactPage() {
   return (
-    <section className="bg-warm-bg min-h-screen py-16 md:py-24 px-6 md:px-8">
+    <section className="bg-white min-h-screen py-20 md:py-32 px-6 md:px-8">
       <div className="max-w-content mx-auto">
         {/* Header */}
-        <div className="mb-12 md:mb-16">
-          <h1 className="font-display text-[#1A1A1A] mb-4">견적 문의</h1>
-          <p className="text-[#444444] text-lg max-w-xl">
-            프로젝트에 대해 알려주세요. 1-2 영업일 내 연락드리겠습니다.
+        <div className="mb-14 md:mb-20">
+          <span className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[11px] uppercase tracking-[0.15em] font-medium border border-[#E0E0E0] text-[#666] mb-6">
+            Contact
+          </span>
+          <h1 className="font-display text-[36px] md:text-[52px] lg:text-[64px] font-black text-[#1A1A1A] leading-[1.05] tracking-tight mb-4">
+            문의하기
+          </h1>
+          <p className="text-[#444] text-base md:text-lg max-w-xl">
+            궁금한 점을 남겨주세요. 1-2 영업일 내 연락드리겠습니다.
           </p>
         </div>
 
@@ -57,15 +66,15 @@ export default function ContactPage() {
                 <div className="space-y-5">
                   {INFO_ITEMS.map((item) => (
                     <div key={item.label} className="flex items-start gap-3">
-                      <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
-                        <Icon icon={item.icon} width={20} className="text-accent" />
+                      <div className="w-10 h-10 rounded-lg bg-[#F0F0F0] flex items-center justify-center shrink-0">
+                        <Icon icon={item.icon} width={20} className="text-[#1A1A1A]" />
                       </div>
                       <div>
                         <p className="text-sm text-[#666666]">{item.label}</p>
                         {item.href ? (
                           <a
                             href={item.href}
-                            className="text-[15px] font-medium text-[#1A1A1A] hover:text-accent transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                            className="text-[15px] font-medium text-[#1A1A1A] hover:text-[#666] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
                             target={
                               item.href.startsWith("mailto")
                                 ? undefined
@@ -94,19 +103,19 @@ export default function ContactPage() {
                 <h3 className="text-[#1A1A1A] mb-3">프로세스</h3>
                 <ol className="space-y-3 text-sm text-[#444444]">
                   <li className="flex gap-3">
-                    <span className="w-6 h-6 rounded-full bg-accent text-white text-xs flex items-center justify-center shrink-0 mt-0.5">
+                    <span className="w-6 h-6 rounded-full bg-[#1A1A1A] text-white text-xs flex items-center justify-center shrink-0 mt-0.5">
                       1
                     </span>
                     <span>문의 접수 및 내용 검토</span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="w-6 h-6 rounded-full bg-accent text-white text-xs flex items-center justify-center shrink-0 mt-0.5">
+                    <span className="w-6 h-6 rounded-full bg-[#1A1A1A] text-white text-xs flex items-center justify-center shrink-0 mt-0.5">
                       2
                     </span>
                     <span>담당자 배정 및 상담 일정 조율</span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="w-6 h-6 rounded-full bg-accent text-white text-xs flex items-center justify-center shrink-0 mt-0.5">
+                    <span className="w-6 h-6 rounded-full bg-[#1A1A1A] text-white text-xs flex items-center justify-center shrink-0 mt-0.5">
                       3
                     </span>
                     <span>맞춤 솔루션 제안 및 견적 안내</span>

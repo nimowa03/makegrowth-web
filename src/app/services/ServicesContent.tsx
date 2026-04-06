@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { ProcessSteps } from "@/components/sections/ProcessSteps";
-import { Pricing } from "@/components/sections/Pricing";
+import { BrowserMockup } from "@/components/ui/BrowserMockup";
 import { serviceModules } from "@/data/services";
 import type { ServiceModule } from "@/data/services";
 import { useInView } from "@/hooks/useInView";
@@ -45,34 +45,25 @@ const fadeInUp = {
 /* ─── Hero Section (DARK with mesh gradient) ─── */
 function HeroSection() {
   return (
-    <section className="relative bg-warm-dark text-white min-h-[70vh] flex items-center overflow-hidden">
-      {/* Mesh gradient background */}
+    <section
+      className="relative text-white min-h-[70vh] flex items-center overflow-hidden"
+      style={{
+        background: "linear-gradient(135deg, #0F172A 0%, #1A1A1A 50%, #0F172A 100%)",
+      }}
+    >
+      {/* Subtle gradient mesh */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="absolute top-[-20%] right-[-10%] w-[500px] h-[500px] rounded-full pointer-events-none"
         style={{
-          background: [
-            "radial-gradient(ellipse 80% 60% at 20% 40%, rgba(139, 124, 246, 0.15), transparent)",
-            "radial-gradient(ellipse 60% 80% at 80% 60%, rgba(139, 124, 246, 0.08), transparent)",
-            "radial-gradient(ellipse 100% 100% at 50% 0%, rgba(41, 37, 36, 0.5), transparent)",
-          ].join(", "),
-        }}
-      />
-
-      {/* Floating orbs */}
-      <div
-        className="absolute -top-[100px] -right-[50px] w-[400px] h-[400px] rounded-full pointer-events-none"
-        style={{
-          background: "rgba(139, 124, 246, 0.12)",
-          filter: "blur(60px)",
-          animation: "float 8s ease-in-out infinite",
+          background: "radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%)",
+          animation: "svc-float 12s ease-in-out infinite",
         }}
       />
       <div
-        className="absolute -bottom-[80px] -left-[30px] w-[300px] h-[300px] rounded-full pointer-events-none"
+        className="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] rounded-full pointer-events-none"
         style={{
-          background: "rgba(139, 124, 246, 0.08)",
-          filter: "blur(60px)",
-          animation: "float 8s ease-in-out infinite -3s",
+          background: "radial-gradient(circle, rgba(255,255,255,0.02) 0%, transparent 70%)",
+          animation: "svc-float 12s ease-in-out infinite 4s",
         }}
       />
 
@@ -83,7 +74,8 @@ function HeroSection() {
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium bg-accent/10 text-accent mb-6">
+            <span className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[11px] uppercase tracking-[0.15em] font-medium border border-white/20 text-white/70 mb-8">
+              <span className="w-1.5 h-1.5 rounded-full bg-white/40" />
               Services
             </span>
           </motion.div>
@@ -91,29 +83,29 @@ function HeroSection() {
             initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="font-display text-white mb-5"
+            className="font-display text-[36px] md:text-[52px] lg:text-[64px] font-black text-white leading-[1.05] tracking-tight mb-6"
           >
-            AI로 이커머스의 본질에 집중하세요
+            외주가 끝나면
+            <br />
+            시스템도 멈춥니다
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[#666666] text-lg max-w-2xl mx-auto leading-relaxed"
+            className="text-white/60 text-base md:text-lg max-w-xl mx-auto leading-relaxed"
           >
-            반복 업무를 AI에게 맡기고, 셀러는 상품 기획·고객 관계·브랜드 성장에
-            집중하세요. 메이크그로스는 &quot;대신 해주는 대행&quot;이 아니라 &quot;스스로
-            할 수 있게 만드는 전환&quot;을 돕습니다.
+            대행사가 떠나도 멈추지 않는 구조.
+            <br className="hidden md:block" />
+            직접 굴릴 수 있는 AI 시스템을 만들어 드립니다.
           </motion.p>
         </div>
       </div>
 
-      {/* Float keyframes injected via style tag */}
       <style jsx>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0) rotate(0deg); }
-          50% { transform: translateY(-20px) rotate(3deg); }
-        }
+        @keyframes svc-float {
+          0%, 100% { transform: translate(0, 0) scale(1); }
+          50% { transform: translate(20px, -15px) scale(1.03); }
       `}</style>
     </section>
   );
@@ -139,14 +131,11 @@ function KillerModuleSection() {
 
   return (
     <SectionWrapper theme="warm-bg">
-      <div ref={ref}>
+      <div ref={ref} id="sns-automation">
         {/* Eyebrow + Heading */}
         <div className="text-center mb-12">
-          <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium bg-accent/10 text-accent mb-4">
-            Killer Module
-          </span>
-          <Badge variant="available" className="ml-2 mb-4">
-            지금 바로 시작 가능
+          <Badge variant="available" className="mb-4">
+            운영 중
           </Badge>
           <h2 className="text-[#1A1A1A]">SNS 콘텐츠 자동화</h2>
           <p className="mt-3 text-[#444444] max-w-2xl mx-auto">
@@ -166,8 +155,8 @@ function KillerModuleSection() {
               key={step.label}
               className="flex items-center gap-3 md:flex-col md:text-center"
             >
-              <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
-                <span className="text-accent font-bold text-sm">
+              <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-[#F0F0F0] flex items-center justify-center shrink-0">
+                <span className="text-[#1A1A1A] font-bold text-sm">
                   {String(i + 1).padStart(2, "0")}
                 </span>
               </div>
@@ -181,6 +170,21 @@ function KillerModuleSection() {
           ))}
         </motion.div>
 
+        {/* Demo GIF slot */}
+        <motion.div
+          initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+          animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+          transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-12"
+        >
+          <BrowserMockup
+            url="n8n.makegrowth.co/workflow"
+            placeholder="N8N 워크플로우 시연 영상"
+            subtext="GIF 또는 영상이 들어갈 자리"
+            title="SNS 콘텐츠 자동화 파이프라인"
+          />
+        </motion.div>
+
         {/* Editorial split: Features + Metrics */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Features */}
@@ -191,8 +195,8 @@ function KillerModuleSection() {
           >
             <Card variant="light" innerClassName="p-6">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
-                  <Icon icon={solarIcon} width={20} className="text-accent" />
+                <div className="w-10 h-10 rounded-lg bg-[#F0F0F0] flex items-center justify-center">
+                  <Icon icon={solarIcon} width={20} className="text-[#666]" />
                 </div>
                 <h3 className="text-lg font-bold text-[#1A1A1A]">주요 기능</h3>
               </div>
@@ -224,7 +228,7 @@ function KillerModuleSection() {
                   <Icon
                     icon="solar:clock-circle-linear"
                     width={20}
-                    className="text-accent mt-0.5 shrink-0"
+                    className="text-[#666] mt-0.5 shrink-0"
                   />
                   <div>
                     <p className="text-sm font-medium text-[#1A1A1A]">시간 절감</p>
@@ -233,7 +237,7 @@ function KillerModuleSection() {
                         {killer.metrics.timeBefore}
                       </span>
                       {" → "}
-                      <span className="font-semibold text-accent">
+                      <span className="font-semibold text-[#1A1A1A]">
                         {killer.metrics.timeAfter}
                       </span>
                     </p>
@@ -243,7 +247,7 @@ function KillerModuleSection() {
                   <Icon
                     icon="solar:dollar-minimalistic-linear"
                     width={20}
-                    className="text-accent mt-0.5 shrink-0"
+                    className="text-[#666] mt-0.5 shrink-0"
                   />
                   <div>
                     <p className="text-sm font-medium text-[#1A1A1A]">비용 절감</p>
@@ -252,7 +256,7 @@ function KillerModuleSection() {
                         {killer.metrics.costBefore}
                       </span>
                       {" → "}
-                      <span className="font-semibold text-accent">
+                      <span className="font-semibold text-[#1A1A1A]">
                         {killer.metrics.costAfter}
                       </span>
                     </p>
@@ -267,86 +271,49 @@ function KillerModuleSection() {
   );
 }
 
-/* ─── Module Grid (WARM-SURFACE, Bento layout) ─── */
-function ModuleGridSection() {
+/* ─── Upcoming Modules (compact list) ─── */
+function UpcomingModulesSection() {
   const { ref, isInView } = useInView({ threshold: 0.1 });
+  const upcoming = serviceModules.filter((m) => m.status === "coming-soon");
 
   return (
     <SectionWrapper theme="warm-surface">
       <div ref={ref}>
-        <div className="text-center mb-12">
-          <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium bg-accent/10 text-accent mb-4">
-            Modules
+        <div className="text-center mb-8">
+          <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium border border-[#E0E0E0] text-[#666] bg-transparent mb-4">
+            확장 예정
           </span>
-          <h2 className="text-[#1A1A1A]">AI 서비스 모듈</h2>
-          <p className="mt-3 text-[#444444] max-w-lg mx-auto">
-            비즈니스 영역별 AI 자동화 모듈을 조합하여 최적의 워크플로를 구성합니다
-          </p>
+          <h2 className="text-[#1A1A1A] text-[28px] md:text-[36px]">
+            준비 중인 모듈
+          </h2>
         </div>
 
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-          style={{
-            gridTemplateRows: "auto auto",
-          }}
+          className="max-w-2xl mx-auto space-y-3"
         >
-          {serviceModules.map((mod: ServiceModule, index: number) => {
-            const solarIcon = getSolarIcon(mod.icon);
-            /* Bento: alternate row spans — first 2 items col-span-1 in first row,
-               then items alternate between 2+1 / 1+2 layout on larger screens */
-            const bentoClass =
-              index < 2
-                ? "md:col-span-1"
-                : index === 2
-                  ? "md:col-span-1 lg:col-span-1"
-                  : index === 3
-                    ? "md:col-span-2 lg:col-span-2"
-                    : index === 4
-                      ? "md:col-span-1 lg:col-span-1"
-                      : "md:col-span-2 lg:col-span-3";
-
-            return (
-              <motion.div
-                key={mod.id}
-                variants={fadeInUp}
-                className={bentoClass}
-              >
-                <Card variant="light" hover innerClassName="p-6 h-full flex flex-col">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center">
-                      <Icon icon={solarIcon} width={22} className="text-accent" />
-                    </div>
-                    <Badge
-                      variant={
-                        mod.status === "available" ? "available" : "coming-soon"
-                      }
-                    >
-                      {mod.status === "available" ? "이용 가능" : "Coming Soon"}
-                    </Badge>
-                  </div>
-                  <h3 className="text-base font-bold mb-2 text-[#1A1A1A]">
-                    {mod.name}
-                  </h3>
-                  <p className="text-sm text-[#444444] mb-4 flex-1">
-                    {mod.description}
-                  </p>
-                  <ul className="flex flex-wrap gap-1.5">
-                    {mod.features.map((feature) => (
-                      <li
-                        key={feature}
-                        className="text-xs px-2.5 py-1 rounded-full bg-warm-surface text-[#444444]"
-                      >
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </Card>
-              </motion.div>
-            );
-          })}
+          {upcoming.map((mod: ServiceModule) => (
+            <motion.div
+              key={mod.id}
+              id={mod.id}
+              variants={fadeInUp}
+              className="flex items-center justify-between py-3 border-b border-[#E0E0E0] last:border-0"
+            >
+              <div className="flex items-center gap-3">
+                <Icon
+                  icon={getSolarIcon(mod.icon)}
+                  width={18}
+                  className="text-[#999]"
+                />
+                <span className="text-sm font-medium text-[#1A1A1A]">
+                  {mod.name}
+                </span>
+              </div>
+              <Badge variant="coming-soon">준비 중</Badge>
+            </motion.div>
+          ))}
         </motion.div>
       </div>
     </SectionWrapper>
@@ -367,23 +334,19 @@ function CTASection() {
         >
           <Card
             variant="light"
-            className="ring-2 ring-accent/30"
+            className="ring-2 ring-[#1A1A1A]/20"
             innerClassName="p-8 md:p-12 text-center"
           >
-            <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium bg-accent/10 text-accent mb-6">
+            <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium border border-[#E0E0E0] text-[#666] bg-transparent mb-6">
               Get Started
             </span>
-            <h2 className="text-[#1A1A1A] mb-4">지금 시작하세요</h2>
-            <p className="text-[#444444] max-w-lg mx-auto mb-8 leading-relaxed">
-              AI 전환으로 이커머스 운영의 효율을 극대화하세요. 무료 상담을 통해
-              비즈니스에 맞는 최적의 방법을 찾아드립니다.
-            </p>
+            <h2 className="text-[#1A1A1A] mb-8">시작하기</h2>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button href="/contact" variant="primary" size="lg" showArrow>
-                무료 상담 신청
+              <Button href="/seminar" variant="primary" size="lg" showArrow>
+                웨비나 신청하기
               </Button>
-              <Button href="/seminar" variant="secondary" size="lg">
-                세미나 알아보기
+              <Button href="/contact" variant="secondary" size="lg">
+                문의하기
               </Button>
             </div>
           </Card>
@@ -400,12 +363,9 @@ export function ServicesContent() {
       <HeroSection />
       <GradientBand />
       <KillerModuleSection />
-      <ModuleGridSection />
+      <UpcomingModulesSection />
       <SectionWrapper theme="warm-bg">
         <ProcessSteps />
-      </SectionWrapper>
-      <SectionWrapper theme="warm-surface">
-        <Pricing />
       </SectionWrapper>
       <CTASection />
     </>

@@ -30,7 +30,7 @@ interface FormFieldProps {
 }
 
 const baseInputStyles =
-  "w-full rounded-lg border border-[rgba(28,25,23,0.1)] bg-white px-4 py-3 text-[#1A1A1A] placeholder-[#A8A29E] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20";
+  "w-full rounded-lg border border-[rgba(28,25,23,0.1)] bg-white px-4 py-3 text-[#1A1A1A] placeholder-[#A8A29E] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] focus:border-[#1A1A1A] focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]/20";
 
 export function FormField({
   label,
@@ -52,7 +52,7 @@ export function FormField({
             name={name}
             checked={value === true}
             onChange={(e) => onChange(e.target.checked, name)}
-            className="mt-1 h-4 w-4 shrink-0 rounded border-[rgba(28,25,23,0.1)] text-accent focus:ring-2 focus:ring-accent/20"
+            className="mt-1 h-4 w-4 shrink-0 rounded border-[rgba(28,25,23,0.1)] text-[#1A1A1A] focus:ring-2 focus:ring-[#1A1A1A]/20"
           />
           <span className="text-sm text-[#444444] leading-relaxed">
             {label}
@@ -81,7 +81,7 @@ export function FormField({
                 className={cn(
                   "flex items-center gap-2.5 rounded-lg border px-3 py-2.5 text-sm cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
                   isChecked
-                    ? "border-accent bg-accent/10 text-accent"
+                    ? "border-[#1A1A1A] bg-[#F0F0F0] text-[#1A1A1A]"
                     : "border-[rgba(28,25,23,0.1)] bg-white text-[#444444] hover:border-[rgba(28,25,23,0.2)]"
                 )}
               >
@@ -94,7 +94,7 @@ export function FormField({
                       : [...selectedValues, option.value];
                     onChange(next, name);
                   }}
-                  className="h-4 w-4 shrink-0 rounded border-[rgba(28,25,23,0.1)] text-accent focus:ring-2 focus:ring-accent/20"
+                  className="h-4 w-4 shrink-0 rounded border-[rgba(28,25,23,0.1)] text-[#1A1A1A] focus:ring-2 focus:ring-[#1A1A1A]/20"
                 />
                 <span>{option.label}</span>
               </label>

@@ -58,12 +58,12 @@ export function WakeUpCall() {
   return (
     <SectionWrapper theme="warm-surface" id="wake-up-call">
       <div className="text-center mb-10 md:mb-14">
-        <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium bg-accent/10 text-accent mb-4">
+        <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium border border-[#E0E0E0] text-[#666] bg-transparent mb-4">
           Why Different
         </span>
         <h2 className="text-[28px] md:text-[36px] font-bold text-[#1A1A1A] leading-snug text-balance">
-          왜 이 세미나가{" "}
-          <span className="text-accent">다를까요?</span>
+          왜 이 웨비나가{" "}
+          <span className="text-[#1A1A1A]">다를까요?</span>
         </h2>
       </div>
 
@@ -82,8 +82,8 @@ export function WakeUpCall() {
                 <th className="text-center text-sm text-[#444444] font-medium pb-4 px-4">
                   일반 오프라인 강의
                 </th>
-                <th className="text-center text-sm font-semibold pb-4 px-4 text-accent">
-                  메이크그로스 AX 세미나
+                <th className="text-center text-sm font-semibold pb-4 px-4 text-[#1A1A1A]">
+                  메이크그로스 AX 웨비나
                 </th>
               </tr>
             </thead>
@@ -120,7 +120,7 @@ export function WakeUpCall() {
                       </span>
                     </div>
                   </td>
-                  <td className="py-4 px-4 text-center bg-accent/5 ring-1 ring-accent/20 rounded-lg">
+                  <td className="py-4 px-4 text-center bg-[#F8F8F8] ring-1 ring-[#E0E0E0] rounded-lg">
                     <div className="flex items-center justify-center gap-2">
                       <StatusIcon status={row.makegrowth.status} />
                       <span className="text-sm font-medium text-[#1A1A1A]">
@@ -168,10 +168,10 @@ export function WakeUpCall() {
                   <p className="text-sm text-[#444444]">{row.offline.text}</p>
                 </div>
               </div>
-              <div className="flex items-start gap-2 bg-accent/5 ring-1 ring-accent/20 -mx-2 px-2 py-1.5 rounded-lg">
+              <div className="flex items-start gap-2 bg-[#F8F8F8] ring-1 ring-[#E0E0E0] -mx-2 px-2 py-1.5 rounded-lg">
                 <StatusIcon status={row.makegrowth.status} />
                 <div>
-                  <p className="text-[11px] text-accent font-medium">
+                  <p className="text-[11px] text-[#1A1A1A] font-medium">
                     메이크그로스 AX
                   </p>
                   <p className="text-sm font-medium text-[#1A1A1A]">

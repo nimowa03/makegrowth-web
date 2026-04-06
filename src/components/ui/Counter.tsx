@@ -23,7 +23,7 @@ export function Counter({ end, suffix = "", label, className }: CounterProps) {
         {count.toLocaleString()}
         {suffix}
       </span>
-      <p className="text-sm mt-1 text-[#666666]">{label}</p>
+      <p className="text-sm mt-1 text-[#666]">{label}</p>
     </div>
   );
 }

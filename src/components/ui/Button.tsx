@@ -16,9 +16,9 @@ interface ButtonProps {
 
 const variants = {
   primary:
-    "bg-[#2A2A2F] text-white rounded-full font-semibold hover:bg-[#1A1A1F] hover:scale-[1.02] active:scale-[0.98] shadow-[0_0_0_rgba(42,42,47,0)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.15)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
+    "bg-[#2A2A2F] text-white rounded-full font-semibold hover:bg-[#1A1A1F] hover:scale-[1.05] active:scale-[0.97] shadow-[0_1px_3px_rgba(0,0,0,0.08),0_4px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
   secondary:
-    "bg-transparent border border-[rgba(0,0,0,0.12)] text-[#1A1A1A] rounded-full font-semibold hover:border-[#2A2A2F]/40 hover:bg-[#F8F8F8] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
+    "bg-transparent border border-[#E0E0E0] text-[#1A1A1A] rounded-full font-semibold hover:border-[#2A2A2F]/40 hover:bg-[#F8F8F8] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
   standard:
     "bg-[#2A2A2F] text-white rounded-lg font-semibold hover:bg-[#1A1A1F] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
   ghost:

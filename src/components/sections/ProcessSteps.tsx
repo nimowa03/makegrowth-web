@@ -59,7 +59,7 @@ export function ProcessSteps() {
   return (
     <div ref={ref}>
       <div className="text-center mb-12">
-        <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium bg-accent/10 text-accent mb-4">
+        <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium border border-[#E0E0E0] text-[#666] bg-transparent mb-4">
           Process
         </span>
         <h2 className="text-[#1A1A1A]">진행 프로세스</h2>
@@ -75,7 +75,7 @@ export function ProcessSteps() {
         className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-4 relative"
       >
         {/* Connecting line — visible on md+ */}
-        <div className="hidden md:block absolute top-6 left-[calc(12.5%+24px)] right-[calc(12.5%+24px)] h-0.5 bg-accent/20" />
+        <div className="hidden md:block absolute top-6 left-[calc(12.5%+24px)] right-[calc(12.5%+24px)] h-0.5 bg-[#E0E0E0]" />
 
         {steps.map((step) => (
           <motion.div
@@ -84,7 +84,7 @@ export function ProcessSteps() {
             className="flex flex-col items-center text-center relative"
           >
             {/* Numbered circle */}
-            <div className="w-12 h-12 rounded-full bg-accent text-white flex items-center justify-center font-bold text-lg mb-5 relative z-10">
+            <div className="w-12 h-12 rounded-full bg-[#1A1A1A] text-white flex items-center justify-center font-bold text-lg mb-5 relative z-10">
               {step.number}
             </div>
 
@@ -93,7 +93,7 @@ export function ProcessSteps() {
               <Icon
                 icon={step.icon}
                 width={28}
-                className="text-accent"
+                className="text-[#666]"
               />
             </div>
 

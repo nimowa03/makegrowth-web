@@ -1,183 +1,124 @@
-# MakeGrowth Design System — Supanova Premium Redesign
+# MakeGrowth Design System — joshua.site Minimal
 
-## 1. Visual Theme & Atmosphere
+## 1. Visual Direction
 
-Warm editorial aesthetic meets modern SaaS. Warm Stone base with a single Muted Violet accent. Only the hero section uses dark background — all other sections use warm tones. Noise texture overlay across the entire page for premium depth.
+레퍼런스: joshua.site (영구 기준)
 
-Korean typography optimized with `word-break: keep-all` and `line-height: 1.7`. Generous section padding (`py-24 md:py-32 lg:py-40`). Double-Bezel card system. Floating glass pill navigation.
+순수 타이포그래피 중심 미니멀. 목업/일러스트/대시보드/브라우저 프레임 없음.
+순수 모노크롬 (흑/회/백만 사용). 보라색 완전 금지.
+전체 화이트 기조. 다크는 CTA 블록과 pivot 블록에만.
 
-## 2. Color Palette & Roles
+## 2. Color Palette
 
-### Warm Stone Base
+### Base (Pure Monochrome)
 | Token | Hex | Role |
 |-------|-----|------|
-| `warm-dark` | `#171717` | Hero-only dark background |
-| `warm-dark-surface` | `#292524` | Dark section surfaces |
-| `warm-bg` | `#FAF9F7` | Primary body background |
-| `warm-surface` | `#F5F5F4` | Alternating section background |
-| `warm-surface-elevated` | `#FFFFFF` | Card inner surfaces |
-| `warm-heading` | `#1C1917` | Body section headings |
-| `warm-body` | `#57534E` | Body text |
-| `warm-muted` | `#A8A29E` | Muted text, captions |
-| `warm-border` | `rgba(28,25,23,0.06)` | Borders, dividers |
-| `warm-shadow` | `rgba(28,25,23,0.04)` | Stone-tint shadows |
+| `warm-dark-surface` | `#1A1A1A` | 다크 CTA/pivot 블록 |
+| `warm-bg` | `#FFFFFF` | 기본 바디 배경 |
+| `warm-surface` | `#F8F8F8` | 교대 섹션 배경 |
+| heading | `#1A1A1A` | 제목 |
+| body | `#666666` | 본문 |
+| muted | `#999999` | 캡션, 보조 텍스트 |
+| border | `#E0E0E0` | 보더, 디바이더 |
 
-### Muted Violet Accent (single accent)
+### CTA (Dark)
 | Token | Hex | Role |
 |-------|-----|------|
-| `accent` | `#8B7CF6` | Primary accent — CTAs, links, active states |
-| `accent-hover` | `#7C6AED` | Accent hover |
-| `accent-muted` | `rgba(139,124,246,0.1)` | Background tint, badges |
-| `accent-glow` | `rgba(139,124,246,0.2)` | CTA hover glow |
+| `cta` | `#1A1A1A` | Primary CTA 배경 |
+| `cta-text` | `#FFFFFF` | CTA 텍스트 |
 
 ### Semantic
 | Token | Hex | Role |
 |-------|-----|------|
-| `success` | `#059669` | Positive, "After" |
-| `danger` | `#DC2626` | Negative, "Before" |
-| `warning` | `#D97706` | Caution, "Coming Soon" |
+| `danger` | `#CC0000` | 부정, ✕ 표시 |
 
-### Gradient Text (selective use)
-```css
-background: linear-gradient(135deg, #8B7CF6, #A78BFA);
+## 3. Typography
+
+| Element | Desktop | Mobile | Weight | Font |
+|---------|---------|--------|--------|------|
+| H1 Hero | 88px | 48px | 900 (black) | Outfit + Pretendard |
+| H2 Section | 56px | 36px | 900 (black) | Pretendard |
+| H3 Card | 24px | 20px | 700 | Pretendard |
+| Body | 16-18px | 16px | 400 | Pretendard |
+| Eyebrow | 11px | 11px | 500 | Pretendard |
+
+**Font Stack:**
+- Display: `Outfit, Pretendard Variable, sans-serif` (H1, 대형 숫자)
+- Default: `Pretendard Variable, Pretendard, -apple-system, sans-serif`
+
+**Korean Rules:** `word-break: keep-all`, `line-height: 1.7`, `text-wrap: balance` (제목)
+
+## 4. Components
+
+### Primary CTA Button
 ```
-Only on hero H1 emphasis words (1-2 words max). Never on section titles.
-
-## 3. Typography Rules
-
-| Element | Desktop | Mobile | Weight | Font | Extra |
-|---------|---------|--------|--------|------|-------|
-| H1 Hero | 48px (3rem) | 32px (2rem) | 700 | Outfit + Pretendard | `tracking-tight leading-snug text-wrap:balance` |
-| H2 Section | 36px (2.25rem) | 28px (1.75rem) | 700 | Pretendard | `leading-snug text-wrap:balance` |
-| H3 Card | 24px (1.5rem) | 20px (1.25rem) | 600 | Pretendard | `leading-snug` |
-| Body | 16px | 16px | 400 | Pretendard | `leading-relaxed` (line-height 1.7), `break-keep-all` |
-| Small | 14px | 14px | 400 | Pretendard | `leading-relaxed` |
-| Eyebrow | 11px | 11px | 500 | Pretendard | `uppercase tracking-[0.15em]` |
-
-**Font stacks:**
-- Display: `'Outfit', 'Pretendard Variable', 'Pretendard', sans-serif` — hero H1, Final CTA only
-- Default: `'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif`
-
-## 4. Component Stylings
-
-### Double-Bezel Card
-```html
-<!-- Outer Shell -->
-<div class="bg-black/[0.03] ring-1 ring-black/[0.04] p-1.5 rounded-[2rem]">
-  <!-- Inner Core -->
-  <div class="bg-white rounded-[calc(2rem-0.375rem)] p-6
-              shadow-[inset_0_1px_1px_rgba(255,255,255,0.8),0_2px_8px_rgba(28,25,23,0.04)]">
-    <!-- content -->
-  </div>
-</div>
+bg: #1A1A1A → hover: scale(1.02)
+text: white, font-semibold, rounded-full
+active: scale(0.98)
 ```
 
-### Primary CTA (Solid Accent Pill)
-```css
-background: #8B7CF6;
-color: #FFFFFF;
-padding: 16px 32px;
-border-radius: 9999px;
-font-weight: 600;
-transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-/* hover: scale(1.02), box-shadow: 0 0 30px rgba(139,124,246,0.2) */
-/* active: scale(0.98) */
+### Eyebrow Pill
+```
+border: #E0E0E0, text: #666
+px-4 py-1.5, rounded-full, text-[11px]
+uppercase, tracking-[0.15em], font-medium
 ```
 
-### Secondary CTA (Outlined Pill)
-```css
-background: transparent;
-border: 1px solid rgba(28,25,23,0.06);
-color: #1C1917;
-padding: 16px 32px;
-border-radius: 9999px;
-/* hover: border-color accent/30, bg accent-muted */
+### Card
+```
+border: #E0E0E0, rounded-2xl, p-6
+배경: white 또는 transparent
+Double-Bezel 금지
 ```
 
-### Eyebrow Tags
-```css
-display: inline-block;
-padding: 4px 12px;
-border-radius: 9999px;
-font-size: 11px;
-text-transform: uppercase;
-letter-spacing: 0.15em;
-font-weight: 500;
-background: rgba(139,124,246,0.1);
-color: #8B7CF6;
+### Process Flow Node
+```
+border: #E0E0E0, rounded-full, w-12 h-12
+숫자: font-mono, text-[#999]
+연결선: 1px #E0E0E0 + draw 애니메이션
 ```
 
-### Floating Glass Navigation
-```css
-/* After scroll */
-position: fixed;
-top: 16px;
-left: 50%;
-transform: translateX(-50%);
-max-width: 800px;
-background: rgba(250, 249, 247, 0.8);
-backdrop-filter: blur(16px);
-border: 1px solid rgba(28, 25, 23, 0.06);
-border-radius: 9999px;
-padding: 8px 24px;
-box-shadow: 0 4px 24px rgba(28, 25, 23, 0.06);
-```
+## 5. Layout
 
-## 5. Layout Principles
+- Max width: 1200px centered
+- Section padding: py-32 lg:py-40 (desktop), py-24 (mobile)
+- Horizontal: px-8 (desktop), px-6 (mobile)
+- 전체 화이트 기조, 다크는 CTA/pivot 블록에만
 
-- **Max content width**: 1200px, centered
-- **Section padding**: Desktop `py-32 lg:py-40`, Mobile `py-24`
-- **Horizontal padding**: Desktop `px-8`, Mobile `px-6`
-- **Card grid**: Asymmetrical Bento — not repetitive 3-column
-- **Dark sections**: Hero only. Hero-to-body transition via 96px gradient band.
-- **Surface alternation**: `warm-bg` (#FAF9F7) and `warm-surface` (#F5F5F4) alternate
+## 6. Motion
 
-## 6. Depth & Elevation
+- Easing: `cubic-bezier(0.16, 1, 0.3, 1)` (Supanova)
+- Duration: 0.5-0.7s
+- Entry: opacity 0→1, translateY(20-30px)→0, blur(4px)→0
+- Stagger: 80ms siblings
+- `prefers-reduced-motion` 존중
 
-| Level | Usage | Value |
-|-------|-------|-------|
-| Card outer | Double-Bezel shell | `ring-1 ring-black/[0.04]` |
-| Card inner | Double-Bezel core | `shadow-[inset_0_1px_1px_rgba(255,255,255,0.8),0_2px_8px_rgba(28,25,23,0.04)]` |
-| Card hover | Interactive cards | `ring-accent/20` + `scale-[1.01]` |
-| Nav float | Glass nav | `shadow-[0_4px_24px_rgba(28,25,23,0.06)]` |
-| CTA hover | Button glow | `shadow-[0_0_30px_rgba(139,124,246,0.2)]` |
-
-Stone-tint shadows only. No pure black shadows.
-
-## 7. Do's and Don'ts
+## 7. Do / Don't
 
 ### Do
-- Use solid accent color for primary CTAs (no gradients)
-- Alternate `warm-bg` and `warm-surface` for consecutive sections
-- Use Eyebrow pill badges for section labels
-- Keep body text at `line-height: 1.7` for Korean readability
-- Use `word-break: keep-all` globally
-- Apply `text-wrap: balance` to all headings
-- Use Supanova easing: `cubic-bezier(0.16, 1, 0.3, 1)`
+- 순수 모노크롬 (흑/회/백)
+- 타이포그래피와 여백으로 디자인
+- Iconify Solar 아이콘 사용
+- Supanova easing 전체 적용
+- joshua.site 톤 참고
 
 ### Don't
-- Don't use dark background for any section except hero
-- Don't apply gradient text to anything except hero H1 emphasis words
-- Don't use box-shadow with pure black — always stone-tint
-- Don't skip the Double-Bezel outer shell on cards
-- Don't use Lucide icons — use Iconify Solar only
-- Don't animate anything other than `transform` and `opacity`
-- Don't use repetitive 3-column grid for every section
+- 보라색 사용 금지 (어디에도)
+- Double-Bezel 카드 금지
+- 과도한 장식 금지 (시스템 시연 비주얼은 적극 활용)
+- Lucide 아이콘 사용 금지
 
-## 8. Responsive Behavior
+## 8. 목업/비주얼 가이드
 
-| Breakpoint | Key Changes |
-|------------|-------------|
-| < 640px | Single column, `px-6`, `py-24`, hamburger nav, sticky bottom CTA |
-| 768px (md) | 2-column grids, `px-8` |
-| 1024px (lg) | Full floating pill nav, larger type scale |
-| 1280px (xl) | 3-column grids, max-width 1200px content |
+### 허용
+- 브라우저 목업 프레임 (BrowserMockup 컴포넌트)
+- GIF/영상 시연 화면
+- 3D 카드 틸트, 패럴랙스 효과
+- 대표 프로필 사진
 
-## 9. Motion
-
-- **Easing**: `cubic-bezier(0.16, 1, 0.3, 1)` (Supanova standard)
-- **Duration**: 0.5s default, 0.7s for larger elements
-- **Entry**: blur-fadeInUp (opacity 0 + translateY(20px) + blur(8px) -> clear)
-- **Stagger**: 80ms between siblings
-- **Hero orbs**: Mesh gradient blobs with `animation: hero-float 8s ease-in-out infinite`
-- **Reduced motion**: Respect `prefers-reduced-motion`
+### 목업 스타일
+- 프레임: 모노크롬, 얇은 보더(#E0E0E0), rounded-2xl
+- 브라우저 크롬: 회색 도트 3개 + 주소바
+- 배경: #F8F8F8
+- 그림자: 최소 (hover 시 강화)
+- 콘텐츠: 실제 GIF/스크린샷 우선, 없으면 깔끔한 placeholder

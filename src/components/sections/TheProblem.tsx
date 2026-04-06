@@ -8,21 +8,21 @@ import { Card } from "@/components/ui/Card";
 const painPoints = [
   {
     icon: "solar:puzzle-piece-linear",
-    title: "범용 AI 도구의 한계",
+    title: "AI 서비스 써봤는데, 내 브랜드에 안 맞습니다",
     description:
-      "ChatGPT에 '상세페이지 써줘'라고 해봤자, 내 상품도 내 카테고리도 모릅니다. 범용 도구로는 브랜드 톤에 맞는 결과물을 얻을 수 없습니다.",
+      "뷰티 셀러와 가전 셀러의 톤은 완전히 다릅니다. 범용 도구는 이 차이를 모릅니다.",
   },
   {
     icon: "solar:refresh-circle-linear",
-    title: "외주 의존의 악순환",
+    title: "외주 끊으면 채널이 멈춥니다",
     description:
-      "SNS 운영 외주비 월 100만원, 상세페이지 건당 30만원. 외주를 끊으면 채널이 멈추고, 계속하면 수익이 줄어드는 악순환.",
+      "매달 100만원씩 나가는 외주비. 끊으면 SNS가 멈추고, 계속하면 수익이 줄어듭니다.",
   },
   {
     icon: "solar:book-2-linear",
-    title: "정보 과부하, 실행은 제로",
+    title: "배워도 적용이 안 됩니다",
     description:
-      "유튜브 강의 수십 개를 봐도 막상 내 사업에 적용하려면 막막합니다. 지식은 쌓이는데 실행 가능한 시스템은 없습니다.",
+      "강의는 '도구 사용법'을 알려주지, '내 사업에 맞는 시스템'은 안 만들어줍니다.",
   },
 ];
 

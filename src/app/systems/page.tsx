@@ -33,9 +33,7 @@ export default function SystemsPage() {
       {/* Hero — Dark */}
       <SectionWrapper theme="dark" animate={false}>
         <div ref={heroRef} className="relative overflow-hidden">
-          {/* Mesh gradient orbs */}
-          <div className="absolute -top-32 -left-32 w-96 h-96 bg-accent/20 rounded-full blur-[120px] pointer-events-none" />
-          <div className="absolute -bottom-32 -right-32 w-80 h-80 bg-accent/10 rounded-full blur-[100px] pointer-events-none" />
+          {/* Clean white bg - no gradient orbs */}
 
           <div className="relative text-center max-w-3xl mx-auto">
             <motion.div
@@ -43,19 +41,20 @@ export default function SystemsPage() {
               animate={heroInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
               transition={{ duration: 0.7, ease: supanovaEase }}
             >
-              <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium bg-white/10 text-accent mb-6">
+              <span className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[11px] uppercase tracking-[0.15em] font-medium border border-[#E0E0E0] text-[#666] mb-6">
+                <span className="text-[#999]">●</span>
                 Built Systems
               </span>
             </motion.div>
 
             <motion.h1
-              className="text-white mb-6"
+              className="text-[#1A1A1A] mb-6"
               initial={{ opacity: 0, y: 30, filter: "blur(4px)" }}
               animate={heroInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
               transition={{ duration: 0.7, delay: 0.1, ease: supanovaEase }}
             >
               직접 만들고,{" "}
-              <span className="gradient-text">직접 운영합니다</span>
+              직접 운영합니다
             </motion.h1>
 
             <motion.p
@@ -64,8 +63,7 @@ export default function SystemsPage() {
               animate={heroInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
               transition={{ duration: 0.7, delay: 0.2, ease: supanovaEase }}
             >
-              이론이 아닌 실전. 메이크그로스가 직접 구축하고 운영 중인
-              AI 자동화 시스템들입니다. 세미나에서 이 시스템을 함께 만듭니다.
+              이론이 아닌 실전. 메이크그로스 대표가 직접 구축하고 운영 중인 시스템입니다.
             </motion.p>
           </div>
         </div>
@@ -83,10 +81,10 @@ export default function SystemsPage() {
             transition={{ duration: 0.7, ease: supanovaEase }}
             className="mb-12"
           >
-            <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium bg-accent/10 text-accent mb-4">
-              Our Systems
+            <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium border border-[#E0E0E0] text-[#666] bg-transparent mb-4">
+              Works
             </span>
-            <h2 className="text-[#1A1A1A]">구축 시스템</h2>
+            <h2 className="text-[#1A1A1A]">Works</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 gap-8">
@@ -139,7 +137,7 @@ export default function SystemsPage() {
                         {system.techStack.map((tech) => (
                           <span
                             key={tech}
-                            className="inline-block rounded-full px-2.5 py-0.5 text-[10px] font-medium bg-accent/10 text-accent"
+                            className="inline-block rounded-full px-2.5 py-0.5 text-[10px] font-medium border border-[#E0E0E0] text-[#666] bg-transparent"
                           >
                             {tech}
                           </span>
@@ -168,15 +166,15 @@ export default function SystemsPage() {
                   이 시스템을, 당신의 비즈니스에 맞게
                 </h2>
                 <p className="text-[#444444] text-lg mb-8 max-w-xl mx-auto">
-                  세미나에서 직접 만들고 가져가세요.
-                  내 상품, 내 카테고리에 맞는 AI 시스템을 하루 만에 구축합니다.
+                  웨비나에서 직접 만들고 가져가세요.
+                  내 상품, 내 카테고리에 맞는 AI 시스템이 어떻게 만들어지는지 보여드립니다.
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <Button href="/seminar" showArrow>
-                    세미나 알아보기
+                    웨비나 알아보기
                   </Button>
                   <Button href="/contact" variant="secondary">
-                    견적 문의
+                    문의하기
                   </Button>
                 </div>
               </div>

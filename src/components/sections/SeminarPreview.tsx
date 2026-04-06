@@ -30,12 +30,12 @@ export function SeminarPreview() {
           transition={{ duration: 0.7, ease: supanovaEase }}
         >
           {/* Eyebrow pill */}
-          <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium bg-accent/10 text-accent mb-4">
+          <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium border border-[#E0E0E0] text-[#666] bg-transparent mb-4">
             Upcoming Seminar
           </span>
 
           <h2 className="text-[#1A1A1A] mb-10 md:mb-14">
-            다음 세미나
+            다음 웨비나
           </h2>
         </motion.div>
 
@@ -55,27 +55,27 @@ export function SeminarPreview() {
 
                 <div className="space-y-4 mb-8">
                   <div className="flex items-center gap-3">
-                    <Icon icon="solar:calendar-linear" width={20} className="text-accent flex-shrink-0" />
+                    <Icon icon="solar:calendar-linear" width={20} className="text-[#666] flex-shrink-0" />
                     <span className="text-[#444444] text-sm">
-                      {currentSeminar.date}
+                      2026 하반기 예정
                     </span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Icon icon="solar:clock-circle-linear" width={20} className="text-accent flex-shrink-0" />
+                    <Icon icon="solar:clock-circle-linear" width={20} className="text-[#666] flex-shrink-0" />
                     <span className="text-[#444444] text-sm">
                       {currentSeminar.time}
                     </span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Icon icon="solar:map-point-linear" width={20} className="text-accent flex-shrink-0" />
+                    <Icon icon="solar:map-point-linear" width={20} className="text-[#666] flex-shrink-0" />
                     <span className="text-[#444444] text-sm">
                       {currentSeminar.location}
                     </span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Icon icon="solar:users-group-rounded-linear" width={20} className="text-accent flex-shrink-0" />
+                    <Icon icon="solar:users-group-rounded-linear" width={20} className="text-[#666] flex-shrink-0" />
                     <span className="text-[#444444] text-sm">
-                      정원 {currentSeminar.maxParticipants}명 (잔여 {seatsLeft}석)
+                      소규모 10명 제한
                     </span>
                   </div>
                 </div>
@@ -85,7 +85,7 @@ export function SeminarPreview() {
                     {formattedPrice}원
                   </p>
                   <Button href="/seminar" showArrow>
-                    세미나 신청하기
+                    사전 등록하기
                   </Button>
                 </div>
               </div>
@@ -93,7 +93,7 @@ export function SeminarPreview() {
               {/* Counters — right 2 cols */}
               <div className="lg:col-span-2 flex flex-col justify-center">
                 <p className="text-sm font-semibold text-[#666666] uppercase tracking-wider mb-6">
-                  세미나 성과
+                  웨비나 성과
                 </p>
                 <div className="grid grid-cols-2 gap-6">
                   {seminarCounters.map((counter) => (

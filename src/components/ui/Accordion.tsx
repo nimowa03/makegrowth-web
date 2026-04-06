@@ -17,11 +17,11 @@ function AccordionItem({ question, answer, isOpen, onToggle, dark }: AccordionIt
   return (
     <div className={cn("border-b", dark ? "border-white/10" : "border-[rgba(0,0,0,0.08)]")}>
       <button
-        className="w-full flex items-center justify-between py-5 text-left"
+        className="w-full flex items-center justify-between py-5 text-left group"
         onClick={onToggle}
         aria-expanded={isOpen}
       >
-        <span className={cn("font-medium text-[15px]", dark ? "text-white" : "text-[#1A1A1A]")}>
+        <span className={cn("font-medium text-[15px] group-hover:translate-x-1 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]", dark ? "text-white" : "text-[#1A1A1A]")}>
           {question}
         </span>
         <motion.div

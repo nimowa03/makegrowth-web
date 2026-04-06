@@ -4,24 +4,21 @@ export interface NavItem {
 }
 
 export const mainNav: NavItem[] = [
+  { label: "루틴 분석", href: "/#diagnosis" },
   { label: "서비스", href: "/services" },
-  { label: "구축 시스템", href: "/systems" },
-  { label: "세미나", href: "/seminar" },
-  { label: "대표 소개", href: "/about" },
-  { label: "견적 문의", href: "/contact" },
+  { label: "웨비나", href: "/seminar" },
+  { label: "About", href: "/about" },
+  { label: "문의", href: "/contact" },
 ];
 
 export const footerNav = {
   services: [
     { label: "SNS 콘텐츠 자동화", href: "/services#sns-automation" },
-    { label: "AI Image Studio", href: "/services#image-studio" },
-    { label: "서비스 프로세스", href: "/services#process" },
-    { label: "패키지 비교", href: "/services#pricing" },
+    { label: "AI 상세페이지 자동화", href: "/services#detail-page-automation" },
+    { label: "셀러 루틴 분석기", href: "/diagnosis" },
   ],
   company: [
-    { label: "대표 소개", href: "/about" },
-    { label: "구축 시스템", href: "/systems" },
-    { label: "수강 후기", href: "/reviews" },
+    { label: "About", href: "/about" },
   ],
   legal: [
     { label: "개인정보처리방침", href: "/privacy" },

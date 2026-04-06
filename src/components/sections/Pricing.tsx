@@ -33,7 +33,7 @@ export function Pricing() {
   return (
     <div ref={ref}>
       <div className="text-center mb-12">
-        <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium bg-accent/10 text-accent mb-4">
+        <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium border border-[#E0E0E0] text-[#666] bg-transparent mb-4">
           Pricing
         </span>
         <h2 className="text-[#1A1A1A]">서비스 패키지</h2>
@@ -60,7 +60,7 @@ export function Pricing() {
               <Card
                 variant="light"
                 className={
-                  isHighlighted ? "ring-accent/30 ring-2" : ""
+                  isHighlighted ? "ring-[#1A1A1A]/20 ring-2" : ""
                 }
                 innerClassName="flex flex-col h-full"
               >
@@ -69,7 +69,7 @@ export function Pricing() {
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-20">
                     <Badge
                       variant="custom"
-                      className="bg-accent text-white text-xs px-3 py-1"
+                      className="bg-[#1A1A1A] text-white text-xs px-3 py-1"
                     >
                       추천
                     </Badge>
@@ -100,7 +100,7 @@ export function Pricing() {
                     <Icon
                       icon="solar:check-circle-linear"
                       width={18}
-                      className="text-accent mt-0.5 shrink-0"
+                      className="text-[#666] mt-0.5 shrink-0"
                     />
                     <span className="text-sm text-[#444444]">
                       <span className="font-medium text-[#1A1A1A]">
@@ -113,7 +113,7 @@ export function Pricing() {
                     <Icon
                       icon="solar:check-circle-linear"
                       width={18}
-                      className="text-accent mt-0.5 shrink-0"
+                      className="text-[#666] mt-0.5 shrink-0"
                     />
                     <span className="text-sm text-[#444444]">
                       <span className="font-medium text-[#1A1A1A]">
@@ -126,7 +126,7 @@ export function Pricing() {
                     <Icon
                       icon="solar:check-circle-linear"
                       width={18}
-                      className="text-accent mt-0.5 shrink-0"
+                      className="text-[#666] mt-0.5 shrink-0"
                     />
                     <span className="text-sm text-[#444444]">
                       <span className="font-medium text-[#1A1A1A]">
@@ -146,7 +146,7 @@ export function Pricing() {
                     showArrow
                     className="w-full text-center justify-center"
                   >
-                    세미나 신청하기
+                    웨비나 신청하기
                   </Button>
                 ) : (
                   <Button

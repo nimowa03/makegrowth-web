@@ -22,13 +22,13 @@ export function BeforeAfter() {
           className="text-center mb-10 md:mb-14"
         >
           {/* Eyebrow pill */}
-          <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium bg-accent/10 text-accent mb-4">
+          <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium border border-[#E0E0E0] text-[#666] bg-transparent mb-4">
             Before &amp; After
           </span>
 
           {/* Heading */}
           <h2 className="text-[#1A1A1A]">
-            외주비 91%, 시간 83% 절감
+            대표가 직접 운영한 결과
           </h2>
         </motion.div>
 
@@ -50,7 +50,7 @@ export function BeforeAfter() {
                       : ""
                   }`}
                 >
-                  <p className="text-xs font-semibold text-accent uppercase tracking-wider mb-3">
+                  <p className="text-xs font-semibold text-[#666] uppercase tracking-wider mb-3">
                     {item.category}
                   </p>
                   <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">

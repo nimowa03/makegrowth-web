@@ -18,17 +18,14 @@ export function Header() {
         className={cn(
           "fixed top-4 left-1/2 -translate-x-1/2 w-max z-50 rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
           isScrolled
-            ? "bg-[rgba(255,255,255,0.9)] backdrop-blur-xl border border-[rgba(0,0,0,0.08)] shadow-[0_4px_24px_rgba(0,0,0,0.06)]"
-            : "bg-white/10 backdrop-blur-xl border border-white/10"
+            ? "bg-[rgba(255,255,255,0.9)] backdrop-blur-xl border border-[#E0E0E0] shadow-[0_4px_24px_rgba(0,0,0,0.06)]"
+            : "bg-[rgba(255,255,255,0.8)] backdrop-blur-xl border border-[#E0E0E0]"
         )}
       >
         <div className="flex items-center gap-1 py-2 px-2 pl-5">
           <Link
             href="/"
-            className={cn(
-              "font-bold text-lg transition-colors duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] mr-4",
-              isScrolled ? "text-[#1A1A1A]" : "text-white"
-            )}
+            className="font-bold text-lg text-[#1A1A1A] transition-colors duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] mr-4"
           >
             메이크그로스
           </Link>
@@ -38,22 +35,11 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={cn(
-                  "text-sm font-medium transition-colors duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
-                  isScrolled
-                    ? "text-[#444444] hover:text-[#1A1A1A]"
-                    : "text-white/70 hover:text-white"
-                )}
+                className="text-sm font-medium text-[#666] hover:text-[#1A1A1A] transition-colors duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
               >
                 {item.label}
               </Link>
             ))}
-            <Link
-              href="/seminar"
-              className="px-4 py-2 bg-[#2A2A2F] text-white rounded-full text-sm font-semibold hover:bg-[#1A1A1F] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
-            >
-              세미나 신청
-            </Link>
           </nav>
 
           <button
@@ -64,10 +50,7 @@ export function Header() {
             <Icon
               icon="solar:hamburger-menu-linear"
               width={24}
-              className={cn(
-                "transition-colors",
-                isScrolled ? "text-[#1A1A1A]" : "text-white"
-              )}
+              className="text-[#1A1A1A]"
             />
           </button>
         </div>
@@ -114,7 +97,7 @@ export function Header() {
                   >
                     <Link
                       href={item.href}
-                      className="text-white text-2xl font-semibold py-3 block hover:text-accent transition-colors duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                      className="text-white text-2xl font-semibold py-3 block hover:text-[#999] transition-colors duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
                       onClick={() => setMobileOpen(false)}
                     >
                       {item.label}
@@ -123,24 +106,6 @@ export function Header() {
                 ))}
               </nav>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.4,
-                  delay: mainNav.length * 0.08,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                className="mt-auto"
-              >
-                <Link
-                  href="/seminar"
-                  className="block w-full text-center px-8 py-4 bg-accent text-white rounded-full font-semibold text-base hover:bg-accent-hover transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  세미나 신청하기
-                </Link>
-              </motion.div>
             </div>
           </motion.div>
         )}

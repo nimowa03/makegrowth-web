@@ -13,12 +13,12 @@ interface SectionWrapperProps {
 }
 
 const bgMap: Record<string, string> = {
-  dark: "bg-warm-dark text-white",
-  "warm-bg": "bg-warm-bg text-[#1A1A1A]",
-  "warm-surface": "bg-warm-surface text-[#1A1A1A]",
-  "gradient-transition": "bg-gradient-to-b from-warm-dark to-warm-bg",
-  light: "bg-warm-bg text-[#1A1A1A]",
-  "light-alt": "bg-warm-surface text-[#1A1A1A]",
+  dark: "bg-[#1A1A1A] text-white",
+  "warm-bg": "bg-white text-[#1A1A1A]",
+  "warm-surface": "bg-[#F8F8F8] text-[#1A1A1A]",
+  "gradient-transition": "bg-gradient-to-b from-white to-[#F8F8F8]",
+  light: "bg-white text-[#1A1A1A]",
+  "light-alt": "bg-[#FAFAFA] text-[#1A1A1A]",
 };
 
 export function SectionWrapper({

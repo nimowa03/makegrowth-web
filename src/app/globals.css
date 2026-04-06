@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&display=swap");
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
 @import "tailwindcss";
 
@@ -6,9 +6,9 @@
   --color-warm-dark: #000000;
   --color-warm-dark-surface: #1A1A1A;
   --color-warm-bg: #FFFFFF;
-  --color-warm-surface: #F8F8F8;
-  --color-accent: #8B7CF6;
-  --color-accent-hover: #7C6AED;
+  --color-warm-surface: #FFFFFF;
+  --color-accent: #1A1A1A;
+  --color-accent-hover: #444444;
   --color-cta: #2A2A2F;
   --color-cta-hover: #1A1A1F;
   --font-display: 'Outfit', 'Pretendard Variable', 'Pretendard', sans-serif;
@@ -32,56 +32,39 @@
 
   h1 {
     font-family: var(--font-display);
-    font-size: 32px;
+    font-size: 40px;
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    text-wrap: balance;
+  }
+
+  h2 {
+    font-family: var(--font-sans);
+    font-size: 36px;
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: -0.5px;
     text-wrap: balance;
   }
 
-  h2 {
-    font-family: var(--font-sans);
-    font-size: 28px;
-    font-weight: 700;
-    line-height: 1.3;
-    text-wrap: balance;
-  }
-
   h3 {
     font-family: var(--font-sans);
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 600;
     line-height: 1.4;
   }
 
   @media (min-width: 768px) {
     h1 {
-      font-size: 48px;
+      font-size: 80px;
     }
     h2 {
-      font-size: 36px;
+      font-size: 56px;
     }
     h3 {
-      font-size: 24px;
+      font-size: 28px;
     }
-  }
-}
-
-@utility gradient-text {
-  background-image: linear-gradient(135deg, #8B7CF6, #A78BFA);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-@utility gradient-cta {
-  background-image: linear-gradient(135deg, #8B7CF6 0%, #A78BFA 100%);
-  background-size: 200% 200%;
-  background-position: 0% 50%;
-  transition: background-position 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-
-  &:hover {
-    background-position: 100% 50%;
   }
 }
 
@@ -90,21 +73,6 @@
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-}
-
-@utility dark-card {
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  overflow: hidden;
-}
-
-@utility glass-card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
 }
 
 @utility noise-overlay {
@@ -129,6 +97,11 @@
 @keyframes hero-float {
   0%, 100% { transform: translateY(0) rotate(0deg); }
   50% { transform: translateY(-20px) rotate(3deg); }
+}
+
+@keyframes about-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(20px, -15px) scale(1.03); }
 }
 
 @media (prefers-reduced-motion: reduce) {

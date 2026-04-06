@@ -16,7 +16,7 @@ export const systemItems: SystemItem[] = [
     description:
       "트렌드 분석부터 AI 콘텐츠 생성, 멀티 채널 예약 발행까지 전 과정을 자동화하는 파이프라인. 매주 5~8시간 소요되던 SNS 운영을 1~2시간으로 줄여줍니다.",
     category: "콘텐츠 자동화",
-    techStack: ["N8N", "Claude API", "Instagram API", "WordPress"],
+    techStack: ["N8N", "AI API", "Instagram API", "WordPress"],
     status: "live",
     features: [
       "트렌드 키워드 자동 수집",
@@ -26,18 +26,18 @@ export const systemItems: SystemItem[] = [
     ],
   },
   {
-    id: "image-studio",
-    title: "AI Image Studio",
+    id: "detail-page-automation",
+    title: "AI 상세페이지 자동화",
     description:
-      "브랜드 톤에 맞는 상세페이지 이미지를 AI로 자동 생성. 건당 30만원 외주비를 장당 28원으로 줄이는 이미지 생성 파이프라인.",
-    category: "이미지 생성",
-    techStack: ["Midjourney", "DALL-E", "N8N", "Cloudinary"],
+      "브랜드 톤에 맞는 상세페이지를 AI로 직접 만드는 시스템. 외주 없이 대량 생산이 가능한 워크플로우.",
+    category: "상세페이지 자동화",
+    techStack: ["AI 이미지 생성", "자동화 파이프라인"],
     status: "design-complete",
     features: [
-      "브랜드 맞춤 제품컷 생성",
-      "상세페이지 이미지 자동화",
+      "브랜드 맞춤 상세페이지 생성",
+      "대량 등록용 이미지 자동화",
       "배경 제거·합성",
-      "일괄 리사이징·포맷 변환",
+      "워크플로우 직접 조정",
     ],
   },
   {

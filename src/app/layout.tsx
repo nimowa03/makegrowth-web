@@ -3,11 +3,11 @@ import "./globals.css";
 import { SITE_NAME, SITE_DESCRIPTION, SITE_URL } from "@/lib/constants";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { StickyBottomCTA } from "@/components/layout/StickyBottomCTA";
+import { ScrollProgress } from "@/components/ui/ScrollProgress";
 
 export const metadata: Metadata = {
   title: {
-    default: `${SITE_NAME} — 이커머스 셀러를 위한 AI Transformation 파트너`,
+    default: `${SITE_NAME} — 이커머스 셀러를 위한 AI 자동화 파트너`,
     template: `%s — ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
@@ -31,10 +31,10 @@ export default function RootLayout({
     <html lang="ko">
       <body>
         <div className="noise-overlay" />
+        <ScrollProgress />
         <Header />
         <main>{children}</main>
         <Footer />
-        <StickyBottomCTA />
       </body>
     </html>
   );

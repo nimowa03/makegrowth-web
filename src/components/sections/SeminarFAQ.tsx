@@ -8,7 +8,7 @@ export function SeminarFAQ() {
   return (
     <SectionWrapper theme="warm-surface" id="faq">
       <div className="text-center mb-10 md:mb-14">
-        <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium bg-accent/10 text-accent mb-4">
+        <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium border border-[#E0E0E0] text-[#666] bg-transparent mb-4">
           FAQ
         </span>
         <h2 className="text-[28px] md:text-[36px] font-bold text-[#1A1A1A] leading-snug text-balance">

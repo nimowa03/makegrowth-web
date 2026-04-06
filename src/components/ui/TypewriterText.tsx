@@ -26,16 +26,16 @@ export function TypewriterText({ texts, resolution, className }: TypewriterTextP
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="text-accent text-lg md:text-xl font-semibold"
+            className="text-[#1A1A1A] text-lg md:text-xl font-semibold"
           >
             {displayText}
           </motion.p>
         ) : (
-          <p className="text-[#DC2626]/70 text-base md:text-lg italic">
+          <p className="text-[#999] text-base md:text-lg">
             &ldquo;{displayText}
             <span
               className={cn(
-                "inline-block w-[2px] h-[1em] bg-[#DC2626] ml-0.5 align-middle",
+                "inline-block w-[2px] h-[1em] bg-[#999] ml-0.5 align-middle",
                 isTyping && "animate-pulse"
               )}
             />

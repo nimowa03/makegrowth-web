@@ -28,22 +28,28 @@ export const serviceModules: ServiceModule[] = [
       timeBefore: "주 5~8시간",
       timeAfter: "주 1~2시간",
       costBefore: "월 100~200만원 (담당자)",
-      costAfter: "83% 절감",
+      costAfter: "80%+ 절감 (대표 실제 결과)",
     },
   },
   {
-    id: "image-studio",
-    name: "AI Image Studio",
+    id: "detail-page-automation",
+    name: "AI 상세페이지 자동화",
     icon: "image",
     status: "coming-soon",
     isKiller: true,
-    description: "브랜드 맞춤 제품컷·상세페이지 이미지 자동 생성",
-    features: ["제품컷 생성", "상세페이지 이미지", "브랜드 톤 맞춤"],
+    description:
+      "브랜드 톤에 맞는 상세페이지를 AI로 직접 만드는 워크플로우. 외주 없이, 내 브랜드에 맞게, 대량 생산이 가능한 시스템.",
+    features: [
+      "상세페이지 이미지 자동 생성",
+      "브랜드 톤 맞춤 커스텀",
+      "대량 등록용 생산성",
+      "워크플로우 직접 조정",
+    ],
     metrics: {
       timeBefore: "3~5일",
-      timeAfter: "15분",
+      timeAfter: "15분 (예상)",
       costBefore: "건당 30만원",
-      costAfter: "91% 절감",
+      costAfter: "90%+ 절감 (예상)",
     },
   },
   {
@@ -56,9 +62,9 @@ export const serviceModules: ServiceModule[] = [
     features: ["매출 조회", "주문 관리", "업무 자동화"],
     metrics: {
       timeBefore: "매일 1~2시간",
-      timeAfter: "자동",
+      timeAfter: "자동 (예상)",
       costBefore: "수동 관리",
-      costAfter: "90%+ 시간 절감",
+      costAfter: "시간 절감 (예상)",
     },
   },
   {
@@ -71,9 +77,9 @@ export const serviceModules: ServiceModule[] = [
     features: ["광고 카피", "상품명 최적화", "SEO 텍스트"],
     metrics: {
       timeBefore: "건당 5~30만원",
-      timeAfter: "API 비용만",
+      timeAfter: "API 비용만 (예상)",
       costBefore: "카피라이터 외주",
-      costAfter: "90%+ 절감",
+      costAfter: "절감 (예상)",
     },
   },
   {
@@ -86,9 +92,9 @@ export const serviceModules: ServiceModule[] = [
     features: ["문의 분류", "응답 초안", "FAQ 자동 생성"],
     metrics: {
       timeBefore: "월 80~150만원 (알바)",
-      timeAfter: "인건비 대비 98.7% 절감",
+      timeAfter: "자동 응답 (예상)",
       costBefore: "인력 대응",
-      costAfter: "AI 챗봇",
+      costAfter: "비용 절감 (예상)",
     },
   },
   {
@@ -101,9 +107,9 @@ export const serviceModules: ServiceModule[] = [
     features: ["감성 분석", "키워드 추출", "개선 인사이트"],
     metrics: {
       timeBefore: "수동 분석",
-      timeAfter: "자동 리포트",
+      timeAfter: "자동 리포트 (예상)",
       costBefore: "시간 소요",
-      costAfter: "실시간",
+      costAfter: "실시간 (예상)",
     },
   },
 ];
@@ -118,12 +124,12 @@ export const beforeAfterItems: BeforeAfterItem[] = [
   {
     category: "SNS 콘텐츠 운영",
     before: "담당자 월 100~200만원",
-    after: "AI 자동 생성·발행, 83% 절감",
+    after: "AI 자동 생성·발행, 80%+ 절감",
   },
   {
     category: "상세페이지 이미지",
     before: "외주 건당 30만원, 3~5일",
-    after: "AI 생성 장당 28원, 91% 절감",
+    after: "AI 생성 장당 28원, 90%+ 절감",
   },
   {
     category: "상품 데이터 수집",
@@ -133,7 +139,7 @@ export const beforeAfterItems: BeforeAfterItem[] = [
   {
     category: "CS 고객 응대",
     before: "알바 월 80~150만원",
-    after: "AI 챗봇, 인건비 대비 98.7% 절감",
+    after: "AI 챗봇, 인건비 대비 90%+ 절감",
   },
   {
     category: "마케팅 카피",
@@ -154,12 +160,12 @@ export interface PricingTier {
 
 export const pricingTiers: PricingTier[] = [
   {
-    name: "AX 세미나",
+    name: "AX 웨비나",
     target: "입문~중급 셀러",
-    format: "그룹 실습 (10명 소규모)",
-    duration: "1일 (8시간)",
-    includes: "실습 시스템, AI 템플릿, 커뮤니티",
-    price: "인당 20만원",
+    format: "온라인 실시간 (10명 소규모)",
+    duration: "1~2시간",
+    includes: "시스템 시연, AI 템플릿, 커뮤니티",
+    price: "무료",
     highlight: true,
   },
   {
@@ -168,7 +174,7 @@ export const pricingTiers: PricingTier[] = [
     format: "1:1 코칭 + 모듈 1~2개",
     duration: "2~4주",
     includes: "시스템 세팅, 운영 가이드",
-    price: "200~300만원",
+    price: "상담 시 안내",
     highlight: false,
   },
   {
@@ -177,7 +183,7 @@ export const pricingTiers: PricingTier[] = [
     format: "전체 진단 + 맞춤 구축 + 교육",
     duration: "4~8주",
     includes: "전체 모듈 + 지속 지원",
-    price: "300~500만원",
+    price: "상담 시 안내",
     highlight: false,
   },
 ];

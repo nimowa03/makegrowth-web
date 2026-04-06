@@ -12,11 +12,11 @@ export function WhatYouGet() {
   return (
     <SectionWrapper theme="warm-bg" id="what-you-get">
       <div className="text-center mb-10 md:mb-14">
-        <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium bg-accent/10 text-accent mb-4">
+        <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium border border-[#E0E0E0] text-[#666] bg-transparent mb-4">
           What You Get
         </span>
         <h2 className="text-[28px] md:text-[36px] font-bold text-[#1A1A1A] leading-snug text-balance">
-          세미나에서 가져가는 것
+          웨비나에서 가져가는 것
         </h2>
       </div>
 
@@ -35,8 +35,8 @@ export function WhatYouGet() {
           >
             <Card variant="light" innerClassName="!p-5">
               <div className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center shrink-0 mt-0.5">
-                  <Icon icon="solar:check-circle-bold" width={14} className="text-accent" />
+                <div className="w-6 h-6 rounded-full bg-[#F0F0F0] flex items-center justify-center shrink-0 mt-0.5">
+                  <Icon icon="solar:check-circle-bold" width={14} className="text-[#666]" />
                 </div>
                 <span className="text-sm text-[#1A1A1A] font-medium leading-relaxed break-keep">
                   {item}

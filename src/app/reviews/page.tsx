@@ -22,8 +22,7 @@ export default function ReviewsPage() {
       {/* Hero — Dark */}
       <SectionWrapper theme="dark" animate={false}>
         <div ref={heroRef} className="relative overflow-hidden">
-          <div className="absolute -top-32 -left-32 w-96 h-96 bg-accent/20 rounded-full blur-[120px] pointer-events-none" />
-          <div className="absolute -bottom-32 -right-32 w-80 h-80 bg-accent/10 rounded-full blur-[100px] pointer-events-none" />
+          {/* Clean white bg - no gradient orbs */}
 
           <div className="relative text-center max-w-3xl mx-auto">
             <motion.div
@@ -31,18 +30,19 @@ export default function ReviewsPage() {
               animate={heroInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
               transition={{ duration: 0.7, ease: supanovaEase }}
             >
-              <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium bg-white/10 text-accent mb-6">
+              <span className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[11px] uppercase tracking-[0.15em] font-medium border border-[#E0E0E0] text-[#666] mb-6">
+                <span className="text-[#999]">●</span>
                 Reviews
               </span>
             </motion.div>
 
             <motion.h1
-              className="text-white mb-6"
+              className="text-[#1A1A1A] mb-6"
               initial={{ opacity: 0, y: 30, filter: "blur(4px)" }}
               animate={heroInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
               transition={{ duration: 0.7, delay: 0.1, ease: supanovaEase }}
             >
-              수강생 <span className="gradient-text">후기</span>
+              수강생 후기
             </motion.h1>
 
             <motion.p
@@ -51,7 +51,7 @@ export default function ReviewsPage() {
               animate={heroInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
               transition={{ duration: 0.7, delay: 0.2, ease: supanovaEase }}
             >
-              메이크그로스 세미나를 경험한 셀러들의 이야기입니다.
+              메이크그로스 웨비나를 경험한 셀러들의 이야기입니다.
             </motion.p>
           </div>
         </div>
@@ -104,17 +104,17 @@ export default function ReviewsPage() {
                   <Icon
                     icon="solar:chat-round-dots-linear"
                     width={56}
-                    className="text-accent/40 mx-auto mb-6"
+                    className="text-[#999] mx-auto mb-6"
                   />
                   <h3 className="text-[#1A1A1A] mb-3">
-                    첫 세미나 준비 중입니다
+                    첫 웨비나 준비 중입니다
                   </h3>
                   <p className="text-[#444444] max-w-md mx-auto mb-8">
                     곧 실제 수강생들의 생생한 후기가 채워집니다.
-                    세미나에 참여하고 첫 번째 후기의 주인공이 되어보세요.
+                    웨비나에 참여하고 첫 번째 후기의 주인공이 되어보세요.
                   </p>
                   <Button href="/seminar" showArrow>
-                    세미나 알아보기
+                    웨비나 알아보기
                   </Button>
                 </div>
               </Card>
@@ -136,10 +136,10 @@ export default function ReviewsPage() {
               다음 후기의 주인공은 당신입니다
             </h2>
             <p className="text-[#444444] text-lg mb-8 max-w-xl mx-auto">
-              하루 만에 AI 자동화 시스템을 구축하고 가져가세요.
+              AI 자동화 시스템이 어떻게 돌아가는지 직접 확인하세요.
             </p>
             <Button href="/seminar" showArrow>
-              세미나 신청하기
+              웨비나 신청하기
             </Button>
           </motion.div>
         </div>

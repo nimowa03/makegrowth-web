@@ -7,9 +7,9 @@ interface BadgeProps {
 }
 
 const badgeVariants = {
-  available: "bg-[rgba(5,150,105,0.08)] text-[#059669]",
-  "coming-soon": "bg-[rgba(217,119,6,0.08)] text-[#D97706]",
-  new: "bg-accent/10 text-accent",
+  available: "bg-[#F0F0F0] text-[#444]",
+  "coming-soon": "bg-[#F0F0F0] text-[#999]",
+  new: "bg-[#F0F0F0] text-[#444]",
   custom: "",
 };
 

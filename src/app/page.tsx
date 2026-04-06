@@ -1,27 +1,21 @@
 import { Hero } from "@/components/sections/Hero";
-import { PainPoints } from "@/components/sections/PainPoints";
-import { WhatIsAX } from "@/components/sections/WhatIsAX";
+import { MarketReality } from "@/components/sections/MarketReality";
+import { DiagnosisTool } from "@/components/sections/DiagnosisTool";
 import { KillerModule } from "@/components/sections/KillerModule";
-import { SystemsPreview } from "@/components/sections/SystemsPreview";
-import { BeforeAfter } from "@/components/sections/BeforeAfter";
-import { SeminarPreview } from "@/components/sections/SeminarPreview";
+import { WhatIsAX } from "@/components/sections/WhatIsAX";
 import { InstructorIntro } from "@/components/sections/InstructorIntro";
-import { NewsletterCTA } from "@/components/sections/NewsletterCTA";
-import { SectionWrapper } from "@/components/layout/SectionWrapper";
+import { HomepageFAQ } from "@/components/sections/HomepageFAQ";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <SectionWrapper theme="gradient-transition" />
-      <PainPoints />
-      <WhatIsAX />
+      <MarketReality />
+      <DiagnosisTool />
       <KillerModule />
-      <SystemsPreview />
-      <BeforeAfter />
-      <SeminarPreview />
+      <WhatIsAX />
       <InstructorIntro />
-      <NewsletterCTA />
+      <HomepageFAQ />
     </>
   );
 }

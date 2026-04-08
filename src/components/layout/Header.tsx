@@ -63,7 +63,7 @@ export function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 bg-[#000000]/90 backdrop-blur-3xl z-50 lg:hidden"
+            className="fixed inset-0 bg-[#1A1A1A]/95 backdrop-blur-3xl z-50 lg:hidden"
           >
             <div className="flex flex-col h-full px-8 py-8">
               <div className="flex items-center justify-between mb-12">

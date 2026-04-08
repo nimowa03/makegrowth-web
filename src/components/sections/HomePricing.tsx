@@ -113,94 +113,72 @@ export function HomePricing() {
           ))}
         </motion.div>
 
-        {/* Pricing cards */}
+        {/* Pricing cards — Bento asymmetric */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8"
+          className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-4 mb-8"
         >
-          {pricingTiers.map((tier, i) => (
-            <motion.div key={tier.name} variants={fadeInUp}>
-              <TiltCard tiltAmount={4}>
-                <div
-                  className={`rounded-2xl p-6 h-full flex flex-col transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                    tier.highlight
-                      ? "bg-[#1A1A1A] text-white border border-[#1A1A1A]"
-                      : "bg-white border border-[#E0E0E0] hover:border-[#666]"
-                  }`}
-                >
-                  {/* Icon */}
-                  <div
-                    className={`w-10 h-10 rounded-lg flex items-center justify-center mb-4 ${
-                      tier.highlight ? "bg-white/10" : "bg-[#F8F8F8]"
-                    }`}
-                  >
-                    <Icon
-                      icon={tierIcons[i]}
-                      width={22}
-                      className={tier.highlight ? "text-white/80" : "text-[#666]"}
-                    />
+          {/* Highlight card — large left */}
+          {pricingTiers.filter(t => t.highlight).map((tier, i) => (
+            <motion.div key={tier.name} variants={fadeInUp} className="lg:row-span-2">
+              <TiltCard tiltAmount={4} className="h-full">
+                <div className="rounded-2xl p-8 md:p-10 h-full flex flex-col bg-[#1A1A1A] text-white border border-[#1A1A1A] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]">
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-4 bg-white/10">
+                    <Icon icon={tierIcons[0]} width={22} className="text-white/80" />
                   </div>
-
-                  {/* Title */}
-                  <h3 className="text-lg font-bold mb-1">{tier.name}</h3>
-                  <p
-                    className={`text-sm mb-4 ${
-                      tier.highlight ? "text-white/60" : "text-[#666]"
-                    }`}
-                  >
-                    {tier.target}
-                  </p>
-
-                  {/* Price */}
-                  <p className="text-2xl font-black mb-4">{tier.price}</p>
-
-                  {/* Features */}
-                  <ul className="space-y-2 mb-6 flex-1">
+                  <h3 className="text-xl font-bold mb-1">{tier.name}</h3>
+                  <p className="text-base text-white/60 mb-6">{tier.target}</p>
+                  <p className="text-3xl md:text-4xl font-black mb-6 tabular-nums">{tier.price}</p>
+                  <ul className="space-y-3 mb-8 flex-1">
                     {[tier.format, tier.duration, tier.includes].map((item) => (
                       <li key={item} className="flex items-start gap-2">
-                        <Icon
-                          icon="solar:check-circle-linear"
-                          width={16}
-                          className={`mt-0.5 shrink-0 ${
-                            tier.highlight ? "text-white/50" : "text-[#666]"
-                          }`}
-                        />
-                        <span
-                          className={`text-sm ${
-                            tier.highlight ? "text-white/80" : "text-[#666]"
-                          }`}
-                        >
-                          {item}
-                        </span>
+                        <Icon icon="solar:check-circle-linear" width={18} className="mt-0.5 shrink-0 text-[#059669]" />
+                        <span className="text-base text-white/80">{item}</span>
                       </li>
                     ))}
                   </ul>
-
-                  {/* CTA */}
-                  {tier.highlight ? (
-                    <MagneticButton>
-                      <Button
-                        href={tierCTA[i].href}
-                        className="w-full bg-white text-[#1A1A1A] hover:bg-white/90"
-                      >
-                        {tierCTA[i].label}
-                      </Button>
-                    </MagneticButton>
-                  ) : (
-                    <Button
-                      href={tierCTA[i].href}
-                      variant="secondary"
-                      className="w-full"
-                    >
-                      {tierCTA[i].label}
+                  <MagneticButton>
+                    <Button href={tierCTA[0].href} className="w-full bg-white text-[#1A1A1A] hover:bg-white/90" size="lg">
+                      {tierCTA[0].label}
                     </Button>
-                  )}
+                  </MagneticButton>
                 </div>
               </TiltCard>
             </motion.div>
           ))}
+
+          {/* Secondary cards — stacked right */}
+          {pricingTiers.filter(t => !t.highlight).map((tier, idx) => {
+            const i = idx + 1;
+            return (
+            <motion.div key={tier.name} variants={fadeInUp}>
+              <TiltCard tiltAmount={4} className="h-full">
+                <div className="rounded-2xl p-6 h-full flex flex-col bg-white border border-[#E0E0E0] hover:border-[#666] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]">
+
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-3 bg-[#F8F8F8]">
+                    <Icon icon={tierIcons[i]} width={22} className="text-[#666]" />
+                  </div>
+                  <h3 className="text-base font-bold mb-1">{tier.name}</h3>
+                  <p className="text-sm text-[#666] mb-3">{tier.target}</p>
+                  <p className="text-xl font-black mb-3 tabular-nums">{tier.price}</p>
+                  <ul className="space-y-1.5 mb-4 flex-1">
+                    {[tier.format, tier.duration, tier.includes].map((item) => (
+                      <li key={item} className="flex items-start gap-2">
+                        <Icon icon="solar:check-circle-linear" width={14} className="mt-0.5 shrink-0 text-[#666]" />
+                        <span className="text-sm text-[#666]">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Button href={tierCTA[i].href} variant="secondary" className="w-full">
+                    {tierCTA[i].label}
+                  </Button>
+                </div>
+              </TiltCard>
+            </motion.div>
+            );
+          })}
         </motion.div>
 
         {/* Monthly plan addon */}

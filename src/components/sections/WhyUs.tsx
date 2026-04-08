@@ -248,7 +248,7 @@ export function WhyUs() {
               </p>
               <p className="text-[#666] text-sm mt-3 font-medium">빈 땅 + 골조</p>
             </div>
-            <div className="bg-[#1A1A1A] px-6 py-6 md:px-8 md:py-8 text-white">
+            <div className="bg-[#1A1A1A] backdrop-blur-xl border-l border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] px-6 py-6 md:px-8 md:py-8 text-white">
               <p className="text-xs uppercase tracking-[0.15em] font-bold text-white/50 mb-3">
                 메이크그로스
               </p>

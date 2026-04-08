@@ -314,8 +314,9 @@ export function PainCost() {
           variants={fadeInUp}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="bg-[#F8F8F8] border border-[#E0E0E0] rounded-2xl px-8 py-8 md:px-12 md:py-10 text-center"
+          className="ring-1 ring-[#E0E0E0] rounded-[1.5rem] p-1.5"
         >
+        <div className="bg-white rounded-[calc(1.5rem-0.375rem)] shadow-[inset_0_1px_1px_rgba(0,0,0,0.05)] px-8 py-8 md:px-12 md:py-10 text-center">
           <p className="text-[#1A1A1A] text-2xl md:text-3xl font-black mb-3">
             이 비용, AI 비서 하나면 90% 이상 줄일 수 있습니다
           </p>
@@ -335,6 +336,7 @@ export function PainCost() {
           <Button href="#diagnosis" size="lg" showArrow>
             내 외주비 진단해보기
           </Button>
+        </div>
         </motion.div>
       </div>
     </SectionWrapper>

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "@/hooks/useInView";
 import { SectionWrapper } from "@/components/layout/SectionWrapper";
@@ -9,8 +10,15 @@ import { MagneticButton } from "@/components/ui/MagneticButton";
 import { homepageFAQ } from "@/data/faq";
 import { fadeInUp, staggerContainer } from "@/lib/motionVariants";
 
+const categories = ["전체", "서비스", "가격", "기술"] as const;
+
 export function HomepageFAQ() {
   const { ref, isInView } = useInView({ threshold: 0.1 });
+  const [activeTab, setActiveTab] = useState<string>("전체");
+
+  const filtered = activeTab === "전체"
+    ? homepageFAQ
+    : homepageFAQ.filter((item) => item.category === activeTab);
 
   return (
     <SectionWrapper theme="warm-surface" id="faq">
@@ -19,7 +27,7 @@ export function HomepageFAQ() {
           variants={fadeInUp}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-10"
         >
           <p className="text-[#666] text-base mb-4">
             아직 궁금한 점이 있으신가요?
@@ -32,13 +40,35 @@ export function HomepageFAQ() {
           </h2>
         </motion.div>
 
+        {/* Category tabs */}
+        <motion.div
+          variants={fadeInUp}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="flex justify-center gap-2 mb-8"
+        >
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveTab(cat)}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                activeTab === cat
+                  ? "bg-[#1A1A1A] text-white"
+                  : "bg-transparent border border-[#E0E0E0] text-[#666] hover:border-[#666]"
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </motion.div>
+
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="max-w-2xl mx-auto mb-12"
+          className="max-w-2xl mx-auto mb-10"
         >
-          <Accordion items={homepageFAQ} />
+          <Accordion items={filtered} />
         </motion.div>
 
         {/* CTA */}

@@ -43,7 +43,7 @@ export function Button({
   showArrow = false,
 }: ButtonProps) {
   const classes = cn(
-    "inline-flex items-center justify-center gap-3",
+    "inline-flex items-center justify-center gap-3 group",
     variants[variant],
     sizes[size],
     disabled && "opacity-50 cursor-not-allowed",
@@ -54,7 +54,7 @@ export function Button({
     <>
       {children}
       {showArrow && (
-        <span className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
+        <span className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center group-hover:translate-x-0.5 transition-transform duration-300">
           <Icon icon="solar:arrow-right-linear" width={16} />
         </span>
       )}

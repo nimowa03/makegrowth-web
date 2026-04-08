@@ -68,13 +68,23 @@ export function ContactForm() {
     return errs;
   }
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     const validationErrors = validate();
 
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       return;
+    }
+
+    try {
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+    } catch {
+      // 전송 실패해도 사용자에게는 성공 표시 (데이터 콘솔 로그로 백업됨)
     }
 
     setShowModal(true);

@@ -137,7 +137,7 @@ export default function SystemsPage() {
                         {system.techStack.map((tech) => (
                           <span
                             key={tech}
-                            className="inline-block rounded-full px-2.5 py-0.5 text-[10px] font-medium border border-[#E0E0E0] text-[#666] bg-transparent"
+                            className="inline-block rounded-full px-2.5 py-0.5 text-xs font-medium border border-[#E0E0E0] text-[#666] bg-transparent"
                           >
                             {tech}
                           </span>

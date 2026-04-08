@@ -77,7 +77,7 @@ export default function PrivacyPage() {
           <h2 className="text-lg font-semibold text-gray-900 mt-8">7. 개인정보 보호책임자</h2>
           <ul className="list-disc pl-5 space-y-1">
             <li>책임자: 노아 (대표)</li>
-            <li>이메일: hello@makegrowth.co</li>
+            <li>이메일: charlee@makegrowth.dev</li>
           </ul>
           <p>
             개인정보 처리에 관한 문의, 불만, 피해 구제 등은 위 연락처로 문의해 주시기

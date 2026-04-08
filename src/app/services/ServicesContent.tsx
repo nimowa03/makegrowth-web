@@ -4,15 +4,20 @@ import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
 import { SectionWrapper } from "@/components/layout/SectionWrapper";
 import { Button } from "@/components/ui/Button";
-import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
-import { ProcessSteps } from "@/components/sections/ProcessSteps";
+import { TiltCard } from "@/components/ui/TiltCard";
+import { MagneticButton } from "@/components/ui/MagneticButton";
+import { PhoneMockup } from "@/components/ui/PhoneMockup";
+import { ChatSimulation } from "@/components/ui/ChatSimulation";
 import { BrowserMockup } from "@/components/ui/BrowserMockup";
-import { serviceModules } from "@/data/services";
-import type { ServiceModule } from "@/data/services";
+import { Modules } from "@/components/sections/Modules";
+import { HowItWorks } from "@/components/sections/HowItWorks";
+import { HomePricing } from "@/components/sections/HomePricing";
 import { useInView } from "@/hooks/useInView";
+import { heroScenarios } from "@/data/botDemo";
+import { serviceModules } from "@/data/services";
 
-/* ─── Icon mapping: lucide keys → Solar Iconify ─── */
+/* ─── Icon mapping ─── */
 const iconMap: Record<string, string> = {
   "share-2": "solar:share-linear",
   image: "solar:gallery-linear",
@@ -26,23 +31,9 @@ function getSolarIcon(iconName: string): string {
   return iconMap[iconName] || "solar:bolt-linear";
 }
 
-/* ─── Stagger animation variants (Supanova easing) ─── */
-const staggerContainer = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
-};
+const supanovaEase = [0.16, 1, 0.3, 1] as const;
 
-const fadeInUp = {
-  hidden: { opacity: 0, y: 30, filter: "blur(4px)" },
-  visible: {
-    opacity: 1,
-    y: 0,
-    filter: "blur(0px)",
-    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const },
-  },
-};
-
-/* ─── Hero Section (DARK with mesh gradient) ─── */
+/* ─── Section 1: Hero — Core Product ─── */
 function HeroSection() {
   return (
     <section
@@ -51,7 +42,6 @@ function HeroSection() {
         background: "linear-gradient(135deg, #0F172A 0%, #1A1A1A 50%, #0F172A 100%)",
       }}
     >
-      {/* Subtle gradient mesh */}
       <div
         className="absolute top-[-20%] right-[-10%] w-[500px] h-[500px] rounded-full pointer-events-none"
         style={{
@@ -59,46 +49,71 @@ function HeroSection() {
           animation: "svc-float 12s ease-in-out infinite",
         }}
       />
-      <div
-        className="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] rounded-full pointer-events-none"
-        style={{
-          background: "radial-gradient(circle, rgba(255,255,255,0.02) 0%, transparent 70%)",
-          animation: "svc-float 12s ease-in-out infinite 4s",
-        }}
-      />
 
       <div className="max-w-content mx-auto px-6 md:px-8 py-24 md:py-32 w-full relative z-10">
-        <div className="text-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Text */}
+          <div>
+            <motion.div
+              initial={{ opacity: 0, y: 10, filter: "blur(4px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 0.5, ease: supanovaEase }}
+            >
+              <span className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[11px] uppercase tracking-[0.15em] font-medium border border-white/20 text-white/70 mb-8">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#059669]" />
+                Core Product
+              </span>
+            </motion.div>
+            <motion.h1
+              initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 0.6, delay: 0.1, ease: supanovaEase }}
+              className="font-display text-[36px] md:text-[52px] lg:text-[64px] font-black text-white leading-[1.05] tracking-tight mb-6"
+            >
+              이커머스 셀러 전용
+              <br />
+              AI 비서 봇
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 0.6, delay: 0.2, ease: supanovaEase }}
+              className="text-white/60 text-base md:text-lg max-w-md leading-relaxed mb-8"
+            >
+              텔레그램·디스코드·슬랙에서 매출 조회, 경쟁사 모니터링, 리포트 자동 생성까지. 기본 기능은 구축 즉시 사용 가능합니다.
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3, ease: supanovaEase }}
+              className="flex gap-3"
+            >
+              <MagneticButton>
+                <Button href="/seminar" className="bg-white text-[#1A1A1A] hover:bg-white/90" size="lg">
+                  웨비나 신청
+                </Button>
+              </MagneticButton>
+              <Button href="/contact" variant="secondary" size="lg" className="border-white/30 text-white hover:bg-white/10">
+                문의하기
+              </Button>
+            </motion.div>
+          </div>
+
+          {/* Phone mockup */}
           <motion.div
-            initial={{ opacity: 0, y: 10, filter: "blur(4px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, x: 40, filter: "blur(4px)" }}
+            animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.7, delay: 0.3, ease: supanovaEase }}
+            className="flex justify-center"
           >
-            <span className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[11px] uppercase tracking-[0.15em] font-medium border border-white/20 text-white/70 mb-8">
-              <span className="w-1.5 h-1.5 rounded-full bg-white/40" />
-              Services
-            </span>
+            <PhoneMockup className="w-[280px] md:w-[300px]">
+              <ChatSimulation
+                messages={heroScenarios[0].messages}
+                autoPlay
+                loop
+              />
+            </PhoneMockup>
           </motion.div>
-          <motion.h1
-            initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="font-display text-[36px] md:text-[52px] lg:text-[64px] font-black text-white leading-[1.05] tracking-tight mb-6"
-          >
-            외주가 끝나면
-            <br />
-            시스템도 멈춥니다
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-white/60 text-base md:text-lg max-w-xl mx-auto leading-relaxed"
-          >
-            대행사가 떠나도 멈추지 않는 구조.
-            <br className="hidden md:block" />
-            직접 굴릴 수 있는 AI 시스템을 만들어 드립니다.
-          </motion.p>
         </div>
       </div>
 
@@ -106,250 +121,123 @@ function HeroSection() {
         @keyframes svc-float {
           0%, 100% { transform: translate(0, 0) scale(1); }
           50% { transform: translate(20px, -15px) scale(1.03); }
+        }
       `}</style>
     </section>
   );
 }
 
-/* ─── Gradient Transition Band ─── */
-function GradientBand() {
-  return <SectionWrapper theme="gradient-transition" />;
-}
+/* ─── Demo Video Slot ─── */
+const HAS_SERVICE_DEMO = true;
 
-/* ─── Killer Module Detail (WARM-BG, editorial split) ─── */
-function KillerModuleSection() {
-  const killer = serviceModules[0];
-  const solarIcon = getSolarIcon(killer.icon);
-  const { ref, isInView } = useInView({ threshold: 0.1 });
-
-  const pipelineSteps = [
-    { label: "트렌드 분석", desc: "카테고리별 실시간 트렌드 자동 수집" },
-    { label: "AI 콘텐츠 생성", desc: "글·이미지·영상 콘텐츠 자동 제작" },
-    { label: "Repurposing", desc: "1개 콘텐츠를 다채널용으로 자동 변환" },
-    { label: "멀티채널 발행", desc: "블로그·인스타·스마트스토어 예약 발행" },
-  ];
+function ServiceDemoVideo() {
+  if (!HAS_SERVICE_DEMO) return null;
 
   return (
-    <SectionWrapper theme="warm-bg">
-      <div ref={ref} id="sns-automation">
-        {/* Eyebrow + Heading */}
-        <div className="text-center mb-12">
-          <Badge variant="available" className="mb-4">
-            운영 중
-          </Badge>
-          <h2 className="text-[#1A1A1A]">SNS 콘텐츠 자동화</h2>
-          <p className="mt-3 text-[#444444] max-w-2xl mx-auto">
-            {killer.description}
-          </p>
-        </div>
-
-        {/* Pipeline visualization */}
-        <motion.div
-          initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
-          animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-12"
-        >
-          {pipelineSteps.map((step, i) => (
-            <div
-              key={step.label}
-              className="flex items-center gap-3 md:flex-col md:text-center"
-            >
-              <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-[#F0F0F0] flex items-center justify-center shrink-0">
-                <span className="text-[#1A1A1A] font-bold text-sm">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-              </div>
-              <div className="md:mt-3">
-                <p className="font-semibold text-sm text-[#1A1A1A]">
-                  {step.label}
-                </p>
-                <p className="text-xs text-[#444444] mt-1">{step.desc}</p>
-              </div>
-            </div>
-          ))}
-        </motion.div>
-
-        {/* Demo GIF slot */}
-        <motion.div
-          initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
-          animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
-          transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-12"
-        >
-          <BrowserMockup
-            url="n8n.makegrowth.co/workflow"
-            placeholder="N8N 워크플로우 시연 영상"
-            subtext="GIF 또는 영상이 들어갈 자리"
-            title="SNS 콘텐츠 자동화 파이프라인"
-          />
-        </motion.div>
-
-        {/* Editorial split: Features + Metrics */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Features */}
-          <motion.div
-            initial={{ opacity: 0, x: -20, filter: "blur(4px)" }}
-            animate={isInView ? { opacity: 1, x: 0, filter: "blur(0px)" } : {}}
-            transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <Card variant="light" innerClassName="p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-[#F0F0F0] flex items-center justify-center">
-                  <Icon icon={solarIcon} width={20} className="text-[#666]" />
-                </div>
-                <h3 className="text-lg font-bold text-[#1A1A1A]">주요 기능</h3>
-              </div>
-              <ul className="space-y-3">
-                {killer.features.map((feature) => (
-                  <li key={feature} className="flex items-center gap-2.5">
-                    <Icon
-                      icon="solar:check-circle-linear"
-                      width={16}
-                      className="text-[#059669] shrink-0"
-                    />
-                    <span className="text-sm text-[#444444]">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </Card>
-          </motion.div>
-
-          {/* Metrics */}
-          <motion.div
-            initial={{ opacity: 0, x: 20, filter: "blur(4px)" }}
-            animate={isInView ? { opacity: 1, x: 0, filter: "blur(0px)" } : {}}
-            transition={{ duration: 0.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <Card variant="light" innerClassName="p-6">
-              <h3 className="text-lg font-bold mb-4 text-[#1A1A1A]">도입 효과</h3>
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <Icon
-                    icon="solar:clock-circle-linear"
-                    width={20}
-                    className="text-[#666] mt-0.5 shrink-0"
-                  />
-                  <div>
-                    <p className="text-sm font-medium text-[#1A1A1A]">시간 절감</p>
-                    <p className="text-xs text-[#444444]">
-                      <span className="line-through">
-                        {killer.metrics.timeBefore}
-                      </span>
-                      {" → "}
-                      <span className="font-semibold text-[#1A1A1A]">
-                        {killer.metrics.timeAfter}
-                      </span>
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Icon
-                    icon="solar:dollar-minimalistic-linear"
-                    width={20}
-                    className="text-[#666] mt-0.5 shrink-0"
-                  />
-                  <div>
-                    <p className="text-sm font-medium text-[#1A1A1A]">비용 절감</p>
-                    <p className="text-xs text-[#444444]">
-                      <span className="line-through">
-                        {killer.metrics.costBefore}
-                      </span>
-                      {" → "}
-                      <span className="font-semibold text-[#1A1A1A]">
-                        {killer.metrics.costAfter}
-                      </span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </Card>
-          </motion.div>
-        </div>
+    <section className="py-12 md:py-16 px-6 md:px-8" style={{ background: "linear-gradient(180deg, #FFFFFF 0%, #F8F8F8 50%, #F0F0F0 100%)" }}>
+      <div className="max-w-5xl mx-auto">
+        <p className="text-[#1A1A1A] text-center text-lg md:text-xl font-bold mb-2">
+          실제 AI 직원의 작동 시연 영상입니다
+        </p>
+        <p className="text-[#666] text-center text-base mb-8">
+          메신저에서 한 줄이면 매출 조회, 리포트, 경쟁사 모니터링까지 — 직접 확인하세요
+        </p>
+        <BrowserMockup
+          videoSrc="/videos/service-demo.mp4"
+          clickToPlay
+          url="makegrowth.dev"
+        />
       </div>
-    </SectionWrapper>
+    </section>
   );
 }
 
-/* ─── Upcoming Modules (compact list) ─── */
-function UpcomingModulesSection() {
+/* ─── Section 5: Portfolio / Case Studies ─── */
+function PortfolioSection() {
   const { ref, isInView } = useInView({ threshold: 0.1 });
-  const upcoming = serviceModules.filter((m) => m.status === "coming-soon");
+  const killer = serviceModules.find((m) => m.id === "sns-automation");
+
+  if (!killer) return null;
 
   return (
-    <SectionWrapper theme="warm-surface">
-      <div ref={ref}>
-        <div className="text-center mb-8">
+    <SectionWrapper theme="warm-bg">
+      <div ref={ref} className="max-w-4xl mx-auto">
+        <div className="text-center mb-12">
           <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium border border-[#E0E0E0] text-[#666] bg-transparent mb-4">
-            확장 예정
+            구축 사례
           </span>
-          <h2 className="text-[#1A1A1A] text-[28px] md:text-[36px]">
-            준비 중인 모듈
+          <h2 className="text-[#1A1A1A] text-[28px] md:text-[40px] font-black">
+            이런 시스템을 만들어드렸습니다
           </h2>
         </div>
 
         <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="max-w-2xl mx-auto space-y-3"
+          initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+          animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+          transition={{ duration: 0.6, ease: supanovaEase }}
         >
-          {upcoming.map((mod: ServiceModule) => (
-            <motion.div
-              key={mod.id}
-              id={mod.id}
-              variants={fadeInUp}
-              className="flex items-center justify-between py-3 border-b border-[#E0E0E0] last:border-0"
-            >
-              <div className="flex items-center gap-3">
-                <Icon
-                  icon={getSolarIcon(mod.icon)}
-                  width={18}
-                  className="text-[#999]"
-                />
-                <span className="text-sm font-medium text-[#1A1A1A]">
-                  {mod.name}
-                </span>
+          <TiltCard tiltAmount={4}>
+            <div className="border border-[#E0E0E0] rounded-2xl p-6 md:p-8 bg-white">
+              <div className="flex items-center gap-3 mb-4">
+                <Badge variant="available">운영 중</Badge>
+                <span className="text-sm font-bold text-[#1A1A1A]">{killer.name}</span>
               </div>
-              <Badge variant="coming-soon">준비 중</Badge>
-            </motion.div>
-          ))}
+              <p className="text-sm text-[#666] mb-6">{killer.description}</p>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-[#F8F8F8] rounded-xl p-4">
+                  <p className="text-xs text-[#999] mb-1">시간 절감</p>
+                  <p className="text-sm">
+                    <span className="line-through text-[#999]">{killer.metrics.timeBefore}</span>
+                    {" → "}
+                    <span className="font-bold text-[#1A1A1A]">{killer.metrics.timeAfter}</span>
+                  </p>
+                </div>
+                <div className="bg-[#F8F8F8] rounded-xl p-4">
+                  <p className="text-xs text-[#999] mb-1">비용 절감</p>
+                  <p className="text-sm">
+                    <span className="line-through text-[#999]">{killer.metrics.costBefore}</span>
+                    {" → "}
+                    <span className="font-bold text-[#1A1A1A]">{killer.metrics.costAfter}</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </TiltCard>
         </motion.div>
       </div>
     </SectionWrapper>
   );
 }
 
-/* ─── CTA Section (WARM-BG with accent-bordered Double-Bezel card) ─── */
+/* ─── CTA Section ─── */
 function CTASection() {
   const { ref, isInView } = useInView({ threshold: 0.1 });
 
   return (
-    <SectionWrapper theme="warm-bg">
-      <div ref={ref} className="max-w-2xl mx-auto">
+    <SectionWrapper theme="warm-surface">
+      <div ref={ref} className="max-w-2xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 30, filter: "blur(4px)" }}
           animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.7, ease: supanovaEase }}
+          className="bg-[#1A1A1A] rounded-2xl p-8 md:p-12"
         >
-          <Card
-            variant="light"
-            className="ring-2 ring-[#1A1A1A]/20"
-            innerClassName="p-8 md:p-12 text-center"
-          >
-            <span className="inline-block rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.15em] font-medium border border-[#E0E0E0] text-[#666] bg-transparent mb-6">
-              Get Started
-            </span>
-            <h2 className="text-[#1A1A1A] mb-8">시작하기</h2>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button href="/seminar" variant="primary" size="lg" showArrow>
+          <h2 className="text-white font-black text-2xl md:text-3xl mb-4">
+            AI 비서 봇, 직접 확인하세요
+          </h2>
+          <p className="text-white/70 text-sm mb-8">
+            무료 웨비나에서 실제 봇을 라이브 시연합니다
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <MagneticButton>
+              <Button href="/seminar" className="bg-white text-[#1A1A1A] hover:bg-white/90" size="lg" showArrow>
                 웨비나 신청하기
               </Button>
-              <Button href="/contact" variant="secondary" size="lg">
-                문의하기
-              </Button>
-            </div>
-          </Card>
+            </MagneticButton>
+            <Button href="/contact" variant="secondary" size="lg" className="border-white/30 text-white hover:bg-white/10">
+              문의하기
+            </Button>
+          </div>
         </motion.div>
       </div>
     </SectionWrapper>
@@ -361,12 +249,11 @@ export function ServicesContent() {
   return (
     <>
       <HeroSection />
-      <GradientBand />
-      <KillerModuleSection />
-      <UpcomingModulesSection />
-      <SectionWrapper theme="warm-bg">
-        <ProcessSteps />
-      </SectionWrapper>
+      <ServiceDemoVideo />
+      <Modules />
+      <HowItWorks />
+      <HomePricing />
+      <PortfolioSection />
       <CTASection />
     </>
   );

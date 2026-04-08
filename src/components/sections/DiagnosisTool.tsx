@@ -9,6 +9,8 @@ import {
   revenueRanges,
   revenueMidpoints,
   painPointOptions,
+  sellerStatusOptions,
+  aiInterestOptions,
   type TaskItem,
 } from "@/data/diagnosis";
 import { fadeInUp } from "@/lib/motionVariants";
@@ -244,6 +246,9 @@ export function DiagnosisTool() {
   const [email, setEmail] = useState("");
   const [painPoint, setPainPoint] = useState("");
   const [painDetail, setPainDetail] = useState("");
+  const [sellerStatus, setSellerStatus] = useState("");
+  const [aiInterest, setAiInterest] = useState("");
+  const [freeComment, setFreeComment] = useState("");
   const [privacyConsent, setPrivacyConsent] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -301,6 +306,9 @@ export function DiagnosisTool() {
           outsourceCosts,
           painPoint,
           painDetail,
+          sellerStatus,
+          aiInterest,
+          freeComment,
           results,
         }),
       });
@@ -325,6 +333,16 @@ export function DiagnosisTool() {
 
   return (
     <SectionWrapper theme="warm-bg" id="diagnosis" animate={false}>
+      {/* Narrative bridge */}
+      {step === 0 && (
+        <p
+          className="text-[#666] text-center text-base mb-6 max-w-lg mx-auto"
+          style={{ wordBreak: "keep-all" }}
+        >
+          내 사업에선 어디에 시간과 비용이 쓰이고 있을까요?
+        </p>
+      )}
+
       <ProgressDots step={step} />
 
       <AnimatePresence mode="wait">
@@ -743,15 +761,33 @@ export function DiagnosisTool() {
               </div>
             </div>
 
+            {/* Next Step CTA */}
+            <div className="rounded-xl border border-[#E0E0E0] bg-[#F8F8F8] p-6 mb-8 text-center">
+              <p className="text-[#1A1A1A] font-bold text-lg mb-2">
+                이 비용, AI 직원이 대신 처리할 수 있습니다
+              </p>
+              <p className="text-[#666] text-sm mb-5" style={{ wordBreak: "keep-all" }}>
+                월 5~10만원으로 시작하는 AI 직원이 어떤 일을 하는지 확인해보세요
+              </p>
+              <div className="flex gap-3 justify-center flex-wrap">
+                <Button href="/contact" variant="primary" size="sm">
+                  도입 문의하기
+                </Button>
+                <Button href="/services" variant="secondary" size="sm">
+                  서비스 자세히 보기
+                </Button>
+              </div>
+            </div>
+
             {/* Section D: Email Collection */}
             <div className="rounded-xl border border-[#E0E0E0] bg-[#F8F8F8] p-6 md:p-8 mb-8">
               {!submitted ? (
                 <>
                   <h4 className="text-sm font-semibold text-[#1A1A1A] mb-2">
-                    이 분석 결과를 저장하고, 영역별 절감 방법 + AI 프롬프트를 이메일로 보내드릴까요?
+                    분석 결과를 이메일로 받아보시겠어요?
                   </h4>
-                  <p className="text-xs text-[#999] mb-5">
-                    입력하신 정보는 리포트 발송 외에 사용되지 않습니다.
+                  <p className="text-xs text-[#666] mb-5">
+                    영역별 절감 방법과 다음 단계를 정리해서 보내드립니다. 다른 용도로 사용되지 않습니다.
                   </p>
 
                   <div className="space-y-4 max-w-md">
@@ -785,13 +821,51 @@ export function DiagnosisTool() {
                       />
                     </div>
 
+                    <div className="relative">
+                      <label className="block text-xs text-[#666] mb-1">셀러 활동 현황 (선택)</label>
+                      <select
+                        value={sellerStatus}
+                        onChange={(e) => setSellerStatus(e.target.value)}
+                        className={selectClass}
+                      >
+                        <option value="">선택하세요</option>
+                        {sellerStatusOptions.map((opt) => (
+                          <option key={opt} value={opt}>{opt}</option>
+                        ))}
+                      </select>
+                      <Icon
+                        icon="solar:alt-arrow-down-linear"
+                        className="absolute right-3 top-[34px] text-[#666] pointer-events-none"
+                        width={16}
+                      />
+                    </div>
+
+                    <div className="relative">
+                      <label className="block text-xs text-[#666] mb-1">AI 솔루션 관심도 (선택)</label>
+                      <select
+                        value={aiInterest}
+                        onChange={(e) => setAiInterest(e.target.value)}
+                        className={selectClass}
+                      >
+                        <option value="">선택하세요</option>
+                        {aiInterestOptions.map((opt) => (
+                          <option key={opt} value={opt}>{opt}</option>
+                        ))}
+                      </select>
+                      <Icon
+                        icon="solar:alt-arrow-down-linear"
+                        className="absolute right-3 top-[34px] text-[#666] pointer-events-none"
+                        width={16}
+                      />
+                    </div>
+
                     <div>
-                      <label className="block text-xs text-[#999] mb-1">추가 내용 (선택)</label>
+                      <label className="block text-xs text-[#666] mb-1">하고 싶은 말 (선택)</label>
                       <textarea
-                        value={painDetail}
-                        onChange={(e) => setPainDetail(e.target.value)}
-                        placeholder="구체적인 고민이 있다면 자유롭게 적어주세요"
-                        rows={1}
+                        value={freeComment}
+                        onChange={(e) => setFreeComment(e.target.value)}
+                        placeholder="셀러 생활에서 가장 해결하고 싶은 문제, AI에 기대하는 점, 또는 어떤 이야기든 자유롭게 적어주세요"
+                        rows={3}
                         className="w-full px-4 py-3 rounded-lg border border-[#E0E0E0] bg-white text-[#1A1A1A] text-sm focus:outline-none focus:border-[#1A1A1A] transition-colors duration-300 resize-none"
                       />
                     </div>
@@ -824,8 +898,8 @@ export function DiagnosisTool() {
                   <p className="text-sm font-semibold text-[#1A1A1A] mb-1">
                     리포트가 발송되었습니다!
                   </p>
-                  <p className="text-xs text-[#999]">
-                    입력하신 이메일로 상세 분석 리포트와 AI 프롬프트를 보내드립니다.
+                  <p className="text-xs text-[#666]">
+                    입력하신 이메일로 분석 리포트를 보내드립니다.
                   </p>
                 </div>
               )}

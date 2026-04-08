@@ -60,7 +60,7 @@ export function RefundPolicy() {
           </table>
         </Card>
         <p className="text-xs text-[#666666] text-center mt-4">
-          환불 요청은 이메일(hello@makegrowth.co)로 접수해 주세요.
+          환불 요청은 이메일(charlee@makegrowth.dev)로 접수해 주세요.
         </p>
       </motion.div>
     </SectionWrapper>

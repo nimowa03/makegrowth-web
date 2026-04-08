@@ -5,23 +5,14 @@ export async function POST(req: Request) {
     const data = await req.json();
     const timestamp = new Date().toISOString();
 
-    console.log("[Diagnosis Submission]", JSON.stringify(data, null, 2));
+    console.log("[Contact Submission]", JSON.stringify(data, null, 2));
 
     // Google Sheets
-    await appendToSheet("진단", [
+    await appendToSheet("문의", [
       timestamp,
+      data.name || "",
       data.email || "",
-      data.category || "",
-      data.revenue || "",
-      data.sellerStatus || "",
-      data.aiInterest || "",
-      data.painPoint || "",
-      data.freeComment || "",
-      JSON.stringify(data.hours || {}),
-      data.results?.totalHours || 0,
-      data.results?.totalMonthlyCost || 0,
-      data.results?.totalMonthlySavings || 0,
-      data.results?.savingsRate || 0,
+      data.mainConcern || "",
     ]);
 
     // N8N Webhook (when env is configured)
@@ -29,7 +20,7 @@ export async function POST(req: Request) {
       await fetch(process.env.N8N_WEBHOOK_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ type: "diagnosis", ...data }),
+        body: JSON.stringify({ type: "contact", ...data }),
       });
     }
 

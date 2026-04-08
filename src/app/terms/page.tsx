@@ -25,7 +25,7 @@ export default function TermsPage() {
 
           <h2 className="text-lg font-semibold text-gray-900 mt-8">제2조 (정의)</h2>
           <ul className="list-disc pl-5 space-y-1">
-            <li>&quot;서비스&quot;란 회사가 웹사이트(makegrowth.co)를 통해 제공하는 AI 자동화 진단, 교육 콘텐츠, 웨비나, 컨설팅, 뉴스레터 등 일체의 서비스를 말합니다.</li>
+            <li>&quot;서비스&quot;란 회사가 웹사이트(makegrowth.dev)를 통해 제공하는 AI 자동화 진단, 교육 콘텐츠, 웨비나, 컨설팅, 뉴스레터 등 일체의 서비스를 말합니다.</li>
             <li>&quot;이용자&quot;란 본 약관에 따라 회사가 제공하는 서비스를 이용하는 자를 말합니다.</li>
             <li>&quot;콘텐츠&quot;란 회사가 서비스를 통해 제공하는 교육 자료, 진단 결과, 영상, 문서 등 일체의 정보를 말합니다.</li>
           </ul>

@@ -36,7 +36,7 @@ const INFO_ITEMS = [
 export default function ContactPage() {
   return (
     <section className="bg-white min-h-screen py-20 md:py-32 px-6 md:px-8">
-      <div className="max-w-content mx-auto">
+      <div className="max-w-content mx-auto animate-[fadeInUp_0.7s_cubic-bezier(0.16,1,0.3,1)_both]">
         {/* Header */}
         <div className="mb-14 md:mb-20">
           <span className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[11px] uppercase tracking-[0.15em] font-medium border border-[#E0E0E0] text-[#666] mb-6">

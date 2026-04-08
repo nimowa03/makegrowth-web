@@ -87,3 +87,42 @@ export const hoverCardSubtle = {
   y: -2,
   transition: { duration: 0.4, ease: supanovaEase },
 };
+
+/* ── Chat Bubble Animation ── */
+
+export const chatBubbleIn: Variants = {
+  hidden: { opacity: 0, y: 8, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.35, ease: supanovaEase },
+  },
+};
+
+/* ── Scenario Crossfade ── */
+
+export const fadeSwitch: Variants = {
+  hidden: { opacity: 0, filter: "blur(4px)" },
+  visible: {
+    opacity: 1,
+    filter: "blur(0px)",
+    transition: { duration: 0.5, ease: supanovaEase },
+  },
+  exit: {
+    opacity: 0,
+    filter: "blur(4px)",
+    transition: { duration: 0.3 },
+  },
+};
+
+/* ── Phone Mockup Float ── */
+
+export const floatY = {
+  y: [0, -8, 0],
+  transition: {
+    duration: 6,
+    repeat: Infinity,
+    ease: "easeInOut" as const,
+  },
+};

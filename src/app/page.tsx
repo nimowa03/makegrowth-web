@@ -1,20 +1,35 @@
 import { Hero } from "@/components/sections/Hero";
-import { MarketReality } from "@/components/sections/MarketReality";
+import { VideoIntro } from "@/components/sections/VideoIntro";
+import { PainCost } from "@/components/sections/PainCost";
+import { BotDemo } from "@/components/sections/BotDemo";
+import { HomePricing } from "@/components/sections/HomePricing";
 import { DiagnosisTool } from "@/components/sections/DiagnosisTool";
-import { KillerModule } from "@/components/sections/KillerModule";
-import { WhatIsAX } from "@/components/sections/WhatIsAX";
-import { InstructorIntro } from "@/components/sections/InstructorIntro";
+import { HowItWorks } from "@/components/sections/HowItWorks";
+import { WhyUs } from "@/components/sections/WhyUs";
 import { HomepageFAQ } from "@/components/sections/HomepageFAQ";
 
 export default function Home() {
   return (
     <>
+      {/* ── Hook: 멈추게 한다 ── */}
       <Hero />
-      <MarketReality />
+      <VideoIntro />
+
+      {/* ── Bridge: 내 문제라고 느끼게 한다 ── */}
+      <PainCost />
+
+      {/* ── Promise: 해결된 모습을 보여준다 ── */}
+      <BotDemo />
+      <HomePricing />
+
+      {/* ── Deepen: 내 상황으로 구체화 ── */}
       <DiagnosisTool />
-      <KillerModule />
-      <WhatIsAX />
-      <InstructorIntro />
+
+      {/* ── Trust: 신뢰 구축 ── */}
+      <HowItWorks />
+      <WhyUs />
+
+      {/* ── Close ── */}
       <HomepageFAQ />
     </>
   );

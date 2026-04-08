@@ -38,3 +38,4 @@ next-env.d.ts
 docs/references/*.png
 docs/references/*.jpeg
 docs/references/*.jpg
+makegrowth-*.json

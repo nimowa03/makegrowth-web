@@ -38,7 +38,7 @@ export const serviceModules: ServiceModule[] = [
     status: "coming-soon",
     isKiller: true,
     description:
-      "브랜드 톤에 맞는 상세페이지를 AI로 직접 만드는 워크플로우. 외주 없이, 내 브랜드에 맞게, 대량 생산이 가능한 시스템.",
+      "브랜드 톤에 맞는 상세페이지를 AI로 직접 만드는 워크플로우. 내 브랜드에 맞게, 대량 생산이 가능한 시스템.",
     features: [
       "상세페이지 이미지 자동 생성",
       "브랜드 톤 맞춤 커스텀",
@@ -56,15 +56,15 @@ export const serviceModules: ServiceModule[] = [
     id: "seller-bot",
     name: "AI 셀러 비서 봇",
     icon: "bot",
-    status: "coming-soon",
-    isKiller: false,
-    description: "오픈마켓 API 연동, 매출·주문 실시간 조회, 셀러 업무 위임",
-    features: ["매출 조회", "주문 관리", "업무 자동화"],
+    status: "available",
+    isKiller: true,
+    description: "오픈마켓 API 연동, 매출·주문 실시간 조회, 셀러 업무 자동화",
+    features: ["매출 조회", "주문 관리", "경쟁사 모니터링", "자동 리포트", "CS 자동 응대"],
     metrics: {
       timeBefore: "매일 1~2시간",
-      timeAfter: "자동 (예상)",
+      timeAfter: "자동",
       costBefore: "수동 관리",
-      costAfter: "시간 절감 (예상)",
+      costAfter: "90%+ 시간 절감",
     },
   },
   {
@@ -160,30 +160,43 @@ export interface PricingTier {
 
 export const pricingTiers: PricingTier[] = [
   {
-    name: "AX 웨비나",
-    target: "입문~중급 셀러",
-    format: "온라인 실시간 (10명 소규모)",
-    duration: "1~2시간",
-    includes: "시스템 시연, AI 템플릿, 커뮤니티",
-    price: "무료",
+    name: "AI 직원 고용",
+    target: "반복 업무를 맡길 AI가 필요한 셀러",
+    format: "봇 배포 + 온보딩 안내",
+    duration: "즉시 시작",
+    includes: "프리세팅된 셀러 전용 봇, 매출 조회·리포트·알림 기본 기능, 휴대폰 메신저 연동",
+    price: "월 5~10만원",
     highlight: true,
   },
   {
-    name: "AX 라이트",
-    target: "운영 중 셀러",
-    format: "1:1 코칭 + 모듈 1~2개",
+    name: "맞춤 커스텀",
+    target: "내 사업에 딱 맞는 봇이 필요한 셀러",
+    format: "1:1 진단 + 커스텀 세팅",
     duration: "2~4주",
-    includes: "시스템 세팅, 운영 가이드",
-    price: "상담 시 안내",
+    includes: "카테고리·채널별 맞춤 세팅, API 연동, 추가 모듈 구축, 운영 교육",
+    price: "별도 협의",
     highlight: false,
   },
   {
-    name: "AX 풀 패키지",
-    target: "스케일업 셀러·소규모 팀",
-    format: "전체 진단 + 맞춤 구축 + 교육",
-    duration: "4~8주",
-    includes: "전체 모듈 + 지속 지원",
-    price: "상담 시 안내",
+    name: "무료 웨비나",
+    target: "봇이 실제로 일하는 모습을 먼저 보고 싶은 셀러",
+    format: "온라인 실시간 (10명 소규모)",
+    duration: "1~1.5시간",
+    includes: "봇 라이브 시연, 실제 사례 공유, Q&A",
+    price: "무료",
     highlight: false,
   },
 ];
+
+export interface MonthlyPlan {
+  name: string;
+  price: string;
+  description: string;
+}
+
+export const monthlyPlan: MonthlyPlan = {
+  name: "AI 직원 유지비",
+  price: "월 5~10만원",
+  description:
+    "클라우드 호스팅, 유지보수, 업데이트 포함. 알바 월 200만원 vs AI 직원 월 5~10만원.",
+};

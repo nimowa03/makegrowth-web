@@ -49,16 +49,15 @@ export function SeminarHero() {
 
           {/* H1 */}
           <h1 className="font-display text-[36px] md:text-[52px] lg:text-[64px] font-black text-white leading-[1.05] tracking-tight mb-6">
-            1~2시간 만에 이해하는
+            AI 셀러 비서 봇
             <br />
-            AI 셀러 자동화 시스템
+            라이브 시연 웨비나
           </h1>
 
           {/* Sub copy */}
           <p className="text-white/60 text-base md:text-lg max-w-xl mb-10 leading-relaxed">
-            내 상품, 내 카테고리에 맞는 AI 자동화 파이프라인을
-            실제로 돌아가는 시스템으로 보여드립니다.
-            코딩 없이, 셀러가 직접 만들 수 있는 방법까지.
+            실제 쿠팡 매출 조회, 경쟁사 가격 모니터링, 자동 리포트까지.
+            내 사업에 맞는 AI 비서 봇을 눈앞에서 보여드립니다.
           </p>
         </motion.div>
 

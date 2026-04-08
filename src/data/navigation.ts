@@ -4,18 +4,19 @@ export interface NavItem {
 }
 
 export const mainNav: NavItem[] = [
-  { label: "루틴 분석", href: "/#diagnosis" },
   { label: "서비스", href: "/services" },
+  { label: "가격", href: "/#pricing" },
   { label: "웨비나", href: "/seminar" },
-  { label: "About", href: "/about" },
-  { label: "문의", href: "/contact" },
+  { label: "프로필", href: "/about" },
+  { label: "도입 문의", href: "/contact" },
 ];
 
 export const footerNav = {
   services: [
-    { label: "SNS 콘텐츠 자동화", href: "/services#sns-automation" },
-    { label: "AI 상세페이지 자동화", href: "/services#detail-page-automation" },
-    { label: "셀러 루틴 분석기", href: "/diagnosis" },
+    { label: "AI 셀러 비서 봇", href: "/#bot-demo" },
+    { label: "봇 모듈", href: "/services" },
+    { label: "가격 안내", href: "/#pricing" },
+    { label: "무료 웨비나", href: "/seminar" },
   ],
   company: [
     { label: "About", href: "/about" },

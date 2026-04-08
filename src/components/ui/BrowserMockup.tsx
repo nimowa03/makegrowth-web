@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useRef } from "react";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
 import { cn } from "@/lib/utils";
@@ -12,17 +13,28 @@ interface BrowserMockupProps {
   placeholder?: string;
   subtext?: string;
   className?: string;
+  clickToPlay?: boolean;
+  posterSrc?: string;
 }
 
 export function BrowserMockup({
-  url = "makegrowth.co",
+  url = "makegrowth.dev",
   title,
   imageSrc,
   videoSrc,
   placeholder,
   subtext,
   className,
+  clickToPlay = false,
+  posterSrc,
 }: BrowserMockupProps) {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  function handlePlayClick() {
+    setIsPlaying(true);
+    setTimeout(() => videoRef.current?.play(), 100);
+  }
   return (
     <div
       className={cn(
@@ -57,13 +69,37 @@ export function BrowserMockup({
 
       {/* Content area */}
       <div className="aspect-video bg-[#F8F8F8] relative">
-        {videoSrc ? (
+        {videoSrc && clickToPlay && !isPlaying ? (
+          <button
+            onClick={handlePlayClick}
+            className="w-full h-full flex flex-col items-center justify-center cursor-pointer group/play"
+            aria-label="영상 재생"
+          >
+            {posterSrc ? (
+              <Image
+                src={posterSrc}
+                alt="영상 썸네일"
+                fill
+                className="object-cover"
+              />
+            ) : null}
+            <div className={`${posterSrc ? "absolute inset-0 bg-black/30" : ""} flex items-center justify-center w-full h-full`}>
+              <Icon
+                icon="solar:play-circle-bold"
+                width={64}
+                className="text-white/80 group-hover/play:text-white group-hover/play:scale-110 transition-all duration-500"
+              />
+            </div>
+          </button>
+        ) : videoSrc ? (
           <video
+            ref={videoRef}
             src={videoSrc}
-            autoPlay
+            autoPlay={!clickToPlay}
             muted
             loop
             playsInline
+            controls={clickToPlay}
             className="w-full h-full object-cover"
           />
         ) : imageSrc ? (

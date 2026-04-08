@@ -6,7 +6,7 @@ export const heroPainPoints = [
   "SNS 운영? 할 시간이 어디 있어요",
 ];
 
-export const heroResolution = "내 사업에 맞는 AI 시스템, 직접 세팅하고 직접 운영하세요.";
+export const heroResolution = "AI 직원 한 명이면, 이 고민 전부 해결됩니다.";
 
 export interface StatCard {
   number: string;

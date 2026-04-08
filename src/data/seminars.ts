@@ -22,8 +22,8 @@ export interface Seminar {
 
 export const currentSeminar: Seminar = {
   id: "ax-webinar-2026-h2",
-  slug: "ax-ai-automation-webinar",
-  title: "이커머스 셀러를 위한 AI 자동화 웨비나",
+  slug: "ax-ai-bot-webinar",
+  title: "AI 셀러 비서 봇 — 내 사업에 맞게 직접 세팅하는 웨비나",
   date: "2026 하반기 예정",
   time: "20:00 - 21:30",
   location: "온라인 (Zoom)",
@@ -33,33 +33,33 @@ export const currentSeminar: Seminar = {
   status: "pre-registration",
   curriculum: [
     {
-      time: "20:00 - 20:15",
+      time: "20:00 - 20:20",
       stage: "1단계",
-      title: "셀러 루틴 진단",
+      title: "봇 라이브 시연",
       description:
-        "하루 중 어디에 시간이 빠지고, 어디에 외주비가 나가는지 분석. 자동화 가능 영역 식별.",
-      deliverable: "내 루틴에서 AI 전환 가능한 업무 목록",
+        "실제 쿠팡 매출 조회, 경쟁사 가격 모니터링, 일일 리포트 자동 생성을 눈앞에서 시연합니다.",
+      deliverable: "실제 작동하는 AI 비서 봇 확인",
     },
     {
-      time: "20:15 - 20:45",
+      time: "20:20 - 20:50",
       stage: "2단계",
-      title: "AI 자동화 시스템 라이브 시연",
+      title: "봇이 할 수 있는 일 전체 소개",
       description:
-        "실제로 돌아가는 멀티채널 콘텐츠 자동화 시스템을 눈앞에서 시연. 트렌드 수집부터 5채널 발행까지.",
-      deliverable: "시스템이 실제로 돌아가는 모습 확인",
+        "기본 기능(매출/주문/재고/리포트)부터 추가 모듈(SNS/CS/상세페이지), 한국어로 기능을 추가하는 커스텀 방법까지.",
+      deliverable: "봇 기능 전체 맵과 내 사업 적용 방안",
     },
     {
-      time: "20:45 - 21:10",
+      time: "20:50 - 21:10",
       stage: "3단계",
-      title: "내 사업에 적용하는 방법",
+      title: "도입 방법 안내",
       description:
-        "코딩 없이 AI 빌더 도구로 자동화 시스템을 만드는 과정을 안내. 내 카테고리, 내 브랜드에 맞게 세팅하는 방법.",
-      deliverable: "내 사업에 적용하는 구체적 로드맵",
+        "세미나(직접 세팅 실습), 구축대행(맞춤 커스텀), 관리형 월정액(바로 사용) 중 내 상황에 맞는 시작 방법.",
+      deliverable: "내 상황에 맞는 도입 로드맵",
     },
     {
       time: "21:10 - 21:30",
       stage: "4단계",
-      title: "Q&A + 다음 단계",
+      title: "Q&A + 다음 단계 안내",
       description:
         "참가자별 상황에 맞는 실시간 질의응답. 웨비나 이후 어떻게 시작하면 되는지 안내.",
       deliverable: "개별 상황에 맞는 시작 포인트",
@@ -69,23 +69,23 @@ export const currentSeminar: Seminar = {
 
 export const seminarCounters = [
   {
-    value: 80,
-    suffix: "%+",
-    label: "콘텐츠 제작 시간 절감 (대표 실제 결과)",
-  },
-  {
     value: 90,
     suffix: "%+",
-    label: "이미지 외주비 절감 (대표 실제 결과)",
+    label: "반복 업무 자동화 (봇 기본 기능)",
   },
-  { value: 5, suffix: "채널", label: "동시 발행 자동화" },
+  {
+    value: 80,
+    suffix: "%+",
+    label: "외주비 절감 (대표 실제 결과)",
+  },
+  { value: 6, suffix: "가지", label: "봇 기본 모듈" },
 ];
 
 export const whatYouGet = [
-  "실제로 돌아가는 AI 자동화 시스템 시연",
+  "실제로 작동하는 AI 셀러 비서 봇 라이브 시연",
   "내 카테고리에 적용하는 구체적 방법",
-  "코딩 없이 시작하는 AI 빌더 도구 소개",
-  "참가자 전용 자동화 템플릿",
+  "봇 기능 전체 소개 및 커스텀 방법 안내",
+  "참가자 전용 봇 세팅 가이드",
   "1:1 Q&A 시간",
   "웨비나 이후 커뮤니티 참여 기회",
 ];
@@ -104,7 +104,7 @@ export const seminarPersonas = [
   {
     title: "AI를 써봤지만 안 맞던 셀러",
     description:
-      "ChatGPT로 해봤는데 내 브랜드 톤이랑 안 맞고, 결국 직접 다시 했다",
+      "AI 도구를 써봤지만 내 업무 흐름과 맞지 않아 결국 직접 다시 했다",
   },
   {
     title: "시스템을 만들고 싶은 셀러",

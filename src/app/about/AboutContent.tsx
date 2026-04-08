@@ -14,21 +14,21 @@ import { CEO_NAME } from "@/lib/constants";
 const timelineStages = [
   {
     number: 1,
-    title: "셀러",
+    title: "2023 — 이커머스 셀러",
     description:
-      "이커머스 셀러로서 직접 상품 소싱, 리스팅, 마케팅, CS를 경험. 현장의 고충을 몸으로 체감.",
+      "상세페이지, SNS, CS — 할 줄 모르는 업무마다 외주비가 나갔습니다. 매출은 있는데 남는 건 없는 구조가 반복됐습니다.",
   },
   {
     number: 2,
-    title: "빌더",
+    title: "2024–25 — AI로 직접 해결",
     description:
-      "SeSAC AI·데이터 분석 과정 수료. AI 해커톤 참여. AI 빌더 도구와 노코드 자동화로 셀러용 시스템 구축.",
+      "반복되는 업무를 AI로 전환하기 시작했습니다. 직접 할 수 있는 영역을 하나씩 늘리며, 필요한 시스템을 직접 구축했습니다.",
   },
   {
     number: 3,
-    title: "창업",
+    title: "2026 — 메이크그로스 창업",
     description:
-      "셀러 경험 + AI 빌딩 역량을 결합해 메이크그로스를 설립. 이커머스 셀러를 위한 AI 자동화 파트너.",
+      "같은 고민을 하는 셀러가 수없이 많다는 걸 알게 됐습니다. AI 직원을 세팅해주는 것에서 끝나지 않고, 셀러가 직접 운영하고 확장할 수 있는 구조를 만들고 있습니다.",
   },
 ];
 
@@ -49,13 +49,13 @@ const capabilities = [
     icon: "solar:target-linear",
     title: "AX 방법론",
     description:
-      "단순 도구 교육이 아닌, 비즈니스 프로세스 전환(AX) 중심 접근.",
+      "단순 도구 제공이 아닌, 비즈니스 프로세스 전환(AX) 중심 접근.",
   },
   {
     icon: "solar:users-group-rounded-linear",
-    title: "교육·코칭",
+    title: "온보딩·코칭",
     description:
-      "비개발자도 이해할 수 있는 실습 중심 교육. 소규모 밀착 코칭.",
+      "비개발자도 이해할 수 있는 실습 중심 온보딩. 소규모 밀착 코칭.",
   },
 ];
 
@@ -120,19 +120,19 @@ export function AboutContent() {
               About
             </span>
 
-            {/* Photo placeholder */}
+            {/* Icon */}
             <div className="w-[180px] h-[180px] md:w-[220px] md:h-[220px] rounded-2xl bg-white/[0.06] ring-1 ring-white/10 flex items-center justify-center mb-8">
-              <span className="text-white/30 text-sm">Photo</span>
+              <Icon icon="solar:user-rounded-bold" width={80} className="text-white/20" />
             </div>
 
             <h1 className="font-display text-[36px] md:text-[52px] lg:text-[64px] font-black text-white leading-[1.05] tracking-tight mb-4">
               {CEO_NAME}
             </h1>
-            <p className="text-sm text-white/50 mb-6">이커머스 셀러, AI 빌더</p>
+            <p className="text-base text-white/60 mb-8">이커머스 셀러 → AI 빌더 → 메이크그로스 창업자</p>
 
-            <p className="text-base md:text-lg text-white/60 max-w-xl leading-relaxed">
-              &ldquo;이커머스 셀러로 시작했습니다. 상세페이지, SNS, 마케팅 — 할 줄 모르는 일마다 외주비가 나갔습니다.
-              비용을 줄이려고 직접 AI 시스템을 만들었고, 지금은 같은 처지의 셀러들에게 그 방법을 전하고 있습니다.&rdquo;
+            <p className="text-base md:text-lg text-white/70 max-w-xl leading-loose" style={{ wordBreak: "keep-all" }}>
+              이커머스 셀러로 시작해, 같은 고충을 직접 겪고,
+              AI로 해결한 경험을 셀러들에게 전하고 있습니다.
             </p>
           </motion.div>
         </div>

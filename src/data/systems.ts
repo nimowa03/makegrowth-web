@@ -29,7 +29,7 @@ export const systemItems: SystemItem[] = [
     id: "detail-page-automation",
     title: "AI 상세페이지 자동화",
     description:
-      "브랜드 톤에 맞는 상세페이지를 AI로 직접 만드는 시스템. 외주 없이 대량 생산이 가능한 워크플로우.",
+      "브랜드 톤에 맞는 상세페이지를 AI로 직접 만드는 시스템. 대량 생산이 가능한 워크플로우.",
     category: "상세페이지 자동화",
     techStack: ["AI 이미지 생성", "자동화 파이프라인"],
     status: "design-complete",

@@ -17,26 +17,34 @@ export function FinalCTA() {
         className="max-w-2xl mx-auto text-center"
       >
         <h2 className="text-[#1A1A1A] leading-snug mb-6">
-          AI 자동화, 직접 보여드립니다
+          AI 직원, 오늘 바로 고용하세요
         </h2>
 
         <p className="text-[#666] text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-6 break-keep">
-          실제로 돌아가는 시스템을 무료 웨비나에서 시연합니다.
+          매출 확인, 경쟁사 모니터링, 리포트, CS 응대까지.
           <br />
-          내 사업에 어떻게 적용할 수 있는지 직접 확인하세요.
+          월 5~10만원으로 일하는 AI 직원을 만나보세요.
         </p>
 
-        <div className="flex items-center justify-center gap-4 text-sm text-[#999] mb-10">
-          <span>무료 온라인</span>
+        <div className="flex items-center justify-center gap-4 text-sm text-[#666] mb-10">
+          <span>즉시 시작</span>
           <span className="text-[#E0E0E0]">|</span>
-          <span>1~2시간</span>
+          <span>월 5~10만원</span>
         </div>
 
         <div id="final-cta-button">
-          <Button href="/seminar" size="lg" showArrow>
-            웨비나 신청하기
+          <Button href="/contact" size="lg" showArrow>
+            봇 도입 문의하기
           </Button>
         </div>
+
+        <p className="text-sm text-[#666] mt-4">
+          먼저 보고 싶으시면{" "}
+          <a href="/seminar" className="underline hover:text-[#444] transition-colors">
+            무료 웨비나
+          </a>
+          에서 라이브 시연을 확인하세요.
+        </p>
       </motion.div>
     </SectionWrapper>
   );

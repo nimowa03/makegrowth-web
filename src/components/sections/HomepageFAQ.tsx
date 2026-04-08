@@ -7,7 +7,7 @@ import { Accordion } from "@/components/ui/Accordion";
 import { Button } from "@/components/ui/Button";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { homepageFAQ } from "@/data/faq";
-import { fadeInUp } from "@/lib/motionVariants";
+import { fadeInUp, staggerContainer } from "@/lib/motionVariants";
 
 export function HomepageFAQ() {
   const { ref, isInView } = useInView({ threshold: 0.1 });
@@ -21,6 +21,9 @@ export function HomepageFAQ() {
           animate={isInView ? "visible" : "hidden"}
           className="text-center mb-12 md:mb-16"
         >
+          <p className="text-[#666] text-base mb-4">
+            아직 궁금한 점이 있으신가요?
+          </p>
           <span className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[11px] uppercase tracking-[0.15em] font-medium border border-[#E0E0E0] text-[#666] bg-transparent mb-4">
             Q&A
           </span>
@@ -30,7 +33,7 @@ export function HomepageFAQ() {
         </motion.div>
 
         <motion.div
-          variants={fadeInUp}
+          variants={staggerContainer}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           className="max-w-2xl mx-auto mb-12"
@@ -45,7 +48,7 @@ export function HomepageFAQ() {
           animate={isInView ? "visible" : "hidden"}
           className="text-center"
         >
-          <p className="text-[#999] text-sm mb-4">
+          <p className="text-[#666] text-sm mb-4">
             더 궁금한 점이 있으신가요?
           </p>
           <MagneticButton className="inline-block">

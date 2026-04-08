@@ -3,10 +3,12 @@ import { Icon } from "@iconify/react";
 import { footerNav } from "@/data/navigation";
 import {
   COMPANY_NAME,
+  BRAND_NAME,
   CEO_NAME,
   BUSINESS_NUMBER,
   ADDRESS,
   CONTACT_EMAIL,
+  PHONE_NUMBER,
   SNS_LINKS,
 } from "@/lib/constants";
 
@@ -29,8 +31,8 @@ export function Footer() {
             <Link href="/" className="font-display font-bold text-lg text-white">
               메이크그로스
             </Link>
-            <p className="text-sm text-white/40 mt-2">
-              이커머스 셀러를 위한 AI 자동화 파트너
+            <p className="text-sm text-white/60 mt-2">
+              이커머스 셀러 전용 AI 비서 봇
             </p>
             {socialLinks.length > 0 && (
               <div className="flex gap-3 mt-4">
@@ -40,7 +42,7 @@ export function Footer() {
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-white/30 hover:text-white/60 transition-colors duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                    className="text-white/50 hover:text-white/60 transition-colors duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
                     aria-label={s.label}
                   >
                     <Icon icon={s.icon} width={20} />
@@ -59,7 +61,7 @@ export function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-white/40 hover:text-white/80 transition-colors duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                    className="text-sm text-white/60 hover:text-white/80 transition-colors duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
                   >
                     {item.label}
                   </Link>
@@ -77,7 +79,7 @@ export function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-white/40 hover:text-white/80 transition-colors duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                    className="text-sm text-white/60 hover:text-white/80 transition-colors duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
                   >
                     {item.label}
                   </Link>
@@ -95,7 +97,7 @@ export function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-white/40 hover:text-white/80 transition-colors duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                    className="text-sm text-white/60 hover:text-white/80 transition-colors duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
                   >
                     {item.label}
                   </Link>
@@ -106,13 +108,13 @@ export function Footer() {
         </div>
 
         <div className="border-t border-white/10 pt-8">
-          <div className="text-xs text-white/30 space-y-1">
+          <div className="text-xs text-white/50 space-y-1">
             <p>
               {COMPANY_NAME} | 대표: {CEO_NAME}
               {BUSINESS_NUMBER && ` | 사업자등록번호: ${BUSINESS_NUMBER}`}
             </p>
             {ADDRESS && <p>{ADDRESS}</p>}
-            <p>이메일: {CONTACT_EMAIL}</p>
+            <p>이메일: {CONTACT_EMAIL} | 전화: {PHONE_NUMBER}</p>
             <p className="mt-3">
               &copy; {new Date().getFullYear()} {COMPANY_NAME}. All rights
               reserved.

@@ -7,7 +7,7 @@ import { ScrollProgress } from "@/components/ui/ScrollProgress";
 
 export const metadata: Metadata = {
   title: {
-    default: `${SITE_NAME} — 이커머스 셀러를 위한 AI 자동화 파트너`,
+    default: `${SITE_NAME} — 이커머스 셀러 전용 AI 비서 봇`,
     template: `%s — ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,

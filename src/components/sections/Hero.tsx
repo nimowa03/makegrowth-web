@@ -6,15 +6,8 @@ import { Button } from "@/components/ui/Button";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { TextReveal } from "@/components/ui/TextReveal";
 import { TypewriterText } from "@/components/ui/TypewriterText";
-import { BrowserMockup } from "@/components/ui/BrowserMockup";
 import { fadeInUp, scaleUp } from "@/lib/motionVariants";
-
-const HAS_DEMO_VIDEO_HERO = false;
 import { heroPainPoints, heroResolution } from "@/data/painPoints";
-
-const HAS_VIDEO = true;
-const VIDEO_SRC = "/videos/makegrowth-intro.mp4";
-const POSTER_SRC = "/videos/intro-thumbnail.jpg";
 
 export function Hero() {
   const ref = useRef(null);
@@ -124,48 +117,6 @@ export function Hero() {
               </Button>
             </motion.div>
           </div>
-        </div>
-
-        {/* ── Zone 2: Video — below fold, deep navy ── */}
-        <div
-          className="pb-24 md:pb-32 pt-16 md:pt-20 px-6 md:px-8 -mx-6 md:-mx-8"
-          style={{
-            background: "linear-gradient(135deg, #0F172A 0%, #1A1A1A 50%, #0F172A 100%)",
-          }}
-        >
-          <motion.p
-            variants={fadeInUp}
-            initial="hidden"
-            animate="visible"
-            transition={{ delay: 1.2 }}
-            className="text-white/60 text-center text-lg md:text-xl mb-8 max-w-6xl mx-auto"
-            style={{ wordBreak: "keep-all" }}
-          >
-            메이크그로스가 뭘 하는 곳인지, 2분이면 알 수 있습니다
-          </motion.p>
-          <motion.div
-            variants={scaleUp}
-            initial="hidden"
-            animate="visible"
-            transition={{ delay: 1.3 }}
-            className="max-w-6xl mx-auto"
-          >
-            {HAS_VIDEO ? (
-              <BrowserMockup
-                videoSrc={VIDEO_SRC}
-                posterSrc={POSTER_SRC}
-                clickToPlay
-                url="makegrowth.dev"
-              />
-            ) : (
-              <BrowserMockup
-                url="makegrowth.dev"
-                placeholder="AI 비서 봇 소개 영상"
-                subtext="리모션 영상 준비 중"
-                className="border-white/10 shadow-[0_8px_60px_rgba(0,0,0,0.3)]"
-              />
-            )}
-          </motion.div>
         </div>
       </motion.div>
     </section>

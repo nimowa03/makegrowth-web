@@ -27,10 +27,10 @@ export function StickyBottomCTA() {
         >
           <div className="max-w-content mx-auto flex items-center justify-between gap-4">
             <p className="text-[#1A1A1A] text-sm md:text-base font-semibold hidden sm:block">
-              AI 직원, <span className="text-[#059669]">월 5~10만원</span>으로 시작하세요
+              AI 직원, 14일 무료 체험 → <span className="text-[#059669]">월 49,000원</span>
             </p>
             <Button href="/contact" size="sm" showArrow>
-              도입 문의하기
+              무료 체험 시작
             </Button>
           </div>
         </motion.div>

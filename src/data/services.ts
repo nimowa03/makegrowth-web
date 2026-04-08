@@ -161,11 +161,11 @@ export interface PricingTier {
 export const pricingTiers: PricingTier[] = [
   {
     name: "AI 직원 고용",
-    target: "반복 업무를 맡길 AI가 필요한 셀러",
-    format: "봇 배포 + 온보딩 안내",
-    duration: "즉시 시작",
-    includes: "프리세팅된 셀러 전용 봇, 매출 조회·리포트·알림 기본 기능, 휴대폰 메신저 연동",
-    price: "월 5~10만원",
+    target: "14일 무료 체험 → 월 49,000원",
+    format: "전체 기능 즉시 사용",
+    duration: "14일 무료 체험 후 자동 전환",
+    includes: "LLM + 서버 + 유지보수 올인클루시브. 매출 조회, 리포트, CS, SNS 전체 모듈 포함.",
+    price: "월 49,000원",
     highlight: true,
   },
   {
@@ -173,30 +173,20 @@ export const pricingTiers: PricingTier[] = [
     target: "내 사업에 딱 맞는 봇이 필요한 셀러",
     format: "1:1 진단 + 커스텀 세팅",
     duration: "2~4주",
-    includes: "카테고리·채널별 맞춤 세팅, API 연동, 추가 모듈 구축, 운영 교육",
+    includes: "카테고리·채널별 맞춤 세팅, API 연동, 추가 모듈 구축, 온보딩 지원",
     price: "별도 협의",
-    highlight: false,
-  },
-  {
-    name: "무료 웨비나",
-    target: "봇이 실제로 일하는 모습을 먼저 보고 싶은 셀러",
-    format: "온라인 실시간 (10명 소규모)",
-    duration: "1~1.5시간",
-    includes: "봇 라이브 시연, 실제 사례 공유, Q&A",
-    price: "무료",
     highlight: false,
   },
 ];
 
-export interface MonthlyPlan {
-  name: string;
-  price: string;
-  description: string;
-}
-
-export const monthlyPlan: MonthlyPlan = {
-  name: "AI 직원 유지비",
-  price: "월 5~10만원",
-  description:
-    "클라우드 호스팅, 유지보수, 업데이트 포함. 알바 월 200만원 vs AI 직원 월 5~10만원.",
+export const freeTrial = {
+  duration: "14일",
+  features: [
+    { label: "매출 조회", free: "하루 3회", paid: "무제한" },
+    { label: "경쟁사 모니터링", free: "상품 1개", paid: "무제한" },
+    { label: "일일 리포트", free: "3일에 1회", paid: "매일 자동" },
+    { label: "CS 자동응답", free: "하루 5건", paid: "무제한" },
+    { label: "SNS 콘텐츠", free: "주 1개", paid: "무제한" },
+    { label: "대화 메시지", free: "하루 20개", paid: "무제한" },
+  ],
 };

@@ -767,11 +767,11 @@ export function DiagnosisTool() {
                 이 비용, AI 직원이 대신 처리할 수 있습니다
               </p>
               <p className="text-[#666] text-sm mb-5" style={{ wordBreak: "keep-all" }}>
-                월 5~10만원으로 시작하는 AI 직원이 어떤 일을 하는지 확인해보세요
+                14일 무료 체험으로 AI 직원이 어떤 일을 하는지 직접 확인해보세요
               </p>
               <div className="flex gap-3 justify-center flex-wrap">
                 <Button href="/contact" variant="primary" size="sm">
-                  도입 문의하기
+                  14일 무료 체험 시작
                 </Button>
                 <Button href="/services" variant="secondary" size="sm">
                   서비스 자세히 보기

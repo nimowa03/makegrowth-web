@@ -109,7 +109,7 @@ export function Hero() {
             >
               <MagneticButton>
                 <Button href="/contact" size="lg" showArrow>
-                  AI 직원 도입하기
+                  14일 무료로 시작하기
                 </Button>
               </MagneticButton>
               <Button href="#bot-demo" variant="secondary" size="lg">

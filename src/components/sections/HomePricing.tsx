@@ -9,7 +9,7 @@ import { TiltCard } from "@/components/ui/TiltCard";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { Button } from "@/components/ui/Button";
 import { fadeInUp, staggerContainer } from "@/lib/motionVariants";
-import { pricingTiers, monthlyPlan } from "@/data/services";
+import { pricingTiers, freeTrial } from "@/data/services";
 
 const tierIcons = [
   "solar:monitor-linear",
@@ -18,9 +18,8 @@ const tierIcons = [
 ];
 
 const tierCTA = [
-  { label: "봇 시작하기", href: "/contact" },
+  { label: "14일 무료 체험 시작", href: "/contact" },
   { label: "맞춤 문의", href: "/contact" },
-  { label: "웨비나 참가", href: "/seminar" },
 ];
 
 const beforeAfterRows = [
@@ -40,7 +39,7 @@ export function HomePricing() {
       <div ref={ref} className="max-w-5xl mx-auto">
         {/* Bridge */}
         <p className="text-[#666] text-base text-center mb-4">
-          알바 한 명 월 200만원, AI 직원은?
+          알바 월 200만원, AI 직원은 월 49,000원
         </p>
 
         {/* Header */}
@@ -56,7 +55,7 @@ export function HomePricing() {
             animate={isInView ? "visible" : "hidden"}
             className="text-[#444] text-lg md:text-xl"
           >
-            월 5~10만원으로 시작하고, 필요할 때 확장하세요
+            14일 무료 체험 → 월 49,000원. 이 가격에 전부 포함.
           </motion.p>
         </div>
 
@@ -181,17 +180,28 @@ export function HomePricing() {
           })}
         </motion.div>
 
-        {/* Monthly plan addon */}
+        {/* Free vs Paid comparison */}
         <motion.div
           variants={fadeInUp}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="bg-[#F8F8F8] border border-[#E0E0E0] rounded-2xl px-8 py-6 text-center"
+          className="bg-[#1A1A1A] rounded-2xl px-6 py-6 md:px-8 md:py-8"
         >
-          <p className="text-[#1A1A1A] font-bold text-lg mb-1">
-            + {monthlyPlan.name}: {monthlyPlan.price}
+          <p className="text-white/40 text-xs uppercase tracking-[0.2em] font-medium text-center mb-5">
+            무료 체험 vs 유료
           </p>
-          <p className="text-[#666] text-sm">{monthlyPlan.description}</p>
+          <div className="grid grid-cols-[1fr_1fr_1fr] gap-1 text-sm">
+            <div className="px-3 py-2"><span className="text-white/40 text-xs">기능</span></div>
+            <div className="px-3 py-2 text-center"><span className="text-white/40 text-xs">무료 (14일)</span></div>
+            <div className="px-3 py-2 text-center"><span className="text-[#059669] text-xs font-bold">월 49,000원</span></div>
+            {freeTrial.features.map((f) => (
+              <div key={f.label} className="contents">
+                <div className="px-3 py-2.5 text-white/80 text-sm">{f.label}</div>
+                <div className="px-3 py-2.5 text-center text-white/50 text-sm">{f.free}</div>
+                <div className="px-3 py-2.5 text-center text-white font-semibold text-sm">{f.paid}</div>
+              </div>
+            ))}
+          </div>
         </motion.div>
       </div>
     </SectionWrapper>

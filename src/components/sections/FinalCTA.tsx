@@ -23,13 +23,13 @@ export function FinalCTA() {
         <p className="text-[#666] text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-6 break-keep">
           매출 확인, 경쟁사 모니터링, 리포트, CS 응대까지.
           <br />
-          월 5~10만원으로 일하는 AI 직원을 만나보세요.
+          14일 무료 체험 후 월 49,000원. 이 가격에 전부 포함.
         </p>
 
         <div className="flex items-center justify-center gap-4 text-sm text-[#666] mb-10">
           <span>즉시 시작</span>
           <span className="text-[#E0E0E0]">|</span>
-          <span>월 5~10만원</span>
+          <span>월 49,000원</span>
         </div>
 
         <div id="final-cta-button">

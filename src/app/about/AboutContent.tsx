@@ -126,7 +126,7 @@ export function AboutContent() {
             </div>
 
             <h1 className="font-display text-[36px] md:text-[52px] lg:text-[64px] font-black text-white leading-[1.05] tracking-tight mb-4">
-              {CEO_NAME}
+              노아
             </h1>
             <p className="text-base text-white/60 mb-8">이커머스 셀러 → AI 빌더 → 메이크그로스 창업자</p>
 

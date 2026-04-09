@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Icon } from "@iconify/react";
 import { footerNav } from "@/data/navigation";
 import {
@@ -28,8 +29,8 @@ export function Footer() {
       <div className="max-w-content mx-auto px-6 md:px-8 py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div>
-            <Link href="/" className="font-display font-bold text-lg text-white">
-              메이크그로스
+            <Link href="/" className="flex items-center">
+              <Image src="/logo-white.svg" alt="메이크그로스" width={140} height={28} />
             </Link>
             <p className="text-sm text-white/60 mt-2">
               이커머스 셀러 전용 AI 비서 봇

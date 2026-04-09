@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Icon } from "@iconify/react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useScrollHeader } from "@/hooks/useScrollHeader";
@@ -25,9 +26,9 @@ export function Header() {
         <div className="flex items-center gap-1 py-2 px-2 pl-5">
           <Link
             href="/"
-            className="font-bold text-lg text-[#1A1A1A] transition-colors duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] mr-4"
+            className="mr-4 flex items-center"
           >
-            메이크그로스
+            <Image src="/logo.svg" alt="메이크그로스" width={140} height={28} priority />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-6">
@@ -69,10 +70,10 @@ export function Header() {
               <div className="flex items-center justify-between mb-12">
                 <Link
                   href="/"
-                  className="font-bold text-lg text-white"
+                  className="flex items-center"
                   onClick={() => setMobileOpen(false)}
                 >
-                  메이크그로스
+                  <Image src="/logo-white.svg" alt="메이크그로스" width={140} height={28} />
                 </Link>
                 <button
                   onClick={() => setMobileOpen(false)}

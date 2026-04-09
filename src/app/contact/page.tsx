@@ -6,6 +6,7 @@ import { CONTACT_EMAIL, SNS_LINKS } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "문의하기",
+  description: "AI 셀러 비서 봇 도입 상담 및 견적 문의. 영업일 3일 내 답변드립니다.",
 };
 
 const INFO_ITEMS = [

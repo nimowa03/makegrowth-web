@@ -908,7 +908,9 @@ export function DiagnosisTool() {
                         onChange={(e) => setPrivacyConsent(e.target.checked)}
                         className="w-5 h-5 rounded border-[#E0E0E0] accent-[#1A1A1A] mt-0.5 cursor-pointer"
                       />
-                      <span className="text-sm text-[#999]">개인정보 수집 및 이용에 동의합니다</span>
+                      <span className="text-sm text-[#999]">
+                        <a href="/privacy" target="_blank" className="underline hover:text-[#666] transition-colors">개인정보처리방침</a>에 동의합니다
+                      </span>
                     </label>
                     <Button
                       variant="primary"

@@ -113,8 +113,8 @@ export default function ReviewsPage() {
                     곧 실제 수강생들의 생생한 후기가 채워집니다.
                     웨비나에 참여하고 첫 번째 후기의 주인공이 되어보세요.
                   </p>
-                  <Button href="/seminar" showArrow>
-                    웨비나 알아보기
+                  <Button href="/diagnosis" showArrow>
+                    내 루틴 무료 진단하기
                   </Button>
                 </div>
               </Card>
@@ -138,8 +138,8 @@ export default function ReviewsPage() {
             <p className="text-[#444444] text-lg mb-8 max-w-xl mx-auto">
               AI 자동화 시스템이 어떻게 돌아가는지 직접 확인하세요.
             </p>
-            <Button href="/seminar" showArrow>
-              웨비나 신청하기
+            <Button href="/diagnosis" showArrow>
+              내 루틴 무료 진단하기
             </Button>
           </motion.div>
         </div>

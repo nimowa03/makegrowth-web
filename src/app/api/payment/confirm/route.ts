@@ -30,10 +30,21 @@ export async function POST(request: Request) {
       );
     }
 
-    // TODO: 결제 성공 후 처리
-    // - DB에 구독 정보 저장
-    // - 온보딩 이메일 발송 (N8N webhook)
-    // - 봇 세팅 시작
+    // 결제 성공 → N8N webhook으로 온보딩 트리거
+    const webhookUrl = process.env.N8N_WEBHOOK_URL;
+    if (webhookUrl) {
+      fetch(webhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "payment_success",
+          orderId: data.orderId,
+          amount: data.totalAmount,
+          approvedAt: data.approvedAt,
+          customerName: data.card?.ownerName || "",
+        }),
+      }).catch(() => {});
+    }
 
     return NextResponse.json({
       status: data.status,

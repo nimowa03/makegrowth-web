@@ -129,7 +129,7 @@ export function ContactForm() {
         />
 
         <FormField
-          label="개인정보 수집·이용 동의"
+          label="개인정보 수집·이용에 동의합니다 (개인정보처리방침)"
           name="privacyConsent"
           type="checkbox"
           required

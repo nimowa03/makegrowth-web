@@ -18,7 +18,7 @@ const supanovaEase = [0.16, 1, 0.3, 1] as const;
 function TypingDots() {
   return (
     <div className="flex items-start gap-2 px-4 py-1">
-      <div className="w-7 h-7 rounded-full bg-[#7B68EE] flex items-center justify-center shrink-0 mt-0.5">
+      <div className="w-7 h-7 rounded-full bg-[#1A1A1A] flex items-center justify-center shrink-0 mt-0.5">
         <span className="text-[10px]">🤖</span>
       </div>
       <div className="bg-[#182533] rounded-2xl rounded-tl-sm px-3 py-2.5 flex gap-1">
@@ -60,7 +60,7 @@ function ChatBubble({
       }`}
     >
       {isBot && (
-        <div className="w-7 h-7 rounded-full bg-[#7B68EE] flex items-center justify-center shrink-0 mt-0.5">
+        <div className="w-7 h-7 rounded-full bg-[#1A1A1A] flex items-center justify-center shrink-0 mt-0.5">
           <span className="text-[10px]">🤖</span>
         </div>
       )}

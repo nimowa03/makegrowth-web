@@ -70,7 +70,7 @@ export function PhoneMockup({
               className="text-[#6AB2F2] shrink-0"
             />
             {/* Bot avatar */}
-            <div className="w-9 h-9 rounded-full bg-[#7B68EE] flex items-center justify-center shrink-0">
+            <div className="w-9 h-9 rounded-full bg-[#1A1A1A] flex items-center justify-center shrink-0">
               <span className="text-sm">🤖</span>
             </div>
             {/* Bot info */}

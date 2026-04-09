@@ -29,7 +29,7 @@ export function StickyBottomCTA() {
             <p className="text-[#1A1A1A] text-sm md:text-base font-semibold hidden sm:block">
               AI 직원, 14일 무료 체험 → <span className="text-[#059669]">월 49,000원</span>
             </p>
-            <Button href="/contact" size="sm" showArrow>
+            <Button href="#diagnosis" size="sm" showArrow>
               무료 체험 시작
             </Button>
           </div>

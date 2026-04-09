@@ -783,11 +783,11 @@ export function DiagnosisTool() {
             <div className="rounded-xl border border-[#E0E0E0] bg-[#F8F8F8] p-6 md:p-8 mb-8">
               {!submitted ? (
                 <>
-                  <h4 className="text-sm font-semibold text-[#1A1A1A] mb-2">
-                    분석 결과를 이메일로 받아보시겠어요?
+                  <h4 className="text-base font-bold text-[#1A1A1A] mb-2">
+                    분석 리포트 + AI 직원 14일 무료 체험을 받아보세요
                   </h4>
-                  <p className="text-xs text-[#666] mb-5">
-                    영역별 절감 방법과 다음 단계를 정리해서 보내드립니다. 다른 용도로 사용되지 않습니다.
+                  <p className="text-sm text-[#666] mb-5" style={{ wordBreak: "keep-all" }}>
+                    이메일로 절감 리포트와 봇 온보딩 가이드를 보내드립니다. 다른 용도로 사용되지 않습니다.
                   </p>
 
                   <div className="space-y-4 max-w-md">
@@ -888,18 +888,22 @@ export function DiagnosisTool() {
                       onClick={handleSubmitEmail}
                       disabled={!email || !privacyConsent}
                     >
-                      리포트 받기 →
+                      분석 리포트 + 무료 체험 받기 →
                     </Button>
                   </div>
                 </>
               ) : (
                 <div className="text-center py-4">
                   <Icon icon="solar:check-circle-bold" width={40} className="text-[#059669] mx-auto mb-3" />
-                  <p className="text-sm font-semibold text-[#1A1A1A] mb-1">
-                    리포트가 발송되었습니다!
+                  <p className="text-base font-bold text-[#1A1A1A] mb-2">
+                    이메일을 확인해주세요!
                   </p>
-                  <p className="text-xs text-[#666]">
-                    입력하신 이메일로 분석 리포트를 보내드립니다.
+                  <p className="text-sm text-[#666] leading-relaxed" style={{ wordBreak: "keep-all" }}>
+                    분석 리포트와 함께
+                    <br />
+                    <strong className="text-[#1A1A1A]">AI 직원 14일 무료 체험 온보딩 가이드</strong>를
+                    <br />
+                    보내드렸습니다.
                   </p>
                 </div>
               )}

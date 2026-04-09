@@ -108,7 +108,7 @@ export function Hero() {
               className="flex flex-wrap justify-center gap-3"
             >
               <MagneticButton>
-                <Button href="/contact" size="lg" showArrow>
+                <Button href="#diagnosis" size="lg" showArrow>
                   14일 무료로 시작하기
                 </Button>
               </MagneticButton>

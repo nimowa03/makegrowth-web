@@ -813,12 +813,12 @@ export function DiagnosisTool() {
                 이 비용 줄이는 방법 받기 →
               </Button>
               <Button
-                href="/contact"
+                href="/payment"
                 variant="secondary"
                 size="lg"
                 className="active:scale-[0.98]"
               >
-                바로 도입 문의
+                바로 결제하고 시작
               </Button>
             </motion.div>
 

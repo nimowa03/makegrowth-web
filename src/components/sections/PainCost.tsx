@@ -333,7 +333,7 @@ export function PainCost() {
           >
             그렇다면 지금 내 사업에서 얼마가 새고 있을까요?
           </p>
-          <Button href="#diagnosis" size="lg" showArrow>
+          <Button href="/diagnosis" size="lg" showArrow>
             내 외주비 진단해보기
           </Button>
         </div>

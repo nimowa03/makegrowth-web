@@ -272,7 +272,7 @@ export function WhyUs() {
           <p className="text-[#666] text-sm mb-4" style={{ wordBreak: "keep-all" }}>
             차이를 직접 확인해보세요
           </p>
-          <Button href="#diagnosis" showArrow>
+          <Button href="/diagnosis" showArrow>
             내 루틴 무료 진단하기
           </Button>
         </motion.div>

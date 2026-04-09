@@ -146,8 +146,8 @@ export function HomePricing() {
               </p>
 
               <MagneticButton className="w-full">
-                <Button href="#diagnosis" size="lg" showArrow className="w-full">
-                  14일 무료 체험 시작
+                <Button href="/diagnosis" size="lg" showArrow className="w-full">
+                  내 루틴 진단하고 시작하기
                 </Button>
               </MagneticButton>
               <div className="mt-4 flex flex-col items-center gap-1.5">

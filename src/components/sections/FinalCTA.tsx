@@ -32,19 +32,14 @@ export function FinalCTA() {
           <span>월 49,000원</span>
         </div>
 
-        <div id="final-cta-button">
-          <Button href="/contact" size="lg" showArrow>
-            봇 도입 문의하기
+        <div id="final-cta-button" className="flex flex-col sm:flex-row gap-3 justify-center">
+          <Button href="/payment" size="lg" showArrow>
+            결제하고 바로 시작
+          </Button>
+          <Button href="/diagnosis" variant="secondary" size="lg">
+            먼저 무료 진단해보기
           </Button>
         </div>
-
-        <p className="text-sm text-[#666] mt-4">
-          먼저 보고 싶으시면{" "}
-          <a href="/seminar" className="underline hover:text-[#444] transition-colors">
-            무료 웨비나
-          </a>
-          에서 라이브 시연을 확인하세요.
-        </p>
       </motion.div>
     </SectionWrapper>
   );

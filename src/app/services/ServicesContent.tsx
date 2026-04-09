@@ -89,12 +89,12 @@ function HeroSection() {
               className="flex gap-3"
             >
               <MagneticButton>
-                <Button href="/seminar" className="bg-white text-[#1A1A1A] hover:bg-white/90" size="lg">
-                  웨비나 신청
+                <Button href="/diagnosis" className="bg-white text-[#1A1A1A] hover:bg-white/90" size="lg" showArrow>
+                  내 루틴 무료 진단하기
                 </Button>
               </MagneticButton>
-              <Button href="/contact" variant="secondary" size="lg" className="border-white/30 text-white hover:bg-white/10">
-                문의하기
+              <Button href="/payment" variant="secondary" size="lg" className="border-white/30 text-white hover:bg-white/10">
+                바로 결제하기
               </Button>
             </motion.div>
           </div>
@@ -230,12 +230,12 @@ function CTASection() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <MagneticButton>
-              <Button href="/seminar" className="bg-white text-[#1A1A1A] hover:bg-white/90" size="lg" showArrow>
-                웨비나 신청하기
+              <Button href="/diagnosis" className="bg-white text-[#1A1A1A] hover:bg-white/90" size="lg" showArrow>
+                내 루틴 무료 진단하기
               </Button>
             </MagneticButton>
-            <Button href="/contact" variant="secondary" size="lg" className="border-white/30 text-white hover:bg-white/10">
-              문의하기
+            <Button href="/payment" variant="secondary" size="lg" className="border-white/30 text-white hover:bg-white/10">
+              바로 결제하기
             </Button>
           </div>
         </motion.div>

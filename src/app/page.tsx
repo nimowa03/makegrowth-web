@@ -1,9 +1,10 @@
 import { Hero } from "@/components/sections/Hero";
+import { VideoIntro } from "@/components/sections/VideoIntro";
+import { TargetSellers } from "@/components/sections/TargetSellers";
 import { PainCost } from "@/components/sections/PainCost";
 import { BotDemo } from "@/components/sections/BotDemo";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { WhyUs } from "@/components/sections/WhyUs";
-import { TargetSellers } from "@/components/sections/TargetSellers";
 import { TrustLogos } from "@/components/sections/TrustLogos";
 import { DiagnosisTool } from "@/components/sections/DiagnosisTool";
 import { HomePricing } from "@/components/sections/HomePricing";
@@ -14,8 +15,12 @@ export default function Home() {
     <>
       {/* ── Hook: 멈추게 한다 ── */}
       <Hero />
+      <VideoIntro />
 
-      {/* ── Bridge: 내 문제라고 느끼게 한다 ── */}
+      {/* ── Relate: "이거 내 얘기인데?" ── */}
+      <TargetSellers />
+
+      {/* ── Bridge: 문제의 크기를 느끼게 한다 ── */}
       <PainCost />
 
       {/* ── Promise: 해결된 모습을 보여준다 ── */}
@@ -24,11 +29,6 @@ export default function Home() {
       {/* ── Trust: 신뢰 구축 ── */}
       <HowItWorks />
       <WhyUs />
-
-      {/* ── Relate: 이런 셀러를 위해 ── */}
-      <TargetSellers />
-
-      {/* ── Trust: 연동 플랫폼 ── */}
       <TrustLogos />
 
       {/* ── Action: 내 상황으로 개인화 ── */}

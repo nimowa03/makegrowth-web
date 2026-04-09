@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
 import { useInView } from "@/hooks/useInView";
 import { SectionWrapper } from "@/components/layout/SectionWrapper";
+import { Button } from "@/components/ui/Button";
 import { TextReveal } from "@/components/ui/TextReveal";
 import {
   fadeInUp,
@@ -88,7 +89,7 @@ export function WhyUs() {
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveComp((prev) => (prev + 1) % competitors.length);
-    }, 2500);
+    }, 4000);
     return () => clearInterval(timer);
   }, []);
 
@@ -259,6 +260,21 @@ export function WhyUs() {
               <p className="text-white font-bold text-sm mt-3">가구 배치 끝난 사무실 + 직원</p>
             </div>
           </div>
+        </motion.div>
+
+        {/* CTA */}
+        <motion.div
+          variants={fadeInUp}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="text-center mt-12"
+        >
+          <p className="text-[#666] text-sm mb-4" style={{ wordBreak: "keep-all" }}>
+            차이를 직접 확인해보세요
+          </p>
+          <Button href="#diagnosis" showArrow>
+            내 루틴 무료 진단하기
+          </Button>
         </motion.div>
       </div>
     </SectionWrapper>

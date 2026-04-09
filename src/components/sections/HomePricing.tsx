@@ -62,9 +62,9 @@ export function HomePricing() {
           variants={staggerContainer}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="mb-8"
+          className="mb-8 overflow-x-auto"
         >
-          <motion.div variants={fadeInUp} className="grid grid-cols-[1fr_1fr_1fr] gap-2 mb-3">
+          <motion.div variants={fadeInUp} className="grid grid-cols-[1fr_1fr_1fr] gap-2 mb-3 min-w-[600px]">
             <div className="px-4 py-2">
               <span className="text-[11px] uppercase tracking-[0.15em] font-medium text-[#666]">항목</span>
             </div>
@@ -76,7 +76,7 @@ export function HomePricing() {
             </div>
           </motion.div>
           {beforeAfterRows.map((row, i) => (
-            <motion.div key={row.label} variants={fadeInUp} className="grid grid-cols-[1fr_1fr_1fr] gap-2 mb-1.5">
+            <motion.div key={row.label} variants={fadeInUp} className="grid grid-cols-[1fr_1fr_1fr] gap-2 mb-1.5 min-w-[600px]">
               <div className="px-4 py-3.5 flex items-center">
                 <span className="text-base font-semibold text-[#1A1A1A]">{row.label}</span>
               </div>
@@ -150,9 +150,13 @@ export function HomePricing() {
                   14일 무료 체험 시작
                 </Button>
               </MagneticButton>
-              <p className="text-xs text-[#666] text-center mt-3">
-                카드 등록 없이 시작 · 언제든 해지
-              </p>
+              <div className="mt-4 flex flex-col items-center gap-1.5">
+                <p className="flex items-center gap-1.5 text-xs text-[#059669] font-medium">
+                  <Icon icon="solar:shield-check-linear" width={14} className="shrink-0" />
+                  카드 등록 없이 시작 · 14일 내 무조건 취소 가능
+                </p>
+                <p className="text-[11px] text-[#999]">해지 시 추가 비용 없음</p>
+              </div>
             </div>
           </motion.div>
 

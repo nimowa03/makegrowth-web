@@ -121,8 +121,8 @@ export function AboutContent() {
             </span>
 
             {/* Icon */}
-            <div className="w-[180px] h-[180px] md:w-[220px] md:h-[220px] rounded-2xl bg-white/[0.06] ring-1 ring-white/10 flex items-center justify-center mb-8">
-              <Icon icon="solar:user-rounded-bold" width={80} className="text-white/20" />
+            <div className="w-[180px] h-[180px] md:w-[220px] md:h-[220px] rounded-2xl bg-white/[0.06] ring-1 ring-white/10 overflow-hidden mb-8">
+              <img src="/charleepic.png" alt="노아 — 메이크그로스 대표" className="w-full h-full object-cover" />
             </div>
 
             <h1 className="font-display text-[36px] md:text-[52px] lg:text-[64px] font-black text-white leading-[1.05] tracking-tight mb-4">

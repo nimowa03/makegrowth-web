@@ -297,7 +297,7 @@ export function DiagnosisTool() {
   const selectClass =
     "w-full px-4 py-3 rounded-lg border border-[#E0E0E0] bg-white text-[#1A1A1A] text-sm appearance-none cursor-pointer focus:outline-none focus:border-[#1A1A1A] focus:ring-2 focus:ring-[#1A1A1A]/10 transition-all duration-300";
   const selectClassDark =
-    "w-full px-4 py-3 rounded-lg border border-white/10 bg-white/[0.06] text-white text-sm appearance-none cursor-pointer focus:outline-none focus:border-white/30 focus:ring-2 focus:ring-white/10 transition-all duration-300";
+    "w-full px-4 py-3 rounded-lg border border-white/10 bg-white/[0.06] text-white text-sm appearance-none cursor-pointer focus:outline-none focus:border-white/30 focus:ring-2 focus:ring-white/10 transition-all duration-300 [&>option]:bg-[#1A1A1A] [&>option]:text-white";
 
   return (
     <SectionWrapper theme="warm-bg" id="diagnosis" animate={false}>

@@ -47,7 +47,7 @@ export function PainCost() {
   useEffect(() => {
     const timer = setInterval(() => {
       setQuoteIndex((prev) => (prev + 1) % sellerQuotes.length);
-    }, 3000);
+    }, 5000);
     return () => clearInterval(timer);
   }, []);
 

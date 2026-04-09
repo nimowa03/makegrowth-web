@@ -135,10 +135,10 @@ export function BotDemo() {
                 <button
                   key={fn.id}
                   onClick={() => handleManualSelect(idx)}
-                  className={`flex items-center gap-1.5 px-3 py-2 rounded-full whitespace-nowrap text-sm font-medium snap-start transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] shrink-0 ${
+                  className={`flex items-center gap-2 px-4 py-2.5 rounded-full whitespace-nowrap text-sm font-semibold snap-start transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] shrink-0 cursor-pointer ${
                     selectedFn === fn.id
-                      ? "bg-[#1A1A1A] text-white"
-                      : "bg-[#F0F0F0] text-[#666] hover:bg-[#E0E0E0]"
+                      ? "bg-[#1A1A1A] text-white shadow-[0_2px_12px_rgba(0,0,0,0.15)]"
+                      : "bg-white text-[#666] border border-[#E0E0E0] hover:border-[#999]"
                   }`}
                 >
                   <Icon icon={fn.icon} width={16} />

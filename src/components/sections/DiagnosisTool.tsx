@@ -955,7 +955,7 @@ export function DiagnosisTool() {
                       </div>
 
                       <Button
-                        href="/contact"
+                        href="/payment"
                         variant="primary"
                         size="lg"
                         className="w-full bg-[#059669] text-white hover:bg-[#047857] active:scale-[0.98] text-base"

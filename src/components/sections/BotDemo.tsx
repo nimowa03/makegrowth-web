@@ -119,7 +119,7 @@ export function BotDemo() {
                 posterSrc={DEMO_POSTER_SRC}
                 clickToPlay
                 url="makegrowth.dev"
-                className="border-white/10 shadow-[0_8px_60px_rgba(0,0,0,0.3)]"
+                className="border-white/10 shadow-[0_8px_60px_rgba(15,23,42,0.4)]"
               />
             </motion.div>
           </div>

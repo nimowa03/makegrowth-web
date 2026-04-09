@@ -849,7 +849,7 @@ export function DiagnosisTool() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 20, scale: 0.98 }}
               transition={{ duration: 0.5, ease: supanovaEase }}
-              className="relative z-10 w-full max-w-2xl rounded-3xl overflow-hidden shadow-[0_32px_100px_rgba(0,0,0,0.25)]"
+              className="relative z-10 w-full max-w-2xl rounded-3xl overflow-hidden shadow-[0_32px_100px_rgba(15,23,42,0.3)]"
             >
               {/* Close */}
               <button
@@ -986,7 +986,7 @@ export function DiagnosisTool() {
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="relative z-10 w-full max-w-md rounded-2xl bg-white p-10 text-center shadow-[0_24px_80px_rgba(0,0,0,0.2)]"
+              className="relative z-10 w-full max-w-md rounded-2xl bg-white p-10 text-center shadow-[0_24px_80px_rgba(15,23,42,0.25)]"
             >
               <Icon icon="solar:check-circle-bold" width={56} className="text-[#059669] mx-auto mb-4" />
               <p className="font-display font-black text-2xl text-[#1A1A1A] mb-2">이메일을 확인해주세요!</p>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Icon } from "@iconify/react";
 import {
@@ -240,6 +240,15 @@ export function DiagnosisTool() {
   const [email, setEmail] = useState("");
   const [privacyConsent, setPrivacyConsent] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [showCTAModal, setShowCTAModal] = useState(false);
+
+  // Auto-open CTA modal 2s after entering Step 3
+  useEffect(() => {
+    if (step === 3 && !submitted) {
+      const timer = setTimeout(() => setShowCTAModal(true), 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [step, submitted]);
 
   const results = useMemo(
     () => computeResults(hours, outsourceUsing, outsourceCosts, revenue),
@@ -680,7 +689,7 @@ export function DiagnosisTool() {
           </motion.div>
         )}
 
-        {/* ═══════ STEP 3: Results + Dual CTA ═══════ */}
+        {/* ═══════ STEP 3: Results (Loss Framing) + Dual CTA ═══════ */}
         {step === 3 && (
           <motion.div
             key="step-3"
@@ -695,267 +704,263 @@ export function DiagnosisTool() {
                 <Icon icon="solar:arrow-left-linear" width={16} />
                 이전
               </button>
-              <h3 className="font-display font-black text-xl md:text-2xl text-[#1A1A1A] mb-1">분석 결과</h3>
-              <p className="text-[#666] text-sm">현재 운영 현황과 AI 전환 시 예상 절감액입니다</p>
             </div>
 
-            {/* Current State Summary */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-              <motion.div
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.1, ease: supanovaEase }}
-                className="rounded-xl border border-[#E0E0E0] bg-[#F8F8F8] p-5"
-              >
-                <p className="text-sm text-[#666] mb-2">하루 업무 시간</p>
-                <p className="font-display font-black text-xl tabular-nums text-[#1A1A1A]">
-                  {results.totalHours.toFixed(1)}시간 중{" "}
-                  <span className="text-[#CC0000]">{results.totalHours.toFixed(1)}시간</span>이 반복 업무
-                </p>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.15, ease: supanovaEase }}
-                className="rounded-xl border border-[#E0E0E0] bg-[#F8F8F8] p-5"
-              >
-                <p className="text-sm text-[#666] mb-2">월 외주비</p>
-                <p className="font-display font-black text-xl tabular-nums text-[#1A1A1A]">
-                  약 {formatWon(results.totalMonthlyCost)}원{" "}
-                  <span className="text-[#999] text-base font-normal">(연 {formatWon(results.totalAnnualCost)}원)</span>
-                </p>
-              </motion.div>
-            </div>
-
-            {/* AI Conversion Areas */}
-            {results.costBreakdown.length > 0 && (
-              <div className="mb-8">
-                <h4 className="text-sm font-semibold text-[#1A1A1A] mb-4">AI 전환 가능 영역</h4>
-                <div className="space-y-3">
-                  {results.costBreakdown.map(({ task, cost, savings, rate }, i) => (
-                    <motion.div
-                      key={task.id}
-                      initial={{ opacity: 0, y: 12 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4, delay: 0.2 + i * 0.08, ease: supanovaEase }}
-                      className="rounded-xl border border-[#E0E0E0] bg-white p-4"
-                    >
-                      <div className="flex items-center gap-2 mb-2">
-                        <Icon icon={task.icon} width={18} className="text-[#1A1A1A]" />
-                        <span className="text-sm font-semibold text-[#1A1A1A]">{task.label}</span>
-                      </div>
-                      <div className="flex items-center gap-3 text-xs text-[#666] mb-2">
-                        <span className="tabular-nums">현재 ₩{cost}만/월</span>
-                        <span className="text-[#E0E0E0]">→</span>
-                        <span className="text-[#059669] font-semibold tabular-nums">AI 전환 시 ₩{cost - savings}만/월</span>
-                        <span className="text-[#059669] font-semibold ml-auto tabular-nums">-{Math.round(rate * 100)}%</span>
-                      </div>
-                      <div className="w-full h-2 rounded-full bg-[#E0E0E0] overflow-hidden mb-2">
-                        <motion.div
-                          className="h-full rounded-full bg-[#059669]"
-                          initial={{ width: 0 }}
-                          animate={{ width: `${Math.round(rate * 100)}%` }}
-                          transition={{ duration: 0.8, ease: supanovaEase, delay: 0.3 + i * 0.1 }}
-                        />
-                      </div>
-                      <p className="text-xs text-[#999]">{task.outsource.aiDescription}</p>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Savings Summary */}
+            {/* ── Hero Result Card: ONE killer number ── */}
             <motion.div
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.4, ease: supanovaEase }}
-              className="rounded-2xl bg-[#1A1A1A] p-6 md:p-8 mb-10"
+              transition={{ duration: 0.6, ease: supanovaEase }}
+              className="rounded-2xl bg-[#1A1A1A] p-8 md:p-12 mb-8 relative overflow-hidden"
             >
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
-                <div>
-                  <p className="text-xs text-[#999] mb-1">예상 월 절감액</p>
-                  <p className="font-display font-black text-3xl md:text-4xl tabular-nums text-[#059669]">
-                    ₩{formatWon(results.totalMonthlySavings)}
-                  </p>
+              <div
+                className="absolute top-[-20%] right-[-15%] w-[400px] h-[400px] rounded-full pointer-events-none"
+                style={{ background: "radial-gradient(circle, rgba(204,0,0,0.06) 0%, transparent 70%)" }}
+              />
+
+              <div className="relative z-10 text-center">
+                <p className="text-white/40 text-sm md:text-base mb-4" style={{ wordBreak: "keep-all" }}>
+                  매달 반복 업무에 빠져나가는 비용
+                </p>
+
+                <motion.p
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.8, delay: 0.2, ease: supanovaEase }}
+                  className="font-display font-black text-[56px] md:text-[80px] tabular-nums text-[#CC0000] leading-none mb-2"
+                >
+                  ₩{formatWon(results.totalMonthlyCost)}원
+                </motion.p>
+                <p className="text-white/30 text-sm tabular-nums mb-8">
+                  연간 ₩{formatWon(results.totalAnnualCost)}원
+                </p>
+
+                {/* Before / After bar comparison */}
+                <div className="max-w-md mx-auto space-y-4">
+                  <div>
+                    <div className="flex justify-between text-xs text-white/50 mb-1.5">
+                      <span>현재 외주비</span>
+                      <span className="tabular-nums">₩{formatWon(results.totalMonthlyCost)}원/월</span>
+                    </div>
+                    <div className="w-full h-4 rounded-full bg-white/10 overflow-hidden">
+                      <motion.div
+                        className="h-full rounded-full bg-white/30"
+                        initial={{ width: 0 }}
+                        animate={{ width: "100%" }}
+                        transition={{ duration: 0.8, delay: 0.3, ease: supanovaEase }}
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <div className="flex justify-between text-xs text-white/50 mb-1.5">
+                      <span>AI 전환 후</span>
+                      <span className="tabular-nums text-[#059669] font-semibold">
+                        ₩{formatWon(results.totalMonthlyCost - results.totalMonthlySavings)}원/월
+                      </span>
+                    </div>
+                    <div className="w-full h-4 rounded-full bg-white/10 overflow-hidden">
+                      <motion.div
+                        className="h-full rounded-full bg-[#059669]"
+                        initial={{ width: 0 }}
+                        animate={{ width: `${results.totalMonthlyCost > 0 ? Math.max(100 - results.savingsRate, 5) : 0}%` }}
+                        transition={{ duration: 1, delay: 0.5, ease: supanovaEase }}
+                      />
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-xs text-[#999] mb-1">예상 연 절감액</p>
-                  <p className="font-display font-black text-3xl md:text-4xl tabular-nums text-[#059669]">
-                    ₩{formatWon(results.totalAnnualSavings)}
-                  </p>
-                </div>
-                <div>
-                  <p className="text-xs text-[#999] mb-1">절감률</p>
-                  <p className="font-display font-black text-3xl md:text-4xl tabular-nums text-[#059669]">
-                    {results.savingsRate}%
-                  </p>
-                </div>
+
+                <p className="text-white/60 text-lg md:text-xl font-bold mt-8" style={{ wordBreak: "keep-all" }}>
+                  이 중 약 <span className="text-[#059669]">{results.savingsRate}%</span>는 AI가 대신할 수 있습니다
+                </p>
               </div>
             </motion.div>
 
-            {/* ── Dual CTA: Free vs Paid ── */}
+            {/* ── Collapsible detail ── */}
+            {results.costBreakdown.length > 0 && (
+              <details className="mb-8 group">
+                <summary className="flex items-center justify-center gap-2 text-sm text-[#999] cursor-pointer hover:text-[#666] transition-colors duration-300 py-3">
+                  <span>업무별 상세 보기</span>
+                  <Icon icon="solar:alt-arrow-down-linear" width={14} className="group-open:rotate-180 transition-transform duration-300" />
+                </summary>
+                <div className="mt-4 space-y-2">
+                  {results.costBreakdown.map(({ task, cost, savings, rate }) => (
+                    <div key={task.id} className="flex items-center gap-3 rounded-xl border border-[#E0E0E0] bg-white px-4 py-3">
+                      <Icon icon={task.icon} width={18} className="text-[#1A1A1A] shrink-0" />
+                      <span className="text-sm font-semibold text-[#1A1A1A] flex-1">{task.label}</span>
+                      <span className="text-xs text-[#999] tabular-nums">₩{cost}만 →</span>
+                      <span className="text-xs text-[#059669] font-bold tabular-nums">₩{cost - savings}만</span>
+                      <span className="text-xs text-[#059669] font-bold tabular-nums">-{Math.round(rate * 100)}%</span>
+                    </div>
+                  ))}
+                </div>
+              </details>
+            )}
+
+            {/* ── Inline CTA buttons ── */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5, ease: supanovaEase }}
-              className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8"
+              transition={{ duration: 0.6, delay: 0.6, ease: supanovaEase }}
+              className="flex flex-col sm:flex-row gap-4 justify-center mb-6"
             >
-              {/* Free path */}
-              <div className="rounded-2xl border border-[#E0E0E0] bg-[#F8F8F8] p-6 md:p-8">
-                {!submitted ? (
-                  <>
-                    <div className="flex items-center gap-2 mb-4">
-                      <Icon icon="solar:letter-linear" width={20} className="text-[#1A1A1A]" />
-                      <h4 className="text-base font-bold text-[#1A1A1A]">무료로 시작하기</h4>
-                    </div>
-
-                    <ul className="space-y-2 mb-6">
-                      {[
-                        "절감 리포트 이메일 발송",
-                        "텔레그램 봇 체험 가이드",
-                        "주간 AI 셀러 인사이트",
-                      ].map((item) => (
-                        <li key={item} className="flex items-center gap-2 text-sm text-[#666]">
-                          <Icon icon="solar:check-circle-linear" width={16} className="text-[#059669] shrink-0" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-
-                    <div className="space-y-3">
-                      <input
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="you@example.com"
-                        className="w-full px-4 py-3 rounded-lg border border-[#E0E0E0] bg-white text-[#1A1A1A] text-sm focus:outline-none focus:border-[#1A1A1A] focus:ring-2 focus:ring-[#1A1A1A]/10 transition-all duration-300"
-                      />
-                      <label className="flex items-start gap-2 cursor-pointer">
-                        <input
-                          type="checkbox"
-                          checked={privacyConsent}
-                          onChange={(e) => setPrivacyConsent(e.target.checked)}
-                          className="w-4 h-4 rounded border-[#E0E0E0] accent-[#1A1A1A] mt-0.5 cursor-pointer"
-                        />
-                        <span className="text-xs text-[#999]">개인정보 수집 및 이용에 동의합니다</span>
-                      </label>
-                      <Button
-                        variant="primary"
-                        size="md"
-                        className="w-full active:scale-[0.98]"
-                        onClick={handleSubmitEmail}
-                        disabled={!email || !privacyConsent}
-                      >
-                        무료 리포트 받기 →
-                      </Button>
-                    </div>
-                  </>
-                ) : (
-                  <div className="text-center py-8">
-                    <Icon icon="solar:check-circle-bold" width={40} className="text-[#059669] mx-auto mb-3" />
-                    <p className="text-base font-bold text-[#1A1A1A] mb-2">이메일을 확인해주세요!</p>
-                    <p className="text-sm text-[#666]" style={{ wordBreak: "keep-all" }}>
-                      절감 리포트와 봇 체험 가이드를 보내드렸습니다.
-                    </p>
-                  </div>
-                )}
-              </div>
-
-              {/* Paid path */}
-              <div className="rounded-2xl bg-[#1A1A1A] p-6 md:p-8 relative overflow-hidden">
-                <div
-                  className="absolute top-[-20%] right-[-15%] w-[300px] h-[300px] rounded-full pointer-events-none"
-                  style={{ background: "radial-gradient(circle, rgba(5,150,105,0.08) 0%, transparent 70%)" }}
-                />
-
-                <div className="relative z-10">
-                  <div className="flex items-center gap-2 mb-1">
-                    <Icon icon="solar:bolt-circle-linear" width={20} className="text-[#059669]" />
-                    <h4 className="text-base font-bold text-white">지금 바로 도입하기</h4>
-                  </div>
-                  <p className="text-xs text-white/40 mb-4">결정이 빠른 셀러를 위한 경로</p>
-
-                  <ul className="space-y-2 mb-6">
-                    {[
-                      "AI 셀러 비서 봇 즉시 세팅",
-                      "14일 무료 체험 후 월 49,000원",
-                      "1:1 온보딩 지원",
-                    ].map((item) => (
-                      <li key={item} className="flex items-center gap-2 text-sm text-white/70">
-                        <Icon icon="solar:check-circle-linear" width={16} className="text-[#059669] shrink-0" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="mb-4">
-                    <span className="font-display font-black text-3xl text-white tabular-nums">₩49,000</span>
-                    <span className="text-white/40 text-sm">/월</span>
-                    <p className="text-xs text-white/30 mt-1">14일 무료 체험 포함</p>
-                  </div>
-
-                  <Button
-                    href="/contact"
-                    variant="primary"
-                    size="md"
-                    className="w-full bg-[#059669] text-white hover:bg-[#047857] active:scale-[0.98]"
-                  >
-                    월 49,000원으로 시작 →
-                  </Button>
-                </div>
-              </div>
+              <Button
+                variant="primary"
+                size="lg"
+                className="active:scale-[0.98]"
+                onClick={() => setShowCTAModal(true)}
+              >
+                이 비용 줄이는 방법 받기 →
+              </Button>
+              <Button
+                href="/contact"
+                variant="secondary"
+                size="lg"
+                className="active:scale-[0.98]"
+              >
+                바로 도입 문의
+              </Button>
             </motion.div>
 
-            {/* Alternative CTA */}
-            <div className="text-center">
-              <p className="text-xs text-[#999] mb-3">아직 결정이 어렵다면</p>
-              <div className="flex gap-3 justify-center">
-                <Button href="/seminar" variant="secondary" size="sm">
-                  웨비나 알아보기
-                </Button>
-                <Button href="/services" variant="secondary" size="sm">
-                  서비스 살펴보기
-                </Button>
-              </div>
-            </div>
+            <p className="text-center text-xs text-[#999]">아직 결정이 어렵다면 먼저 웨비나를 확인해보세요</p>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* ── Global slider styles ── */}
+      {/* ═══════ CTA Modal Popup ═══════ */}
+      <AnimatePresence>
+        {showCTAModal && !submitted && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-50 flex items-center justify-center px-4"
+          >
+            {/* Backdrop */}
+            <div
+              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+              onClick={() => setShowCTAModal(false)}
+            />
+
+            {/* Modal */}
+            <motion.div
+              initial={{ opacity: 0, y: 40, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 20, scale: 0.98 }}
+              transition={{ duration: 0.5, ease: supanovaEase }}
+              className="relative z-10 w-full max-w-lg rounded-2xl bg-white p-8 md:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.2)]"
+            >
+              {/* Close */}
+              <button
+                onClick={() => setShowCTAModal(false)}
+                className="absolute top-4 right-4 text-[#999] hover:text-[#1A1A1A] transition-colors cursor-pointer"
+              >
+                <Icon icon="solar:close-circle-linear" width={24} />
+              </button>
+
+              {/* Shock number recap */}
+              <div className="text-center mb-8">
+                <p className="text-[#999] text-sm mb-2">매달 반복 업무에 빠지는 비용</p>
+                <p className="font-display font-black text-[40px] md:text-[48px] tabular-nums text-[#CC0000] leading-none mb-1">
+                  ₩{formatWon(results.totalMonthlyCost)}원
+                </p>
+                <p className="text-[#059669] font-bold text-lg">
+                  약 {results.savingsRate}% 절감 가능
+                </p>
+              </div>
+
+              {/* What you get */}
+              <div className="rounded-xl bg-[#F8F8F8] p-5 mb-6">
+                <p className="text-sm font-bold text-[#1A1A1A] mb-3">무료로 받을 수 있는 것</p>
+                <ul className="space-y-2.5">
+                  {[
+                    { icon: "solar:chart-square-bold", text: "내 외주비 절감 리포트" },
+                    { icon: "solar:chat-round-dots-bold", text: "텔레그램 봇 체험 가이드" },
+                    { icon: "solar:letter-bold", text: "주간 AI 셀러 인사이트" },
+                  ].map((item) => (
+                    <li key={item.text} className="flex items-center gap-3 text-sm text-[#444]">
+                      <Icon icon={item.icon} width={20} className="text-[#1A1A1A] shrink-0" />
+                      <span className="font-medium">{item.text}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Email form — big and clear */}
+              <div className="space-y-4">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="이메일 주소를 입력하세요"
+                  className="w-full px-5 py-4 rounded-xl border border-[#E0E0E0] bg-white text-[#1A1A1A] text-base focus:outline-none focus:border-[#1A1A1A] focus:ring-2 focus:ring-[#1A1A1A]/10 transition-all duration-300"
+                />
+                <label className="flex items-start gap-2.5 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={privacyConsent}
+                    onChange={(e) => setPrivacyConsent(e.target.checked)}
+                    className="w-5 h-5 rounded border-[#E0E0E0] accent-[#1A1A1A] mt-0.5 cursor-pointer"
+                  />
+                  <span className="text-sm text-[#999]">개인정보 수집 및 이용에 동의합니다</span>
+                </label>
+                <Button
+                  variant="primary"
+                  size="lg"
+                  className="w-full active:scale-[0.98] text-base py-4"
+                  onClick={() => { handleSubmitEmail(); setShowCTAModal(false); }}
+                  disabled={!email || !privacyConsent}
+                >
+                  무료 리포트 받기 →
+                </Button>
+              </div>
+
+              {/* Paid alternative */}
+              <div className="mt-5 pt-5 border-t border-[#E0E0E0] text-center">
+                <p className="text-xs text-[#999] mb-2">결정이 빠른 셀러라면</p>
+                <Button
+                  href="/contact"
+                  variant="secondary"
+                  size="sm"
+                >
+                  월 49,000원으로 바로 시작 →
+                </Button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Submitted success (replaces modal) */}
+      <AnimatePresence>
+        {submitted && showCTAModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center px-4"
+          >
+            <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setShowCTAModal(false)} />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="relative z-10 w-full max-w-md rounded-2xl bg-white p-10 text-center shadow-[0_24px_80px_rgba(0,0,0,0.2)]"
+            >
+              <Icon icon="solar:check-circle-bold" width={56} className="text-[#059669] mx-auto mb-4" />
+              <p className="font-display font-black text-2xl text-[#1A1A1A] mb-2">이메일을 확인해주세요!</p>
+              <p className="text-[#666] text-base mb-6" style={{ wordBreak: "keep-all" }}>
+                절감 리포트와 봇 체험 가이드를 보내드렸습니다.
+              </p>
+              <Button variant="primary" size="md" onClick={() => setShowCTAModal(false)}>
+                확인
+              </Button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* ── Global styles ── */}
       <style jsx global>{`
-        #diagnosis input[type="range"] {
-          -webkit-appearance: none;
-          appearance: none;
-          height: 6px;
-          border-radius: 9999px;
-          outline: none;
-        }
-        #diagnosis input[type="range"]::-webkit-slider-thumb {
-          -webkit-appearance: none;
-          appearance: none;
-          width: 18px;
-          height: 18px;
-          border-radius: 50%;
-          background: #1A1A1A;
-          cursor: pointer;
-          border: 2px solid #fff;
-          box-shadow: 0 1px 4px rgba(0,0,0,0.2);
-          transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        #diagnosis input[type="range"]::-webkit-slider-thumb:hover {
-          transform: scale(1.15);
-        }
-        #diagnosis input[type="range"]::-moz-range-thumb {
-          width: 18px;
-          height: 18px;
-          border-radius: 50%;
-          background: #1A1A1A;
-          cursor: pointer;
-          border: 2px solid #fff;
-          box-shadow: 0 1px 4px rgba(0,0,0,0.2);
-        }
         #diagnosis select {
           background-image: none;
         }

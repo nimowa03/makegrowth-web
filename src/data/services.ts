@@ -161,10 +161,10 @@ export interface PricingTier {
 export const pricingTiers: PricingTier[] = [
   {
     name: "AI 직원 고용",
-    target: "14일 무료 체험 → 월 49,000원",
-    format: "전체 기능 즉시 사용",
-    duration: "14일 무료 체험 후 자동 전환",
-    includes: "LLM + 서버 + 유지보수 올인클루시브. 매출 조회, 리포트, CS, SNS 전체 모듈 포함.",
+    target: "반복 업무를 맡길 AI가 필요한 셀러",
+    format: "14일 무료 체험 → 월 구독",
+    duration: "즉시 시작",
+    includes: "매출 조회, 경쟁사 모니터링, 일일 리포트, CS 자동응답, SNS 콘텐츠, 재고 알림. LLM+서버+유지보수 올인클루시브.",
     price: "월 49,000원",
     highlight: true,
   },

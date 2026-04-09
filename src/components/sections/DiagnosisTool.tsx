@@ -429,7 +429,7 @@ export function DiagnosisTool() {
           </motion.div>
         )}
 
-        {/* ═══════ STEP 1: Time Allocation ═══════ */}
+        {/* ═══════ STEP 1: Time Allocation (Button Selector) ═══════ */}
         {step === 1 && (
           <motion.div
             key="step-1"
@@ -439,91 +439,114 @@ export function DiagnosisTool() {
             exit="exit"
             transition={{ duration: 0.5, ease: supanovaEase }}
           >
-            <div className="mb-8">
+            <div className="mb-10">
               <button onClick={prevStep} className="text-[#999] text-sm flex items-center gap-1 hover:text-[#1A1A1A] transition-colors duration-300 mb-4 cursor-pointer">
                 <Icon icon="solar:arrow-left-linear" width={16} />
                 이전
               </button>
               <h3
-                className="font-display font-black text-2xl md:text-[36px] text-[#1A1A1A] mb-2 leading-tight tracking-tight"
+                className="font-display font-black text-[28px] md:text-[40px] text-[#1A1A1A] mb-3 leading-tight tracking-tight"
                 style={{ wordBreak: "keep-all", textWrap: "balance" }}
               >
                 하루 중 이 시간이
                 <br className="md:hidden" />
                 전부 비용입니다
               </h3>
-              <p className="text-[#666] text-sm md:text-base" style={{ wordBreak: "keep-all" }}>
-                슬라이더를 움직여서 내 하루를 입력해 보세요
+              <p className="text-[#666] text-base md:text-lg" style={{ wordBreak: "keep-all" }}>
+                각 업무에 쓰는 시간을 선택하세요
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-8 items-start">
-              {/* Donut - mobile top */}
-              <div className="lg:hidden flex justify-center">
-                <DonutChart hours={hours} />
-              </div>
+            {/* Task button grid */}
+            <div className="space-y-4 mb-10">
+              {tasks.map((task, i) => {
+                const timeOptions = [0, 0.5, 1, 2, 3, task.maxHours > 3 ? task.maxHours : null].filter((v): v is number => v !== null && v <= task.maxHours);
+                const uniqueOptions = [...new Set(timeOptions)];
 
-              {/* Sliders */}
-              <div className="space-y-5">
-                {tasks.map((task, i) => (
+                return (
                   <motion.div
                     key={task.id}
-                    initial={{ opacity: 0, y: 12 }}
+                    initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: i * 0.06, ease: supanovaEase }}
+                    transition={{ duration: 0.4, delay: i * 0.05, ease: supanovaEase }}
+                    className="rounded-2xl border border-[#E0E0E0] bg-white p-5 md:p-6"
                   >
-                    <div className="flex items-center justify-between mb-1.5">
-                      <div className="flex items-center gap-2">
-                        <Icon icon={task.icon} width={18} className="text-[#1A1A1A]" />
-                        <span className="text-sm font-semibold text-[#1A1A1A]">{task.label}</span>
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 rounded-xl bg-[#F0F0F0] flex items-center justify-center shrink-0">
+                        <Icon icon={task.icon} width={22} className="text-[#1A1A1A]" />
                       </div>
-                      <span className="font-display font-black text-sm tabular-nums text-[#1A1A1A]">
-                        {hours[task.id].toFixed(1)}h
-                      </span>
+                      <div className="flex-1 min-w-0">
+                        <span className="text-base font-bold text-[#1A1A1A] block">{task.label}</span>
+                        <span className="text-xs text-[#999]">{task.description}</span>
+                      </div>
+                      {hours[task.id] > 0 && (
+                        <span className="font-display font-black text-xl tabular-nums text-[#1A1A1A]">
+                          {hours[task.id]}h
+                        </span>
+                      )}
                     </div>
-                    <p className="text-xs text-[#999] mb-2">{task.description}</p>
-                    <input
-                      type="range"
-                      min={0}
-                      max={task.maxHours}
-                      step={0.5}
-                      value={hours[task.id]}
-                      onChange={(e) => setHour(task.id, parseFloat(e.target.value))}
-                      className="w-full h-1.5 rounded-full appearance-none cursor-pointer"
-                      style={{
-                        background: `linear-gradient(to right, #1A1A1A ${(hours[task.id] / task.maxHours) * 100}%, #E0E0E0 ${(hours[task.id] / task.maxHours) * 100}%)`,
-                      }}
-                    />
-                  </motion.div>
-                ))}
 
-                {/* Summary + annual calculation */}
-                <div className="pt-4 border-t border-[#E0E0E0]">
-                  <div className="flex justify-between items-center mb-1">
-                    <span className="text-sm text-[#666]">하루 총 업무 시간</span>
-                    <span className="font-display font-black text-lg tabular-nums text-[#1A1A1A]">
-                      {results.totalHours.toFixed(1)}시간
-                    </span>
-                  </div>
-                  {topTask && (
-                    <p className="text-xs text-[#999] mb-2">
-                      가장 많은 시간: <span className="text-[#1A1A1A] font-semibold">{topTask}</span>
-                    </p>
-                  )}
-                  <p className="text-xs text-[#999]">
-                    연간 환산 <span className="text-[#1A1A1A] font-bold tabular-nums">{Math.round(results.totalHours * 365).toLocaleString()}시간</span>
-                    {" "}— 이 시간에 가격표를 붙여볼까요?
+                    {/* Button options */}
+                    <div className="flex flex-wrap gap-2">
+                      {uniqueOptions.map((val) => (
+                        <button
+                          key={val}
+                          onClick={() => setHour(task.id, val)}
+                          className={`px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer active:scale-[0.95] ${
+                            hours[task.id] === val
+                              ? "bg-[#1A1A1A] text-white shadow-[0_2px_12px_rgba(0,0,0,0.15)]"
+                              : "bg-[#F5F5F5] text-[#666] hover:bg-[#E8E8E8]"
+                          }`}
+                        >
+                          {val === 0 ? "안 함" : val >= task.maxHours ? `${val}h+` : `${val}h`}
+                        </button>
+                      ))}
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+
+            {/* Impact summary — BIG numbers */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4, ease: supanovaEase }}
+              className="rounded-2xl bg-[#1A1A1A] p-8 md:p-10 mb-8"
+            >
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+                <div>
+                  <p className="text-white/40 text-xs uppercase tracking-wider mb-2">하루 반복 업무</p>
+                  <p className="font-display font-black text-[48px] md:text-[64px] tabular-nums text-white leading-none">
+                    {results.totalHours.toFixed(1)}
                   </p>
+                  <p className="text-white/50 text-sm mt-1">시간/일</p>
+                </div>
+                <div>
+                  <p className="text-white/40 text-xs uppercase tracking-wider mb-2">연간 환산</p>
+                  <p className="font-display font-black text-[48px] md:text-[64px] tabular-nums text-white leading-none">
+                    {Math.round(results.totalHours * 365).toLocaleString()}
+                  </p>
+                  <p className="text-white/50 text-sm mt-1">시간/년</p>
+                </div>
+                <div>
+                  <p className="text-white/40 text-xs uppercase tracking-wider mb-2">시급 1만원 기준</p>
+                  <p className="font-display font-black text-[48px] md:text-[64px] tabular-nums text-[#CC0000] leading-none">
+                    {Math.round(results.totalHours * 365).toLocaleString()}
+                  </p>
+                  <p className="text-white/50 text-sm mt-1">만원/년</p>
                 </div>
               </div>
 
-              {/* Donut - desktop right */}
-              <div className="hidden lg:flex justify-center sticky top-8">
-                <DonutChart hours={hours} />
-              </div>
-            </div>
+              {topTask && (
+                <p className="text-center text-white/40 text-sm mt-6 pt-6 border-t border-white/10" style={{ wordBreak: "keep-all" }}>
+                  가장 많은 시간을 쓰는 업무: <strong className="text-white/70">{topTask}</strong>
+                  {" "}— 이 시간에 가격표를 붙여볼까요?
+                </p>
+              )}
+            </motion.div>
 
-            <div className="mt-8 flex justify-end">
+            <div className="flex justify-end">
               <Button variant="primary" size="lg" onClick={nextStep} className="active:scale-[0.98]">
                 외주비 확인하기 →
               </Button>

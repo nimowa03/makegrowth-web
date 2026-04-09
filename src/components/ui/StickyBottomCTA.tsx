@@ -26,11 +26,11 @@ export function StickyBottomCTA() {
           className="fixed bottom-0 left-0 right-0 z-40 bg-white/80 backdrop-blur-xl border-t border-[#E0E0E0] px-6 py-3 md:py-4"
         >
           <div className="max-w-content mx-auto flex items-center justify-between gap-4">
-            <p className="text-[#1A1A1A] text-sm md:text-base font-semibold hidden sm:block">
-              AI 직원, 14일 무료 체험 → <span className="text-[#059669]">월 49,000원</span>
+            <p className="text-[#1A1A1A] text-sm md:text-base font-semibold hidden sm:block" style={{ wordBreak: "keep-all" }}>
+              내 셀러 루틴, AI로 얼마나 줄일 수 있을까?
             </p>
             <Button href="/diagnosis" size="sm" showArrow>
-              무료 체험 시작
+              무료 진단하기
             </Button>
           </div>
         </motion.div>

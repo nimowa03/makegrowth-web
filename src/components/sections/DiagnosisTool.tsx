@@ -603,7 +603,7 @@ export function DiagnosisTool() {
                     <div className="flex items-center gap-3 mb-3">
                       <Icon icon={task.icon} width={20} className="text-[#1A1A1A]" />
                       <span className="text-sm font-semibold text-[#1A1A1A]">{task.label}</span>
-                      <span className="text-xs text-[#999] ml-auto tabular-nums">{hours[task.id].toFixed(1)}h/일</span>
+                      <span className="text-xs text-[#999] ml-auto tabular-nums">{hours[task.id] >= 1 ? `${hours[task.id]}시간/일` : hours[task.id] > 0 ? "30분/일" : ""}</span>
                     </div>
 
                     <label className="flex items-center gap-2 cursor-pointer mb-3">

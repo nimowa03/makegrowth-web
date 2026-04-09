@@ -653,20 +653,20 @@ export function DiagnosisTool() {
                     <div>
                       <p className="text-xs text-[#999] mb-0.5">월 외주비 합계</p>
                       <p className="font-display font-black text-2xl tabular-nums text-[#1A1A1A]">
-                        <AnimatedNumber value={results.totalMonthlyCost} prefix="₩" suffix="만" />
+                        <AnimatedNumber value={results.totalMonthlyCost} suffix="만원" />
                       </p>
                     </div>
                     <div>
                       <p className="text-xs text-[#999] mb-0.5">연간 환산</p>
                       <p className="font-display font-black text-lg tabular-nums text-[#1A1A1A]">
-                        <AnimatedNumber value={results.totalAnnualCost} prefix="₩" suffix="만" />
+                        <AnimatedNumber value={results.totalAnnualCost} suffix="만원" />
                       </p>
                     </div>
                     {results.costRatio !== null && results.costRatio > 0 && (
                       <div>
                         <p className="text-xs text-[#999] mb-0.5">매출 대비 외주비</p>
                         <p className="font-display font-black text-lg tabular-nums text-[#CC0000]">
-                          매출의 <AnimatedNumber value={results.costRatio} suffix="%" />
+                          매출의 <AnimatedNumber value={results.costRatio} suffix="%" /> 수준
                         </p>
                       </div>
                     )}
@@ -729,10 +729,10 @@ export function DiagnosisTool() {
                   transition={{ duration: 0.8, delay: 0.2, ease: supanovaEase }}
                   className="font-display font-black text-[56px] md:text-[80px] tabular-nums text-[#CC0000] leading-none mb-2"
                 >
-                  ₩{formatWon(results.totalMonthlyCost)}원
+                  {formatWon(results.totalMonthlyCost)}원
                 </motion.p>
                 <p className="text-white/30 text-sm tabular-nums mb-8">
-                  연간 ₩{formatWon(results.totalAnnualCost)}원
+                  연간 {formatWon(results.totalAnnualCost)}원
                 </p>
 
                 {/* Before / After bar comparison */}
@@ -740,7 +740,7 @@ export function DiagnosisTool() {
                   <div>
                     <div className="flex justify-between text-xs text-white/50 mb-1.5">
                       <span>현재 외주비</span>
-                      <span className="tabular-nums">₩{formatWon(results.totalMonthlyCost)}원/월</span>
+                      <span className="tabular-nums">{formatWon(results.totalMonthlyCost)}원/월</span>
                     </div>
                     <div className="w-full h-4 rounded-full bg-white/10 overflow-hidden">
                       <motion.div
@@ -755,7 +755,7 @@ export function DiagnosisTool() {
                     <div className="flex justify-between text-xs text-white/50 mb-1.5">
                       <span>AI 전환 후</span>
                       <span className="tabular-nums text-[#059669] font-semibold">
-                        ₩{formatWon(results.totalMonthlyCost - results.totalMonthlySavings)}원/월
+                        {formatWon(results.totalMonthlyCost - results.totalMonthlySavings)}원/월
                       </span>
                     </div>
                     <div className="w-full h-4 rounded-full bg-white/10 overflow-hidden">
@@ -787,8 +787,8 @@ export function DiagnosisTool() {
                     <div key={task.id} className="flex items-center gap-3 rounded-xl border border-[#E0E0E0] bg-white px-4 py-3">
                       <Icon icon={task.icon} width={18} className="text-[#1A1A1A] shrink-0" />
                       <span className="text-sm font-semibold text-[#1A1A1A] flex-1">{task.label}</span>
-                      <span className="text-xs text-[#999] tabular-nums">₩{cost}만 →</span>
-                      <span className="text-xs text-[#059669] font-bold tabular-nums">₩{cost - savings}만</span>
+                      <span className="text-xs text-[#999] tabular-nums">{cost}만원 →</span>
+                      <span className="text-xs text-[#059669] font-bold tabular-nums">{cost - savings}만원</span>
                       <span className="text-xs text-[#059669] font-bold tabular-nums">-{Math.round(rate * 100)}%</span>
                     </div>
                   ))}
@@ -862,7 +862,7 @@ export function DiagnosisTool() {
               <div className="text-center mb-8">
                 <p className="text-[#999] text-sm mb-2">매달 반복 업무에 빠지는 비용</p>
                 <p className="font-display font-black text-[40px] md:text-[48px] tabular-nums text-[#CC0000] leading-none mb-1">
-                  ₩{formatWon(results.totalMonthlyCost)}원
+                  {formatWon(results.totalMonthlyCost)}원
                 </p>
                 <p className="text-[#059669] font-bold text-lg">
                   약 {results.savingsRate}% 절감 가능

@@ -438,7 +438,7 @@ export function DiagnosisTool() {
           </motion.div>
         )}
 
-        {/* ═══════ STEP 1: Time Allocation (Button Selector) ═══════ */}
+        {/* ═══════ STEP 1: Time Allocation ═══════ */}
         {step === 1 && (
           <motion.div
             key="step-1"
@@ -466,94 +466,95 @@ export function DiagnosisTool() {
               </p>
             </div>
 
-            {/* Task button grid */}
-            <div className="space-y-4 mb-10">
-              {tasks.map((task, i) => {
-                const timeOptions = [0, 0.5, 1, 2, 3, task.maxHours > 3 ? task.maxHours : null].filter((v): v is number => v !== null && v <= task.maxHours);
-                const uniqueOptions = [...new Set(timeOptions)];
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-8 items-start">
+              {/* Task cards */}
+              <div className="space-y-3">
+                {tasks.map((task, i) => {
+                  const minuteOptions = [
+                    { label: "안 함", value: 0 },
+                    { label: "30분", value: 0.5 },
+                    { label: "1시간", value: 1 },
+                    { label: "2시간", value: 2 },
+                    { label: "3시간", value: 3 },
+                    ...(task.maxHours > 3 ? [{ label: `${task.maxHours}시간+`, value: task.maxHours }] : []),
+                  ].filter((o) => o.value <= task.maxHours);
 
-                return (
-                  <motion.div
-                    key={task.id}
-                    initial={{ opacity: 0, y: 16 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: i * 0.05, ease: supanovaEase }}
-                    className="rounded-2xl border border-[#E0E0E0] bg-white p-5 md:p-6"
-                  >
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-10 h-10 rounded-xl bg-[#F0F0F0] flex items-center justify-center shrink-0">
-                        <Icon icon={task.icon} width={22} className="text-[#1A1A1A]" />
+                  return (
+                    <motion.div
+                      key={task.id}
+                      initial={{ opacity: 0, y: 12 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: i * 0.05, ease: supanovaEase }}
+                      className="rounded-2xl border border-[#E0E0E0] bg-white p-5 md:p-6"
+                    >
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-10 h-10 rounded-xl bg-[#F0F0F0] flex items-center justify-center shrink-0">
+                          <Icon icon={task.icon} width={22} className="text-[#1A1A1A]" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <span className="text-base font-bold text-[#1A1A1A] block">{task.label}</span>
+                          <span className="text-xs text-[#999]">{task.description}</span>
+                        </div>
+                        {hours[task.id] > 0 && (
+                          <span className="font-display font-black text-lg tabular-nums text-[#1A1A1A]">
+                            {hours[task.id] >= 1 ? `${hours[task.id]}시간` : "30분"}
+                          </span>
+                        )}
                       </div>
-                      <div className="flex-1 min-w-0">
-                        <span className="text-base font-bold text-[#1A1A1A] block">{task.label}</span>
-                        <span className="text-xs text-[#999]">{task.description}</span>
+
+                      <div className="flex flex-wrap gap-2">
+                        {minuteOptions.map((opt) => (
+                          <button
+                            key={opt.value}
+                            onClick={() => setHour(task.id, opt.value)}
+                            className={`px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer active:scale-[0.95] ${
+                              hours[task.id] === opt.value
+                                ? "bg-[#1A1A1A] text-white shadow-[0_2px_12px_rgba(0,0,0,0.15)]"
+                                : "bg-[#F5F5F5] text-[#666] hover:bg-[#E8E8E8]"
+                            }`}
+                          >
+                            {opt.label}
+                          </button>
+                        ))}
                       </div>
-                      {hours[task.id] > 0 && (
-                        <span className="font-display font-black text-xl tabular-nums text-[#1A1A1A]">
-                          {hours[task.id]}h
-                        </span>
-                      )}
-                    </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
 
-                    {/* Button options */}
-                    <div className="flex flex-wrap gap-2">
-                      {uniqueOptions.map((val) => (
-                        <button
-                          key={val}
-                          onClick={() => setHour(task.id, val)}
-                          className={`px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer active:scale-[0.95] ${
-                            hours[task.id] === val
-                              ? "bg-[#1A1A1A] text-white shadow-[0_2px_12px_rgba(0,0,0,0.15)]"
-                              : "bg-[#F5F5F5] text-[#666] hover:bg-[#E8E8E8]"
-                          }`}
-                        >
-                          {val === 0 ? "안 함" : val >= task.maxHours ? `${val}h+` : `${val}h`}
-                        </button>
-                      ))}
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
-
-            {/* Impact summary — BIG numbers */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4, ease: supanovaEase }}
-              className="rounded-2xl bg-[#1A1A1A] p-8 md:p-10 mb-8"
-            >
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
-                <div>
-                  <p className="text-white/40 text-xs uppercase tracking-wider mb-2">하루 반복 업무</p>
-                  <p className="font-display font-black text-[48px] md:text-[64px] tabular-nums text-white leading-none">
-                    {results.totalHours.toFixed(1)}
+              {/* Donut chart — sticky right */}
+              <div className="hidden lg:block sticky top-8">
+                <DonutChart hours={hours} />
+                <div className="mt-6 text-center">
+                  <p className="font-display font-black text-[40px] tabular-nums text-[#1A1A1A] leading-none">
+                    {results.totalHours.toFixed(1)}시간
                   </p>
-                  <p className="text-white/50 text-sm mt-1">시간/일</p>
-                </div>
-                <div>
-                  <p className="text-white/40 text-xs uppercase tracking-wider mb-2">연간 환산</p>
-                  <p className="font-display font-black text-[48px] md:text-[64px] tabular-nums text-white leading-none">
-                    {Math.round(results.totalHours * 365).toLocaleString()}
-                  </p>
-                  <p className="text-white/50 text-sm mt-1">시간/년</p>
-                </div>
-                <div>
-                  <p className="text-white/40 text-xs uppercase tracking-wider mb-2">시급 1만원 기준</p>
-                  <p className="font-display font-black text-[48px] md:text-[64px] tabular-nums text-[#CC0000] leading-none">
-                    {Math.round(results.totalHours * 365).toLocaleString()}
-                  </p>
-                  <p className="text-white/50 text-sm mt-1">만원/년</p>
+                  <p className="text-[#999] text-sm mt-1">하루 반복 업무</p>
                 </div>
               </div>
 
-              {topTask && (
-                <p className="text-center text-white/40 text-sm mt-6 pt-6 border-t border-white/10" style={{ wordBreak: "keep-all" }}>
-                  가장 많은 시간을 쓰는 업무: <strong className="text-white/70">{topTask}</strong>
-                  {" "}— 이 시간에 가격표를 붙여볼까요?
+              {/* Donut — mobile */}
+              <div className="lg:hidden flex flex-col items-center">
+                <DonutChart hours={hours} />
+                <p className="font-display font-black text-[32px] tabular-nums text-[#1A1A1A] leading-none mt-4">
+                  {results.totalHours.toFixed(1)}시간
                 </p>
-              )}
-            </motion.div>
+                <p className="text-[#999] text-sm mt-1">하루 반복 업무</p>
+              </div>
+            </div>
+
+            {/* Simple summary */}
+            {topTask && (
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.4, ease: supanovaEase }}
+                className="text-center text-[#666] text-sm mt-8 mb-8"
+                style={{ wordBreak: "keep-all" }}
+              >
+                가장 많은 시간을 쓰는 업무: <strong className="text-[#1A1A1A]">{topTask}</strong>
+              </motion.p>
+            )}
 
             <div className="flex justify-end">
               <Button variant="primary" size="lg" onClick={nextStep} className="active:scale-[0.98]">

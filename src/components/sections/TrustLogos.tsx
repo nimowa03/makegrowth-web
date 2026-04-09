@@ -6,14 +6,14 @@ import { useInView } from "@/hooks/useInView";
 import { fadeInUp } from "@/lib/motionVariants";
 
 const platforms = [
-  { name: "Telegram", icon: "solar:chat-round-dots-linear" },
-  { name: "Coupang", icon: "solar:bag-4-linear" },
-  { name: "Naver", icon: "solar:shop-linear" },
-  { name: "N8N", icon: "solar:link-round-linear" },
-  { name: "Google Sheets", icon: "solar:document-linear" },
-  { name: "Instagram", icon: "solar:camera-linear" },
-  { name: "YouTube", icon: "solar:play-circle-linear" },
-  { name: "Claude AI", icon: "solar:star-shine-linear" },
+  { name: "Telegram", icon: "simple-icons:telegram" },
+  { name: "Coupang", icon: "solar:bag-4-linear", brand: false },
+  { name: "Naver", icon: "simple-icons:naver" },
+  { name: "N8N", icon: "simple-icons:n8n" },
+  { name: "Google Sheets", icon: "simple-icons:googlesheets" },
+  { name: "Instagram", icon: "simple-icons:instagram" },
+  { name: "YouTube", icon: "simple-icons:youtube" },
+  { name: "Claude AI", icon: "simple-icons:claude" },
 ];
 
 export function TrustLogos() {
@@ -33,7 +33,6 @@ export function TrustLogos() {
 
         {/* Marquee */}
         <div className="overflow-hidden relative">
-          {/* Fade edges */}
           <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
@@ -44,11 +43,8 @@ export function TrustLogos() {
             className="flex animate-marquee"
           >
             {[...platforms, ...platforms].map((p, i) => (
-              <div
-                key={`${p.name}-${i}`}
-                className="flex items-center gap-2 px-6 shrink-0"
-              >
-                <Icon icon={p.icon} width={20} className="text-[#CCCCCC]" />
+              <div key={`${p.name}-${i}`} className="flex items-center gap-2.5 px-7 shrink-0">
+                <Icon icon={p.icon} width={22} className="text-[#999]" />
                 <span className="text-sm font-medium text-[#999] whitespace-nowrap">{p.name}</span>
               </div>
             ))}

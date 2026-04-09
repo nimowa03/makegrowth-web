@@ -224,7 +224,7 @@ function DonutChart({ hours }: { hours: Record<string, number> }) {
 const rewards = [
   { icon: "solar:chart-square-linear", title: "절감 리포트", desc: "내 외주비 중 AI 전환 가능 금액" },
   { icon: "solar:chat-round-dots-linear", title: "봇 체험 가이드", desc: "텔레그램 봇 온보딩 자료" },
-  { icon: "solar:letter-linear", title: "AI 셀러 인사이트", desc: "주간 뉴스레터 자동 구독" },
+  { icon: "solar:letter-linear", title: "셀러 AI 실전 레터", desc: "내 사업에 바로 적용할 수 있는 AI 트렌드 큐레이션" },
 ];
 
 /* ═══════════════════════════════════════════════════ */
@@ -876,7 +876,7 @@ export function DiagnosisTool() {
                   {[
                     { icon: "solar:chart-square-bold", text: "내 외주비 절감 리포트" },
                     { icon: "solar:chat-round-dots-bold", text: "텔레그램 봇 체험 가이드" },
-                    { icon: "solar:letter-bold", text: "주간 AI 셀러 인사이트" },
+                    { icon: "solar:letter-bold", text: "셀러 AI 실전 레터 (주간 큐레이션)" },
                   ].map((item) => (
                     <li key={item.text} className="flex items-center gap-3 text-sm text-[#444]">
                       <Icon icon={item.icon} width={20} className="text-[#1A1A1A] shrink-0" />

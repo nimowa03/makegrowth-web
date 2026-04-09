@@ -153,7 +153,7 @@ export function HomePricing() {
               <div className="mt-4 flex flex-col items-center gap-1.5">
                 <p className="flex items-center gap-1.5 text-xs text-[#059669] font-medium">
                   <Icon icon="solar:shield-check-linear" width={14} className="shrink-0" />
-                  카드 등록 없이 시작 · 14일 내 무조건 취소 가능
+                  30일 환불 보장 · 언제든 해지 가능
                 </p>
                 <p className="text-[11px] text-[#999]">해지 시 추가 비용 없음</p>
               </div>

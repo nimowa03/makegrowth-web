@@ -873,18 +873,23 @@ export function DiagnosisTool() {
               {/* Bottom: Two paths — white */}
               <div className="bg-white px-8 py-8 md:px-12 md:py-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {/* Free path */}
-                  <div>
-                    <p className="text-sm font-bold text-[#1A1A1A] mb-4">무료로 받을 수 있는 것</p>
-                    <ul className="space-y-3 mb-6">
+                  {/* Free path — lead magnet */}
+                  <div className="rounded-2xl border border-[#E0E0E0] p-6 md:p-8">
+                    <p className="text-xs uppercase tracking-[0.12em] font-bold text-[#999] mb-3">무료</p>
+                    <p className="text-[#1A1A1A] font-bold text-lg mb-2">온보딩 자료 받기</p>
+                    <p className="text-[#666] text-sm mb-5" style={{ wordBreak: "keep-all" }}>
+                      이메일로 체험 자료와 실전 인사이트를 보내드립니다
+                    </p>
+
+                    <ul className="space-y-2.5 mb-6">
                       {[
-                        { icon: "solar:chart-square-bold", text: "내 외주비 절감 리포트" },
-                        { icon: "solar:chat-round-dots-bold", text: "텔레그램 봇 체험 가이드" },
-                        { icon: "solar:letter-bold", text: "셀러 AI 실전 레터" },
+                        "내 외주비 절감 리포트",
+                        "AI 봇 체험 온보딩 가이드",
+                        "셀러 AI 실전 레터 (주간)",
                       ].map((item) => (
-                        <li key={item.text} className="flex items-center gap-3 text-sm text-[#444]">
-                          <Icon icon={item.icon} width={22} className="text-[#1A1A1A] shrink-0" />
-                          <span className="font-medium">{item.text}</span>
+                        <li key={item} className="flex items-center gap-2 text-sm text-[#444]">
+                          <Icon icon="solar:check-circle-bold" width={16} className="text-[#1A1A1A] shrink-0" />
+                          <span>{item}</span>
                         </li>
                       ))}
                     </ul>
@@ -912,30 +917,30 @@ export function DiagnosisTool() {
                       onClick={() => { handleSubmitEmail(); setShowCTAModal(false); }}
                       disabled={!email || !privacyConsent}
                     >
-                      무료 리포트 받기 →
+                      무료 자료 받기 →
                     </Button>
                   </div>
 
-                  {/* Paid path — highlighted */}
+                  {/* Paid path — direct payment */}
                   <div className="rounded-2xl bg-[#1A1A1A] p-6 md:p-8 relative overflow-hidden">
                     <div
                       className="absolute top-[-20%] right-[-15%] w-[200px] h-[200px] rounded-full pointer-events-none"
                       style={{ background: "radial-gradient(circle, rgba(5,150,105,0.1) 0%, transparent 70%)" }}
                     />
                     <div className="relative z-10">
-                      <div className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.12em] font-bold bg-[#059669]/20 text-[#059669] mb-4">
-                        추천
+                      <div className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.12em] font-bold bg-[#059669]/20 text-[#059669] mb-3">
+                        바로 시작
                       </div>
-                      <p className="text-white font-bold text-lg mb-2">지금 바로 도입하기</p>
+                      <p className="text-white font-bold text-lg mb-2">AI 비서 봇 도입</p>
                       <p className="text-white/50 text-sm mb-5" style={{ wordBreak: "keep-all" }}>
-                        14일 무료 체험 후 결정하세요
+                        결제 후 바로 봇 세팅을 시작합니다
                       </p>
 
                       <ul className="space-y-2.5 mb-6">
                         {[
                           "AI 셀러 비서 봇 즉시 세팅",
                           "1:1 온보딩 지원",
-                          "카드 등록 없이 시작",
+                          "30일 환불 보장",
                         ].map((item) => (
                           <li key={item} className="flex items-center gap-2 text-sm text-white/70">
                             <Icon icon="solar:check-circle-bold" width={16} className="text-[#059669] shrink-0" />
@@ -955,7 +960,7 @@ export function DiagnosisTool() {
                         size="lg"
                         className="w-full bg-[#059669] text-white hover:bg-[#047857] active:scale-[0.98] text-base"
                       >
-                        14일 무료 체험 시작 →
+                        결제하고 바로 시작 →
                       </Button>
                     </div>
                   </div>

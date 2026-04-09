@@ -223,7 +223,7 @@ function DonutChart({ hours }: { hours: Record<string, number> }) {
 /* ── Reward Preview Cards ── */
 const rewards = [
   { icon: "solar:chart-square-linear", title: "절감 리포트", desc: "내 외주비 중 AI 전환 가능 금액" },
-  { icon: "solar:bot-linear", title: "봇 체험 가이드", desc: "텔레그램 봇 온보딩 자료" },
+  { icon: "solar:chat-round-dots-linear", title: "봇 체험 가이드", desc: "텔레그램 봇 온보딩 자료" },
   { icon: "solar:letter-linear", title: "AI 셀러 인사이트", desc: "주간 뉴스레터 자동 구독" },
 ];
 

@@ -21,7 +21,7 @@ import { serviceModules } from "@/data/services";
 const iconMap: Record<string, string> = {
   "share-2": "solar:share-linear",
   image: "solar:gallery-linear",
-  bot: "solar:bot-linear",
+  bot: "solar:chat-round-dots-linear",
   "pen-tool": "solar:pen-2-linear",
   "message-circle": "solar:chat-round-dots-linear",
   "bar-chart-3": "solar:chart-2-linear",

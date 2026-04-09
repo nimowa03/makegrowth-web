@@ -843,89 +843,123 @@ export function DiagnosisTool() {
               onClick={() => setShowCTAModal(false)}
             />
 
-            {/* Modal */}
+            {/* Modal — large, two-section */}
             <motion.div
               initial={{ opacity: 0, y: 40, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 20, scale: 0.98 }}
               transition={{ duration: 0.5, ease: supanovaEase }}
-              className="relative z-10 w-full max-w-lg rounded-2xl bg-white p-8 md:p-10 shadow-[0_24px_80px_rgba(0,0,0,0.2)]"
+              className="relative z-10 w-full max-w-2xl rounded-3xl overflow-hidden shadow-[0_32px_100px_rgba(0,0,0,0.25)]"
             >
               {/* Close */}
               <button
                 onClick={() => setShowCTAModal(false)}
-                className="absolute top-4 right-4 text-[#999] hover:text-[#1A1A1A] transition-colors cursor-pointer"
+                className="absolute top-5 right-5 z-20 text-white/50 hover:text-white transition-colors cursor-pointer"
               >
-                <Icon icon="solar:close-circle-linear" width={24} />
+                <Icon icon="solar:close-circle-linear" width={28} />
               </button>
 
-              {/* Shock number recap */}
-              <div className="text-center mb-8">
-                <p className="text-[#999] text-sm mb-2">매달 반복 업무에 빠지는 비용</p>
-                <p className="font-display font-black text-[40px] md:text-[48px] tabular-nums text-[#CC0000] leading-none mb-1">
+              {/* Top: Shock recap — dark */}
+              <div className="bg-[#1A1A1A] px-8 py-10 md:px-12 md:py-12 text-center">
+                <p className="text-white/50 text-base mb-3">매달 반복 업무에 빠지는 비용</p>
+                <p className="font-display font-black text-[52px] md:text-[68px] tabular-nums text-[#CC0000] leading-none mb-2">
                   {formatWon(results.totalMonthlyCost)}원
                 </p>
-                <p className="text-[#059669] font-bold text-lg">
+                <p className="text-[#059669] font-bold text-xl">
                   약 {results.savingsRate}% 절감 가능
                 </p>
               </div>
 
-              {/* What you get */}
-              <div className="rounded-xl bg-[#F8F8F8] p-5 mb-6">
-                <p className="text-sm font-bold text-[#1A1A1A] mb-3">무료로 받을 수 있는 것</p>
-                <ul className="space-y-2.5">
-                  {[
-                    { icon: "solar:chart-square-bold", text: "내 외주비 절감 리포트" },
-                    { icon: "solar:chat-round-dots-bold", text: "텔레그램 봇 체험 가이드" },
-                    { icon: "solar:letter-bold", text: "셀러 AI 실전 레터 (주간 큐레이션)" },
-                  ].map((item) => (
-                    <li key={item.text} className="flex items-center gap-3 text-sm text-[#444]">
-                      <Icon icon={item.icon} width={20} className="text-[#1A1A1A] shrink-0" />
-                      <span className="font-medium">{item.text}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              {/* Bottom: Two paths — white */}
+              <div className="bg-white px-8 py-8 md:px-12 md:py-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* Free path */}
+                  <div>
+                    <p className="text-sm font-bold text-[#1A1A1A] mb-4">무료로 받을 수 있는 것</p>
+                    <ul className="space-y-3 mb-6">
+                      {[
+                        { icon: "solar:chart-square-bold", text: "내 외주비 절감 리포트" },
+                        { icon: "solar:chat-round-dots-bold", text: "텔레그램 봇 체험 가이드" },
+                        { icon: "solar:letter-bold", text: "셀러 AI 실전 레터" },
+                      ].map((item) => (
+                        <li key={item.text} className="flex items-center gap-3 text-sm text-[#444]">
+                          <Icon icon={item.icon} width={22} className="text-[#1A1A1A] shrink-0" />
+                          <span className="font-medium">{item.text}</span>
+                        </li>
+                      ))}
+                    </ul>
 
-              {/* Email form — big and clear */}
-              <div className="space-y-4">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="이메일 주소를 입력하세요"
-                  className="w-full px-5 py-4 rounded-xl border border-[#E0E0E0] bg-white text-[#1A1A1A] text-base focus:outline-none focus:border-[#1A1A1A] focus:ring-2 focus:ring-[#1A1A1A]/10 transition-all duration-300"
-                />
-                <label className="flex items-start gap-2.5 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked={privacyConsent}
-                    onChange={(e) => setPrivacyConsent(e.target.checked)}
-                    className="w-5 h-5 rounded border-[#E0E0E0] accent-[#1A1A1A] mt-0.5 cursor-pointer"
-                  />
-                  <span className="text-sm text-[#999]">개인정보 수집 및 이용에 동의합니다</span>
-                </label>
-                <Button
-                  variant="primary"
-                  size="lg"
-                  className="w-full active:scale-[0.98] text-base py-4"
-                  onClick={() => { handleSubmitEmail(); setShowCTAModal(false); }}
-                  disabled={!email || !privacyConsent}
-                >
-                  무료 리포트 받기 →
-                </Button>
-              </div>
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="이메일 주소"
+                      className="w-full px-5 py-4 rounded-xl border border-[#E0E0E0] bg-[#F8F8F8] text-[#1A1A1A] text-base focus:outline-none focus:border-[#1A1A1A] focus:ring-2 focus:ring-[#1A1A1A]/10 transition-all duration-300 mb-3"
+                    />
+                    <label className="flex items-start gap-2.5 cursor-pointer mb-4">
+                      <input
+                        type="checkbox"
+                        checked={privacyConsent}
+                        onChange={(e) => setPrivacyConsent(e.target.checked)}
+                        className="w-5 h-5 rounded border-[#E0E0E0] accent-[#1A1A1A] mt-0.5 cursor-pointer"
+                      />
+                      <span className="text-sm text-[#999]">개인정보 수집 및 이용에 동의합니다</span>
+                    </label>
+                    <Button
+                      variant="primary"
+                      size="lg"
+                      className="w-full active:scale-[0.98] text-base"
+                      onClick={() => { handleSubmitEmail(); setShowCTAModal(false); }}
+                      disabled={!email || !privacyConsent}
+                    >
+                      무료 리포트 받기 →
+                    </Button>
+                  </div>
 
-              {/* Paid alternative */}
-              <div className="mt-5 pt-5 border-t border-[#E0E0E0] text-center">
-                <p className="text-xs text-[#999] mb-2">결정이 빠른 셀러라면</p>
-                <Button
-                  href="/contact"
-                  variant="secondary"
-                  size="sm"
-                >
-                  월 49,000원으로 바로 시작 →
-                </Button>
+                  {/* Paid path — highlighted */}
+                  <div className="rounded-2xl bg-[#1A1A1A] p-6 md:p-8 relative overflow-hidden">
+                    <div
+                      className="absolute top-[-20%] right-[-15%] w-[200px] h-[200px] rounded-full pointer-events-none"
+                      style={{ background: "radial-gradient(circle, rgba(5,150,105,0.1) 0%, transparent 70%)" }}
+                    />
+                    <div className="relative z-10">
+                      <div className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.12em] font-bold bg-[#059669]/20 text-[#059669] mb-4">
+                        추천
+                      </div>
+                      <p className="text-white font-bold text-lg mb-2">지금 바로 도입하기</p>
+                      <p className="text-white/50 text-sm mb-5" style={{ wordBreak: "keep-all" }}>
+                        14일 무료 체험 후 결정하세요
+                      </p>
+
+                      <ul className="space-y-2.5 mb-6">
+                        {[
+                          "AI 셀러 비서 봇 즉시 세팅",
+                          "1:1 온보딩 지원",
+                          "카드 등록 없이 시작",
+                        ].map((item) => (
+                          <li key={item} className="flex items-center gap-2 text-sm text-white/70">
+                            <Icon icon="solar:check-circle-bold" width={16} className="text-[#059669] shrink-0" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+
+                      <div className="mb-5">
+                        <span className="font-display font-black text-[36px] text-white tabular-nums">49,000</span>
+                        <span className="text-white/40 text-base">원/월</span>
+                      </div>
+
+                      <Button
+                        href="/contact"
+                        variant="primary"
+                        size="lg"
+                        className="w-full bg-[#059669] text-white hover:bg-[#047857] active:scale-[0.98] text-base"
+                      >
+                        14일 무료 체험 시작 →
+                      </Button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </motion.div>
           </motion.div>

@@ -6,6 +6,7 @@ import { SectionWrapper } from "@/components/layout/SectionWrapper";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { CEO_NAME } from "@/lib/constants";
+import { supanovaEase } from "@/lib/motionVariants";
 
 /* ─────────────────────────────────────────────
    Data
@@ -62,8 +63,6 @@ const capabilities = [
 /* ─────────────────────────────────────────────
    Animation helpers
    ───────────────────────────────────────────── */
-
-const supanovaEase = [0.16, 1, 0.3, 1] as const;
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24, filter: "blur(4px)" },

@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { triggerN8nWebhook } from "@/lib/n8nWebhook";
 
 const SECRET_KEY = process.env.TOSS_SECRET_KEY || "test_sk_ex6BJGQOVDwNkOD7Pewk3W4w2zNb";
 
@@ -30,21 +31,13 @@ export async function POST(request: Request) {
       );
     }
 
-    // 결제 성공 → N8N webhook으로 온보딩 트리거
-    const webhookUrl = process.env.N8N_WEBHOOK_URL;
-    if (webhookUrl) {
-      fetch(webhookUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          type: "payment_success",
-          orderId: data.orderId,
-          amount: data.totalAmount,
-          approvedAt: data.approvedAt,
-          customerName: data.card?.ownerName || "",
-        }),
-      }).catch(() => {});
-    }
+    await triggerN8nWebhook({
+      type: "payment_success",
+      orderId: data.orderId,
+      amount: data.totalAmount,
+      approvedAt: data.approvedAt,
+      customerName: data.card?.ownerName || "",
+    });
 
     return NextResponse.json({
       status: data.status,

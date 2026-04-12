@@ -1,6 +1,6 @@
 import type { Variants } from "framer-motion";
 
-const supanovaEase = [0.16, 1, 0.3, 1] as const;
+export const supanovaEase = [0.16, 1, 0.3, 1] as const;
 
 /* ── Entry Animations ── */
 

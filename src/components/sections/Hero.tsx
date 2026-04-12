@@ -59,7 +59,7 @@ export function Hero() {
               className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[11px] uppercase tracking-[0.15em] font-medium border border-[#E0E0E0] text-[#666] mb-8"
             >
               <span className="text-[#666]">{"//"}</span>
-              이커머스 셀러 전용 AI 비서
+              이커머스 셀러 전용 AI 직원
             </motion.span>
 
             {/* H1 */}
@@ -78,10 +78,10 @@ export function Hero() {
               className="text-[#444] text-lg md:text-xl lg:text-2xl leading-relaxed max-w-2xl mx-auto mb-8"
               style={{ wordBreak: "keep-all" }}
             >
-              매출은 있는데 남는 건 없다. 직접 할 수 있는 게 없으면 비용은 계속 늘어난다.
+              소싱, 등록, 상세페이지, CS, SNS까지. 대표님, 혼자 다 하고 계신가요?
               <br />
               <span className="text-[#1A1A1A] font-semibold">
-                이 구조를 바꾸는 건 AI 도구가 아니라, 내 체질로 만든 시스템입니다.
+                그 시간과 비용, AI 직원 하나가 바꿀 수 있습니다.
               </span>
             </motion.p>
 
@@ -113,7 +113,7 @@ export function Hero() {
                 </Button>
               </MagneticButton>
               <Button href="#bot-demo" variant="secondary" size="lg">
-                어떤 일을 하는지 보기
+                실제 시연 보기 ↓
               </Button>
             </motion.div>
           </div>

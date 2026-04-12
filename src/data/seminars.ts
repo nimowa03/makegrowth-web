@@ -23,7 +23,7 @@ export interface Seminar {
 export const currentSeminar: Seminar = {
   id: "ax-webinar-2026-h2",
   slug: "ax-ai-bot-webinar",
-  title: "AI 셀러 비서 봇 — 내 사업에 맞게 직접 세팅하는 웨비나",
+  title: "AI 직원 — 내 사업에 맞게 직접 세팅하는 웨비나",
   date: "2026 하반기 예정",
   time: "20:00 - 21:30",
   location: "온라인 (Zoom)",
@@ -38,7 +38,7 @@ export const currentSeminar: Seminar = {
       title: "봇 라이브 시연",
       description:
         "실제 쿠팡 매출 조회, 경쟁사 가격 모니터링, 일일 리포트 자동 생성을 눈앞에서 시연합니다.",
-      deliverable: "실제 작동하는 AI 비서 봇 확인",
+      deliverable: "실제 작동하는 AI 직원 확인",
     },
     {
       time: "20:20 - 20:50",
@@ -53,7 +53,7 @@ export const currentSeminar: Seminar = {
       stage: "3단계",
       title: "도입 방법 안내",
       description:
-        "세미나(직접 세팅 실습), 구축대행(맞춤 커스텀), 관리형 월정액(바로 사용) 중 내 상황에 맞는 시작 방법.",
+        "웨비나(직접 세팅 실습), 구축대행(맞춤 커스텀), 관리형 월정액(바로 사용) 중 내 상황에 맞는 시작 방법.",
       deliverable: "내 상황에 맞는 도입 로드맵",
     },
     {
@@ -82,7 +82,7 @@ export const seminarCounters = [
 ];
 
 export const whatYouGet = [
-  "실제로 작동하는 AI 셀러 비서 봇 라이브 시연",
+  "실제로 작동하는 AI 직원 라이브 시연",
   "내 카테고리에 적용하는 구체적 방법",
   "봇 기능 전체 소개 및 커스텀 방법 안내",
   "참가자 전용 봇 세팅 가이드",

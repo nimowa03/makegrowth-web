@@ -5,8 +5,7 @@ import { Icon } from "@iconify/react";
 import { Button } from "@/components/ui/Button";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { currentSeminar } from "@/data/seminars";
-
-const supanovaEase = [0.16, 1, 0.3, 1] as const;
+import { supanovaEase } from "@/lib/motionVariants";
 
 export function SeminarHero() {
   return (
@@ -49,7 +48,7 @@ export function SeminarHero() {
 
           {/* H1 */}
           <h1 className="font-display text-[36px] md:text-[52px] lg:text-[64px] font-black text-white leading-[1.05] tracking-tight mb-6">
-            AI 셀러 비서 봇
+            AI 직원
             <br />
             라이브 시연 웨비나
           </h1>
@@ -57,7 +56,7 @@ export function SeminarHero() {
           {/* Sub copy */}
           <p className="text-white/60 text-base md:text-lg max-w-xl mb-10 leading-relaxed">
             실제 쿠팡 매출 조회, 경쟁사 가격 모니터링, 자동 리포트까지.
-            내 사업에 맞는 AI 비서 봇을 눈앞에서 보여드립니다.
+            내 사업에 맞는 AI 직원을 눈앞에서 보여드립니다.
           </p>
         </motion.div>
 
@@ -78,7 +77,7 @@ export function SeminarHero() {
               key={item.text}
               className="flex items-center gap-2 text-sm text-white/50 bg-white/[0.06] ring-1 ring-white/10 px-4 py-2 rounded-full"
             >
-              <Icon icon={item.icon} width={16} className="text-white/40" />
+              <Icon icon={item.icon} width={16} className="text-white/60" />
               <span>{item.text}</span>
             </div>
           ))}

@@ -51,10 +51,10 @@ export function HomepageFAQ() {
             <button
               key={cat}
               onClick={() => setActiveTab(cat)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              className={`px-4 py-2.5 text-sm font-medium transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer focus:outline-none relative ${
                 activeTab === cat
-                  ? "bg-[#1A1A1A] text-white"
-                  : "bg-transparent border border-[#E0E0E0] text-[#666] hover:border-[#666]"
+                  ? "text-[#1A1A1A] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-4/5 after:h-0.5 after:bg-[#1A1A1A] after:rounded-full"
+                  : "text-[#999] hover:text-[#666]"
               }`}
             >
               {cat}
@@ -78,14 +78,22 @@ export function HomepageFAQ() {
           animate={isInView ? "visible" : "hidden"}
           className="text-center"
         >
-          <p className="text-[#666] text-sm mb-4">
-            더 궁금한 점이 있으신가요?
+          <p className="text-[#1A1A1A] text-lg font-bold mb-2" style={{ wordBreak: "keep-all" }}>
+            아직 고민되시나요?
           </p>
-          <MagneticButton className="inline-block">
+          <p className="text-[#666] text-sm mb-6" style={{ wordBreak: "keep-all" }}>
+            3분이면 내 사업에 맞는지 확인할 수 있습니다.
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            <MagneticButton className="inline-block">
+              <Button href="/diagnosis" showArrow>
+                내 루틴 무료 진단하기
+              </Button>
+            </MagneticButton>
             <Button href="/contact" variant="secondary">
               문의하기
             </Button>
-          </MagneticButton>
+          </div>
         </motion.div>
       </div>
     </SectionWrapper>

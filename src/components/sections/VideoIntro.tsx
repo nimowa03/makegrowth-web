@@ -24,15 +24,15 @@ export function VideoIntro() {
           animate={isInView ? "visible" : "hidden"}
           className="text-white/60 text-center text-lg md:text-xl font-semibold mb-3"
         >
-          메이크그로스가 뭘 하는 곳인지, 2분이면 알 수 있습니다
+          이 영상 하나로 충분합니다
         </motion.p>
         <motion.p
           variants={fadeInUp}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="text-white/40 text-center text-base mb-10"
+          className="text-white/60 text-center text-base mb-10"
         >
-          AI 직원이 실제로 일하는 모습을 확인하세요
+          외주 없이 돌아가는 구조, 직접 확인하세요
         </motion.p>
 
         <motion.div

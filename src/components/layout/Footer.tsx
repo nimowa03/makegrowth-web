@@ -33,7 +33,7 @@ export function Footer() {
               <Image src="/logo-white.svg" alt="메이크그로스" width={140} height={28} />
             </Link>
             <p className="text-sm text-white/60 mt-2">
-              이커머스 셀러 전용 AI 비서 봇
+              이커머스 셀러 전용 AI 직원
             </p>
             {socialLinks.length > 0 && (
               <div className="flex gap-3 mt-4">

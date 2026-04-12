@@ -6,7 +6,7 @@ import { SITE_NAME } from "@/lib/constants";
 
 const CLIENT_KEY = process.env.NEXT_PUBLIC_TOSS_CLIENT_KEY || "test_ck_DnyRpQWGrN90xEWdnMWgVKwv1M9E";
 const PLAN_AMOUNT = 49000;
-const PLAN_NAME = "AI 셀러 비서 봇 월 구독";
+const PLAN_NAME = "AI 직원 월 구독";
 
 function generateOrderId() {
   return `MG-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
@@ -66,7 +66,7 @@ export default function PaymentPage() {
             결제
           </span>
           <h1 className="font-display text-[32px] md:text-[44px] font-black text-[#1A1A1A] leading-tight tracking-tight mb-4">
-            AI 셀러 비서 봇
+            AI 직원
           </h1>
           <p className="text-[#666] text-base md:text-lg" style={{ wordBreak: "keep-all" }}>
             결제 후 바로 봇 세팅을 시작합니다
@@ -89,7 +89,7 @@ export default function PaymentPage() {
 
             <ul className="space-y-3 mb-8">
               {[
-                "AI 셀러 비서 봇 즉시 세팅",
+                "AI 직원 즉시 세팅",
                 "1:1 온보딩 지원",
                 "모든 기본 모듈 포함",
                 "30일 환불 보장",

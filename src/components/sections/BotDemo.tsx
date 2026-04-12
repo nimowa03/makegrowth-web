@@ -19,7 +19,7 @@ import {
 } from "@/lib/motionVariants";
 import { botFunctions } from "@/data/botDemo";
 
-const HAS_DEMO_VIDEO = true;
+const HAS_DEMO_VIDEO = false;
 const DEMO_VIDEO_SRC = "/videos/bot-demo.mp4";
 const DEMO_POSTER_SRC = "/videos/bot-demo-thumbnail.jpg";
 
@@ -80,7 +80,7 @@ export function BotDemo() {
         {/* Header */}
         <div className="text-center mb-10">
           <TextReveal
-            text="AI 비서가 하루에 하는 일"
+            text="AI 직원이 하루에 하는 일"
             tag="h2"
             className="text-[#1A1A1A] text-[32px] md:text-[44px] lg:text-[52px] font-black leading-tight tracking-tight mb-4"
           />
@@ -90,7 +90,7 @@ export function BotDemo() {
             animate={isInView ? "visible" : "hidden"}
             className="text-[#444] text-lg md:text-xl"
           >
-            기능을 선택하면 실제 대화를 확인할 수 있습니다
+            기능을 눌러보세요. 실제 대화를 바로 확인할 수 있습니다.
           </motion.p>
         </div>
 
@@ -104,7 +104,7 @@ export function BotDemo() {
               variants={fadeInUp}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
-              className="text-white/50 text-center text-base mb-6"
+              className="text-white/70 text-center text-base mb-6"
             >
               실제 봇이 일하는 모습을 확인하세요
             </motion.p>
@@ -135,7 +135,7 @@ export function BotDemo() {
                 <button
                   key={fn.id}
                   onClick={() => handleManualSelect(idx)}
-                  className={`flex items-center gap-2 px-4 py-2.5 rounded-full whitespace-nowrap text-sm font-semibold snap-start transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] shrink-0 cursor-pointer ${
+                  className={`flex items-center gap-2 px-4 py-3 rounded-full whitespace-nowrap text-sm font-semibold snap-start transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] shrink-0 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]/20 ${
                     selectedFn === fn.id
                       ? "bg-[#1A1A1A] text-white shadow-[0_2px_12px_rgba(0,0,0,0.15)]"
                       : "bg-white text-[#666] border border-[#E0E0E0] hover:border-[#999]"

@@ -7,8 +7,7 @@ import { SectionWrapper } from "@/components/layout/SectionWrapper";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { reviews } from "@/data/reviews";
-
-const supanovaEase = [0.16, 1, 0.3, 1] as const;
+import { supanovaEase } from "@/lib/motionVariants";
 
 const hasRealReviews = reviews.some((r) => !r.text.includes("[TODO"));
 

@@ -8,8 +8,7 @@ import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { systemItems } from "@/data/systems";
-
-const supanovaEase = [0.16, 1, 0.3, 1] as const;
+import { supanovaEase } from "@/lib/motionVariants";
 
 const statusConfig = {
   live: { label: "운영 중", variant: "available" as const },

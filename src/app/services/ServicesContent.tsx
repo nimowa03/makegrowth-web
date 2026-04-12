@@ -31,7 +31,7 @@ function getSolarIcon(iconName: string): string {
   return iconMap[iconName] || "solar:bolt-linear";
 }
 
-const supanovaEase = [0.16, 1, 0.3, 1] as const;
+import { supanovaEase } from "@/lib/motionVariants";
 
 /* ─── Section 1: Hero — Core Product ─── */
 function HeroSection() {
@@ -72,7 +72,7 @@ function HeroSection() {
             >
               이커머스 셀러 전용
               <br />
-              AI 비서 봇
+              AI 직원
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
@@ -128,7 +128,7 @@ function HeroSection() {
 }
 
 /* ─── Demo Video Slot ─── */
-const HAS_SERVICE_DEMO = true;
+const HAS_SERVICE_DEMO = false;
 
 function ServiceDemoVideo() {
   if (!HAS_SERVICE_DEMO) return null;
@@ -223,7 +223,7 @@ function CTASection() {
           className="bg-[#1A1A1A] rounded-2xl p-8 md:p-12"
         >
           <h2 className="text-white font-black text-2xl md:text-3xl mb-4">
-            AI 비서 봇, 직접 확인하세요
+            AI 직원, 직접 확인하세요
           </h2>
           <p className="text-white/70 text-sm mb-8">
             무료 웨비나에서 실제 봇을 라이브 시연합니다

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
 import { useInView } from "@/hooks/useInView";
@@ -40,6 +41,11 @@ const customFeatures = [
 
 export function HomePricing() {
   const { ref, isInView } = useInView({ threshold: 0.1 });
+  const [isAnnual, setIsAnnual] = useState(false);
+
+  const monthlyPrice = isAnnual ? "39,000" : "49,000";
+  const priceSuffix = isAnnual ? "원/월" : "원";
+  const savingsBadge = isAnnual ? "연 120,000원 절약" : null;
 
   return (
     <SectionWrapper id="pricing" theme="warm-surface" animate={false}>
@@ -69,10 +75,10 @@ export function HomePricing() {
               <span className="text-[11px] uppercase tracking-[0.15em] font-medium text-[#666]">항목</span>
             </div>
             <div className="px-4 py-2 bg-[#F5F5F5] rounded-t-lg">
-              <span className="text-xs uppercase tracking-[0.15em] font-bold text-[#666]">AI 비서 없이</span>
+              <span className="text-xs uppercase tracking-[0.15em] font-bold text-[#666]">AI 직원 없이</span>
             </div>
             <div className="px-4 py-2 bg-white rounded-t-lg border border-[#E0E0E0] border-b-0">
-              <span className="text-xs uppercase tracking-[0.15em] font-bold text-[#1A1A1A]">AI 비서 도입 후</span>
+              <span className="text-xs uppercase tracking-[0.15em] font-bold text-[#1A1A1A]">AI 직원 도입 후</span>
             </div>
           </motion.div>
           {beforeAfterRows.map((row, i) => (
@@ -97,12 +103,13 @@ export function HomePricing() {
           animate={isInView ? "visible" : "hidden"}
           className="bg-[#1A1A1A] text-white rounded-2xl p-6 text-center mb-12"
         >
-          <p className="text-white/60 text-sm mb-2">외주+알바로 처리하면</p>
+          <p className="text-white/70 text-sm mb-2">외주+알바로 처리하면</p>
           <p className="text-2xl font-black mb-1">월 350~600만원</p>
           <div className="w-12 h-px bg-white/20 mx-auto my-4" />
-          <p className="text-white/60 text-sm mb-2">AI 직원은</p>
+          <p className="text-white/70 text-sm mb-2">AI 직원은</p>
           <p className="text-2xl font-black text-[#059669]">월 49,000원</p>
-          <p className="text-white/40 text-xs mt-2">LLM · 서버 · 유지보수 전부 포함</p>
+          <p className="text-[#059669] text-sm font-bold mt-2">외주 대비 97% 절감</p>
+          <p className="text-white/60 text-xs mt-1">LLM · 서버 · 유지보수 전부 포함</p>
         </motion.div>
 
         {/* ══════ 블록 2: 가격 카드 2열 ══════ */}
@@ -119,8 +126,27 @@ export function HomePricing() {
                 추천
               </span>
 
-              <h3 className="text-xl font-black text-[#1A1A1A] mb-2">AI 직원 고용</h3>
-              <p className="text-3xl md:text-4xl font-black text-[#1A1A1A] tabular-nums mb-1">월 49,000원</p>
+              <h3 className="text-xl font-black text-[#1A1A1A] mb-3">AI 직원 고용</h3>
+
+              {/* 월/연 토글 */}
+              <div className="flex items-center gap-3 mb-4">
+                <span className={`text-sm font-medium transition-colors duration-300 ${!isAnnual ? "text-[#1A1A1A]" : "text-[#999]"}`}>월간</span>
+                <button
+                  onClick={() => setIsAnnual(!isAnnual)}
+                  className={`relative w-12 h-7 rounded-full transition-colors duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#1A1A1A]/20 ${isAnnual ? "bg-[#059669]" : "bg-[#E0E0E0]"}`}
+                >
+                  <span className={`absolute top-0.5 left-0.5 w-6 h-6 bg-white rounded-full shadow-sm transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${isAnnual ? "translate-x-5" : "translate-x-0"}`} />
+                </button>
+                <span className={`text-sm font-medium transition-colors duration-300 ${isAnnual ? "text-[#1A1A1A]" : "text-[#999]"}`}>연간</span>
+                {isAnnual && (
+                  <span className="text-xs font-bold text-[#059669] bg-[#059669]/10 px-2 py-0.5 rounded-full">20% 할인</span>
+                )}
+              </div>
+
+              <p className="text-3xl md:text-4xl font-black text-[#1A1A1A] tabular-nums mb-1">
+                월 {monthlyPrice}{priceSuffix}
+              </p>
+              {savingsBadge && <p className="text-xs text-[#059669] font-semibold mb-1">{savingsBadge}</p>}
               <p className="text-sm text-[#666] mb-6">14일 무료 체험 후 자동 전환</p>
 
               <div className="w-full h-px bg-[#E0E0E0] mb-6" />
@@ -201,13 +227,13 @@ export function HomePricing() {
           animate={isInView ? "visible" : "hidden"}
           className="bg-[#1A1A1A] rounded-2xl px-5 py-6 md:px-8 md:py-8"
         >
-          <p className="text-white/40 text-xs uppercase tracking-[0.2em] font-medium text-center mb-6">
+          <p className="text-white/60 text-xs uppercase tracking-[0.2em] font-medium text-center mb-6">
             무료 체험에서 뭐가 되나요?
           </p>
           <div className="grid grid-cols-[auto_1fr_1fr] gap-x-3 gap-y-0.5 text-sm">
             {/* 헤더 */}
             <div className="px-3 py-2" />
-            <div className="px-3 py-2 text-center"><span className="text-white/40 text-xs font-bold">무료 (14일)</span></div>
+            <div className="px-3 py-2 text-center"><span className="text-white/60 text-xs font-bold">무료 (14일)</span></div>
             <div className="px-3 py-2 text-center rounded-t-lg bg-[#059669]/10"><span className="text-[#059669] text-xs font-bold">월 49,000원</span></div>
             {/* 행 */}
             {freeTrial.features.map((f, i) => (
@@ -215,14 +241,14 @@ export function HomePricing() {
                 <div className="px-3 py-3 flex items-center gap-2">
                   <span className="text-white/70 text-sm">{f.label}</span>
                 </div>
-                <div className="px-3 py-3 text-center text-white/50 text-sm">{f.free}</div>
+                <div className="px-3 py-3 text-center text-white/70 text-sm">{f.free}</div>
                 <div className={`px-3 py-3 text-center text-white font-semibold text-sm bg-[#059669]/5 ${i === freeTrial.features.length - 1 ? "rounded-b-lg" : ""}`}>
                   {f.paid}
                 </div>
               </div>
             ))}
           </div>
-          <p className="text-white/50 text-sm text-center mt-6" style={{ wordBreak: "keep-all" }}>
+          <p className="text-white/70 text-sm text-center mt-6" style={{ wordBreak: "keep-all" }}>
             무료 체험에서도 모든 기능을 사용할 수 있습니다.
             <br />
             충분히 써보고 결정하세요.

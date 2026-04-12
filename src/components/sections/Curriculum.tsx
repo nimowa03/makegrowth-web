@@ -4,8 +4,7 @@ import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
 import { SectionWrapper } from "@/components/layout/SectionWrapper";
 import { currentSeminar } from "@/data/seminars";
-
-const supanovaEase = [0.16, 1, 0.3, 1] as const;
+import { supanovaEase } from "@/lib/motionVariants";
 
 export function Curriculum() {
   return (

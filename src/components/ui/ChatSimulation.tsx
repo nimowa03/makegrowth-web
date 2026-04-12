@@ -2,7 +2,9 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Icon } from "@iconify/react";
 import type { ChatMessage } from "@/data/botDemo";
+import { supanovaEase } from "@/lib/motionVariants";
 
 interface ChatSimulationProps {
   messages: ChatMessage[];
@@ -12,14 +14,12 @@ interface ChatSimulationProps {
   className?: string;
 }
 
-const supanovaEase = [0.16, 1, 0.3, 1] as const;
-
 /* ── Typing dots indicator ── */
 function TypingDots() {
   return (
     <div className="flex items-start gap-2 px-4 py-1">
       <div className="w-7 h-7 rounded-full bg-[#1A1A1A] flex items-center justify-center shrink-0 mt-0.5">
-        <span className="text-[10px]">🤖</span>
+        <Icon icon="solar:bot-minimalistic-bold" width={14} className="text-white/70" />
       </div>
       <div className="bg-[#182533] rounded-2xl rounded-tl-sm px-3 py-2.5 flex gap-1">
         {[0, 1, 2].map((i) => (
@@ -61,7 +61,7 @@ function ChatBubble({
     >
       {isBot && (
         <div className="w-7 h-7 rounded-full bg-[#1A1A1A] flex items-center justify-center shrink-0 mt-0.5">
-          <span className="text-[10px]">🤖</span>
+          <Icon icon="solar:bot-minimalistic-bold" width={14} className="text-white/70" />
         </div>
       )}
       <div

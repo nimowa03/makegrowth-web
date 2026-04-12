@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "메이크그로스 — 이커머스 셀러 전용 AI 비서 봇";
+export const alt = "메이크그로스 — 이커머스 셀러 전용 AI 직원";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

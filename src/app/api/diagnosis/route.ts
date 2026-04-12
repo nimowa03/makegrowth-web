@@ -1,4 +1,5 @@
 import { appendToSheet } from "@/lib/googleSheets";
+import { triggerN8nWebhook } from "@/lib/n8nWebhook";
 
 export async function POST(req: Request) {
   try {
@@ -24,14 +25,7 @@ export async function POST(req: Request) {
       data.results?.savingsRate || 0,
     ]);
 
-    // N8N Webhook (when env is configured)
-    if (process.env.N8N_WEBHOOK_URL) {
-      await fetch(process.env.N8N_WEBHOOK_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ type: "diagnosis", ...data }),
-      });
-    }
+    await triggerN8nWebhook({ type: "diagnosis", ...data });
 
     return Response.json({ success: true });
   } catch {

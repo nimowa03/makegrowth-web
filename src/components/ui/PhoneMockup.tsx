@@ -71,7 +71,7 @@ export function PhoneMockup({
             />
             {/* Bot avatar */}
             <div className="w-9 h-9 rounded-full bg-[#1A1A1A] flex items-center justify-center shrink-0">
-              <span className="text-sm">🤖</span>
+              <Icon icon="solar:bot-minimalistic-bold" width={18} className="text-white/70" />
             </div>
             {/* Bot info */}
             <div className="flex-1 min-w-0">

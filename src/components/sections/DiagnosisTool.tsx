@@ -10,12 +10,9 @@ import {
   revenueMidpoints,
   type TaskItem,
 } from "@/data/diagnosis";
-import { fadeInUp } from "@/lib/motionVariants";
+import { fadeInUp, supanovaEase } from "@/lib/motionVariants";
 import { SectionWrapper } from "@/components/layout/SectionWrapper";
 import { Button } from "@/components/ui/Button";
-
-/* ── Easing ── */
-const supanovaEase = [0.16, 1, 0.3, 1] as const;
 
 /* ── Helpers ── */
 function formatWon(manwon: number): string {
@@ -385,9 +382,9 @@ export function DiagnosisTool() {
                       transition={{ duration: 0.4, delay: 0.35 + i * 0.08, ease: supanovaEase }}
                       className="rounded-xl bg-white/[0.06] ring-1 ring-white/10 p-4 backdrop-blur-sm"
                     >
-                      <Icon icon={r.icon} width={20} className="text-white/40 mb-2" />
+                      <Icon icon={r.icon} width={20} className="text-white/60 mb-2" />
                       <p className="text-white/80 text-sm font-semibold mb-0.5">{r.title}</p>
-                      <p className="text-white/40 text-xs">{r.desc}</p>
+                      <p className="text-white/60 text-xs">{r.desc}</p>
                     </motion.div>
                   ))}
                 </motion.div>
@@ -400,7 +397,7 @@ export function DiagnosisTool() {
                   className="space-y-4 mb-8"
                 >
                   <div className="relative">
-                    <label className="block text-xs text-white/40 mb-1.5 font-medium">카테고리</label>
+                    <label className="block text-xs text-white/60 mb-1.5 font-medium">카테고리</label>
                     <select value={category} onChange={(e) => setCategory(e.target.value)} className={selectClassDark}>
                       <option value="">카테고리를 선택하세요</option>
                       {categories.map((c) => (<option key={c} value={c}>{c}</option>))}
@@ -408,7 +405,7 @@ export function DiagnosisTool() {
                     <Icon icon="solar:alt-arrow-down-linear" className="absolute right-3 top-[30px] text-white/30 pointer-events-none" width={16} />
                   </div>
                   <div className="relative">
-                    <label className="block text-xs text-white/40 mb-1.5 font-medium">월 매출 규모</label>
+                    <label className="block text-xs text-white/60 mb-1.5 font-medium">월 매출 규모</label>
                     <select value={revenue} onChange={(e) => setRevenue(e.target.value)} className={selectClassDark}>
                       <option value="">매출 규모를 선택하세요</option>
                       {revenueRanges.map((r) => (<option key={r.value} value={r.value}>{r.label}</option>))}
@@ -720,7 +717,7 @@ export function DiagnosisTool() {
               />
 
               <div className="relative z-10 text-center">
-                <p className="text-white/40 text-sm md:text-base mb-4" style={{ wordBreak: "keep-all" }}>
+                <p className="text-white/60 text-sm md:text-base mb-4" style={{ wordBreak: "keep-all" }}>
                   매달 반복 업무에 빠져나가는 비용
                 </p>
 
@@ -933,14 +930,14 @@ export function DiagnosisTool() {
                       <div className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.12em] font-bold bg-[#059669]/20 text-[#059669] mb-3">
                         바로 시작
                       </div>
-                      <p className="text-white font-bold text-lg mb-2">AI 비서 봇 도입</p>
+                      <p className="text-white font-bold text-lg mb-2">AI 직원 도입</p>
                       <p className="text-white/50 text-sm mb-5" style={{ wordBreak: "keep-all" }}>
                         결제 후 바로 봇 세팅을 시작합니다
                       </p>
 
                       <ul className="space-y-2.5 mb-6">
                         {[
-                          "AI 셀러 비서 봇 즉시 세팅",
+                          "AI 직원 즉시 세팅",
                           "1:1 온보딩 지원",
                           "30일 환불 보장",
                         ].map((item) => (
@@ -953,7 +950,7 @@ export function DiagnosisTool() {
 
                       <div className="mb-5">
                         <span className="font-display font-black text-[36px] text-white tabular-nums">49,000</span>
-                        <span className="text-white/40 text-base">원/월</span>
+                        <span className="text-white/60 text-base">원/월</span>
                       </div>
 
                       <Button

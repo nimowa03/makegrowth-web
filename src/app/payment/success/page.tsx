@@ -57,7 +57,7 @@ function SuccessContent() {
         결제가 완료되었습니다
       </h1>
       <p className="text-[#666] text-base md:text-lg mb-2" style={{ wordBreak: "keep-all" }}>
-        AI 셀러 비서 봇 세팅을 시작합니다.
+        AI 직원 세팅을 시작합니다.
       </p>
       <p className="text-[#999] text-sm mb-8">
         주문번호: {orderId}
@@ -69,7 +69,7 @@ function SuccessContent() {
           {[
             "입력하신 이메일로 온보딩 가이드가 발송됩니다",
             "1:1 봇 세팅 안내를 위해 연락드립니다",
-            "텔레그램에서 AI 비서 봇을 만나보세요",
+            "텔레그램에서 AI 직원을 만나보세요",
           ].map((item, i) => (
             <li key={item} className="flex items-start gap-3 text-sm text-[#444]">
               <span className="w-6 h-6 rounded-full bg-[#1A1A1A] text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">

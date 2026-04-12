@@ -19,8 +19,8 @@ const dependencyLevels = [
   {
     level: 0,
     label: "외주에 의존",
-    result: "끊기면 멈춤",
-    symbol: "✕",
+    result: "계약 끝나면 모든 게 멈춤",
+    symbolIcon: "solar:close-circle-bold",
     symbolColor: "text-[#CC0000]",
     bg: "bg-[#F0F0F0]",
     text: "text-[#999]",
@@ -28,8 +28,8 @@ const dependencyLevels = [
   {
     level: 1,
     label: "구독 서비스에 의존",
-    result: "끊으면 끝",
-    symbol: "△",
+    result: "해지하면 다시 원점",
+    symbolIcon: "solar:danger-triangle-bold",
     symbolColor: "text-[#999]",
     bg: "bg-[#F5F5F5]",
     text: "text-[#999]",
@@ -38,7 +38,7 @@ const dependencyLevels = [
     level: 2,
     label: "내 시스템 · 내 역량",
     result: "의존 없음",
-    symbol: "✓",
+    symbolIcon: "solar:check-circle-bold",
     symbolColor: "text-[#059669]",
     bg: "bg-white",
     text: "text-[#1A1A1A]",
@@ -77,7 +77,7 @@ const competitors = [
     name: "메이크그로스",
     approach: "시스템 + 역량",
     after: "끊겨도 남음",
-    dependency: "의존 없음 ✓",
+    dependency: "의존 없음",
     highlight: true,
   },
 ];
@@ -144,9 +144,7 @@ export function WhyUs() {
                 <span className="text-[#999] mx-2">→</span>
                 {lvl.result}
               </span>
-              <span className={`text-lg font-bold ${lvl.symbolColor}`}>
-                {lvl.symbol}
-              </span>
+              <Icon icon={lvl.symbolIcon} width={20} className={lvl.symbolColor} />
               {lvl.highlight && (
                 <span className="hidden md:inline-block rounded-full px-2.5 py-0.5 text-[10px] uppercase tracking-[0.12em] font-medium border border-[#1A1A1A] text-[#1A1A1A] bg-transparent ml-1">
                   메이크그로스 이후
@@ -250,7 +248,7 @@ export function WhyUs() {
               <p className="text-[#666] text-sm mt-3 font-medium">빈 땅 + 골조</p>
             </div>
             <div className="bg-[#1A1A1A] backdrop-blur-xl border-l border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] px-6 py-6 md:px-8 md:py-8 text-white">
-              <p className="text-xs uppercase tracking-[0.15em] font-bold text-white/50 mb-3">
+              <p className="text-xs uppercase tracking-[0.15em] font-bold text-white/60 mb-3">
                 메이크그로스
               </p>
               <p className="text-white/80 text-base leading-relaxed" style={{ wordBreak: "keep-all" }}>

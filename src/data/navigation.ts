@@ -13,7 +13,7 @@ export const mainNav: NavItem[] = [
 
 export const footerNav = {
   services: [
-    { label: "AI 셀러 비서 봇", href: "/#bot-demo" },
+    { label: "AI 직원", href: "/#bot-demo" },
     { label: "봇 모듈", href: "/services" },
     { label: "가격 안내", href: "/#pricing" },
     { label: "무료 웨비나", href: "/seminar" },

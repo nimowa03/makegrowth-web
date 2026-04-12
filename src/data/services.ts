@@ -54,7 +54,7 @@ export const serviceModules: ServiceModule[] = [
   },
   {
     id: "seller-bot",
-    name: "AI 셀러 비서 봇",
+    name: "AI 직원",
     icon: "bot",
     status: "available",
     isKiller: true,

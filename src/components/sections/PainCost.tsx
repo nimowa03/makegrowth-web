@@ -20,7 +20,7 @@ const costBars = [
   { label: "SNS 대행", cost: "월 100~200만원", width: "85%" },
   { label: "CS 인력", cost: "월 80~150만원", width: "70%" },
   { label: "상세페이지 외주", cost: "건당 30만원", width: "30%" },
-  { label: "상품 촬영", cost: "시간당 25만원", width: "25%" },
+  { label: "광고 대행", cost: "월 30~100만원", width: "40%" },
 ];
 
 const sellerQuotes = [
@@ -106,7 +106,7 @@ export function PainCost() {
           animate={isInView ? "visible" : "hidden"}
           className="bg-[#1A1A1A] rounded-2xl px-5 py-6 md:px-8 md:py-8 mb-8"
         >
-          <p className="text-white/40 text-[11px] uppercase tracking-[0.2em] font-medium text-center mb-6">
+          <p className="text-white/60 text-[11px] uppercase tracking-[0.2em] font-medium text-center mb-6">
             어느 1인 셀러의 하루
           </p>
           <div className="space-y-1.5">
@@ -143,7 +143,7 @@ export function PainCost() {
                     {row.task}
                   </span>
                   <span className={`text-sm font-bold shrink-0 transition-all duration-700 ${
-                    isActive ? "text-[#059669] opacity-100" : "text-white/20 opacity-60"
+                    isActive ? "text-[#059669] opacity-100" : "text-[#059669]/30 opacity-100"
                   }`}>
                     → {row.ai}
                   </span>
@@ -210,7 +210,7 @@ export function PainCost() {
           animate={isInView ? "visible" : "hidden"}
           className="bg-[#1A1A1A] rounded-2xl px-6 py-8 md:px-10 md:py-10 mb-8"
         >
-          <p className="text-white/50 text-xs uppercase tracking-[0.2em] font-medium text-center mb-6">
+          <p className="text-white/60 text-xs uppercase tracking-[0.2em] font-medium text-center mb-6">
             1인 셀러의 악순환 구조
           </p>
 
@@ -284,7 +284,7 @@ export function PainCost() {
           <div className="flex justify-center mb-5">
             <div className="flex items-center gap-2 text-white/20">
               <div className="h-px w-12 bg-white/20" />
-              <Icon icon="solar:refresh-circle-linear" width={22} className="animate-spin" style={{ animationDuration: "6s" }} />
+              <Icon icon="solar:refresh-circle-linear" width={22} className="animate-spin motion-reduce:animate-none" style={{ animationDuration: "6s" }} />
               <div className="h-px w-12 bg-white/20" />
             </div>
           </div>
@@ -318,7 +318,7 @@ export function PainCost() {
         >
         <div className="bg-white rounded-[calc(1.5rem-0.375rem)] shadow-[inset_0_1px_1px_rgba(0,0,0,0.05)] px-8 py-8 md:px-12 md:py-10 text-center">
           <p className="text-[#1A1A1A] text-2xl md:text-3xl font-black mb-3">
-            이 비용, AI 비서 하나면 90% 이상 줄일 수 있습니다
+            이 비용, AI 직원 하나면 90% 이상 줄일 수 있습니다
           </p>
           <p
             className="text-[#444] text-base md:text-lg mb-5"

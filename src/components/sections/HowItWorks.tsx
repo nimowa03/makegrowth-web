@@ -12,7 +12,7 @@ const steps = [
   {
     number: "01",
     title: "진단",
-    description: "현재 루틴을 분석합니다",
+    description: "어디에 돈이 새는지 먼저 파악합니다",
     detail:
       "셀러 루틴 분석기로 업무 시간·외주비 파악. AI 전환 가능 영역 식별.",
     icon: "solar:stethoscope-linear",
@@ -20,7 +20,7 @@ const steps = [
   {
     number: "02",
     title: "구축",
-    description: "내 사업 전용 봇을 만듭니다",
+    description: "내 사업에 맞는 AI 직원을 세팅합니다",
     detail:
       "카테고리·채널·판매방식에 맞게 세팅. 오픈마켓 API 연동, 모듈 선택.",
     icon: "solar:settings-linear",
@@ -28,7 +28,7 @@ const steps = [
   {
     number: "03",
     title: "커스텀",
-    description: "셀러가 직접 조정합니다",
+    description: "내가 직접 조정할 수 있어야 진짜입니다",
     detail:
       "알림 시간, 리포트 형식, 응대 톤 등. 한국어로 '이것도 해줘'라고 말하면 기능 추가.",
     icon: "solar:tuning-2-linear",
@@ -36,7 +36,7 @@ const steps = [
   {
     number: "04",
     title: "자립",
-    description: "끊겨도 시스템과 역량이 남습니다",
+    description: "끊겨도 시스템과 역량이 남는 구조",
     detail:
       "한국어로 '이것도 해줘'라고 말하면 기능 추가. 월정액 유지 또는 셀프 운영 선택 가능.",
     icon: "solar:rocket-2-linear",
@@ -81,7 +81,7 @@ export function HowItWorks() {
         {/* Header */}
         <div className="text-center mb-12">
           <TextReveal
-            text="내 사업에 맞는 AI 비서, 이렇게 만들어집니다"
+            text="내 사업에 맞는 AI 직원, 이렇게 만들어집니다"
             tag="h2"
             className="text-[#1A1A1A] text-[28px] md:text-[40px] lg:text-[48px] font-black leading-tight tracking-tight mb-4"
           />
@@ -156,7 +156,7 @@ export function HowItWorks() {
             className="text-[#1A1A1A] text-xl md:text-2xl font-black text-center mb-8"
             style={{ wordBreak: "keep-all" }}
           >
-            그냥 챗봇이 아닙니다. 셀러와 함께 성장하는 AI 비서입니다.
+            그냥 챗봇이 아닙니다. 셀러와 함께 성장하는 AI 직원입니다.
           </motion.h3>
 
           {/* 3 layers — flex-col-reverse so DOM Layer3→2→1 renders visually 1→2→3 (bottom to top) */}
@@ -210,7 +210,7 @@ export function HowItWorks() {
                 </p>
                 <p
                   className={`text-[13px] mt-1 ${
-                    layer.roadmap ? "text-[#666]/70" : "text-white/40"
+                    layer.roadmap ? "text-[#666]/70" : "text-white/60"
                   }`}
                 >
                   {layer.description}

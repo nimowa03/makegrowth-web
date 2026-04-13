@@ -42,8 +42,6 @@ export function VideoIntro() {
         >
           <BrowserMockup
             videoSrc={VIDEO_SRC}
-            posterSrc={POSTER_SRC}
-            clickToPlay
             url="makegrowth.dev"
             className="border-white/10 shadow-[0_12px_80px_rgba(0,0,0,0.4)]"
           />

@@ -29,11 +29,33 @@ export function BrowserMockup({
   posterSrc,
 }: BrowserMockupProps) {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   function handlePlayClick() {
     setIsPlaying(true);
     setTimeout(() => videoRef.current?.play(), 100);
+  }
+
+  const [isPaused, setIsPaused] = useState(false);
+
+  function toggleMute() {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(videoRef.current.muted);
+    }
+  }
+
+  function togglePlay() {
+    if (videoRef.current) {
+      if (videoRef.current.paused) {
+        videoRef.current.play();
+        setIsPaused(false);
+      } else {
+        videoRef.current.pause();
+        setIsPaused(true);
+      }
+    }
   }
   return (
     <div
@@ -92,16 +114,36 @@ export function BrowserMockup({
             </div>
           </button>
         ) : videoSrc ? (
-          <video
-            ref={videoRef}
-            src={videoSrc}
-            autoPlay={!clickToPlay}
-            muted
-            loop
-            playsInline
-            controls={clickToPlay}
-            className="w-full h-full object-cover"
-          />
+          <div className="relative w-full h-full">
+            <video
+              ref={videoRef}
+              src={videoSrc}
+              autoPlay={!clickToPlay}
+              muted
+              loop
+              playsInline
+              controls={clickToPlay}
+              className="w-full h-full object-cover"
+            />
+            {!clickToPlay && (
+              <div className="absolute bottom-4 right-4 flex items-center gap-2">
+                <button
+                  onClick={togglePlay}
+                  className="w-10 h-10 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center text-white/80 hover:text-white hover:bg-black/70 transition-all duration-300 cursor-pointer"
+                  aria-label={isPaused ? "재생" : "일시정지"}
+                >
+                  <Icon icon={isPaused ? "solar:play-bold" : "solar:pause-bold"} width={18} />
+                </button>
+                <button
+                  onClick={toggleMute}
+                  className="w-10 h-10 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center text-white/80 hover:text-white hover:bg-black/70 transition-all duration-300 cursor-pointer"
+                  aria-label={isMuted ? "소리 켜기" : "소리 끄기"}
+                >
+                  <Icon icon={isMuted ? "solar:volume-cross-bold" : "solar:volume-loud-bold"} width={18} />
+                </button>
+              </div>
+            )}
+          </div>
         ) : imageSrc ? (
           <Image
             src={imageSrc}

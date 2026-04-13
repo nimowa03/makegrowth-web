@@ -59,7 +59,8 @@ export function HomePricing() {
           <TextReveal
             text="AI 직원, 이렇게 고용합니다"
             tag="h2"
-            className="text-[#1A1A1A] text-[28px] md:text-[40px] lg:text-[48px] font-black leading-tight tracking-tight mb-4"
+            className="text-[#1A1A1A] text-[22px] sm:text-[28px] md:text-[36px] lg:text-[44px] font-black leading-tight tracking-tight mb-4"
+            style={{ wordBreak: "keep-all" }}
           />
         </div>
 
@@ -143,7 +144,7 @@ export function HomePricing() {
         >
           {/* 왼쪽: AI 직원 고용 (highlight) */}
           <motion.div variants={fadeInUp}>
-            <div className="border-2 border-[#1A1A1A] rounded-2xl p-5 sm:p-8 relative h-full flex flex-col">
+            <div className="border-2 border-[#1A1A1A] rounded-2xl p-4 sm:p-6 md:p-8 relative h-full flex flex-col">
               <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#1A1A1A] text-white text-xs font-bold px-4 py-1 rounded-full">
                 추천
               </span>
@@ -165,16 +166,16 @@ export function HomePricing() {
                 )}
               </div>
 
-              <p className="text-3xl md:text-4xl font-black text-[#1A1A1A] tabular-nums mb-1">
+              <p className="text-2xl sm:text-3xl md:text-4xl font-black text-[#1A1A1A] tabular-nums mb-1">
                 월 {monthlyPrice}{priceSuffix}
               </p>
               {savingsBadge && <p className="text-xs text-[#059669] font-semibold mb-1">{savingsBadge}</p>}
               <p className="text-sm text-[#666] mb-6">14일 무료 체험 후 자동 전환</p>
 
-              <div className="w-full h-px bg-[#E0E0E0] mb-6" />
+              <div className="w-full h-px bg-[#E0E0E0] mb-4 sm:mb-6" />
 
-              <p className="text-xs uppercase tracking-[0.15em] font-bold text-[#666] mb-4">포함되는 것</p>
-              <ul className="space-y-4 mb-8 flex-1">
+              <p className="text-xs uppercase tracking-[0.15em] font-bold text-[#666] mb-3 sm:mb-4">포함되는 것</p>
+              <ul className="space-y-3 sm:space-y-4 mb-6 sm:mb-8 flex-1">
                 {includedFeatures.map((f) => (
                   <li key={f.name} className="flex gap-3 items-start">
                     <Icon icon="solar:check-circle-bold" className="text-[#059669] mt-0.5 shrink-0" width={20} />
@@ -210,15 +211,15 @@ export function HomePricing() {
 
           {/* 오른쪽: 맞춤 커스텀 */}
           <motion.div variants={fadeInUp}>
-            <div className="border border-[#E0E0E0] bg-[#F8F8F8] rounded-2xl p-5 sm:p-8 h-full flex flex-col">
+            <div className="border border-[#E0E0E0] bg-[#F8F8F8] rounded-2xl p-4 sm:p-6 md:p-8 h-full flex flex-col">
               <h3 className="text-xl font-black text-[#1A1A1A] mb-2">맞춤 커스텀</h3>
-              <p className="text-3xl md:text-4xl font-black text-[#1A1A1A] mb-1">별도 협의</p>
+              <p className="text-2xl sm:text-3xl md:text-4xl font-black text-[#1A1A1A] mb-1">별도 협의</p>
               <p className="text-sm text-[#666] mb-6">내 사업에 딱 맞게 세팅이 필요한 셀러</p>
 
-              <div className="w-full h-px bg-[#E0E0E0] mb-6" />
+              <div className="w-full h-px bg-[#E0E0E0] mb-4 sm:mb-6" />
 
-              <p className="text-xs uppercase tracking-[0.15em] font-bold text-[#666] mb-4">포함되는 것</p>
-              <ul className="space-y-4 mb-8 flex-1">
+              <p className="text-xs uppercase tracking-[0.15em] font-bold text-[#666] mb-3 sm:mb-4">포함되는 것</p>
+              <ul className="space-y-3 sm:space-y-4 mb-6 sm:mb-8 flex-1">
                 {customFeatures.map((f) => (
                   <li key={f.name} className="flex gap-3 items-start">
                     <Icon icon="solar:check-circle-bold" className="text-[#1A1A1A] mt-0.5 shrink-0" width={20} />

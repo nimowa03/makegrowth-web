@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 import { triggerN8nWebhook } from "@/lib/n8nWebhook";
 
-const SECRET_KEY = process.env.TOSS_SECRET_KEY || "test_sk_ex6BJGQOVDwNkOD7Pewk3W4w2zNb";
+const SECRET_KEY = process.env.TOSS_SECRET_KEY;
+if (!SECRET_KEY) throw new Error("TOSS_SECRET_KEY 환경변수가 설정되지 않았습니다.");
 
 export async function POST(request: Request) {
   try {

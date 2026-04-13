@@ -82,13 +82,14 @@ export function BotDemo() {
           <TextReveal
             text="AI 직원이 하루에 하는 일"
             tag="h2"
-            className="text-[#1A1A1A] text-[32px] md:text-[44px] lg:text-[52px] font-black leading-tight tracking-tight mb-4"
+            className="text-[#1A1A1A] text-[24px] sm:text-[28px] md:text-[40px] lg:text-[48px] font-black leading-tight tracking-tight mb-4"
           />
           <motion.p
             variants={fadeInUp}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
-            className="text-[#444] text-lg md:text-xl"
+            className="text-[#444] text-base sm:text-lg md:text-xl"
+            style={{ wordBreak: "keep-all" }}
           >
             기능을 눌러보세요. 실제 대화를 바로 확인할 수 있습니다.
           </motion.p>
@@ -207,7 +208,7 @@ export function BotDemo() {
             className="flex justify-center lg:sticky lg:top-24 lg:self-start"
           >
             <TiltCard tiltAmount={5} className="cursor-default">
-              <PhoneMockup className="w-[260px] sm:w-[280px] md:w-[320px] lg:w-[340px]">
+              <PhoneMockup className="w-[240px] sm:w-[270px] md:w-[300px] lg:w-[340px]">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={selectedFn}
@@ -235,7 +236,8 @@ export function BotDemo() {
           animate={isInView ? "visible" : "hidden"}
           className="bg-[#1A1A1A] rounded-2xl px-4 py-6 sm:px-8 sm:py-8 md:px-12 md:py-10 mt-10"
         >
-          <h3 className="text-white font-black text-xl sm:text-2xl md:text-3xl text-center mb-6 sm:mb-8">
+          <h3 className="text-white font-black text-lg sm:text-xl md:text-2xl lg:text-3xl text-center mb-6 sm:mb-8"
+            style={{ wordBreak: "keep-all" }}>
             완전 자동이 아닙니다
           </h3>
 

@@ -35,7 +35,7 @@ export function HomepageFAQ() {
           <span className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[11px] uppercase tracking-[0.15em] font-medium border border-[#E0E0E0] text-[#666] bg-transparent mb-4">
             Q&A
           </span>
-          <h2 className="text-[28px] md:text-[40px] font-black text-[#1A1A1A] leading-snug text-balance">
+          <h2 className="text-[22px] sm:text-[28px] md:text-[36px] lg:text-[40px] font-black text-[#1A1A1A] leading-snug text-balance">
             자주 묻는 질문
           </h2>
         </motion.div>
@@ -51,7 +51,7 @@ export function HomepageFAQ() {
             <button
               key={cat}
               onClick={() => setActiveTab(cat)}
-              className={`px-4 py-2.5 text-sm font-medium transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer focus:outline-none relative ${
+              className={`px-4 py-3 text-sm font-medium transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer focus:outline-none relative ${
                 activeTab === cat
                   ? "text-[#1A1A1A] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-4/5 after:h-0.5 after:bg-[#1A1A1A] after:rounded-full"
                   : "text-[#999] hover:text-[#666]"

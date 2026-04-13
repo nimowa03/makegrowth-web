@@ -83,13 +83,14 @@ export function HowItWorks() {
           <TextReveal
             text="내 사업에 맞는 AI 직원, 이렇게 만들어집니다"
             tag="h2"
-            className="text-[#1A1A1A] text-[28px] md:text-[40px] lg:text-[48px] font-black leading-tight tracking-tight mb-4"
+            className="text-[#1A1A1A] text-[22px] sm:text-[28px] md:text-[36px] lg:text-[44px] font-black leading-tight tracking-tight mb-4"
+            style={{ wordBreak: "keep-all" }}
           />
           <motion.p
             variants={fadeInUp}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
-            className="text-[#444] text-lg md:text-xl"
+            className="text-[#444] text-base sm:text-lg md:text-xl"
           >
             진단에서 자립까지, 4단계로 완성됩니다
           </motion.p>
@@ -100,13 +101,13 @@ export function HowItWorks() {
           variants={staggerContainer}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6"
         >
           {steps.map((step, i) => (
             <motion.div
               key={step.number}
               variants={fadeInUp}
-              className="relative bg-white border border-[#E0E0E0] rounded-2xl p-6 hover:border-[#666] hover:shadow-sm transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group"
+              className="relative bg-white border border-[#E0E0E0] rounded-2xl p-5 sm:p-6 hover:border-[#666] hover:shadow-sm transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group"
             >
               {/* Step number */}
               <span className="text-[48px] font-black text-[#F0F0F0] absolute top-4 right-4 leading-none select-none group-hover:text-[#E0E0E0] transition-colors duration-500">
@@ -153,7 +154,7 @@ export function HowItWorks() {
             variants={fadeInUp}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
-            className="text-[#1A1A1A] text-xl md:text-2xl font-black text-center mb-8"
+            className="text-[#1A1A1A] text-lg sm:text-xl md:text-2xl font-black text-center mb-6 sm:mb-8"
             style={{ wordBreak: "keep-all" }}
           >
             그냥 챗봇이 아닙니다. 셀러와 함께 성장하는 AI 직원입니다.

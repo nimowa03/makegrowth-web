@@ -44,7 +44,7 @@ export function Header() {
           </nav>
 
           <button
-            className="lg:hidden p-2 ml-2"
+            className="lg:hidden p-3 -mr-1 ml-1"
             onClick={() => setMobileOpen(true)}
             aria-label="메뉴 열기"
           >

@@ -56,7 +56,7 @@ export function Hero() {
               variants={fadeInUp}
               initial="hidden"
               animate="visible"
-              className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[11px] uppercase tracking-[0.15em] font-medium border border-[#E0E0E0] text-[#666] mb-8"
+              className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[11px] uppercase tracking-[0.15em] font-medium border border-[#E0E0E0] text-[#666] mb-6 sm:mb-8"
             >
               <span className="text-[#666]">{"//"}</span>
               이커머스 셀러 전용 AI 직원
@@ -66,7 +66,8 @@ export function Hero() {
             <TextReveal
               text="할 줄 모르는 일은 전부 비용입니다"
               tag="h1"
-              className="font-display text-[36px] sm:text-[48px] md:text-[72px] lg:text-[104px] font-black text-[#1A1A1A] leading-[0.95] tracking-tight mb-8"
+              className="font-display text-[28px] sm:text-[40px] md:text-[64px] lg:text-[88px] xl:text-[104px] font-black text-[#1A1A1A] leading-[0.95] tracking-tight mb-6 sm:mb-8"
+              style={{ wordBreak: "keep-all" }}
             />
 
             {/* Subtitle — WHY 중심 공감 카피 */}
@@ -75,7 +76,7 @@ export function Hero() {
               initial="hidden"
               animate="visible"
               transition={{ delay: 0.6 }}
-              className="text-[#444] text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed max-w-2xl mx-auto mb-8"
+              className="text-[#444] text-[15px] sm:text-base md:text-lg lg:text-xl leading-relaxed max-w-2xl mx-auto mb-6 sm:mb-8"
               style={{ wordBreak: "keep-all" }}
             >
               소싱, 등록, 상세페이지, CS, SNS까지. 대표님, 혼자 다 하고 계신가요?

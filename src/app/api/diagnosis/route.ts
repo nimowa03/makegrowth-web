@@ -6,8 +6,6 @@ export async function POST(req: Request) {
     const data = await req.json();
     const timestamp = new Date().toISOString();
 
-    console.log("[Diagnosis Submission]", JSON.stringify(data, null, 2));
-
     // Google Sheets
     await appendToSheet("진단", [
       timestamp,

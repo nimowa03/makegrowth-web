@@ -32,6 +32,8 @@ export function ContactForm() {
   const [formData, setFormData] = useState<FormData>(initialFormData);
   const [errors, setErrors] = useState<FormErrors>({});
   const [showModal, setShowModal] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   function handleChange(value: string | string[] | boolean, name: string) {
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -77,19 +79,26 @@ export function ContactForm() {
       return;
     }
 
+    setIsSubmitting(true);
+    setSubmitError(false);
+
     try {
-      await fetch("/api/contact", {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-    } catch {
-      // 전송 실패해도 사용자에게는 성공 표시 (데이터 콘솔 로그로 백업됨)
-    }
 
-    setShowModal(true);
-    setFormData(initialFormData);
-    setErrors({});
+      if (!res.ok) throw new Error("server");
+
+      setShowModal(true);
+      setFormData(initialFormData);
+      setErrors({});
+    } catch {
+      setSubmitError(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -138,8 +147,14 @@ export function ContactForm() {
           error={errors.privacyConsent}
         />
 
-        <Button type="submit" variant="primary" size="lg" className="w-full" showArrow>
-          문의하기
+        {submitError && (
+          <p className="text-sm text-[#CC0000]">
+            전송에 실패했습니다. 잠시 후 다시 시도해주세요.
+          </p>
+        )}
+
+        <Button type="submit" variant="primary" size="lg" className="w-full" showArrow disabled={isSubmitting}>
+          {isSubmitting ? "전송 중..." : "문의하기"}
         </Button>
       </form>
 

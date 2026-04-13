@@ -347,7 +347,7 @@ export function DiagnosisTool() {
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.15, ease: supanovaEase }}
-                  className="font-display font-black text-[28px] md:text-[40px] lg:text-[48px] text-white leading-[1.1] tracking-tight mb-4"
+                  className="font-display font-black text-[22px] sm:text-[28px] md:text-[36px] lg:text-[44px] text-white leading-[1.1] tracking-tight mb-4"
                   style={{ wordBreak: "keep-all", textWrap: "balance" }}
                 >
                   대부분의 셀러는
@@ -451,7 +451,7 @@ export function DiagnosisTool() {
                 이전
               </button>
               <h3
-                className="font-display font-black text-[28px] md:text-[40px] text-[#1A1A1A] mb-3 leading-tight tracking-tight"
+                className="font-display font-black text-[22px] sm:text-[28px] md:text-[36px] text-[#1A1A1A] mb-3 leading-tight tracking-tight"
                 style={{ wordBreak: "keep-all", textWrap: "balance" }}
               >
                 하루 중 이 시간이
@@ -523,7 +523,7 @@ export function DiagnosisTool() {
               <div className="hidden lg:block sticky top-8">
                 <DonutChart hours={hours} />
                 <div className="mt-6 text-center">
-                  <p className="font-display font-black text-[40px] tabular-nums text-[#1A1A1A] leading-none">
+                  <p className="font-display font-black text-[28px] sm:text-[36px] md:text-[40px] tabular-nums text-[#1A1A1A] leading-none">
                     {results.totalHours.toFixed(1)}시간
                   </p>
                   <p className="text-[#999] text-sm mt-1">하루 반복 업무</p>
@@ -533,7 +533,7 @@ export function DiagnosisTool() {
               {/* Donut — mobile */}
               <div className="lg:hidden flex flex-col items-center">
                 <DonutChart hours={hours} />
-                <p className="font-display font-black text-[32px] tabular-nums text-[#1A1A1A] leading-none mt-4">
+                <p className="font-display font-black text-[24px] sm:text-[28px] md:text-[32px] tabular-nums text-[#1A1A1A] leading-none mt-4">
                   {results.totalHours.toFixed(1)}시간
                 </p>
                 <p className="text-[#999] text-sm mt-1">하루 반복 업무</p>
@@ -577,7 +577,7 @@ export function DiagnosisTool() {
                 이전
               </button>
               <h3
-                className="font-display font-black text-2xl md:text-[36px] text-[#1A1A1A] mb-2 leading-tight tracking-tight"
+                className="font-display font-black text-xl sm:text-2xl md:text-[32px] text-[#1A1A1A] mb-2 leading-tight tracking-tight"
                 style={{ wordBreak: "keep-all", textWrap: "balance" }}
               >
                 이 돈이 매달 빠져나갑니다
@@ -725,7 +725,7 @@ export function DiagnosisTool() {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8, delay: 0.2, ease: supanovaEase }}
-                  className="font-display font-black text-[40px] sm:text-[56px] md:text-[80px] tabular-nums text-[#CC0000] leading-none mb-2"
+                  className="font-display font-black text-[32px] sm:text-[48px] md:text-[64px] lg:text-[80px] tabular-nums text-[#CC0000] leading-none mb-2"
                 >
                   {formatWon(results.totalMonthlyCost)}원
                 </motion.p>
@@ -949,7 +949,7 @@ export function DiagnosisTool() {
                       </ul>
 
                       <div className="mb-5">
-                        <span className="font-display font-black text-[36px] text-white tabular-nums">49,000</span>
+                        <span className="font-display font-black text-[28px] sm:text-[32px] md:text-[36px] text-white tabular-nums">49,000</span>
                         <span className="text-white/60 text-base">원/월</span>
                       </div>
 

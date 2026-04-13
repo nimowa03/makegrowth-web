@@ -106,13 +106,14 @@ export function WhyUs() {
           <TextReveal
             text="봇을 구축해주는 곳은 많습니다"
             tag="h2"
-            className="text-[#1A1A1A] text-[28px] md:text-[40px] lg:text-[48px] font-black leading-tight tracking-tight mb-4"
+            className="text-[#1A1A1A] text-[22px] sm:text-[28px] md:text-[36px] lg:text-[44px] font-black leading-tight tracking-tight mb-4"
+            style={{ wordBreak: "keep-all" }}
           />
           <motion.p
             variants={fadeInUp}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
-            className="text-[#666] text-lg md:text-xl"
+            className="text-[#666] text-base sm:text-lg md:text-xl"
             style={{ wordBreak: "keep-all" }}
           >
             셀러의 업무를 이해하고 맞춤 세팅하는 곳은 메이크그로스뿐입니다
@@ -159,7 +160,7 @@ export function WhyUs() {
           variants={staggerContainer}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3"
         >
           {competitors.map((comp, idx) => {
             const isHighlighted = activeComp === idx;
@@ -167,7 +168,7 @@ export function WhyUs() {
             <motion.div
               key={comp.name}
               variants={fadeInUp}
-              className={`rounded-xl p-5 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              className={`rounded-xl p-4 sm:p-5 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                 comp.highlight
                   ? "bg-[#1A1A1A] text-white"
                   : isHighlighted

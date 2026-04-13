@@ -8,6 +8,7 @@ interface TextRevealProps {
   className?: string;
   tag?: "h1" | "h2" | "h3" | "p";
   delay?: number;
+  style?: React.CSSProperties;
 }
 
 export function TextReveal({
@@ -15,12 +16,13 @@ export function TextReveal({
   className = "",
   tag: Tag = "h2",
   delay = 0,
+  style,
 }: TextRevealProps) {
   const { ref, isInView } = useInView({ threshold: 0.3 });
   const words = text.split(" ");
 
   return (
-    <Tag ref={ref} className={className}>
+    <Tag ref={ref} className={className} style={style}>
       {words.map((word, i) => (
         <motion.span
           key={`${word}-${i}`}

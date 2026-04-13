@@ -20,7 +20,7 @@ export function PhoneMockup({
   return (
     <div
       className={cn(
-        "relative mx-auto w-[320px] max-w-full",
+        "relative mx-auto w-[280px] sm:w-[300px] md:w-[320px] max-w-full",
         className
       )}
     >

@@ -59,7 +59,7 @@ export function SectionWrapper({
       ref={ref}
       id={id}
       className={cn(
-        "py-8 md:py-12 lg:py-16 px-4 sm:px-6 md:px-8",
+        "py-12 sm:py-16 md:py-20 lg:py-24 px-5 sm:px-6 md:px-8",
         bgMap[theme],
         className
       )}

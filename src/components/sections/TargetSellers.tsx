@@ -48,13 +48,13 @@ export function TargetSellers() {
           variants={fadeInUp}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-8 sm:mb-12 md:mb-16"
         >
           <span className="inline-block rounded-full px-4 py-1.5 text-[11px] uppercase tracking-[0.15em] font-medium border border-[#E0E0E0] text-[#666] mb-4">
             이런 셀러를 위해 만들었습니다
           </span>
           <h2
-            className="font-display font-black text-[28px] md:text-[44px] text-[#1A1A1A] leading-tight tracking-tight"
+            className="font-display font-black text-[22px] sm:text-[28px] md:text-[40px] lg:text-[44px] text-[#1A1A1A] leading-tight tracking-tight"
             style={{ wordBreak: "keep-all", textWrap: "balance" }}
           >
             혹시 이 중에 나와 같은 상황이 있나요?
@@ -72,7 +72,7 @@ export function TargetSellers() {
             <motion.div
               key={p.type}
               variants={fadeInUp}
-              className="group rounded-2xl bg-[#1A1A1A] p-5 sm:p-8 md:p-12 relative overflow-hidden cursor-default"
+              className="group rounded-2xl bg-[#1A1A1A] p-4 sm:p-6 md:p-10 lg:p-12 relative overflow-hidden cursor-default"
             >
               {/* Ambient */}
               <div
@@ -89,7 +89,7 @@ export function TargetSellers() {
                 <div>
                   <span className="text-xs uppercase tracking-[0.15em] font-medium text-white/40 mb-3 block">{p.type}</span>
                   <p
-                    className="font-display font-black text-[22px] md:text-[32px] text-white leading-snug tracking-tight mb-6 whitespace-pre-line"
+                    className="font-display font-black text-[18px] sm:text-[22px] md:text-[28px] lg:text-[32px] text-white leading-snug tracking-tight mb-4 sm:mb-6 whitespace-pre-line"
                     style={{ wordBreak: "keep-all" }}
                   >
                     &ldquo;{p.quote}&rdquo;
@@ -115,7 +115,7 @@ export function TargetSellers() {
               <motion.div
                 key={p.type}
                 variants={fadeInUp}
-                className="group rounded-2xl border border-[#E0E0E0] bg-white p-6 md:p-8 hover:shadow-[0_8px_40px_rgba(0,0,0,0.06)] hover:border-[#CCCCCC] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-default"
+                className="group rounded-2xl border border-[#E0E0E0] bg-white p-5 sm:p-6 md:p-8 hover:shadow-[0_8px_40px_rgba(0,0,0,0.06)] hover:border-[#CCCCCC] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-default"
               >
                 {/* Icon */}
                 <div className="w-14 h-14 rounded-2xl bg-[#F0F0F0] flex items-center justify-center mb-5 group-hover:bg-[#1A1A1A] transition-colors duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]">

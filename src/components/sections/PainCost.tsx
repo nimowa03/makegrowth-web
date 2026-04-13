@@ -86,13 +86,14 @@ export function PainCost() {
           <TextReveal
             text="할 줄 모르는 일이 하나 늘 때마다, 고정비가 하나씩 추가됩니다"
             tag="h2"
-            className="text-[#1A1A1A] text-[28px] md:text-[40px] lg:text-[52px] font-black leading-tight tracking-tight text-left mb-4"
+            className="text-[#1A1A1A] text-[22px] sm:text-[28px] md:text-[36px] lg:text-[48px] font-black leading-tight tracking-tight text-left mb-4"
+            style={{ wordBreak: "keep-all" }}
           />
           <motion.p
             variants={fadeInUp}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
-            className="text-[#444] text-lg md:text-xl leading-relaxed max-w-2xl"
+            className="text-[#444] text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl"
           >
             1인 셀러에게 &ldquo;못하는 일&rdquo;은 곧 &ldquo;나가는
             돈&rdquo;입니다.
@@ -165,7 +166,7 @@ export function PainCost() {
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="text-[#666] italic text-center text-lg md:text-xl font-medium"
+              className="text-[#666] italic text-center text-base sm:text-lg md:text-xl font-medium"
               style={{ wordBreak: "keep-all" }}
             >
               &ldquo;{sellerQuotes[quoteIndex]}&rdquo;
@@ -184,17 +185,17 @@ export function PainCost() {
             <motion.div
               key={bar.label}
               variants={fadeInUp}
-              className="flex items-center gap-4 md:gap-6"
+              className="flex items-center gap-2 sm:gap-4 md:gap-6"
             >
-              <span className="text-xs sm:text-sm md:text-base text-[#1A1A1A] w-20 sm:w-28 md:w-40 shrink-0 text-right font-semibold">
+              <span className="text-[11px] sm:text-sm md:text-base text-[#1A1A1A] w-16 sm:w-24 md:w-36 shrink-0 text-right font-semibold">
                 {bar.label}
               </span>
-              <div className="flex-1 h-12 md:h-14 bg-[#F0F0F0] rounded-xl overflow-hidden relative">
+              <div className="flex-1 h-10 sm:h-12 md:h-14 bg-[#F0F0F0] rounded-xl overflow-hidden relative">
                 <motion.div
                   variants={barGrow(bar.width)}
                   className="h-full bg-[#1A1A1A] rounded-xl flex items-center justify-end pr-4"
                 >
-                  <span className="text-white text-sm md:text-base font-mono font-bold">
+                  <span className="text-white text-[11px] sm:text-sm md:text-base font-mono font-bold">
                     {bar.cost}
                   </span>
                 </motion.div>

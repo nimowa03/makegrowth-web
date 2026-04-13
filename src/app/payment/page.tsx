@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { loadTossPayments } from "@tosspayments/tosspayments-sdk";
 import { SITE_NAME } from "@/lib/constants";
 
-const CLIENT_KEY = process.env.NEXT_PUBLIC_TOSS_CLIENT_KEY || "test_ck_DnyRpQWGrN90xEWdnMWgVKwv1M9E";
+const CLIENT_KEY = process.env.NEXT_PUBLIC_TOSS_CLIENT_KEY ?? "";
 const PLAN_AMOUNT = 49000;
 const PLAN_NAME = "AI 직원 월 구독";
 
@@ -29,13 +29,14 @@ export default function PaymentPage() {
   const tossRef = useRef<TossInstance>(null);
 
   useEffect(() => {
+    if (!CLIENT_KEY) return;
     loadTossPayments(CLIENT_KEY).then((tp) => {
       tossRef.current = tp;
     });
   }, []);
 
   async function handlePayment() {
-    if (!tossRef.current) return;
+    if (!CLIENT_KEY || !tossRef.current) return;
 
     const customerKey = generateCustomerKey();
     const payment = tossRef.current.payment({ customerKey });

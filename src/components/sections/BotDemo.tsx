@@ -207,7 +207,7 @@ export function BotDemo() {
             className="flex justify-center lg:sticky lg:top-24 lg:self-start"
           >
             <TiltCard tiltAmount={5} className="cursor-default">
-              <PhoneMockup className="w-[280px] md:w-[320px] lg:w-[340px]">
+              <PhoneMockup className="w-[260px] sm:w-[280px] md:w-[320px] lg:w-[340px]">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={selectedFn}
@@ -233,9 +233,9 @@ export function BotDemo() {
           variants={fadeInUp}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="bg-[#1A1A1A] rounded-2xl px-8 py-8 md:px-12 md:py-10 mt-10"
+          className="bg-[#1A1A1A] rounded-2xl px-4 py-6 sm:px-8 sm:py-8 md:px-12 md:py-10 mt-10"
         >
-          <h3 className="text-white font-black text-2xl md:text-3xl text-center mb-8">
+          <h3 className="text-white font-black text-xl sm:text-2xl md:text-3xl text-center mb-6 sm:mb-8">
             완전 자동이 아닙니다
           </h3>
 

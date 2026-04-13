@@ -72,11 +72,11 @@ export function TargetSellers() {
             <motion.div
               key={p.type}
               variants={fadeInUp}
-              className="group rounded-2xl bg-[#1A1A1A] p-8 md:p-12 relative overflow-hidden cursor-default"
+              className="group rounded-2xl bg-[#1A1A1A] p-5 sm:p-8 md:p-12 relative overflow-hidden cursor-default"
             >
               {/* Ambient */}
               <div
-                className="absolute top-[-20%] right-[-10%] w-[400px] h-[400px] rounded-full pointer-events-none"
+                className="absolute top-[-20%] right-[-10%] w-[400px] max-w-[80vw] h-[400px] max-h-[80vw] rounded-full pointer-events-none"
                 style={{ background: "radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%)" }}
               />
 

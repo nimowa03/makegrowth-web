@@ -63,37 +63,59 @@ export function HomePricing() {
           />
         </div>
 
-        {/* Before/After 테이블 */}
+        {/* Before/After — 데스크톱: 테이블 / 모바일: 카드 */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="mb-8 overflow-x-auto"
+          className="mb-8"
         >
-          <motion.div variants={fadeInUp} className="grid grid-cols-[1fr_1fr_1fr] gap-2 mb-3 min-w-[600px]">
-            <div className="px-4 py-2">
-              <span className="text-[11px] uppercase tracking-[0.15em] font-medium text-[#666]">항목</span>
-            </div>
-            <div className="px-4 py-2 bg-[#F5F5F5] rounded-t-lg">
-              <span className="text-xs uppercase tracking-[0.15em] font-bold text-[#666]">AI 직원 없이</span>
-            </div>
-            <div className="px-4 py-2 bg-white rounded-t-lg border border-[#E0E0E0] border-b-0">
-              <span className="text-xs uppercase tracking-[0.15em] font-bold text-[#1A1A1A]">AI 직원 도입 후</span>
-            </div>
-          </motion.div>
-          {beforeAfterRows.map((row, i) => (
-            <motion.div key={row.label} variants={fadeInUp} className="grid grid-cols-[1fr_1fr_1fr] gap-2 mb-1.5 min-w-[600px]">
-              <div className="px-4 py-3.5 flex items-center">
-                <span className="text-base font-semibold text-[#1A1A1A]">{row.label}</span>
+          {/* 데스크톱 테이블 (md+) */}
+          <div className="hidden md:block">
+            <motion.div variants={fadeInUp} className="grid grid-cols-[1fr_1fr_1fr] gap-2 mb-3">
+              <div className="px-4 py-2">
+                <span className="text-[11px] uppercase tracking-[0.15em] font-medium text-[#666]">항목</span>
               </div>
-              <div className={`px-4 py-3.5 bg-[#F5F5F5] flex items-center ${i === beforeAfterRows.length - 1 ? "rounded-b-lg" : ""}`}>
-                <span className="text-base text-[#666]">{row.before}</span>
+              <div className="px-4 py-2 bg-[#F5F5F5] rounded-t-lg">
+                <span className="text-xs uppercase tracking-[0.15em] font-bold text-[#666]">AI 직원 없이</span>
               </div>
-              <div className={`px-4 py-3.5 bg-white border-x border-[#E0E0E0] flex items-center ${i === beforeAfterRows.length - 1 ? "rounded-b-lg border-b" : ""}`}>
-                <span className="text-base text-[#1A1A1A] font-bold">{row.after}</span>
+              <div className="px-4 py-2 bg-white rounded-t-lg border border-[#E0E0E0] border-b-0">
+                <span className="text-xs uppercase tracking-[0.15em] font-bold text-[#1A1A1A]">AI 직원 도입 후</span>
               </div>
             </motion.div>
-          ))}
+            {beforeAfterRows.map((row, i) => (
+              <motion.div key={row.label} variants={fadeInUp} className="grid grid-cols-[1fr_1fr_1fr] gap-2 mb-1.5">
+                <div className="px-4 py-3.5 flex items-center">
+                  <span className="text-base font-semibold text-[#1A1A1A]">{row.label}</span>
+                </div>
+                <div className={`px-4 py-3.5 bg-[#F5F5F5] flex items-center ${i === beforeAfterRows.length - 1 ? "rounded-b-lg" : ""}`}>
+                  <span className="text-base text-[#666]">{row.before}</span>
+                </div>
+                <div className={`px-4 py-3.5 bg-white border-x border-[#E0E0E0] flex items-center ${i === beforeAfterRows.length - 1 ? "rounded-b-lg border-b" : ""}`}>
+                  <span className="text-base text-[#1A1A1A] font-bold">{row.after}</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* 모바일 카드 (md 미만) */}
+          <div className="md:hidden space-y-3">
+            {beforeAfterRows.map((row) => (
+              <motion.div key={row.label} variants={fadeInUp} className="rounded-xl border border-[#E0E0E0] overflow-hidden">
+                <div className="px-4 py-3 bg-[#FAFAFA] border-b border-[#E0E0E0]">
+                  <span className="text-sm font-bold text-[#1A1A1A]">{row.label}</span>
+                </div>
+                <div className="px-4 py-2.5 flex items-center gap-2 border-b border-[#F0F0F0]">
+                  <Icon icon="solar:close-circle-bold" width={14} className="text-[#CC0000]/50 shrink-0" />
+                  <span className="text-sm text-[#666]">{row.before}</span>
+                </div>
+                <div className="px-4 py-2.5 flex items-center gap-2">
+                  <Icon icon="solar:check-circle-bold" width={14} className="text-[#059669] shrink-0" />
+                  <span className="text-sm text-[#1A1A1A] font-semibold">{row.after}</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
 
         {/* 합산 비교 앵커 */}
@@ -121,7 +143,7 @@ export function HomePricing() {
         >
           {/* 왼쪽: AI 직원 고용 (highlight) */}
           <motion.div variants={fadeInUp}>
-            <div className="border-2 border-[#1A1A1A] rounded-2xl p-8 relative h-full flex flex-col">
+            <div className="border-2 border-[#1A1A1A] rounded-2xl p-5 sm:p-8 relative h-full flex flex-col">
               <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#1A1A1A] text-white text-xs font-bold px-4 py-1 rounded-full">
                 추천
               </span>
@@ -188,7 +210,7 @@ export function HomePricing() {
 
           {/* 오른쪽: 맞춤 커스텀 */}
           <motion.div variants={fadeInUp}>
-            <div className="border border-[#E0E0E0] bg-[#F8F8F8] rounded-2xl p-8 h-full flex flex-col">
+            <div className="border border-[#E0E0E0] bg-[#F8F8F8] rounded-2xl p-5 sm:p-8 h-full flex flex-col">
               <h3 className="text-xl font-black text-[#1A1A1A] mb-2">맞춤 커스텀</h3>
               <p className="text-3xl md:text-4xl font-black text-[#1A1A1A] mb-1">별도 협의</p>
               <p className="text-sm text-[#666] mb-6">내 사업에 딱 맞게 세팅이 필요한 셀러</p>
@@ -225,12 +247,12 @@ export function HomePricing() {
           variants={fadeInUp}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="bg-[#1A1A1A] rounded-2xl px-5 py-6 md:px-8 md:py-8"
+          className="bg-[#1A1A1A] rounded-2xl px-3 py-5 sm:px-5 sm:py-6 md:px-8 md:py-8"
         >
-          <p className="text-white/60 text-xs uppercase tracking-[0.2em] font-medium text-center mb-6">
+          <p className="text-white/60 text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] font-medium text-center mb-6">
             무료 체험에서 뭐가 되나요?
           </p>
-          <div className="grid grid-cols-[auto_1fr_1fr] gap-x-3 gap-y-0.5 text-sm">
+          <div className="grid grid-cols-[auto_1fr_1fr] gap-x-2 sm:gap-x-3 gap-y-0.5 text-sm">
             {/* 헤더 */}
             <div className="px-3 py-2" />
             <div className="px-3 py-2 text-center"><span className="text-white/60 text-xs font-bold">무료 (14일)</span></div>

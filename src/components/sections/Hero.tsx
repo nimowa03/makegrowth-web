@@ -49,7 +49,7 @@ export function Hero() {
         className="relative z-10"
       >
         {/* ── Zone 1: Text — viewport centered ── */}
-        <div className="min-h-[100dvh] flex flex-col items-center justify-center px-6 md:px-8">
+        <div className="min-h-[100dvh] flex flex-col items-center justify-center px-4 sm:px-6 md:px-8">
           <div className="max-w-3xl mx-auto text-center">
             {/* Eyebrow */}
             <motion.span
@@ -66,7 +66,7 @@ export function Hero() {
             <TextReveal
               text="할 줄 모르는 일은 전부 비용입니다"
               tag="h1"
-              className="font-display text-[48px] md:text-[72px] lg:text-[104px] font-black text-[#1A1A1A] leading-[0.95] tracking-tight mb-8"
+              className="font-display text-[36px] sm:text-[48px] md:text-[72px] lg:text-[104px] font-black text-[#1A1A1A] leading-[0.95] tracking-tight mb-8"
             />
 
             {/* Subtitle — WHY 중심 공감 카피 */}
@@ -75,7 +75,7 @@ export function Hero() {
               initial="hidden"
               animate="visible"
               transition={{ delay: 0.6 }}
-              className="text-[#444] text-lg md:text-xl lg:text-2xl leading-relaxed max-w-2xl mx-auto mb-8"
+              className="text-[#444] text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed max-w-2xl mx-auto mb-8"
               style={{ wordBreak: "keep-all" }}
             >
               소싱, 등록, 상세페이지, CS, SNS까지. 대표님, 혼자 다 하고 계신가요?

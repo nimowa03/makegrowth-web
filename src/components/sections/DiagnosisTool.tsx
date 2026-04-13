@@ -322,10 +322,10 @@ export function DiagnosisTool() {
           >
             <div className="max-w-2xl mx-auto">
               {/* Dark intro card */}
-              <div className="rounded-2xl bg-[#1A1A1A] p-8 md:p-12 relative overflow-hidden">
+              <div className="rounded-2xl bg-[#1A1A1A] p-5 sm:p-8 md:p-12 relative overflow-hidden">
                 {/* Ambient glow */}
                 <div
-                  className="absolute top-[-30%] right-[-20%] w-[400px] h-[400px] rounded-full pointer-events-none"
+                  className="absolute top-[-30%] right-[-20%] w-[400px] max-w-[80vw] h-[400px] max-h-[80vw] rounded-full pointer-events-none"
                   style={{ background: "radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%)" }}
                 />
 
@@ -712,7 +712,7 @@ export function DiagnosisTool() {
               className="rounded-2xl bg-[#1A1A1A] p-8 md:p-12 mb-8 relative overflow-hidden"
             >
               <div
-                className="absolute top-[-20%] right-[-15%] w-[400px] h-[400px] rounded-full pointer-events-none"
+                className="absolute top-[-20%] right-[-15%] w-[400px] max-w-[80vw] h-[400px] max-h-[80vw] rounded-full pointer-events-none"
                 style={{ background: "radial-gradient(circle, rgba(204,0,0,0.06) 0%, transparent 70%)" }}
               />
 
@@ -725,7 +725,7 @@ export function DiagnosisTool() {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8, delay: 0.2, ease: supanovaEase }}
-                  className="font-display font-black text-[56px] md:text-[80px] tabular-nums text-[#CC0000] leading-none mb-2"
+                  className="font-display font-black text-[40px] sm:text-[56px] md:text-[80px] tabular-nums text-[#CC0000] leading-none mb-2"
                 >
                   {formatWon(results.totalMonthlyCost)}원
                 </motion.p>
@@ -871,7 +871,7 @@ export function DiagnosisTool() {
               <div className="bg-white px-8 py-8 md:px-12 md:py-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* Free path — lead magnet */}
-                  <div className="rounded-2xl border border-[#E0E0E0] p-6 md:p-8">
+                  <div className="rounded-2xl border border-[#E0E0E0] p-4 sm:p-6 md:p-8">
                     <p className="text-xs uppercase tracking-[0.12em] font-bold text-[#999] mb-3">무료</p>
                     <p className="text-[#1A1A1A] font-bold text-lg mb-2">온보딩 자료 받기</p>
                     <p className="text-[#666] text-sm mb-5" style={{ wordBreak: "keep-all" }}>
@@ -921,9 +921,9 @@ export function DiagnosisTool() {
                   </div>
 
                   {/* Paid path — direct payment */}
-                  <div className="rounded-2xl bg-[#1A1A1A] p-6 md:p-8 relative overflow-hidden">
+                  <div className="rounded-2xl bg-[#1A1A1A] p-4 sm:p-6 md:p-8 relative overflow-hidden">
                     <div
-                      className="absolute top-[-20%] right-[-15%] w-[200px] h-[200px] rounded-full pointer-events-none"
+                      className="absolute top-[-20%] right-[-15%] w-[200px] max-w-[60vw] h-[200px] max-h-[60vw] rounded-full pointer-events-none"
                       style={{ background: "radial-gradient(circle, rgba(5,150,105,0.1) 0%, transparent 70%)" }}
                     />
                     <div className="relative z-10">

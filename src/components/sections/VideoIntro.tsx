@@ -16,7 +16,7 @@ export function VideoIntro() {
   if (!HAS_VIDEO && !HAS_GIFS) return null;
 
   return (
-    <section className="relative py-16 md:py-24 lg:py-28 px-6 md:px-8 bg-gradient-to-br from-[#0F172A] via-[#1A1A1A] to-[#0F172A]">
+    <section className="relative py-12 sm:py-16 md:py-24 lg:py-28 px-4 sm:px-6 md:px-8 bg-gradient-to-br from-[#0F172A] via-[#1A1A1A] to-[#0F172A]">
       <div ref={ref} className="max-w-7xl mx-auto">
         <motion.p
           variants={fadeInUp}

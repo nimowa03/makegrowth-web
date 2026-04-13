@@ -104,7 +104,7 @@ export function PainCost() {
           variants={fadeInUp}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="bg-[#1A1A1A] rounded-2xl px-5 py-6 md:px-8 md:py-8 mb-8"
+          className="bg-[#1A1A1A] rounded-2xl px-3 py-5 sm:px-5 sm:py-6 md:px-8 md:py-8 mb-8"
         >
           <p className="text-white/60 text-[11px] uppercase tracking-[0.2em] font-medium text-center mb-6">
             어느 1인 셀러의 하루
@@ -123,26 +123,26 @@ export function PainCost() {
               return (
                 <div
                   key={row.time}
-                  className={`flex items-center gap-3 md:gap-4 rounded-lg px-4 py-3 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                  className={`flex items-center gap-2 sm:gap-3 md:gap-4 rounded-lg px-2.5 sm:px-4 py-2.5 sm:py-3 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                     isActive
                       ? "bg-white/10 ring-1 ring-white/20"
                       : "bg-transparent"
                   }`}
                 >
-                  <span className={`text-xs font-mono font-bold w-12 shrink-0 transition-colors duration-700 ${
+                  <span className={`text-[11px] sm:text-xs font-mono font-bold w-10 sm:w-12 shrink-0 transition-colors duration-700 ${
                     isActive ? "text-white" : "text-white/30"
                   }`}>
                     {row.time}
                   </span>
                   <span
-                    className={`flex-1 text-sm md:text-base transition-colors duration-700 ${
+                    className={`flex-1 text-xs sm:text-sm md:text-base transition-colors duration-700 ${
                       isActive ? "text-white" : "text-white/50"
                     }`}
                     style={{ wordBreak: "keep-all" }}
                   >
                     {row.task}
                   </span>
-                  <span className={`text-sm font-bold shrink-0 transition-all duration-700 ${
+                  <span className={`text-[11px] sm:text-sm font-bold shrink-0 transition-all duration-700 ${
                     isActive ? "text-[#059669] opacity-100" : "text-[#059669]/30 opacity-100"
                   }`}>
                     → {row.ai}
@@ -186,7 +186,7 @@ export function PainCost() {
               variants={fadeInUp}
               className="flex items-center gap-4 md:gap-6"
             >
-              <span className="text-sm md:text-base text-[#1A1A1A] w-28 md:w-40 shrink-0 text-right font-semibold">
+              <span className="text-xs sm:text-sm md:text-base text-[#1A1A1A] w-20 sm:w-28 md:w-40 shrink-0 text-right font-semibold">
                 {bar.label}
               </span>
               <div className="flex-1 h-12 md:h-14 bg-[#F0F0F0] rounded-xl overflow-hidden relative">
@@ -208,7 +208,7 @@ export function PainCost() {
           variants={fadeInUp}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="bg-[#1A1A1A] rounded-2xl px-6 py-8 md:px-10 md:py-10 mb-8"
+          className="bg-[#1A1A1A] rounded-2xl px-4 py-6 sm:px-6 sm:py-8 md:px-10 md:py-10 mb-8"
         >
           <p className="text-white/60 text-xs uppercase tracking-[0.2em] font-medium text-center mb-6">
             1인 셀러의 악순환 구조
@@ -316,8 +316,8 @@ export function PainCost() {
           animate={isInView ? "visible" : "hidden"}
           className="ring-1 ring-[#E0E0E0] rounded-[1.5rem] p-1.5"
         >
-        <div className="bg-white rounded-[calc(1.5rem-0.375rem)] shadow-[inset_0_1px_1px_rgba(0,0,0,0.05)] px-8 py-8 md:px-12 md:py-10 text-center">
-          <p className="text-[#1A1A1A] text-2xl md:text-3xl font-black mb-3">
+        <div className="bg-white rounded-[calc(1.5rem-0.375rem)] shadow-[inset_0_1px_1px_rgba(0,0,0,0.05)] px-5 py-6 sm:px-8 sm:py-8 md:px-12 md:py-10 text-center">
+          <p className="text-[#1A1A1A] text-xl sm:text-2xl md:text-3xl font-black mb-3">
             이 비용, AI 직원 하나면 90% 이상 줄일 수 있습니다
           </p>
           <p

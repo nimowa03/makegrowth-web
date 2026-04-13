@@ -1,5 +1,5 @@
 export const SITE_NAME = "메이크그로스";
-export const SITE_DESCRIPTION = "이커머스 셀러 전용 AI 직원";
+export const SITE_DESCRIPTION = "이커머스 셀러의 반복 업무를 대신하는 AI 직원 솔루션";
 export const SITE_URL = "https://makegrowth.dev";
 
 export const CONTACT_EMAIL = "charlee@makegrowth.dev";
